@@ -165,6 +165,16 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - `f2b-db`: schema v2 (`fail2banDb`, `jails`, `logs`, `bans`, `bips` + indexes; PRAGMAs as upstream: `foreign_keys=ON`, `synchronous=OFF`, `journal_mode=MEMORY`, `temp_store=MEMORY`), v1→v2 migration, `dbmaxmatches`, `dbpurgeage`, restore-on-start of active bans, log position resume.
 - Gate: Rust opens `database_v1.db` and `database_v2.db`, migrates/reads identically to `databasetestcase.py` expectations; DB written by Rust is readable by upstream Python and vice versa (round-trip test with upstream installed in CI).
 
+**Phase 4 status: DONE** (all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **f2b-db**: implemented in `crates/f2b-db`, using SQLite (rusqlite bundled) with PRAGMAs (`foreign_keys=ON`, `synchronous=OFF`, `journal_mode=MEMORY`, `temp_store=MEMORY`).
+- **Schema & Migrations**: current schema version 4 (`fail2banDb`, `jails`, `logs` with unique path/md5 constraint, `bans` with bantime/bancount, `bips` active ban index table). Automatically detects and migrates legacy v1, v2, and v3 schemas to v4.
+- **Operations**: `add_jail`, `del_jail`, `del_all_jails`, `get_jail_names`, `add_log`, `update_log`, `get_log_paths` with log resume based on first-line MD5, `add_ban`, `del_ban`, `get_bans`, `get_current_bans` with restored ticket reconstruction, and `purge` of expired bips.
+- **Verification Gate**:
+  - `test_open_and_migrate_database_v1`: verified opening and automatic v1->v4 upgrade of `database_v1.db`, retaining jail `"DummyJail #29162448 with 0 tickets"`, log path `"/tmp/Fail2BanDb_pUlZJh.log"`, ticket `"127.0.0.1"`, and restoring ban with corrected ban-time.
+  - `test_open_and_migrate_database_v2`: verified opening and automatic v2->v4 upgrade of `database_v2.db`, retaining jail `"pam-generic"`, log path `"/var/log/auth.log"`, 2 ban tickets (`1.2.3.7`, `1.2.3.8`), matches, and `bips` table backfill.
+  - `test_crud_log_resume_and_purge`: verified log position resumption on identical MD5, position reset on rotated MD5, and `purge()` aging out expired entries.
+  - `test_python_round_trip`: bidirectional verification — Rust creates and writes a database with a jail and a ban; Python upstream `Fail2BanDb` connects, reads and asserts the exact ticket data; Python inserts a second ban ticket; Rust reconnects and verifies the Python-created ban ticket and matches.
+
 ### Phase 5 — Server, protocol, client
 - `f2b-proto` codec + fuzzing; `transmitter` dispatch for **every** command in `protocol.py` (`add/start/stop/reload [--restart --unban --if-exists --all]/status [--all flavor]/stats/ping/echo/version/unban/banned/flushlogs/set|get …` incl. per-jail `set/get` for `addfailregex`, `addignoreregex`, `datepattern`, `logpath`, `addaction`, `action <name> <prop>`, etc.).
 - `fast2ban-client`: option parity (`-c -s -p -x -d --dp -v -q -b -V --str2sec`…), beautifier output parity, interactive mode (`-i`), start/restart/force-start, daemonization (`-b/-f`), pidfile, socket perms.
