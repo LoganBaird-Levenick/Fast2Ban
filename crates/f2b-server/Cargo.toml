@@ -1,0 +1,28 @@
+[package]
+name = "f2b-server"
+description = "Fast2Ban daemon: server state, transmitter dispatch, and Unix domain socket listener"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-action = { path = "../f2b-action" }
+f2b-backend = { path = "../f2b-backend" }
+f2b-config = { path = "../f2b-config" }
+f2b-date = { path = "../f2b-date" }
+f2b-expr = { path = "../f2b-expr" }
+f2b-db = { path = "../f2b-db" }
+f2b-filter = { path = "../f2b-filter" }
+f2b-helpers = { path = "../f2b-helpers" }
+f2b-proto = { path = "../f2b-proto" }
+f2b-regex = { path = "../f2b-regex" }
+f2b-types = { path = "../f2b-types" }
+indexmap = "2"
+log = "0.4"
+
+[dev-dependencies]
+fast2ban-client = { path = "../../bins/fast2ban-client" }
+tempfile = "3"
+[lints]
+workspace = true

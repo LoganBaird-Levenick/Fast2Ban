@@ -1,0 +1,30 @@
+[package]
+name = "fast2ban-client"
+description = "Fast2Ban client: CLI, command transmission, and configuration loader"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "fast2ban_client"
+path = "src/lib.rs"
+
+[[bin]]
+name = "fast2ban-client"
+path = "src/main.rs"
+
+[dependencies]
+f2b-config = { path = "../../crates/f2b-config" }
+f2b-expr = { path = "../../crates/f2b-expr" }
+f2b-proto = { path = "../../crates/f2b-proto" }
+f2b-types = { path = "../../crates/f2b-types" }
+indexmap = "2"
+log = "0.4"
+serde_json = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[lints]
+workspace = true

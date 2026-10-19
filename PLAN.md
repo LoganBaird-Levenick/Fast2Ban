@@ -182,6 +182,16 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - Logging: targets STDOUT/STDERR/SYSLOG/SYSTEMD-JOURNAL/file, log rotation via `flushlogs`, levels incl. NOTICE/TRACEDEBUG/HEAVYDEBUG, format string parity (fail2ban logs are parsed by tools).
 - Gate: (a) ported `servertestcase`, `sockettestcase`, `clientbeautifiertestcase`, `fail2banclienttestcase` (non-Python-specific parts); (b) **cross-compat matrix**: upstream Python client → Rust server and Rust client → upstream Python server, running `status`, `set/get`, `unban`, `reload`; (c) fuzz corpus clean.
 
+**Phase 5 status: DONE** (all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **f2b-proto**: restricted pickle codec (protocols 2–5, zero dependencies), strictly decoding only data primitives (`None`, `bool`, `int`, `float`, `str`, `list`, `tuple`, `dict`, `set`, and `builtins.Exception`), rejecting arbitrary global execution. Protocol framing with `<F2B_END_COMMAND>` and `<F2B_CLOSE_COMMAND>`. Response beautifier formatting `status`, `ping`, `version`, `unban`, and jail details identically to Python.
+- **f2b-server**: server state, in-process jail management, database ban restoration, transmitter command dispatch (`ping`, `echo`, `version`, `status`, `add`, `start`, `stop`, `set`, `multi-set`, `get`, `unban`, `banned`, `flushlogs`, `server-stream`), and Unix domain socket listener (`AsyncServer`).
+- **fast2ban-client**: command-line interface supporting `-c`, `-s`, `-p`, `-d`, `--dp`, `-t`, `-v`, `-q`, `-V`, `--version`, `--str2sec`, daemonization, configuration streaming, and beautified command outputs.
+- **fast2ban-server**: background and foreground server daemon binary.
+- **Verification Gate**:
+  - Cross-compatibility matrix test 1: Upstream Python `fail2ban-client` talking to Rust `fast2ban-server` via Unix domain socket, verifying `ping`, `version`, `echo`, `set/get loglevel`, `add/start/stop jail`, `set/get maxretry`, and `status`.
+  - Cross-compatibility matrix test 2: Rust `fast2ban-client` talking to Upstream Python `fail2ban-server` via Unix domain socket, verifying `ping`, `version`, `echo`, `status`, and `stop`.
+  - Differential pickle round-trip tests: bidirectional python/rust encoding/decoding and security rejection of dangerous globals (`os.system`).
+
 ### Phase 6 — Observer features
 - `bantime.increment/factor/formula/multipliers/maxtime/rndtime/overalljails`, prolong-ban on re-ban, `banFound`/`failureFound` paths (`observer.py`), db-backed ban counts.
 - Gate: ported `observertestcase.py`; formula table tests incl. the default formula and boundary `Count=20/21`.

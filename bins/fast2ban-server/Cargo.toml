@@ -1,0 +1,21 @@
+[package]
+name = "fast2ban-server"
+description = "Fast2Ban daemon server binary"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "fast2ban-server"
+path = "src/main.rs"
+
+[dependencies]
+f2b-config = { path = "../../crates/f2b-config" }
+f2b-proto = { path = "../../crates/f2b-proto" }
+f2b-server = { path = "../../crates/f2b-server" }
+f2b-types = { path = "../../crates/f2b-types" }
+log = "0.4"
+
+[lints]
+workspace = true

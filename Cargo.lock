@@ -229,6 +229,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "f2b-proto"
+version = "0.0.0"
+dependencies = [
+ "f2b-types",
+ "indexmap",
+ "log",
+ "tempfile",
+]
+
+[[package]]
 name = "f2b-regex"
 version = "0.0.0"
 dependencies = [
@@ -241,6 +251,27 @@ dependencies = [
  "serde_json",
  "unicode-ident",
  "unicode_names2",
+]
+
+[[package]]
+name = "f2b-server"
+version = "0.0.0"
+dependencies = [
+ "f2b-action",
+ "f2b-backend",
+ "f2b-config",
+ "f2b-date",
+ "f2b-db",
+ "f2b-expr",
+ "f2b-filter",
+ "f2b-helpers",
+ "f2b-proto",
+ "f2b-regex",
+ "f2b-types",
+ "fast2ban-client",
+ "indexmap",
+ "log",
+ "tempfile",
 ]
 
 [[package]]
@@ -274,6 +305,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "fast2ban-client"
+version = "0.0.0"
+dependencies = [
+ "f2b-config",
+ "f2b-expr",
+ "f2b-proto",
+ "f2b-types",
+ "indexmap",
+ "log",
+ "serde_json",
+ "tempfile",
+]
+
+[[package]]
 name = "fast2ban-regex"
 version = "0.0.0"
 dependencies = [
@@ -287,6 +332,17 @@ dependencies = [
  "log",
  "regex",
  "serde_json",
+]
+
+[[package]]
+name = "fast2ban-server"
+version = "0.0.0"
+dependencies = [
+ "f2b-config",
+ "f2b-proto",
+ "f2b-server",
+ "f2b-types",
+ "log",
 ]
 
 [[package]]
