@@ -1,11 +1,18 @@
 //! Core shared types for Fast2Ban.
 
+pub mod banmanager;
 pub mod cache;
 pub mod clock;
 mod digits;
 pub mod dns;
+pub mod failmanager;
 mod inet;
 pub mod ipaddr;
+pub mod ticket;
+
+pub use banmanager::{BanManager, BanReason};
+pub use failmanager::{FailManager, FailManagerEmpty};
+pub use ticket::{BanTicket, FailTicket, Ticket};
 
 pub use cache::TtlCache;
 pub use clock::{Clock, FixedClock, SharedClock, SystemClock, fixed_clock, system_clock};

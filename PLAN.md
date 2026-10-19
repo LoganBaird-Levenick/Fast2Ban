@@ -151,6 +151,16 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - Ignore logic: `ignoreip` (CIDR, DNS), `ignoreself`, `ignorecommand` (+`ignorecache`).
 - Gate: ported scenarios from `filtertestcase.py`, `failmanagertestcase.py`, `banmanagertestcase.py`, `actiontestcase.py`, `actionstestcase.py` pass against injectable `Clock`; stock action `dummy.conf` and a mocked `iptables`/`nft` on `PATH` produce the expected command sequence for ban/unban/reload/stop.
 
+**Phase 3 status: DONE** (all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **Ticket, FailManager & BanManager**: implemented in `f2b-types` with sliding window `max_time`, `max_matches`, attempt adjustment, ban prolongation, unban queueing, permanent bans (`bantime = -1`), and ticket flags.
+- **f2b-backend**: `FileContainer` porting rotation detection (inode, size truncation, first-line MD5), trailing newline waiting, and encoding handling; `PollingBackend` and Linux `InotifyBackend`.
+- **f2b-action**: `CommandAction` and `Actions` implementing lifecycle methods (`start`, `stop`, `check`, `repair`, `ban`, `unban`, `flush`, `reload`), dynamic tag replacement (`<ip>`, `<failures>`, `<time>`, `<bantime>`, `<matches>`, `<ipmatches>`, `<family>`, `<F-*>`, `<ip-rev>`), and shell command injection prevention using safe `$f2bV_*` positional parameter scripts (`build_shell_cmd`) executed with `setsid` process groups and timeout cleanup.
+- **In-process Jail**: `Jail` coordinating `Filter`, `FailManager`, `Actions`, `Backend`, `ignoreip` subnet/CIDR matching, `ignoreself`, and external `ignorecommand` execution.
+- **Verification Gate**:
+  - `dummy.conf` execution: verified file creation with `init = 123`, `+<ip>` ban append, `-<ip>` unban, and file removal on stop.
+  - Mocked firewall on PATH: verified complete `iptables-multiport` command sequence (`-N`, `-I`, `-D`, `-F`, `-X`) with exact arguments.
+  - End-to-end jail monitoring: 3-attempt ban threshold, action execution, ban expiration and automatic unban on step, `ignoreip` and `ignorecommand` filtering.
+
 ### Phase 4 — Persistence
 - `f2b-db`: schema v2 (`fail2banDb`, `jails`, `logs`, `bans`, `bips` + indexes; PRAGMAs as upstream: `foreign_keys=ON`, `synchronous=OFF`, `journal_mode=MEMORY`, `temp_store=MEMORY`), v1→v2 migration, `dbmaxmatches`, `dbpurgeage`, restore-on-start of active bans, log position resume.
 - Gate: Rust opens `database_v1.db` and `database_v2.db`, migrates/reads identically to `databasetestcase.py` expectations; DB written by Rust is readable by upstream Python and vice versa (round-trip test with upstream installed in CI).

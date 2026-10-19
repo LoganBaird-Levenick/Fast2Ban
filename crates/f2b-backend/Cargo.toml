@@ -1,0 +1,21 @@
+[package]
+name = "f2b-backend"
+description = "Log monitoring backends for Fast2Ban: FileContainer, polling, and inotify"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-types = { path = "../f2b-types" }
+indexmap = "2"
+log = "0.4"
+md-5 = "0.10"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+inotify = { version = "0.11", default-features = false }
+
+[dev-dependencies]
+tempfile = "3"
+[lints]
+workspace = true
