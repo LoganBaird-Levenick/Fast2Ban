@@ -1,0 +1,117 @@
+{
+ "basedir": "stock",
+ "filter": "slapd",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:19 ldap-server slapd[1183]: conn=1022 fd=21 ACCEPT from IP=8.8.8.8:45011 (IP=0.0.0.0:636)",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:19 ldap-server slapd[1183]: conn=1022 fd=21 TLS established tls_ssf=256 ssf=256",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:19 ldap-server slapd[1183]: conn=1022 op=0 EXT oid=1.3.6.1.4.1.6.1",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:19 ldap-server slapd[1183]: conn=1022 op=0 STARTTLS",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:19 ldap-server slapd[1183]: conn=1022 op=0 RESULT oid= err=1 text=TLS already started",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:20 ldap-server slapd[1183]: conn=1022 op=1 BIND dn=\"uid=gipson,ou=people,dc=example,dc=com\" method=128",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Multiline match for invalid credentials",
+   "expect": {
+    "host": "8.8.8.8",
+    "match": true
+   },
+   "expect_time": 1120780040.0,
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:20 ldap-server slapd[1183]: conn=1022 op=1 RESULT tag=97 err=49 text=",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:20 ldap-server slapd[1183]: conn=1022 op=2 UNBIND",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "slapd",
+   "filter_options": {},
+   "flt_key": "slapd",
+   "line": "Jul  8 01:47:20 ldap-server slapd[1183]: conn=1022 fd=21 closed",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

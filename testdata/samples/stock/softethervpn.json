@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "softethervpn",
+ "records": [
+  {
+   "expect": {
+    "host": "80.10.11.12",
+    "match": true
+   },
+   "expect_time": 1589273599.0,
+   "file": "softethervpn",
+   "filter_options": {},
+   "flt_key": "softethervpn",
+   "line": "2020-05-12 10:53:19.781 Connection \"CID-72\": User authentication failed. The user name that has been provided was \"bob\", from 80.10.11.12.",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.10.11.13",
+    "match": true
+   },
+   "expect_time": 1589359999.0,
+   "file": "softethervpn",
+   "filter_options": {},
+   "flt_key": "softethervpn",
+   "line": "2020-05-13T10:53:19 localhost  [myserver.com/VPN/defaultvpn] (2020-05-13 10:53:19.591) <SECURITY_LOG>: Connection \"CID-594\": User authentication failed. The user name that has been provided was \"alice\", from 80.10.11.13.",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

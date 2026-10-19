@@ -1,0 +1,116 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-named-refused",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "prefregex",
+   "^\\s*(?:\\S+ (?:(?:\\[\\d+\\])?:\\s+\\(?named(?:-\\w+)?(?:\\(\\S+\\))?\\)?:?|\\(?named(?:-\\w+)?(?:\\(\\S+\\))?\\)?:?(?:\\[\\d+\\])?:)\\s+)?(?:(?!error|info)[\\w-]+: )?(?:(?:error|info):\\s*)?client(?: @\\S*)? <HOST>#\\S+(?: \\([\\S.]+\\))?: <F-CONTENT>.+</F-CONTENT>\\s(?:denied(?: \\([^\\)]*\\))?|\\(NOTAUTH\\))\\s*$"
+  ],
+  [
+   "multi-set",
+   "o-f-named-refused",
+   "addfailregex",
+   [
+    "^(?:view (?:internal|external): )?query(?: \\(cache\\))?",
+    "^zone transfer",
+    "^bad zone transfer request: '\\S+/IN': non-authoritative zone"
+   ]
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-named-refused",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-named-refused"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-named-refused\n"
+}

@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "scanlogd",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1110055483.0,
+   "file": "scanlogd",
+   "filter_options": {},
+   "flt_key": "scanlogd",
+   "line": "Mar  5 21:44:43 srv scanlogd: 192.0.2.123 to 192.0.2.1 ports 80, 81, 83, 88, 99, 443, 1080, 3128, ..., f????uxy, TOS 00, TTL 49 @20:44:43",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1110055484.0,
+   "file": "scanlogd",
+   "filter_options": {},
+   "flt_key": "scanlogd",
+   "line": "Mar  5 21:44:44 srv scanlogd: 192.0.2.123 to 192.0.2.1 ports 497, 515, 544, 543, 464, 513, ..., fSrpauxy, TOS 00 @09:04:25",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1110055485.0,
+   "file": "scanlogd",
+   "filter_options": {},
+   "flt_key": "scanlogd",
+   "line": "Mar  5 21:44:45 srv scanlogd: 192.0.2.123 to 192.0.2.1 ports 593, 548, 636, 646, 625, 631, ..., fSrpauxy, TOS 00, TTL 239 @17:34:00",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1110055486.0,
+   "file": "scanlogd",
+   "filter_options": {},
+   "flt_key": "scanlogd",
+   "line": "Mar  5 21:44:46 srv scanlogd: 192.0.2.123 to 192.0.2.1 ports 22, 26, 37, 80, 25, 79, ..., fSrpauxy, TOS 00 @22:38:37",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

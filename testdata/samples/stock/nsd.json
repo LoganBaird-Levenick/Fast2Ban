@@ -1,0 +1,49 @@
+{
+ "basedir": "stock",
+ "filter": "nsd",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.105",
+    "match": true
+   },
+   "expect_time": 1387288694.0,
+   "file": "nsd",
+   "filter_options": {},
+   "flt_key": "nsd",
+   "line": "[1387288694] nsd[7745]: info: ratelimit block example.com. type any target 192.0.2.0/24 query 192.0.2.105 TYPE255",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.115",
+    "match": true
+   },
+   "expect_time": 1387348935.0,
+   "file": "nsd",
+   "filter_options": {},
+   "flt_key": "nsd",
+   "line": "[1387348935] nsd[23600]: info: axfr for zone domain.nl. from client 192.0.2.115 refused, no acl matches.",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "new format, no client after from, no dot at end, gh-2965",
+   "expect": {
+    "host": "192.0.2.32",
+    "match": true
+   },
+   "expect_time": 1614918314.0,
+   "file": "nsd",
+   "filter_options": {},
+   "flt_key": "nsd",
+   "line": "[2021-03-05 05:25:14.562] nsd[160800]: info: axfr for example.com. from 192.0.2.32 refused, no acl matches",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

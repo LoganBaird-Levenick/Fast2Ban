@@ -1,0 +1,63 @@
+{
+ "basedir": "stock",
+ "filter": "dante",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1113485703.0,
+   "file": "dante",
+   "filter_options": {},
+   "flt_key": "dante",
+   "line": "Apr 14 15:35:03 vps111111 danted[17969]: info: block(1): tcp/accept ]: 1.2.3.4.50550 0.0.0.0.1080: error after reading 35 bytes in 0 seconds: could not access user \"roooooooot\"'s records in the system password file: no system error",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1113486266.0,
+   "file": "dante",
+   "filter_options": {},
+   "flt_key": "dante",
+   "line": "Apr 14 15:44:26 vps111111 danted[1846]: info: block(1): tcp/accept ]: 1.2.3.4.57178 0.0.0.0.1080: error after reading 18 bytes in 0 seconds: system password authentication failed for user \"aland\"",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1113486266.0,
+   "file": "dante",
+   "filter_options": {},
+   "flt_key": "dante",
+   "line": "Apr 14 15:44:26 vps111111 danted[1846]: info: block(1): tcp/accept ]: 1.2.3.4.57178 0.0.0.0.1080: error after reading 1 byte in 1 second: system password authentication failed for user \"aland\"",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "pam auth failure, gh-3410",
+   "expect": {
+    "host": "192.0.2.169",
+    "match": true
+   },
+   "expect_time": 1113486267.0,
+   "file": "dante",
+   "filter_options": {},
+   "flt_key": "dante",
+   "line": "Apr 14 15:44:27 srv danted[3374579]: info: block(1): tcp/accept ]: 192.0.2.169.8490 192.0.2.83.52483: error after reading 31 bytes in 2 seconds: pam_authenticate() for user \"socks5_user\" failed: Authentication failure",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

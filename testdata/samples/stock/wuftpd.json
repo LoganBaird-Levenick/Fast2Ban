@@ -1,0 +1,48 @@
+{
+ "basedir": "stock",
+ "filter": "wuftpd",
+ "records": [
+  {
+   "expect": {
+    "host": "202.108.145.173",
+    "match": true
+   },
+   "expect_time": 1097049566.0,
+   "file": "wuftpd",
+   "filter_options": {},
+   "flt_key": "wuftpd",
+   "line": "Oct  6 09:59:26 myserver wu-ftpd[18760]: failed login from hj-145-173-a8.bta.net.cn [202.108.145.173]",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.71",
+    "match": true
+   },
+   "expect_time": 1097505907.0,
+   "file": "wuftpd",
+   "filter_options": {},
+   "flt_key": "wuftpd",
+   "line": "Oct 11 16:45:07 ubuntu wu-ftpd[2360]: failed login from example.com [198.51.100.71]",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.71",
+    "match": true
+   },
+   "expect_time": 1111480502.0,
+   "file": "wuftpd",
+   "filter_options": {},
+   "flt_key": "wuftpd",
+   "line": "Mar 22 09:35:02 SiD wu-ftpd[31278]: pam_unix(wu-ftpd:auth): authentication failure; logname= uid=0 euid=0 tty= ruser= rhost=198.51.100.71  user=root",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

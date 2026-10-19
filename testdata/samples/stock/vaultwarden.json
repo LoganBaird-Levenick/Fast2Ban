@@ -1,0 +1,132 @@
+{
+ "basedir": "stock",
+ "filter": "vaultwarden",
+ "records": [
+  {
+   "expect": {
+    "host": "2001:db8::b6d3:95d7:1425:766d",
+    "match": true
+   },
+   "expect_time": 1725063082.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:22.129][vaultwarden::api::identity][ERROR] Username or password is incorrect. Try again. IP: 2001:db8::b6d3:95d7:1425:766d. Username: test@example.com.",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.187.85.94",
+    "match": true
+   },
+   "expect_time": 1725063088.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.562][vaultwarden::api::identity][ERROR] Username or password is incorrect. Try again. IP: 80.187.85.94. Username: test@example.com.",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.187.85.94",
+    "match": true
+   },
+   "expect_time": 1725063088.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.725][vaultwarden::api::admin][ERROR] Invalid admin token. IP: 80.187.85.94",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::b6d3:95d7:1425:766d",
+    "match": true
+   },
+   "expect_time": 1725063088.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.725][vaultwarden::api::admin][ERROR] Invalid admin token. IP: 2001:db8::b6d3:95d7:1425:766d",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.187.85.94",
+    "match": true
+   },
+   "expect_time": 1725063088.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.892][vaultwarden::api::core::two_factor::authenticator][ERROR] Invalid TOTP code! Server time: 2024-08-31 02:11:28 UTC IP: 80.187.85.94",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::b6d3:95d7:1425:766d",
+    "match": true
+   },
+   "expect_time": 1725063088.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.892][vaultwarden::api::core::two_factor::authenticator][ERROR] Invalid TOTP code! Server time: 2024-08-31 02:11:28 UTC IP: 2001:db8::b6d3:95d7:1425:766d",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.187.85.94",
+    "match": true
+   },
+   "expect_time": 1725041488.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.892+0800][vaultwarden::api::core::two_factor::authenticator][ERROR] Invalid TOTP code! Server time: 2024-08-30 18:11:28 UTC IP: 80.187.85.94",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::b6d3:95d7:1425:766d",
+    "match": true
+   },
+   "expect_time": 1725041488.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:28.892+0800][vaultwarden::api::core::two_factor::authenticator][ERROR] Invalid TOTP code! Server time: 2024-08-30 18:11:28 UTC IP: 2001:db8::b6d3:95d7:1425:766d",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1725041490.0,
+   "file": "vaultwarden",
+   "filter_options": {},
+   "flt_key": "vaultwarden",
+   "line": "[2024-08-31 02:11:30.123+0800][vaultwarden::api::admin][ERROR] Invalid admin token! IP: 192.0.2.7. Username: alice",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

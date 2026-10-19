@@ -1,0 +1,65 @@
+{
+ "basedir": "stock",
+ "filter": "apache-modsecurity",
+ "records": [
+  {
+   "expect": {
+    "host": "173.255.225.101",
+    "match": true
+   },
+   "expect_time": 1387800751.0,
+   "file": "apache-modsecurity",
+   "filter_options": {},
+   "flt_key": "apache-modsecurity",
+   "line": "[Mon Dec 23 13:12:31 2013] [error] [client 173.255.225.101] ModSecurity:  [file \"/etc/httpd/modsecurity.d/activated_rules/modsecurity_crs_21_protocol_anomalies.conf\"] [line \"47\"] [id \"960015\"] [rev \"1\"] [msg \"Request Missing an Accept Header\"] [severity \"NOTICE\"] [ver \"OWASP_CRS/2.2.8\"] [maturity \"9\"] [accuracy \"9\"] [tag \"OWASP_CRS/PROTOCOL_VIOLATION/MISSING_HEADER_ACCEPT\"] [tag \"WASCTC/WASC-21\"][tag \"OWASP_TOP_10/A7\"] [tag \"PCI/6.5.10\"] Access denied with code 403 (phase 2). Operator EQ matched 0 at REQUEST_HEADERS. [hostname \"www.mysite.net\"] [uri \"/\"] [unique_id \"Urf@f12qgHIAACrFOlgAAABA\"]",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "additional entry (and exact one space)",
+   "expect": {
+    "host": "32.65.254.69",
+    "match": true
+   },
+   "expect_time": 1388218685.0,
+   "file": "apache-modsecurity",
+   "filter_options": {},
+   "flt_key": "apache-modsecurity",
+   "line": "[Sat Dec 28 09:18:05 2013] [error] [client 32.65.254.69] ModSecurity: [file \"/etc/httpd/modsecurity.d/10_asl_rules.conf\"] [line \"635\"] [id \"340069\"] [rev \"4\"] [msg \"Atomicorp.com UNSUPPORTED DELAYED Rules: Web vulnerability scanner\"] [severity \"CRITICAL\"] Access denied with code 403 (phase 2). Pattern match \"(?:nessus(?:_is_probing_you_|test)|^/w00tw00t\\\\\\\\.at\\\\\\\\.)\" at REQUEST_URI. [hostname \"192.81.249.191\"] [uri \"/w00tw00t.at.blackhats.romanian.anti-sec:)\"] [unique_id \"4Q6RdsBR@b4AAA65LRUAAAAA\"] ",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "two client entries in message (gh-2247)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1538119086.0,
+   "file": "apache-modsecurity",
+   "filter_options": {},
+   "flt_key": "apache-modsecurity",
+   "line": "[Sat Sep 28 09:18:06 2018] [error] [client 192.0.2.1:55555] [client 192.0.2.1] ModSecurity: [file \"/etc/httpd/modsecurity.d/10_asl_rules.conf\"] [line \"635\"] [id \"340069\"] [rev \"4\"] [msg \"Atomicorp.com UNSUPPORTED DELAYED Rules: Web vulnerability scanner\"] [severity \"CRITICAL\"] Access denied with code 403 (phase 2). Pattern match \"(?:nessus(?:_is_probing_you_|test)|^/w00tw00t\\\\\\\\.at\\\\\\\\.)\" at REQUEST_URI. [hostname \"192.81.249.191\"] [uri \"/w00tw00t.at.blackhats.romanian.anti-sec:)\"] [unique_id \"4Q6RdsBR@b4AAA65LRUAAAAA\"] ",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "new format - apache 2.4 and php-fpm (gh-2717)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1588977352.0,
+   "file": "apache-modsecurity",
+   "filter_options": {},
+   "flt_key": "apache-modsecurity",
+   "line": "[Sat May 09 00:35:52.389262 2020] [:error] [pid 22406:tid 139985298601728] [client 192.0.2.2:47762] [client 192.0.2.2] ModSecurity: Access denied with code 401 (phase 2). Operator EQ matched 1 at IP:blocked. [file \"/etc/httpd/modsecurity.d/activated_rules/modsecurity_wp_login.conf\"] [line \"14\"] [id \"500000\"] [msg \"Ip address blocked for 15 minutes, more than 5 login attempts in 3 minutes.\"] [hostname \"example.com\"] [uri \"/wp-login.php\"] [unique_id \"XrYlGL5IY3I@EoLOgAAAA8\"], referer: https://example.com/wp-login.php",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

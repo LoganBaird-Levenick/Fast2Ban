@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "nginx-forbidden",
+ "records": [
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1536944585.0,
+   "file": "nginx-forbidden",
+   "filter_options": {},
+   "flt_key": "nginx-forbidden",
+   "line": "2018/09/14 19:03:05 [error] 2035#2035: *9134 access forbidden by rule, client: 12.34.56.78, server: www.example.net, request: \"GET /wp-content/themes/evolve/js/back-end/libraries/fileuploader/upload_handler.php HTTP/1.1\", host: \"www.example.net\", referrer: \"http://example.net/foo.php\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1536846125.0,
+   "file": "nginx-forbidden",
+   "filter_options": {},
+   "flt_key": "nginx-forbidden",
+   "line": "2018/09/13 15:42:05 [error] 2035#2035: *287 access forbidden by rule, client: 12.34.56.78, server: www.example.com, request: \"GET /wp-config.php~ HTTP/1.1\", host: \"www.example.com\"",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

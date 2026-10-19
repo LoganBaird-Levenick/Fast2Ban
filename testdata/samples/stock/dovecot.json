@@ -1,0 +1,1122 @@
+{
+ "basedir": "stock",
+ "filter": "dovecot",
+ "records": [
+  {
+   "expect": {
+    "host": "80.187.101.33",
+    "match": true
+   },
+   "expect_time": 1284616260.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "@400000004c91b044077a9e94 imap-login: Info: Aborted login (auth failed, 1 attempts): user=<martin@waschbuesch.de>, method=CRAM-MD5, rip=80.187.101.33, lip=80.254.129.240, TLS",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "176.61.140.224",
+    "match": true
+   },
+   "expect_time": 1284616260.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "@400000004c91b044077a9e94 dovecot-auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=web rhost=176.61.140.224",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1284616260.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "@400000004c91b044077a9e94 dovecot-auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=rhost=1.2.3.4 rhost=192.0.43.10",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "176.61.140.225",
+    "match": true
+   },
+   "expect_time": 1284616260.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "@400000004c91b044077a9e94 dovecot-auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=root rhost=176.61.140.225  user=root",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "190.210.136.21",
+    "match": true
+   },
+   "expect_time": 1102846751.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Dec 12 11:19:11 dunnart dovecot: pop3-login: Aborted login (tried to use disabled plaintext auth): rip=190.210.136.21, lip=113.212.99.193",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "190.210.136.21",
+    "match": true
+   },
+   "expect_time": 1102846751.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Dec 12 11:19:11 dunnart dovecot: pop3-login: Aborted login (tried to use disallowed plaintext auth): rip=190.210.136.21, lip=113.212.99.193, session=<LgDINsQCkttVIMPg>",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "49.176.98.87",
+    "match": true
+   },
+   "expect_time": 1118673054.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 13 16:30:54 platypus dovecot: imap-login: Disconnected (auth failed, 2 attempts): user=<username.bob>, method=PLAIN, rip=49.176.98.87, lip=113.212.99.194, TLS",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "59.167.242.100",
+    "match": true
+   },
+   "expect_time": 1118702901.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 14 00:48:21 platypus dovecot: imap-login: Disconnected (auth failed, 1 attempts): method=PLAIN, rip=59.167.242.100, lip=113.212.99.194, TLS: Disconnected",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "193.95.245.163",
+    "match": true
+   },
+   "expect_time": 1119480763.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 23 00:52:43 vhost1-ua dovecot: pop3-login: Disconnected: Inactivity (auth failed, 1 attempts): user=<info>, method=PLAIN, rip=193.95.245.163, lip=176.214.13.210",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.241",
+    "match": true
+   },
+   "expect_time": 1118596049.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 12 19:07:29 hostname dovecot[241]: imap-login: Login aborted: Connection closed (auth failed, 3 attempts in 16 secs) (auth_failed): user=<test>, method=PLAIN, rip=192.0.2.241, lip=203.0.113.104, TLS, session=<9ZHq02g3J8S60fan>",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.241",
+    "match": true
+   },
+   "expect_time": 1118673356.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 13 16:35:56 mx dovecot[241]: managesieve-login: Login aborted: Logged out (auth failed, 1 attempts in 10 secs) (auth_failed): user=<user@domain>, method=PLAIN, rip=192.0.2.241, lip=203.0.113.104, TLS, session=<Dp8j1Ho3suQYdo+k>",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.13",
+    "match": true
+   },
+   "expect_time": 1120304971.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 02 13:49:31 hostname dovecot[442]: pop3-login: Aborted login (auth failed, 1 attempts in 17 secs): user=<test>, method=PLAIN, rip=192.51.100.13, lip=203.0.113.17, session=<YADINsQCDs5BH8Pg>",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "200.76.17.206",
+    "match": true
+   },
+   "expect_time": 1120304972.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 02 13:49:32 hostname dovecot[442]: dovecot: auth(default): pam(account@MYSERVERNAME.com,200.76.17.206): pam_authenticate() failed: User not known to the underlying authentication module: 2 Time(s)",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1376186200.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "2013-08-11 03:56:40 auth-worker(default): Info: pam(username,1.2.3.4): pam_authenticate() failed: Authentication failure (password mismatch?)",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1106973170.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 05:32:50 mail dovecot: auth-worker(304): pam(username,1.2.3.4): pam_authenticate() failed: Authentication failure (password mismatch?)",
+   "lineno": 41,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Password mismatch (title case, gh-2880)",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1107021355.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 18:55:55 mail dovecot: auth-worker(12182): pam(user,192.0.2.4): pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 44,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1106972020.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 05:13:40 mail dovecot: auth-worker(31326): pam(username,1.2.3.4): unknown user",
+   "lineno": 47,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1106972030.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 05:13:50 mail dovecot: auth: passwd-file(username,1.2.3.4): unknown user",
+   "lineno": 50,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1107003246.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 13:54:06 auth-worker(22401): Info: sql(admin@example.de,192.0.2.5,<n4JLdHNVngZGpV2j>): unknown user",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "allow more verbose logging, gh-2573",
+   "expect": {
+    "host": "192.168.178.25",
+    "match": true
+   },
+   "expect_time": 1118491037.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 11 13:57:17 main dovecot: auth: ldap(user@server.org,192.168.178.25,<LZmGp6mZaMrAqLIZ>): unknown user (SHA1 of given password: f638ff)",
+   "lineno": 56,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.144.226",
+    "match": true
+   },
+   "expect_time": 1118491037.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 11 13:57:17 main dovecot: auth: sql(admin@example.ru,192.168.144.226,<6rXunFtu493AqJDi>): Password mismatch",
+   "lineno": 59,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "allow more verbose logging, gh-2573",
+   "expect": {
+    "host": "192.168.178.25",
+    "match": true
+   },
+   "expect_time": 1118491037.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 11 13:57:17 main dovecot: auth: ldap(user@server.org,192.168.178.25,<LZmGp6mZaMrAqLIZ>): Password mismatch (for LDAP bind) (SHA1 of given password: f638ff)",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1118569692.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 12 11:48:12 auth-worker(80180): Info: conn unix:auth-worker (uid=143): auth-worker<13247>: sql(support,192.0.2.6): unknown user",
+   "lineno": 65,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1118610365.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 12 23:06:05 auth-worker(57065): Info: conn unix:auth-worker (uid=143): auth-worker<225622>: sql(user@domain.com,192.0.2.7,<Yx7+W8+Io>): Password mismatch",
+   "lineno": 67,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1118827701.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 15 11:28:21 hostname dovecot: auth-worker(5787): conn unix:auth-worker (pid=27359,uid=97): auth-worker<55>: pam(webapps,192.0.2.7): unknown user",
+   "lineno": 70,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1118836661.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 15 13:57:41 hostname dovecot: auth-worker(3270): conn unix:auth-worker (pid=27359,uid=97): auth-worker<128>: pam(webapps,192.0.2.7): pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 72,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "PAM Permission denied (gh-1897)",
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1107005931.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 14:38:51 example.com dovecot[24941]: auth-worker(30165): pam(user@example.com,192.0.2.6,<PNHQq8pZhqIKAQGd>): pam_authenticate() failed: Permission denied",
+   "lineno": 75,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.255.3.104",
+    "match": true
+   },
+   "expect_time": 1113880940.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Apr 19 05:22:20 vm5 auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=informix rhost=80.255.3.104",
+   "lineno": 78,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1105645865.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 13 20:51:05 valhalla dovecot: pop3-login: Disconnected: Inactivity (auth failed, 1 attempts in 178 secs): user=<ivo>, method=PLAIN, rip=1.2.3.4, lip=1.1.2.2, session=<6brQWt/vCADDhP/+>",
+   "lineno": 82,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1105714470.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 14 15:54:30 valhalla dovecot: pop3-login: Disconnected (auth failed, 1 attempts in 2 secs): user=<ivo>, method=PLAIN, rip=1.2.3.4, lip=1.1.2.2, TLS: Disconnected, session=<q454Xu/vMwBZApgg>",
+   "lineno": 84,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "212.9.180.3",
+    "match": true
+   },
+   "expect_time": 1106987638.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 09:33:58 pop3-login: Info: Aborted login (auth failed, 1 attempts in 2 secs): user=<grace>, method=PLAIN, rip=212.9.180.3",
+   "lineno": 88,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1106987657.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 09:34:17 pop3-login: Info: Aborted login (auth failed, 1 attempts in 62 secs): user=<carl.matx@sxxxxxxx.net>, method=PLAIN, rip=1.2.3.4, TLS",
+   "lineno": 91,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "117.218.51.80",
+    "match": true
+   },
+   "expect_time": 1106987883.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 09:38:03 pop3-login: Info: Disconnected: Inactivity (auth failed, 1 attempts in 178 secs): user=<suzanne>, method=PLAIN, rip=117.218.51.80",
+   "lineno": 94,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "176.61.137.100",
+    "match": false
+   },
+   "expect_time": 1106987926.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jan 29 09:38:46 pop3-login: Info: Disconnected (no auth attempts in 10 secs): user=<>, rip=176.61.137.100, TLS handshaking: SSL_accept() failed: error:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol",
+   "lineno": 97,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "121.44.24.254",
+    "match": false
+   },
+   "expect_time": 1118688491.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 13 20:48:11 platypus dovecot: pop3-login: Disconnected (no auth attempts): rip=121.44.24.254, lip=113.212.99.194, TLS: Disconnected",
+   "lineno": 100,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "180.200.180.81",
+    "match": false
+   },
+   "expect_time": 1118692086.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 13 21:48:06 platypus dovecot: pop3-login: Disconnected: Inactivity (no auth attempts): rip=180.200.180.81, lip=113.212.99.194, TLS",
+   "lineno": 102,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "180.189.168.166",
+    "match": false
+   },
+   "expect_time": 1118686821.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jun 13 20:20:21 platypus dovecot: imap-login: Disconnected (no auth attempts): rip=180.189.168.166, lip=113.212.99.194, TLS handshaking: Disconnected",
+   "lineno": 104,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.13",
+    "match": false
+   },
+   "expect_time": 1120304972.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 02 13:49:32 hostname dovecot[442]: pop3-login: Disconnected (no auth attempts in 58 secs): user=<>, rip=192.51.100.13, lip=203.0.113.17, session=<LgDINsQCkttVIMPg>",
+   "lineno": 106,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "52.37.139.121",
+    "match": true
+   },
+   "expect_time": 1111554652.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Mar 23 06:10:52 auth: Info: ldap(dog,52.37.139.121,): invalid credentials",
+   "lineno": 109,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "proxy dest auth failed, gh-2184",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1121584882.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 17 09:21:22 mailproxy dovecot: imap-login: Disconnected (proxy dest auth failed): user=<rtomes@acenet.com.au>, method=PLAIN, rip=192.0.2.4, lip=192.168.1.2, session=<NTI4FiZxcQCSud4G>",
+   "lineno": 112,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1122369081.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 26 11:11:21 hostname dovecot: imap-login: Disconnected: Too many invalid commands (tried to use disallowed plaintext auth): user=<test>, rip=192.0.2.1, lip=192.168.1.1, session=<S5dIdTFCDKUWWMbU>",
+   "lineno": 115,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1122369139.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Jul 26 11:12:19 hostname dovecot: imap-login: Disconnected: Too many invalid commands (auth failed, 1 attempts in 17 secs): user=<test>, method=PLAIN, rip=192.0.2.2, lip=192.168.1.1, TLS, session=<g3ZKeDECFqlWWMbU>",
+   "lineno": 117,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1093667931.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 28 06:38:51 s166-62-100-187 dovecot: imap-login: Disconnected (auth failed, 1 attempts in 9 secs): user=<administrator@example.com>, method=PLAIN, rip=192.0.2.3, lip=192.168.1.2, TLS: Disconnected, TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits)",
+   "lineno": 120,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "open parenthesis in optional part between Disconnected and (auth failed ...), gh-3210",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1093667932.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 28 06:38:52 s166-62-100-187 dovecot: imap-login: Disconnected: Connection closed: read(size=1003) failed: Connection reset by peer (auth failed, 1 attempts in 0 secs): user=<test@example.com>, rip=192.0.2.4, lip=127.0.0.19, session=<Lsz0Oo7WXti3b7xe>",
+   "lineno": 122,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid slow RE, gh-3370",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 01:49:33 server dovecot[459]: imap-login: Disconnected: Connection closed: read(size=1026) failed: Connection reset by peer (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: read(size=1026) failed: Connection reset by peer",
+   "lineno": 125,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid slow RE, gh-3370",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 01:49:33 server dovecot[459]: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:1408F10B:SSL routines:ssl3_get_record:wrong version number (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: SSL_accept() failed: error:1408F10B:SSL routines:ssl3_get_record:wrong version number",
+   "lineno": 127,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid slow RE, gh-3370",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 01:49:33 server dovecot[459]: managesieve-login: Disconnected: Too many invalid commands. (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1",
+   "lineno": 129,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid slow RE, gh-3370",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 01:49:33 server dovecot[459]: managesieve-login: Disconnected: Connection closed: read(size=1007) failed: Connection reset by peer (no auth attempts in 1 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1",
+   "lineno": 131,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid slow RE, gh-3370",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 01:49:33 server dovecot[472]: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:14209102:SSL routines:tls_early_post_process_client_hello:unsupported protocol (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: SSL_accept() failed: error:14209102:SSL routines:tls_early_post_process_client_hello:unsupported protocol",
+   "lineno": 133,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.133",
+    "match": true
+   },
+   "expect_time": 1093742238.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 03:17:18 server dovecot: submission-login: Client has quit the connection (auth failed, 1 attempts in 2 secs): user=<user1>, method=LOGIN, rip=192.0.2.133, lip=0.0.0.0",
+   "lineno": 136,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.169",
+    "match": true
+   },
+   "expect_time": 1093744432.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 03:53:52 server dovecot: submission-login: Remote closed connection (auth failed, 1 attempts in 2 secs): user=<user4>, method=PLAIN, rip=192.0.2.169, lip=0.0.0.0",
+   "lineno": 138,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.100",
+    "match": true
+   },
+   "expect_time": 1093786433.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 29 15:33:53 server dovecot: managesieve-login: Disconnected: Too many invalid commands. (auth failed, 1 attempts in 2 secs): user=<myself>, method=PLAIN, rip=192.0.2.100, lip=0.0.0.0, TLS, TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits)",
+   "lineno": 140,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "password mismatch from sql backend/driver of dovecot 2.4, gh-4196",
+   "expect": {
+    "host": "192.0.2.110",
+    "match": true
+   },
+   "expect_time": 1093817457.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 00:10:57 auth(info@example.com,192.0.2.110,sasl:login)<CvN+E95Uf4e7eEnj>: Info: sql: Password mismatch (given password: XxxxXXxx123)",
+   "lineno": 143,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "closed after 3 attempts (password mismatch), gh-4196",
+   "expect": {
+    "host": "192.0.2.110",
+    "match": true
+   },
+   "expect_time": 1093817465.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 00:11:05 imap-login: Info: Login aborted: Connection closed (auth failed, 3 attempts in 16 secs) (auth_failed): user=<info@example.com>, method=PLAIN, rip=192.0.2.110, lip=0.0.0.0, TLS, session=<CvN+E95Uf4e7eEnj>",
+   "lineno": 145,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "dovecot 2.4, IMAP login, <pid><session> in prefix (continuation of gh-4196)",
+   "expect": {
+    "host": "192.0.2.50",
+    "match": true
+   },
+   "expect_time": 1093852133.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:48:53 host dovecot[2623853]: auth-worker(eric,192.0.2.50)<566595><SESSION2>: request [3]: pam: pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 149,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't match to avoid double counting (also rather pam-generic thing)",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:48:53 host auth[566595]: pam_unix(dovecot-mail:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=eric rhost=192.0.2.50",
+   "lineno": 151,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "dovecot 2.4, IMAP login, <pid><session> in prefix (continuation of gh-4196)",
+   "expect": {
+    "host": "192.0.2.50",
+    "match": true
+   },
+   "expect_time": 1093852141.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:49:01 host dovecot[2623853]: auth-worker(eric,192.0.2.50)<566595><SESSION2>: request [4]: pam: pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 153,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't match to avoid double counting (also rather pam-generic thing)",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:49:01 host auth[566595]: pam_unix(dovecot-mail:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=eric rhost=192.0.2.50",
+   "lineno": 155,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "dovecot 2.4, IMAP login, <pid><session> in prefix (continuation of gh-4196)",
+   "expect": {
+    "host": "192.0.2.50",
+    "match": true
+   },
+   "expect_time": 1093852148.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:49:08 host dovecot[2623853]: auth-worker(eric,192.0.2.50)<566595><SESSION2>: request [5]: pam: pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 157,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't match to avoid double counting (also rather pam-generic thing)",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:49:08 host auth[566595]: pam_unix(dovecot-mail:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=eric rhost=192.0.2.50",
+   "lineno": 159,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "dovecot 2.4, summary line after 3 failed attempts (continuation of gh-4196)",
+   "expect": {
+    "host": "192.0.2.50",
+    "match": true
+   },
+   "expect_time": 1093852309.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 09:51:49 host dovecot[2623853]: imap-login: Login aborted: Inactivity (auth failed, 3 attempts in 177 secs) (auth_failed): user=<eric>, method=PLAIN, rip=192.0.2.50, lip=193.24.208.184, TLS, session=<SESSION2>",
+   "lineno": 161,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't match to avoid double counting (also rather pam-generic thing)",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 08:42:47 host auth[3499329]: pam_unix(dovecot-mail:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=eric rhost=192.0.2.60",
+   "lineno": 165,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "dovecot 2.4, SMTP AUTH through Postfix (continuation of gh-4196)",
+   "expect": {
+    "host": "192.0.2.60",
+    "match": true
+   },
+   "expect_time": 1093848167.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 08:42:47 host dovecot[2623853]: auth-worker(eric,192.0.2.60)<3499329>: request [1]: pam: pam_authenticate() failed: Authentication failure (Password mismatch?)",
+   "lineno": 167,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't match to avoid double counting",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 30 08:42:49 host postfix/submission/smtpd[3497874]: warning: unknown[192.0.2.60]: SASL LOGIN authentication failed: (reason unavailable), sasl_username=eric",
+   "lineno": 169,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "GHSA-33wh-ccjc-p397, positive case (match, no hangs)",
+   "expect": {
+    "host": "192.0.2.111",
+    "match": true
+   },
+   "expect_time": 1093961165.0,
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 31 16:06:05 s166-62-100-187 dovecot: imap-login: Disconnected: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: (reason: some unknown reason) (tried to use disallowed test auth): user=<>, rip=192.0.2.111",
+   "lineno": 172,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "GHSA-33wh-ccjc-p397, negative case (bypass, no hangs)",
+   "expect": {
+    "match": false
+   },
+   "file": "dovecot",
+   "filter_options": {},
+   "flt_key": "dovecot",
+   "line": "Aug 31 16:06:06 s166-62-100-187 dovecot: imap-login: Disconnected: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: a: test no match",
+   "lineno": 174,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, avoid slow RE, gh-3370",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 01:49:33 server dovecot[459]: imap-login: Disconnected: Connection closed: read(size=1026) failed: Connection reset by peer (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: read(size=1026) failed: Connection reset by peer",
+   "lineno": 183,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, new format with `Login aborted` and `(no_auth_attempts)`",
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1093169381.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 22 12:09:41 server dovecot: imap-login: Login aborted: Connection closed: read(size=653) failed: Connection reset by peer (no auth attempts in 1 secs) (no_auth_attempts): user=<>, rip=192.0.2.6, lip=192.0.2.1, TLS: read(size=653) failed: Connection reset by peer, session=<qMLsbvY8PLSkXGoP>",
+   "lineno": 185,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, avoid slow RE, gh-3370",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 01:49:33 server dovecot[459]: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:1408F10B:SSL routines:ssl3_get_record:wrong version number (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: SSL_accept() failed: error:1408F10B:SSL routines:ssl3_get_record:wrong version number",
+   "lineno": 188,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, avoid slow RE, gh-3370",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 01:49:33 server dovecot[459]: managesieve-login: Disconnected: Too many invalid commands. (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1",
+   "lineno": 190,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, avoid slow RE, gh-3370",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 01:49:33 server dovecot[459]: managesieve-login: Disconnected: Connection closed: read(size=1007) failed: Connection reset by peer (no auth attempts in 1 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1",
+   "lineno": 192,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "matches in aggressive mode, avoid slow RE, gh-3370",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093736973.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 01:49:33 server dovecot[472]: imap-login: Disconnected: Connection closed: SSL_accept() failed: error:14209102:SSL routines:tls_early_post_process_client_hello:unsupported protocol (no auth attempts in 0 secs): user=<>, rip=192.0.2.5, lip=127.0.0.1, TLS handshaking: SSL_accept() failed: error:14209102:SSL routines:tls_early_post_process_client_hello:unsupported protocol",
+   "lineno": 194,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1093788418.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 29 16:06:58 s166-62-100-187 dovecot: imap-login: Disconnected (disconnected before auth was ready, waited 0 secs): user=<>, rip=192.0.2.5, lip=192.168.1.2, TLS handshaking: SSL_accept() syscall failed: Connection reset by peer",
+   "lineno": 197,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1093961710.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 31 16:15:10 s166-62-100-187 dovecot: imap-login: Disconnected (client didn't finish SASL auth, waited 2 secs): user=<>, method=PLAIN, rip=192.0.2.6, lip=192.168.1.2, TLS: SSL_read() syscall failed: Connection reset by peer, TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits)",
+   "lineno": 199,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1093962113.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 31 16:21:53 s166-62-100-187 dovecot: imap-login: Disconnected (no auth attempts in 4 secs): user=<>, rip=192.0.2.7, lip=192.168.1.2, TLS handshaking: SSL_accept() syscall failed: Connection reset by peer",
+   "lineno": 201,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "disconnected during TLS handshake (no application protocol)",
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1093169381.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 22 12:09:41 server dovecot: imap-login: Login aborted: Connection closed: SSL_accept() failed: error:0A0000EB:SSL routines::no application protocol (disconnected during TLS handshake) (tls_handshake_not_finished): user=<>, rip=192.0.2.7, lip=192.0.2.1, TLS handshaking: SSL_accept() failed: error:0A0000EB:SSL routines::no application protocol, session=<J5HwbvY8QrSkXGoP>",
+   "lineno": 204,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "disconnected during TLS handshake (no shared cipher)",
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1093169381.0,
+   "file": "dovecot",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "dovecot{'mode': 'aggressive'}",
+   "line": "Aug 22 12:09:41 server dovecot: imap-login: Login aborted: Connection closed: SSL_accept() failed: error:0A0000C1:SSL routines::no shared cipher (disconnected during TLS handshake) (tls_handshake_not_finished): user=<>, rip=192.0.2.7, lip=192.0.2.1, TLS handshaking: SSL_accept() failed: error:0A0000C1:SSL routines::no shared cipher, session=<Q23ybvY8RLSkXGoP>",
+   "lineno": 206,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

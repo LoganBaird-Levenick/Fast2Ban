@@ -1,0 +1,196 @@
+{
+ "basedir": "stock",
+ "filter": "sendmail-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "190.5.230.178",
+    "match": true
+   },
+   "expect_time": 1108593200.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 16 23:33:20 smtp1 sm-mta[5133]: s1GNXHYB005133: [190.5.230.178]: possible SMTP attack: command=AUTH, count=5",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "75.176.164.191",
+    "match": true
+   },
+   "expect_time": 1108593636.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 16 23:40:36 smtp1 sm-mta[5178]: s1GNeNqe005178: cpe-075-176-164-191.sc.res.rr.com [75.176.164.191]: possible SMTP attack: command=AUTH, count=5",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "211.75.6.133",
+    "match": true
+   },
+   "expect_time": 1109243415.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 24 12:10:15 kismet sm-acceptingconnections[32053]: s1OHA28u032053: 211-75-6-133.HINET-IP.hinet.net [211.75.6.133]: possible SMTP attack: command=AUTH, count=6",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "95.70.241.192",
+    "match": true
+   },
+   "expect_time": 1109246417.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 24 13:00:17 kismet sm-acceptingconnections[1499]: s1OHxxSn001499: 192.241.70.95.dsl.static.turk.net [95.70.241.192] (may be forged): possible SMTP attack: command=AUTH, count=6",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1109250000.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 24 14:00:00 server sendmail[26592]: u0CB32qX026592: [192.0.2.1]: possible SMTP attack: command=AUTH, count=5",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "long PID, ID longer as 14 chars (gh-2563)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1109250001.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 24 14:00:01 server sendmail[3529566]: xA32R2PQ3529566: [192.0.2.2]: possible SMTP attack: command=AUTH, count=5",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "sendmail 8.16.1, AUTH_FAIL_LOG_USER (gh-2757)",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1109300547.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 25 04:02:27 relay1 sendmail[16664]: 06I02CNi016764: AUTH failure (LOGIN): authentication failure (-13) SASL(-13): authentication failure: checkpass failed, user=user@example.com, relay=example.com [192.0.2.3] (may be forged)",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "injection attempt on user name",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1109300548.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "Feb 25 04:02:28 relay1 sendmail[16665]: 06I02CNi016765: AUTH failure (LOGIN): authentication failure (-13) SASL(-13): authentication failure: checkpass failed, user=criminal, relay=[192.0.2.100], relay=[192.0.2.4] (may be forged)",
+   "lineno": 24,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "user not found (gh-3030)",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1116892720.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "May 24 01:58:40 server sm-mta[65696]: 14NNwaRl065696: AUTH failure (DIGEST-MD5): user not found (-20) SASL(-13): user not found: unable to canonify user and get auxprops, user=scanner, relay=[192.0.2.5]",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "user not found (gh-3030)",
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1116892747.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "May 24 01:59:07 server sm-mta[65815]: 14NNx65Q065815: AUTH failure (CRAM-MD5): user not found (-20) SASL(-13): user not found: user: scan@server.example.com property: userPassword not found in sasldb /usr/local/etc/sasldb2, user=scan, relay=[192.0.2.6]",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "authentication failure, sendmail 8.16.1 (gh-2757)",
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1117401244.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "May 29 23:14:04 mail sendmail[5976]: 09DJDgOM005976: AUTH failure (login): authentication failure (-13) SASL(-13): authentication failure: checkpass failed, user=test, relay=host.example.com [192.0.2.7] (may be forged)",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "authentication failure, sendmail 8.16.1 (gh-2757)",
+   "expect": {
+    "host": "192.0.2.8",
+    "match": true
+   },
+   "expect_time": 1117401244.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "May 29 23:14:04 mail sendmail[5976]: 09DJDgOM005976: AUTH failure (PLAIN): authentication failure (-13) SASL(-13): authentication failure: Password verification failed, user=test, relay=host.example.com [192.0.2.8]",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "authentication failure, no user part (gh-2757)",
+   "expect": {
+    "host": "192.0.2.9",
+    "match": true
+   },
+   "expect_time": 1117401245.0,
+   "file": "sendmail-auth",
+   "filter_options": {},
+   "flt_key": "sendmail-auth",
+   "line": "May 29 23:14:05 server sendmail[25411]: 26H8MRrS025411: AUTH failure (LOGIN): authentication failure (-13) SASL(-13): authentication failure: checkpass failed, relay=[192.0.2.9]",
+   "lineno": 36,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

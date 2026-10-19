@@ -1,0 +1,216 @@
+{
+ "basedir": "stock",
+ "filter": "kerio",
+ "records": [
+  {
+   "expect": {
+    "host": "200.90.149.178",
+    "match": true
+   },
+   "expect_time": 1308322845.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[17/Jun/2011 17:00:45] Attempt to deliver to unknown recipient <advertise@aplawrence.com>, from <bekytnabvnvyx@aapug.org>, IP address 200.90.149.178",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "202.169.236.195",
+    "match": true
+   },
+   "expect_time": 1390023685.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[18/Jan/2014 06:41:25] SMTP Spam attack detected from 202.169.236.195, client closed connection before SMTP greeting",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "115.147.104.13",
+    "match": true
+   },
+   "expect_time": 1390023732.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[18/Jan/2014 06:42:12] SMTP Spam attack detected from 115.147.104.13, client sent data before SMTP greeting",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "112.140.49.130",
+    "match": true
+   },
+   "expect_time": 1390020437.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[18/Jan/2014 05:47:17] IP address 112.140.49.130 found in DNS blacklist UCEProtect1, mail from <infootransac@yahoo.com.hk> to <advertise@aplawrence.com>",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "91.232.105.66",
+    "match": true
+   },
+   "expect_time": 1390023584.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[18/Jan/2014 06:39:44] IP address 91.232.105.66 found in DNS blacklist BarracudaCentral, mail from <postmaster@ponetn.us> to <advertise@aplawrence.com>",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "64.31.59.75",
+    "match": true
+   },
+   "expect_time": 1388377679.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[30/Dec/2013 05:27:59] Relay attempt from IP address 64.31.59.75, mail from <smtp2001soho@yahoo.com> to <reply-abuse@bol.com.br> rejected",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "74.63.193.116",
+    "match": true
+   },
+   "expect_time": 1388427868.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[30/Dec/2013 19:24:28] Relay attempt from IP address 74.63.193.116, mail from <smtp2001soho@yahoo.com> to <reply-abuse@bol.com.br> rejected",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "23.108.148.156",
+    "match": true
+   },
+   "expect_time": 1386890565.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[13/Dec/2013 00:22:45] Attempt to deliver to unknown recipient <suzanne@aplawrence.com>, from <info@kaimingjx.com>, IP address 23.108.148.156",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "218.85.253.185",
+    "match": true
+   },
+   "expect_time": 1386893464.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[13/Dec/2013 01:11:04] Attempt to deliver to unknown recipient <marge@aplawrence.com>, from <yu@rrd.com>, IP address 218.85.253.185",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "185.140.108.56",
+    "match": true
+   },
+   "expect_time": 1496071769.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[29/May/2017 17:29:29] IP address 185.140.108.56 found in DNS blacklist SpamCop, mail from <noreply-tjgqNffcgPfpbZtpDzasm@oakspaversusa.com> to <info@verinion.com> rejected",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "185.140.108.26",
+    "match": true
+   },
+   "expect_time": 1495043022.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[17/May/2017 19:43:42] SMTP: User printer@verinion.com doesn't exist. Attempt from IP address 185.140.108.26.",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "184.171.168.211",
+    "match": true
+   },
+   "expect_time": 1495043065.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[17/May/2017 19:44:25] Client with IP address 184.171.168.211 has no reverse DNS entry, connection rejected before SMTP greeting",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "170.178.167.136",
+    "match": true
+   },
+   "expect_time": 1495043127.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[17/May/2017 19:45:27] Administration login into Web Administration from 170.178.167.136 failed: IP address not allowed",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "67.211.219.82",
+    "match": true
+   },
+   "expect_time": 1495052097.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[17/May/2017 22:14:57] Message from IP address 67.211.219.82, sender <promo123@goodresponse.site> rejected: sender domain does not exist",
+   "lineno": 41,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "212.92.127.112",
+    "match": true
+   },
+   "expect_time": 1495085115.0,
+   "file": "kerio",
+   "filter_options": {},
+   "flt_key": "kerio",
+   "line": "[18/May/2017 07:25:15] Failed SMTP login from 212.92.127.112 with SASL method CRAM-MD5.",
+   "lineno": 44,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

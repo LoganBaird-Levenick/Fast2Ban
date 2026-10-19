@@ -1,0 +1,150 @@
+{
+ "basedir": "stock",
+ "filter": "monit",
+ "records": [
+  {
+   "expect": {
+    "host": "69.93.127.111",
+    "match": true
+   },
+   "expect_time": 1113710729.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "[PDT Apr 16 21:05:29] error    : Warning: Client '69.93.127.111' supplied unknown user 'foo' accessing monit httpd",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "97.113.189.111",
+    "match": true
+   },
+   "expect_time": 1113710373.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "[PDT Apr 16 20:59:33] error    : Warning: Client '97.113.189.111' supplied wrong password for user 'admin' accessing monit httpd",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "should be ignored: no login",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1110356308.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:28 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: missing or invalid Authorization header",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "should be ignored: no login",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1110356308.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:28 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: invalid Authorization header",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "should be ignored: connect, still no user specified",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1110356309.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:29 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: empty username",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "should be ignored: connect, still no user specified",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1110356311.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:31 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: unknown user ''",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "no password try",
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1110356312.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:32 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: empty password",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "unknown user try",
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1110356313.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:33 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: unknown user 'test1'",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "wrong password try",
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1110356314.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "Mar  9 09:18:34 hostname monit[5731]: HttpRequest: access denied -- client 1.2.3.4: wrong password for user 'test2'",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "IP in brackets, gh-2494",
+   "expect": {
+    "host": "192.168.1.85",
+    "match": true
+   },
+   "expect_time": 1123316092.0,
+   "file": "monit",
+   "filter_options": {},
+   "flt_key": "monit",
+   "line": "[CEST Aug  6 10:14:52] error    : HttpRequest: access denied -- client [192.168.1.85]: wrong password for user 'root'",
+   "lineno": 24,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

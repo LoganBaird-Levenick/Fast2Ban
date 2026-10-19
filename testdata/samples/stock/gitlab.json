@@ -1,0 +1,80 @@
+{
+ "basedir": "stock",
+ "filter": "gitlab",
+ "records": [
+  {
+   "expect": {
+    "host": "80.10.11.12",
+    "match": true
+   },
+   "expect_time": 1586441040.0,
+   "file": "gitlab",
+   "filter_options": {},
+   "flt_key": "gitlab",
+   "line": "2020-04-09T14:04:00.667Z: Failed Login: username=admin ip=80.10.11.12",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.10.11.12",
+    "match": true
+   },
+   "expect_time": 1586441709.0,
+   "file": "gitlab",
+   "filter_options": {},
+   "flt_key": "gitlab",
+   "line": "2020-04-09T14:15:09.344Z: Failed Login: username=user name ip=80.10.11.12",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "87.250.224.11",
+    "match": true
+   },
+   "expect_time": 1692962719.0,
+   "file": "gitlab",
+   "filter_options": {
+    "logtype": "json"
+   },
+   "flt_key": "gitlab{'logtype': 'json'}",
+   "line": "{\"severity\":\"INFO\",\"time\":\"2023-08-25T11:25:19.979Z\",\"correlation_id\":\"01H8P721YTW1YH5Q7YCSJPVJ5T\",\"meta.caller_id\":\"SessionsController#new\",\"meta.remote_ip\":\"87.250.224.11\",\"meta.feature_category\":\"system_access\",\"meta.client_id\":\"ip/87.250.224.11\",\"message\":\"Failed Login: username=admin ip=87.250.224.11\"}",
+   "lineno": 11,
+   "logtype": "json",
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::1",
+    "match": true
+   },
+   "expect_time": 1692963067.0,
+   "file": "gitlab",
+   "filter_options": {
+    "logtype": "json"
+   },
+   "flt_key": "gitlab{'logtype': 'json'}",
+   "line": "{\"severity\":\"INFO\",\"time\":\"2023-08-25T11:31:07.512Z\",\"correlation_id\":\"01H8P73ABCDEF1234567890ABCD\",\"meta.caller_id\":\"SessionsController#new\",\"meta.remote_ip\":\"2001:db8::1\",\"meta.feature_category\":\"system_access\",\"meta.client_id\":\"ip/2001:db8::1\",\"message\":\"Failed Login: username=git ip=2001:db8::1\"}",
+   "lineno": 13,
+   "logtype": "json",
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "gitlab",
+   "filter_options": {
+    "logtype": "json"
+   },
+   "flt_key": "gitlab{'logtype': 'json'}",
+   "line": "{\"severity\":\"INFO\",\"time\":\"2023-08-25T11:55:10.525Z\",\"correlation_id\":\"01H8P8RPMVW53W0KWEN2H2DNF4\",\"meta.caller_id\":\"SessionsController#create\",\"meta.remote_ip\":\"203.0.113.9\",\"meta.feature_category\":\"system_access\",\"meta.user\":\"admin\",\"meta.user_id\":2,\"meta.client_id\":\"user/2\",\"message\":\"Successful Login: username=admin ip=203.0.113.9 method=standard admin=true\"}",
+   "lineno": 16,
+   "logtype": "json",
+   "prefix_line": null
+  }
+ ]
+}

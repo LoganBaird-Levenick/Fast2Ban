@@ -1,0 +1,133 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-asterisk",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "prefregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\s*\\[\\d+\\])?:\\s+[\\[\\(]?asterisk(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?asterisk(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\s*\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?(?:NOTICE|SECURITY|WARNING)(?:\\s*\\[\\d+\\]):?(?:\\[C-[\\da-f]*\\])?:? [^:]+:\\d*(?:(?: in)? [^:]+:)? <F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "o-f-asterisk",
+   "addfailregex",
+   [
+    "^Registration from '[^']*' failed for '<HOST>(:\\d+)?' - (?:Wrong password|Username/auth name mismatch|No matching peer found|Not a local domain|Device does not match ACL|Peer is not supposed to register|ACL error \\(permit/deny\\)|Not a local domain)$",
+    "^Call (?:from '[^']*' )?\\((?:(?:TCP|UDP):)?<HOST>:\\d+\\) to extension '[^']*' rejected because extension not found in context",
+    "^(?:Host )?<HOST> (?:failed (?:to authenticate\\b|MD5 authentication\\b)|tried to authenticate with nonexistent user\\b)",
+    "^No registration for peer '[^']*' \\(from <HOST>\\)$",
+    "^hacking attempt detected '<HOST>'$",
+    "^SecurityEvent=\"(?:FailedACL|InvalidAccountID|ChallengeResponseFailed|InvalidPassword)\"(?:(?:,(?!RemoteAddress=)\\w+=\"[^\"]*\")*|.*?),RemoteAddress=\"IPV[46]/[^/\"]+/<HOST>/\\d+\"(?:,(?!RemoteAddress=)\\w+=\"[^\"]*\")*$",
+    "^\"Rejecting unknown SIP connection from <HOST>(?::\\d+)?\"$",
+    "^Request (?:'[^']*' )?from '(?:[^']*|.*?)' failed for '<HOST>(?::\\d+)?'\\s\\(callid: [^\\)]*\\) - (?:No matching endpoint found|Not match Endpoint(?: Contact)? ACL|(?:Failed|Error) to authenticate)\\b[^']*$"
+   ]
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "addjournalmatch",
+   "_SYSTEMD_UNIT=asterisk.service"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-asterisk",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-asterisk"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-asterisk\n"
+}

@@ -1,0 +1,133 @@
+{
+ "basedir": "stock",
+ "filter": "nginx-limit-req",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1446145262.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2015/10/29 20:01:02 [error] 256554#0: *99927 limiting requests, excess: 1.852 by zone \"one\", client: 1.2.3.4, server: example.com, request: \"POST /index.htm HTTP/1.0\", host: \"exmaple.com\"",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.0",
+    "match": true
+   },
+   "expect_time": 1446143045.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2015/10/29 19:24:05 [error] 12684#12684: *22174 limiting requests, excess: 1.495 by zone \"one\", client: 192.0.2.0, server: example.com, request: \"GET /index.php HTTP/1.1\", host: \"example.com\", referrer: \"https://example.com\"",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "13.123.1.123",
+    "match": true
+   },
+   "expect_time": 1475217366.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2016/09/30 08:36:06 [error] 22923#0: *4758725916 limiting requests, excess: 15.243 by zone \"one\", client: 13.123.1.123, server: example.com, request: \"GET / HTTP/1.1\", host: \"example.com\"",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::80da:af6b:8b2c",
+    "match": true
+   },
+   "expect_time": 1475217366.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2016/09/30 08:36:06 [error] 22923#0: *4758725916 limiting requests, excess: 15.243 by zone \"one\", client: 2001:db8::80da:af6b:8b2c, server: example.com, request: \"GET / HTTP/1.1\", host: \"example.com\"",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "206.189.215.97",
+    "match": true
+   },
+   "expect_time": 1754015057.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2025/08/01 04:24:17 [warn] 4772#4772: *68 delaying request, excess: 0.841, by zone \"req_limit\", client: 206.189.215.97, server: myserver.net, request: \"GET /ab2h HTTP/1.1\", host: \"22.18.134.49\"",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "104.248.81.143",
+    "match": true
+   },
+   "expect_time": 1754051547.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2025/08/01 14:32:27 [warn] 31733#31733: *21 delaying request, excess: 0.850, by zone \"req_limit\", client: 104.248.81.143, server: myserver.net, request: \"GET /favicon.ico HTTP/1.1\", host: \"myserver.net\", referrer: \"https://myserver.net/\"",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "128.199.22.141",
+    "match": true
+   },
+   "expect_time": 1754183848.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2025/08/03 03:17:28 [error] 25808#25808: *598 limiting connections by zone \"conn_limit\", client: 128.199.22.141, server: myserver.net, request: \"GET /favicon.ico HTTP/1.1\", host: \"84.108.142.49\", referrer: \"https://xxx.com/\"",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "162.240.161.123",
+    "match": true
+   },
+   "expect_time": 1754222182.0,
+   "file": "nginx-limit-req",
+   "filter_options": {},
+   "flt_key": "nginx-limit-req",
+   "line": "2025/08/03 13:56:22 [error] 943#943: *60 limiting connections by zone \"conn_limit\", client: 162.240.161.123, server: myserver.net, request: \"GET /.env HTTP/1.1\", host: \"app.myserver.net\"",
+   "lineno": 24,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "file": "nginx-limit-req",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "nginx-limit-req{'logtype': 'journal'}",
+   "line": "host nginx[983479]: 2023/12/09 21:35:20 [notice] 983479#983479: *22174 limiting requests, excess: 1.495 by zone \"one\", client: 192.0.2.2, server: example.com, request: \"GET /index.htm HTTP/1.1\", host: \"example.com\", referrer: \"https://example.com\"",
+   "lineno": 29,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

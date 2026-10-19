@@ -1,0 +1,118 @@
+{
+ "basedir": "stock",
+ "filter": "solid-pop3d",
+ "records": [
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: authentication failed: no such user: adrian - 123.33.44.45",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: authentication failed: can't map user name: adrian - 123.33.44.45",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: authentication failed for user adrain - 123.33.44.45",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: authentication failed for mapped user adrain - 123.33.44.45",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: root login not allowed - 123.33.44.45",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: can't find APOP secret for user adrian - 123.33.44.45",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.33.44.45",
+    "match": true
+   },
+   "expect_time": 1100475293.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 15 00:34:53 rmc1pt2-2-35-70 solid-pop3d[3822]: APOP authentication failed for user adrian - 123.33.44.45",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "190.16.165.230",
+    "match": true
+   },
+   "expect_time": 1100729403.0,
+   "file": "solid-pop3d",
+   "filter_options": {},
+   "flt_key": "solid-pop3d",
+   "line": "Nov 17 23:10:03 emf1pt2-2-35-70 solid-pop3d[16993]: authentication failed for user jacques - 190.16.165.230",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

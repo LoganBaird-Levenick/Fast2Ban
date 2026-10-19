@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "centreon",
+ "records": [
+  {
+   "expect": {
+    "host": "50.97.225.132",
+    "match": true
+   },
+   "expect_time": 1571676915.0,
+   "file": "centreon",
+   "filter_options": {},
+   "flt_key": "centreon",
+   "line": "2019-10-21 18:55:15|-1|0|0|[WEB] [50.97.225.132] Authentication failed for 'admin' : password mismatch",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

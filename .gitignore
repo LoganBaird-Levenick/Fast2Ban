@@ -1,0 +1,7 @@
+/target
+# Upstream Python Fail2Ban reference checkout (read-only oracle; own git repo).
+/fail2ban/
+# Local oracle scratch output
+/.oracle/
+*.swp
+.DS_Store

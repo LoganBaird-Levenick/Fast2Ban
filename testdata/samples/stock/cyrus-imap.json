@@ -1,0 +1,148 @@
+{
+ "basedir": "stock",
+ "filter": "cyrus-imap",
+ "records": [
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1104871865.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Jan 4 21:51:05 hostname cyrus/imap[5355]: badlogin: localhost.localdomain [127.0.0.1] plaintext cyrus@localdomain SASL(-13): authentication failure: checkpass failed",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "For secure imaps",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1104871865.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Jan 4 21:51:05 hostname cyrus/imaps[5355]: badlogin: localhost.localdomain [127.0.0.1] plaintext cyrus@localdomain SASL(-13): authentication failure: checkpass failed",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.23",
+    "match": true
+   },
+   "expect_time": 1108916612.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Feb 20 17:23:32 domain cyrus/pop3[18635]: badlogin: localhost [198.51.100.23] plaintext administrator SASL(-13): authentication failure: checkpass failed",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1108916612.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Feb 20 17:23:32 cyrus/pop3[4297]: badlogin: example.com [1.2.3.4] plaintext mail0001 SASL(-13): authentication failure: checkpass failed",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.45",
+    "match": true
+   },
+   "expect_time": 1118247073.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Jun 8 18:11:13 lampserver imap[4480]: badlogin: example.com [198.51.100.45] DIGEST-MD5 [SASL(-13): authentication failure: client response doesn't match what we generated]",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.57",
+    "match": true
+   },
+   "expect_time": 1103619717.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Dec 21 10:01:57 hostname imapd[18454]: badlogin: example.com [198.51.100.57] CRAM-MD5 [SASL(-13): authentication failure: incorrect digest response]",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1104419007.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Dec 30 16:03:27 somehost imapd[2517]: badlogin: local-somehost[1.2.3.4] OTP [SASL(-13): authentication failure: External SSF not good enough]",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121633756.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Jul 17 22:55:56 derry cyrus/imaps[7568]: badlogin: serafinat.xxxxxx [1.2.3.4] plain [SASL(-13): user not found: user: pressy@derry property: cmusaslsecretPLAIN not found in sasldb]",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121698002.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Jul 18 16:46:42 derry cyrus/imaps[27449]: badlogin: serafinat.xxxxxx [1.2.3.4] PLAIN [SASL(-13): user not found: Password verification failed]",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "entry without loginname/hostname before IP",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1110255921.0,
+   "file": "cyrus-imap",
+   "filter_options": {},
+   "flt_key": "cyrus-imap",
+   "line": "Mar  8 05:25:21 host imap[22130]: badlogin: [192.0.2.4] plain [SASL(-13): authentication failure: Password verification failed]",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

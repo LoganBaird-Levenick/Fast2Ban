@@ -1,0 +1,75 @@
+{
+ "basedir": "stock",
+ "filter": "znc-adminlog",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1540597255.0,
+   "file": "znc-adminlog",
+   "filter_options": {},
+   "flt_key": "znc-adminlog",
+   "line": "[2018-10-27 01:40:55] [girst] failed to login from 1.2.3.4",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "znc-adminlog",
+   "filter_options": {},
+   "flt_key": "znc-adminlog",
+   "line": "[2018-10-27 01:40:17] [girst] connected to ZNC from 1.2.3.4",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "znc-adminlog",
+   "filter_options": {},
+   "flt_key": "znc-adminlog",
+   "line": "[2018-10-27 01:40:21] [girst] disconnected from ZNC from 1.2.3.4",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "port after IP",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1567950799.0,
+   "file": "znc-adminlog",
+   "filter_options": {},
+   "flt_key": "znc-adminlog",
+   "line": "[2019-09-08 15:53:19] [admin] failed to login from 192.0.2.1:65001",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd-journal entry, port after IP",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "file": "znc-adminlog",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "znc-adminlog{'logtype': 'journal'}",
+   "line": "Test znc[37232]: [admin] failed to login from 192.0.2.2:65009",
+   "lineno": 15,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "squid",
+ "records": [
+  {
+   "expect": {
+    "host": "91.188.124.227",
+    "match": true
+   },
+   "expect_time": 1386543323.0,
+   "file": "squid",
+   "filter_options": {},
+   "flt_key": "squid",
+   "line": "1386543323.000      4 91.188.124.227 TCP_DENIED/403 4099 GET http://www.proxy-listen.de/azenv.php - HIER_NONE/- text/html",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "175.44.0.184",
+    "match": true
+   },
+   "expect_time": 1386543500.0,
+   "file": "squid",
+   "filter_options": {},
+   "flt_key": "squid",
+   "line": "1386543500.000      5 175.44.0.184 NONE/405 3364 CONNECT error:method-not-allowed - HIER_NONE/- text/html",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.74.125.200",
+    "match": true
+   },
+   "expect_time": 1386544084.0,
+   "file": "squid",
+   "filter_options": {},
+   "flt_key": "squid",
+   "line": "1386544084.000      3 198.74.125.200 TCP_DENIED/403 3722 GET http://www2t.biglobe.ne.jp/~take52/test/env.cgi - HIER_NONE/- text/html",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "175.42.91.151",
+    "match": true
+   },
+   "expect_time": 1386544146.0,
+   "file": "squid",
+   "filter_options": {},
+   "flt_key": "squid",
+   "line": "1386544146.000      1 175.42.91.151 TCP_DENIED/403 3745 GET http://pkfsp.ru/wp-content/uploads/proxyc/engine.php - HIER_NONE/- text/html",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

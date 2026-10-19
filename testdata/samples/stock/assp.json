@@ -1,0 +1,314 @@
+{
+ "basedir": "stock",
+ "filter": "assp",
+ "records": [
+  {
+   "expect": {
+    "host": "68.171.223.68",
+    "match": true
+   },
+   "expect_time": 1365311316.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-07-13 07:08:36 [SSL-out] 68.171.223.68 SSL negotiation with client failed: SSL accept attempt failed with unknown errorerror:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol;",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "68.171.223.68",
+    "match": true
+   },
+   "expect_time": 1365311316.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-07-13 07:08:36 [SSL-out] 68.171.223.68 SSL negotiation with client failed: SSL accept attempt failed with unknown errorerror:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol;",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "68.171.223.68",
+    "match": true
+   },
+   "expect_time": 1365311437.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-07-13 07:10:37 [SSL-out] 68.171.223.68 SSL negotiation with client failed: SSL accept attempt failed with unknown errorerror:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol;",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "68.171.223.68",
+    "match": true
+   },
+   "expect_time": 1365311557.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-07-13 07:12:37 [SSL-out] 68.171.223.68 SSL negotiation with client failed: SSL accept attempt failed with unknown errorerror:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol;",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "68.171.223.68",
+    "match": true
+   },
+   "expect_time": 1365311676.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-07-13 07:14:36 [SSL-out] 68.171.223.68 SSL negotiation with client failed: SSL accept attempt failed with unknown errorerror:140760FC:SSL routines:SSL23_GET_CLIENT_HELLO:unknown protocol;",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022309.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:09 Blocking 217.194.197.97 - too much AUTH errors (8);",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022309.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:09 Blocking 217.194.197.97 - too much AUTH errors (9);",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022309.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:09 Blocking 217.194.197.97 - too much AUTH errors (10);",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022310.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:10 [SSL-out] 217.194.197.97 max sender authentication errors (5) exceeded -- dropping connection - after reply: 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6;",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022310.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:10 [SSL-out] 217.194.197.97 max sender authentication errors (5) exceeded -- dropping connection - after reply: 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6;",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022310.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:10 [SSL-out] 217.194.197.97 max sender authentication errors (5) exceeded -- dropping connection - after reply: 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6;",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.194.197.97",
+    "match": true
+   },
+   "expect_time": 1367022311.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Apr-27-13 02:25:11 [SSL-out] 217.194.197.97 max sender authentication errors (5) exceeded -- dropping connection - after reply: 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6;",
+   "lineno": 24,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1469803792.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-29-16 16:49:52 m1-25391-06124 [Worker_1] [TLS-out] [RelayAttempt] 0.0.0.0 <user@example.com> to: user@example.org relay attempt blocked for: someone@example.org",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1469891245.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-30-16 17:07:25 [Worker_1] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6",
+   "lineno": 28,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1469891465.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-30-16 17:11:05 m1-13060-05386 [Worker_1] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: UGFzc3dvcmQ6",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1469940359.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-31-16 06:45:59 [Worker_1] [TLS-in] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: ",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1451979529.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jan-05-16 08:38:49 m1-01129-09140 [Worker_1] [TLS-in] [TLS-out] [RelayAttempt] 0.0.0.0 <user@example.com> relay attempt blocked for (parsing): <user2@example>",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1465742617.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jun-12-16 16:43:37 m1-64217-12013 [Worker_1] [TLS-in] [TLS-out] [RelayAttempt] 0.0.0.0 <user@example.com> to: user2@example.com relay attempt blocked for (parsing): <a.notheruser69@example.c>",
+   "lineno": 36,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1453497951.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jan-22-16 22:25:51 [Worker_1] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: Invalid authentication mechanism",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1458391340.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Mar-19-16 13:42:20 [Worker_1] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: Invalid base64 data in continued response",
+   "lineno": 40,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1468853661.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-18-16 16:54:21 [Worker_2] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: Connection lost to authentication server",
+   "lineno": 42,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "0.0.0.0",
+    "match": true
+   },
+   "expect_time": 1468854863.0,
+   "file": "assp",
+   "filter_options": {},
+   "flt_key": "assp",
+   "line": "Jul-18-16 17:14:23 m1-76453-02949 [Worker_1] [TLS-out] 0.0.0.0 [SMTP Error] 535 5.7.8 Error: authentication failed: Connection lost to authentication server",
+   "lineno": 44,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

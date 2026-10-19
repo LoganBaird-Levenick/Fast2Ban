@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "bitwarden",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.0.16",
+    "match": true
+   },
+   "expect_time": 1574701489.0,
+   "file": "bitwarden",
+   "filter_options": {},
+   "flt_key": "bitwarden",
+   "line": "2019-11-26 01:04:49.008 +08:00 [WRN] Failed login attempt. 192.168.0.16",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.0.21",
+    "match": true
+   },
+   "expect_time": 1574714398.0,
+   "file": "bitwarden",
+   "filter_options": {},
+   "flt_key": "bitwarden",
+   "line": "2019-11-25 21:39:58.464 +01:00 [WRN] Failed login attempt, 2FA invalid. 192.168.0.21",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.0.21",
+    "match": true
+   },
+   "expect_time": 1574714398.0,
+   "file": "bitwarden",
+   "filter_options": {},
+   "flt_key": "bitwarden",
+   "line": "2019-11-25 21:39:58.464 +01:00 [Warning] Failed login attempt, 2FA invalid. 192.168.0.21",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.0.23",
+    "match": true
+   },
+   "expect_time": 1569323810.0,
+   "file": "bitwarden",
+   "filter_options": {},
+   "flt_key": "bitwarden",
+   "line": "2019-09-24T13:16:50 e5a81dbf7fd1 Bitwarden-Identity[1]: [Bit.Core.IdentityServer.ResourceOwnerPasswordValidator] Failed login attempt. 192.168.0.23",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

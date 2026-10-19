@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "qmail",
+ "records": [
+  {
+   "expect": {
+    "host": "198.51.100.77",
+    "match": true
+   },
+   "expect_time": 1094448813.0,
+   "file": "qmail",
+   "filter_options": {},
+   "flt_key": "qmail",
+   "line": "Sep  6 07:33:33 sd6 qmail: 1157520813.485077 rblsmtpd: 198.51.100.77 pid 19597 sbl-xbl.spamhaus.org: 451 http://www.spamhaus.org/query/bl?ip=198.51.100.77",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.54",
+    "match": true
+   },
+   "expect_time": 1094447909.0,
+   "file": "qmail",
+   "filter_options": {},
+   "flt_key": "qmail",
+   "line": "Sep  6 07:18:29 sd6 qmail: 1157519909.633171 qmail-smtpd: 421 badiprbl: ip 198.51.100.54 rbl: example.com",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "193.111.120.47",
+    "match": true
+   },
+   "expect_time": 1120137213.0,
+   "file": "qmail",
+   "filter_options": {},
+   "flt_key": "qmail",
+   "line": "Jun 30 15:13:33 ns1 rblsmtpd: relays.ordb.org blocked 193.111.120.47 ordb-test.null.dk -",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.203.178.107",
+    "match": true
+   },
+   "expect_time": 1120137235.0,
+   "file": "qmail",
+   "filter_options": {},
+   "flt_key": "qmail",
+   "line": "Jun 30 15:13:55 ns1 rblsmtpd: relays.osirusoft.com blocked 192.203.178.107 sbl.crynwr.com -",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

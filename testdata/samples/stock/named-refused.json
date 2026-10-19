@@ -1,0 +1,234 @@
+{
+ "basedir": "stock",
+ "filter": "named-refused",
+ "records": [
+  {
+   "expect": {
+    "host": "194.145.196.18",
+    "match": true
+   },
+   "expect_time": 1122207415.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:16:55 raid5 named[3935]: client 194.145.196.18#4795: query 'ricreig.com/NS/IN' denied",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.123.164.113",
+    "match": true
+   },
+   "expect_time": 1122207416.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:16:56 raid5 named[3935]: client 62.123.164.113#32768: query 'ricreig.com/NS/IN' denied",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "148.160.29.6",
+    "match": true
+   },
+   "expect_time": 1122207433.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:17:13 raid5 named[3935]: client 148.160.29.6#33081: query (cache) 'geo-mueller.de/NS/IN' denied",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "148.160.29.6",
+    "match": true
+   },
+   "expect_time": 1122207625.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:20:25 raid5 named[3935]: client 148.160.29.6#33081: query (cache) 'shivaree.de/NS/IN' denied",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "148.160.29.6",
+    "match": true
+   },
+   "expect_time": 1122207816.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:23:36 raid5 named[3935]: client 148.160.29.6#33081: query (cache) 'mietberatung.de/NS/IN' denied",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.109.4.89",
+    "match": true
+   },
+   "expect_time": 1122207816.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Jul 24 14:23:36 raid5 named[3935]: client 62.109.4.89#9334: view external: query (cache) './NS/IN' denied",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1376184971.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "11-Aug-2013 03:36:11.372 error: client 1.2.3.4#52115: zone transfer 'domain.com/AXFR/IN' denied",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "223.252.23.219",
+    "match": true
+   },
+   "expect_time": 1092723622.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Aug 17 08:20:22 catinthehat named[2954]: client 223.252.23.219#56275: zone transfer 'openquery.eu/AXFR/IN' denied",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "82.207.95.42",
+    "match": true
+   },
+   "expect_time": 1377246776.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "23-Aug-2013 10:32:56.621 client 82.207.95.42#40278 (redginseng.com.ua): query (cache) 'redginseng.com.ua/A/IN' denied",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "denied with allow-query-cache did not match, gh-2697",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1377276088.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "23-Aug-2013 18:41:28.090 client @0x7f7c95c76968 192.0.2.3#60683 (example.com): query (cache) 'example.com/A/IN' denied (allow-query-cache did not match)",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "59.167.242.100",
+    "match": true
+   },
+   "expect_time": 1377618585.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "27-Aug-2013 17:49:45.330 client 59.167.242.100#44281 (watt.kiev.ua): zone transfer 'watt.kiev.ua/AXFR/IN' denied",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "176.9.92.38",
+    "match": true
+   },
+   "expect_time": 1093618711.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Aug 27 16:58:31 vhost1-ua named[29206]: client 176.9.92.38#42592 (simmarket.com.ua): bad zone transfer request: 'simmarket.com.ua/IN': non-authoritative zone (NOTAUTH)",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "new log format, 9.11.0 (#2406)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1093618740.0,
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Aug 27 16:59:00 host named[28098]: client @0x7f6450002ef0 192.0.2.1#23332 (example.com): bad zone transfer request: 'test.com/IN': non-authoritative zone (NOTAUTH)",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "log message with category (security), gh-3388",
+   "expect": {
+    "host": "192.0.2.8",
+    "match": true
+   },
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Oct 23 02:06:39 security: info: client @0x7f4e446fd6e8 192.0.2.8#53 (example.io): query (cache) 'example.io/A/IN' denied",
+   "lineno": 33,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "log message with category, gh-3388",
+   "expect": {
+    "host": "192.0.2.237",
+    "match": true
+   },
+   "file": "named-refused",
+   "filter_options": {},
+   "flt_key": "named-refused",
+   "line": "Oct 23 03:35:40 update-security: error: client @0x7f4e45c07a48 192.0.2.237#55956 (example.ca): zone transfer 'example.ca/AXFR/IN' denied",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd-journal entry",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "file": "named-refused",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "named-refused{'logtype': 'journal'}",
+   "line": "atom named[1806]: client @0x7fb13400eec0 192.0.2.1#61977 (.): query (cache) './ANY/IN' denied",
+   "lineno": 40,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

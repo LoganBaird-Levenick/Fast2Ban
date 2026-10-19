@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "stunnel",
+ "records": [
+  {
+   "expect": {
+    "host": "10.7.41.61",
+    "match": true
+   },
+   "expect_time": 1321882156.0,
+   "file": "stunnel",
+   "filter_options": {},
+   "flt_key": "stunnel",
+   "line": "2011.11.21 14:29:16 LOG3[28228:140093368055552]: SSL_accept from 10.7.41.61:33454 : 140890C7: error:140890C7:SSL routines:SSL3_GET_CLIENT_CERTIFICATE:peer did not return a certificate",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

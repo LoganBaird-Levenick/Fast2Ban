@@ -1,0 +1,122 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-kerio",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "usedns",
+   "warn"
+  ],
+  [
+   "multi-set",
+   "o-f-kerio",
+   "addfailregex",
+   [
+    "^ SMTP Spam attack detected from <HOST>,",
+    "^ IP address <HOST> found in DNS blacklist",
+    "^ Relay attempt from IP address <HOST>",
+    "^ Attempt to deliver to unknown recipient \\S+, from \\S+, IP address <HOST>$",
+    "^ Failed SMTP login from <HOST>",
+    "^ SMTP: User \\S+ doesn't exist. Attempt from IP address <HOST>",
+    "^ Client with IP address <HOST> has no reverse DNS entry, connection rejected before SMTP greeting$",
+    "^ Administration login into Web Administration from <HOST> failed: IP address not allowed$",
+    "^ Message from IP address <HOST>, sender \\S+ rejected: sender domain does not exist$"
+   ]
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "datepattern",
+   "^\\[%d/%b/%Y %H:%M:%S\\]"
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-kerio",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-kerio"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-kerio\n"
+}

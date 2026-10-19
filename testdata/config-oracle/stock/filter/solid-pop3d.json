@@ -1,0 +1,117 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-solid-pop3d",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "usedns",
+   "warn"
+  ],
+  [
+   "multi-set",
+   "o-f-solid-pop3d",
+   "addfailregex",
+   [
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?authentication failed: (no such user|can't map user name): .*? - <HOST>$",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?(APOP )?authentication failed for (mapped )?user .*? - <HOST>$",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?root login not allowed - <HOST>$",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?solid-pop3d(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?can't find APOP secret for user .*? - <HOST>$"
+   ]
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-solid-pop3d",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-solid-pop3d"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-solid-pop3d\n"
+}

@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "phpmyadmin-syslog",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1093179022.0,
+   "file": "phpmyadmin-syslog",
+   "filter_options": {},
+   "flt_key": "phpmyadmin-syslog",
+   "line": "Aug 22 14:50:22 eurostream phpMyAdmin[16358]: user denied: root (mysql-denied) from 192.0.2.1",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

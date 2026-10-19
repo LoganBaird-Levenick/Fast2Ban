@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "gssftpd",
+ "records": [
+  {
+   "expect": {
+    "host": "198.51.100.23",
+    "match": true
+   },
+   "expect_time": 1106413786.0,
+   "file": "gssftpd",
+   "filter_options": {},
+   "flt_key": "gssftpd",
+   "line": "Jan 22 18:09:46 host ftpd[132]: repeated login failures from 198.51.100.23 (example.com)",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

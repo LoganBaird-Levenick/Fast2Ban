@@ -1,0 +1,91 @@
+{
+ "basedir": "stock",
+ "filter": "courier-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1114286341.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Apr 23 21:59:01 dns2 imapd: LOGIN FAILED, user=sales@example.com, ip=[::ffff:1.2.3.4]",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.76",
+    "match": true
+   },
+   "expect_time": 1114286378.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Apr 23 21:59:38 dns2 pop3d: LOGIN FAILED, user=info@example.com, ip=[::ffff:198.51.100.76]",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.33",
+    "match": true
+   },
+   "expect_time": 1100329913.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Nov 13 08:11:53 server imapd-ssl: LOGIN FAILED, user=user@domain.tld, ip=[::ffff:198.51.100.33]",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1113758231.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Apr 17 19:17:11 SERVER courierpop3login: LOGIN FAILED, user=USER@EXAMPLE.org, ip=[::ffff:1.2.3.4]",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1113758232.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Apr 17 19:17:12 server imapd-ssl: LOGIN FAILED, method=PLAIN, ip=[::ffff:192.0.2.4]",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true,
+    "user": "tester"
+   },
+   "expect_time": 1114585200.0,
+   "file": "courier-auth",
+   "filter_options": {},
+   "flt_key": "courier-auth",
+   "line": "Apr 27 09:00:00 servername imapd: LOGIN FAILED, user=tester, ip=[::ffff:192.0.2.5], port=[255]",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

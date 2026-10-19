@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "grafana",
+ "records": [
+  {
+   "expect": {
+    "host": "182.56.23.12",
+    "match": true
+   },
+   "expect_time": 1603122273.0,
+   "file": "grafana",
+   "filter_options": {},
+   "flt_key": "grafana",
+   "line": "t=2020-10-19T17:44:33+0200 lvl=eror msg=\"Invalid username or password\" logger=context userId=0 orgId=0 uname= error=\"Invalid Username or Password\" remote_addr=182.56.23.12",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "182.56.23.13",
+    "match": true
+   },
+   "expect_time": 1603125873.0,
+   "file": "grafana",
+   "filter_options": {},
+   "flt_key": "grafana",
+   "line": "t=2020-10-19T18:44:33+0200 lvl=eror msg=\"Invalid username or password\" logger=context userId=0 orgId=0 uname= error=\"User not found\" remote_addr=182.56.23.13",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

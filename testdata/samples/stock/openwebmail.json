@@ -1,0 +1,48 @@
+{
+ "basedir": "stock",
+ "filter": "openwebmail",
+ "records": [
+  {
+   "expect": {
+    "host": "178.123.108.196",
+    "match": true
+   },
+   "expect_time": 1388253833.0,
+   "file": "openwebmail",
+   "filter_options": {},
+   "flt_key": "openwebmail",
+   "line": "Sat Dec 28 19:03:53 2013 - [72926] (178.123.108.196) gsdfg - userinfo error - auth_unix.pl, ret -4, User gsdfg doesn't exist",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "178.123.108.196",
+    "match": true
+   },
+   "expect_time": 1388253843.0,
+   "file": "openwebmail",
+   "filter_options": {},
+   "flt_key": "openwebmail",
+   "line": "Sat Dec 28 19:04:03 2013 - [72926] (178.123.108.196) gsdfg - login error - no such user - loginname=gsdfg",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "178.123.108.196",
+    "match": true
+   },
+   "expect_time": 1388253938.0,
+   "file": "openwebmail",
+   "filter_options": {},
+   "flt_key": "openwebmail",
+   "line": "Sat Dec 28 19:05:38 2013 - [73540] (178.123.108.196) myname - login error - auth_unix.pl, ret -4, Password incorrect",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

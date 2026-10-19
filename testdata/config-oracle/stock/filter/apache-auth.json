@@ -1,0 +1,130 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-apache-auth",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "prefregex",
+   "^\\[\\]\\s\\[(:?error|(?!evasive)\\S+:\\S+)\\]( \\[pid \\d+(:\\S+ \\d+)?\\])? \\[(?:client|remote) <HOST>(:\\d{1,5})?\\] (?:AH\\d+: )?<F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "o-f-apache-auth",
+   "addfailregex",
+   [
+    "^client (?:denied by server configuration|used wrong authentication scheme)\\b",
+    "^user (?!`)<F-USER>(?:\\S*|.*?)</F-USER> (?:auth(?:oriz|entic)ation failure|not found|denied by provider)\\b",
+    "^Authorization of user <F-USER>(?:\\S*|.*?)</F-USER> to access .*? failed\\b",
+    "^([A-Z]\\w+: )?user <F-USER>(?:\\S*|.*?)</F-USER>: password mismatch\\b",
+    "^([A-Z]\\w+: )?user `<F-USER>(?:[^']*|.*?)</F-USER>' in realm `.+' (auth(?:oriz|entic)ation failure|not found|denied by provider)\\b",
+    "^([A-Z]\\w+: )?invalid nonce .* received - length is not\\b",
+    "^([A-Z]\\w+: )?realm mismatch - got `(?:[^']*|.*?)' but expected\\b",
+    "^([A-Z]\\w+: )?unknown algorithm `(?:[^']*|.*?)' received\\b",
+    "^invalid qop `(?:[^']*|.*?)' received\\b",
+    "^([A-Z]\\w+: )?invalid nonce .*? received - user attempted time travel\\b",
+    "^(?:No h|H)ostname \\S+ provided via SNI(?:, but no hostname provided| and hostname \\S+ provided| for a name based virtual host)\\b"
+   ]
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-apache-auth",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-apache-auth"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-auth\n"
+}

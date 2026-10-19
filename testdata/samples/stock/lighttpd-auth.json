@@ -1,0 +1,125 @@
+{
+ "basedir": "stock",
+ "filter": "lighttpd-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "4.4.4.4",
+    "match": true
+   },
+   "expect_time": 1324829360.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2011-12-25 17:09:20: (http_auth.c.875) password doesn't match for /gitweb/ username: francois, IP: 4.4.4.4",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "4.4.4.4",
+    "match": true
+   },
+   "expect_time": 1348647875.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2012-09-26 10:24:35: (http_auth.c.1136) digest: auth failed for  xxx : wrong password, IP: 4.4.4.4",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "4.4.4.4",
+    "match": true
+   },
+   "expect_time": 1377383095.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2013-08-25 00:24:55: (http_auth.c.877) get_password failed, IP: 4.4.4.4",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "http_auth -> mod_auth, gh-2018",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1516108232.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2018-01-16 14:10:32: (mod_auth.c.525) password doesn't match for /test-url username: test, IP: 192.0.2.1",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3116",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true,
+    "user": "test"
+   },
+   "expect_time": 1633010733.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2021-09-30 16:05:33: mod_auth.c.828) password doesn't match for /secure/ username: test IP: 192.0.2.2",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3116",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true,
+    "user": "tester"
+   },
+   "expect_time": 1633016677.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2021-09-30 17:44:37: (mod_auth.c.791) digest: auth failed for  tester : wrong password, IP: 192.0.2.3",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3116",
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1633016677.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2021-09-30 17:44:37: (mod_auth.c.791) digest: auth failed: uri mismatch (/uri1 != /uri2), IP: 192.0.2.4",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3955",
+   "expect": {
+    "host": "192.0.2.211",
+    "match": true
+   },
+   "expect_time": 1741050717.0,
+   "file": "lighttpd-auth",
+   "filter_options": {},
+   "flt_key": "lighttpd-auth",
+   "line": "2025-03-04T02:11:57.602061 ip-172-31-3-150.ap-southeast-2.compute.internal lighttpd[764]: (mod_auth.c.853) password doesn't match for / username: user1 IP: 192.0.2.211",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

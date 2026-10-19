@@ -1,0 +1,160 @@
+{
+ "basedir": "stock",
+ "filter": "selinux-ssh",
+ "records": [
+  {
+   "expect": {
+    "host": "173.242.116.187",
+    "match": false
+   },
+   "expect_time": 1373330716.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1373330716.415:4063): user pid=11998 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=\"root\" exe=\"/usr/sbin/sshd\" hostname=? addr=173.242.116.187 terminal=ssh res=failed'",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.242.116.187",
+    "match": false
+   },
+   "expect_time": 1373330717.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1373330717.000:4068): user pid=12000 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=28756E6B6E6F776E207573657229 exe=\"/usr/sbin/sshd\" hostname=? addr=173.242.116.187 terminal=ssh res=failed'",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.242.116.187",
+    "match": true
+   },
+   "expect_time": 1373330717.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_ERR msg=audit(1373330717.000:4070): user pid=12000 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:bad_ident acct=\"?\" exe=\"/usr/sbin/sshd\" hostname=173.242.116.187 addr=173.242.116.187 terminal=ssh res=failed'",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.242.116.187",
+    "match": false
+   },
+   "expect_time": 1373330717.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1373330717.000:4073): user pid=12000 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=28696E76616C6964207573657229 exe=\"/usr/sbin/sshd\" hostname=? addr=173.242.116.187 terminal=ssh res=failed'",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "113.240.248.18",
+    "match": false
+   },
+   "expect_time": 1372550528.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1372546928.000:52008): user pid=21569 uid=0 auid=0 ses=76 subj=unconfined_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=\"sshd\" exe=\"/usr/sbin/sshd\" hostname=? addr=113.240.248.18 terminal=ssh res=failed'",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "113.240.248.18",
+    "match": true
+   },
+   "expect_time": 1372557500.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_ERR msg=audit(1372557500.000:61747): user pid=23684 uid=0 auid=0 ses=76 subj=unconfined_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:bad_ident acct=\"?\" exe=\"/usr/sbin/sshd\" hostname=113.240.248.18 addr=113.240.248.18 terminal=ssh res=failed'",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "113.240.248.18",
+    "match": false
+   },
+   "expect_time": 1372561100.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1372557500.000:61750): user pid=23684 uid=0 auid=0 ses=76 subj=unconfined_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=28696E76616C6964207573657229 exe=\"/usr/sbin/sshd\" hostname=? addr=113.240.248.18 terminal=ssh res=failed'",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "194.228.20.113",
+    "match": true
+   },
+   "expect_time": 1373129280.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_AUTH msg=audit(1373129280.000:9): user pid=1277 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=pubkey acct=\"root\" exe=\"/usr/sbin/sshd\" hostname=? addr=194.228.20.113 terminal=ssh res=failed'",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.3.100",
+    "match": true
+   },
+   "expect_time": 1383116263.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_AUTH msg=audit(1383116263.000:603): pid=12887 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=password acct=\"dan\" exe=\"/usr/sbin/sshd\" hostname=? addr=192.168.3.100 terminal=ssh res=failed'",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.3.100",
+    "match": false
+   },
+   "expect_time": 1383116048.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_LOGIN msg=audit(1383116048.000:595): pid=12354 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=login acct=\"dan\" exe=\"/usr/sbin/sshd\" hostname=? addr=192.168.3.100 terminal=ssh res=failed'",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.111",
+    "match": true
+   },
+   "expect_time": 1668381071.0,
+   "file": "selinux-ssh",
+   "filter_options": {},
+   "flt_key": "selinux-ssh",
+   "line": "type=USER_AUTH msg=audit(1668381071.000:373474): pid=173582 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:sshd_t:s0-s0:c0.c1023 msg='op=PAM:authentication grantors=? acct=\"root\" exe=\"/usr/sbin/sshd\" hostname=192.0.2.111 addr=192.0.2.111 terminal=ssh res=failed'\u001dUID=\"root\" AUID=\"unset\"",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

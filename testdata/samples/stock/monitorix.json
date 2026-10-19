@@ -1,0 +1,65 @@
+{
+ "basedir": "stock",
+ "filter": "monitorix",
+ "records": [
+  {
+   "desc": "should be ignored: successful request",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1618380661.0,
+   "file": "monitorix",
+   "filter_options": {},
+   "flt_key": "monitorix",
+   "line": "Wed Apr 14 08:11:01 2021 - OK - [127.0.0.1] \"GET /monitorix-cgi/monitorix.cgi - Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "file does not exist",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1618383262.0,
+   "file": "monitorix",
+   "filter_options": {},
+   "flt_key": "monitorix",
+   "line": "Wed Apr 14 08:54:22 2021 - NOTEXIST - [127.0.0.1] File does not exist: /manager/html",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "access not allowed",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1618392271.0,
+   "file": "monitorix",
+   "filter_options": {},
+   "flt_key": "monitorix",
+   "line": "Wed Apr 14 11:24:31 2021 - NOTALLOWED - [127.0.0.1] Access not allowed: /monitorix/",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "authentication error",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1618392368.0,
+   "file": "monitorix",
+   "filter_options": {},
+   "flt_key": "monitorix",
+   "line": "Wed Apr 14 11:26:08 2021 - AUTHERR - [127.0.0.1] Authentication error: /monitorix/",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

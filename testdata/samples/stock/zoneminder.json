@@ -1,0 +1,48 @@
+{
+ "basedir": "stock",
+ "filter": "zoneminder",
+ "records": [
+  {
+   "expect": {
+    "host": "10.1.1.1",
+    "match": true
+   },
+   "expect_time": 1459176649.0,
+   "file": "zoneminder",
+   "filter_options": {},
+   "flt_key": "zoneminder",
+   "line": "[Mon Mar 28 16:50:49.522240 2016] [:error] [pid 1795] [client 10.1.1.1:50700] WAR [Login denied for user \"username1\"], referer: https://zoneminder/",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.1.1.1",
+    "match": true
+   },
+   "expect_time": 1616943180.0,
+   "file": "zoneminder",
+   "filter_options": {},
+   "flt_key": "zoneminder",
+   "line": "[Sun Mar 28 16:53:00.472693 2021] [php7:notice] [pid 11328] [client 10.1.1.1:39568] ERR [Could not retrieve user username1 details], referer: https://zm/zm/?view=logout",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.1.1.1",
+    "match": true
+   },
+   "expect_time": 1616943554.0,
+   "file": "zoneminder",
+   "filter_options": {},
+   "flt_key": "zoneminder",
+   "line": "[Sun Mar 28 16:59:14.150625 2021] [php7:notice] [pid 11336] [client 10.1.1.1:39654] ERR [Login denied for user \"username1\"], referer: https://zm/zm/?",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,118 @@
+{
+ "basedir": "stock",
+ "filter": "exim-spam",
+ "records": [
+  {
+   "expect": {
+    "host": "4.47.28.40",
+    "match": true
+   },
+   "expect_time": 1074406535.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2004-01-18 07:15:35 1Ai79e-0000Dq-8i F=uzwltcmwto24@melissacam.biz H=lsanca1-ar3-4-47-028-040.lsanca1.elnk.dsl.genuity.net [4.47.28.40] P=smtp rejected by local_scan(): Rejected: hits=7.5 required=5.0 trigger=5.0",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2.181.148.95",
+    "match": true
+   },
+   "expect_time": 1371287973.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-06-15 11:19:33 [2249] H=([2.181.148.95]) [2.181.148.95]:52391 I=[1.2.3.4]:25 F=fantasizesg4@google.com rejected RCPT some@email.com: rejected found in dnsbl zen.spamhaus.org",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "46.254.240.82",
+    "match": true
+   },
+   "expect_time": 1370766088.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-06-09 10:21:28 [14127] 1UlasQ-0003fr-45 F=mcorporation4@aol.com H=(mail38.fssprus.ru) [46.254.240.82]:43671 I=[1.2.3.4]:25 P=esmtp rejected by local_scan(): Rejected",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "83.235.177.148",
+    "match": true
+   },
+   "expect_time": 1371288036.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-06-15 11:20:36 [2516] 1Unmew-0000ea-SE H=egeftech.static.otenet.gr [83.235.177.148]:32706 I=[1.2.3.4]:25 F=auguriesvbd40@google.com rejected after DATA: This message contains a virus (Sanesecurity.Junk.39934.UNOFFICIAL).",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "111.67.203.114",
+    "match": true
+   },
+   "expect_time": 1371343843.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-06-16 02:50:43 H=dbs.marsukov.com [111.67.203.114] F=<trudofspiori@mail.ru> rejected RCPT <info@nanomedtech.ua>: rejected because 111.67.203.114 is in a black list at dnsbl.sorbs.net\\nCurrently Sending Spam See: http://www.sorbs.net/lookup.shtml?111.67.203.114",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "178.123.108.196",
+    "match": true
+   },
+   "expect_time": 1388359490.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-12-30 00:24:50 1VxPit-000MMd-U4 SA: Action: flagged as Spam but accepted: score=8.2 required=5.0 (scanned in 6/6 secs | Message-Id: 008701cf04ed_24497d70_6cdc7850_@xxx.xx). From <spammer@xxx.xx> (host=ip-4.net-3-2-1.rev.xxx.xx [178.123.108.196]) for trap@example.com",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "188.76.45.72",
+    "match": true
+   },
+   "expect_time": 1388327652.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-12-29 15:34:12 1VxHRO-000NiI-Ly SA: Action: silently tossed message: score=31.0 required=5.0 trigger=30.0 (scanned in 6/6 secs | Message-Id: etPan.09bd0c40.c3d5f675.fdf7@server.local). From <Flossiedpd@jazztel.es> (host=72.45.76.188.dynamic.jazztel.es [188.76.45.72]) for me@my.com",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "178.123.108.196",
+    "match": true
+   },
+   "expect_time": 1388327951.0,
+   "file": "exim-spam",
+   "filter_options": {},
+   "flt_key": "exim-spam",
+   "line": "2013-12-29 15:39:11 1VxHWD-000NuW-83 SA: Action: silently tossed message: score=35.8 required=5.0 trigger=30.0 (scanned in 6/6 secs | Message-Id: 1VxHWD-000NuW-83). From <> (host=NULL [178.123.108.196]) for me@my.com",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

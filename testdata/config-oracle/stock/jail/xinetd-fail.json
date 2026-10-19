@@ -1,0 +1,196 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "xinetd-fail",
+   "auto"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "prefregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?xinetd(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?xinetd(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?FAIL: <F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "xinetd-fail",
+   "addfailregex",
+   [
+    "^\\S+ address from=<HOST>$",
+    "^\\S+ libwrap from=<HOST>$"
+   ]
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "maxretry",
+   2
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "maxmatches",
+   2
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "addaction",
+   "iptables-multiport-log"
+  ],
+  [
+   "multi-set",
+   "xinetd-fail",
+   "action",
+   "iptables-multiport-log",
+   [
+    [
+     "actionstart",
+     "<iptables> -N f2b-xinetd-fail\n<iptables> -A f2b-xinetd-fail -j RETURN\n<iptables> -I INPUT 1 -p tcp -m multiport --dports 0:65535 -j f2b-xinetd-fail\n<iptables> -N f2b-xinetd-fail-log\n<iptables> -I f2b-xinetd-fail-log -j LOG --log-prefix \"$(expr f2b-xinetd-fail : '\\(.\\{1,23\\}\\)'):DROP \" --log-level warning -m limit --limit 6/m --limit-burst 2\n<iptables> -A f2b-xinetd-fail-log -j <blocktype>"
+    ],
+    [
+     "actionstop",
+     "<iptables> -D INPUT -p tcp -m multiport --dports 0:65535 -j f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail-log\n<iptables> -X f2b-xinetd-fail\n<iptables> -X f2b-xinetd-fail-log"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail-log"
+    ],
+    [
+     "actioncheck",
+     "<iptables> -n -L f2b-xinetd-fail-log >/dev/null"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-xinetd-fail 1 -s <ip> -j f2b-xinetd-fail-log"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-xinetd-fail -s <ip> -j f2b-xinetd-fail-log"
+    ],
+    [
+     "port",
+     "0:65535"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "chain",
+     "<known/chain>"
+    ],
+    [
+     "name",
+     "xinetd-fail"
+    ],
+    [
+     "actname",
+     "iptables-multiport-log"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "start",
+   "xinetd-fail"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'xinetd-fail' jail.\n"
+}

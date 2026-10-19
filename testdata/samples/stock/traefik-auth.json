@@ -1,0 +1,160 @@
+{
+ "basedir": "stock",
+ "filter": "traefik-auth",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "traefik-auth{'mode': 'normal'}",
+   "line": "10.0.0.2 - - [18/Nov/2018:21:34:30 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "traefik-auth{'mode': 'ddos'}",
+   "line": "10.0.0.2 - username [18/Nov/2018:21:34:30 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576874.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "traefik-auth{'mode': 'normal'}",
+   "line": "10.0.0.2 - username [18/Nov/2018:21:34:34 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576874.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "traefik-auth{'mode': 'aggressive'}",
+   "line": "10.0.0.2 - username [18/Nov/2018:21:34:34 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "other request method",
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576874.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "traefik-auth{'mode': 'normal'}",
+   "line": "10.0.0.2 - username [18/Nov/2018:21:34:34 +0000] \"TRACE /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "other request method",
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576874.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "traefik-auth{'mode': 'aggressive'}",
+   "line": "10.0.0.2 - username [18/Nov/2018:21:34:34 +0000] \"TRACE /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "traefik-auth{'mode': 'normal'}",
+   "line": "10.0.0.2 - username [27/Nov/2018:23:33:31 +0000] \"GET /dashboard/ HTTP/2.0\" 200 716 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 118 \"Host-traefik-0\" \"/dashboard/\" 4ms",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "traefik-auth{'mode': 'aggressive'}",
+   "line": "10.0.0.2 - username [27/Nov/2018:23:33:31 +0000] \"GET /dashboard/ HTTP/2.0\" 200 716 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 118 \"Host-traefik-0\" \"/dashboard/\" 4ms",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576870.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "traefik-auth{'mode': 'ddos'}",
+   "line": "10.0.0.2 - - [18/Nov/2018:21:34:30 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.0.2",
+    "match": true
+   },
+   "expect_time": 1542576870.0,
+   "file": "traefik-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "traefik-auth{'mode': 'aggressive'}",
+   "line": "10.0.0.2 - - [18/Nov/2018:21:34:30 +0000] \"GET /dashboard/ HTTP/2.0\" 401 17 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0\" 72 \"Auth for frontend-Host-traefik-0\" \"/dashboard/\" 0ms",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

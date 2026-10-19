@@ -1,0 +1,164 @@
+{
+ "basedir": "stock",
+ "filter": "apache-overflows",
+ "records": [
+  {
+   "expect": {
+    "host": "58.179.109.179",
+    "match": true
+   },
+   "expect_time": 1268750369.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Tue Mar 16 15:39:29 2010] [error] [client 58.179.109.179] Invalid URI in request \\xf9h\\xa9\\xf3\\x88\\x8cXKj \\xbf-l*4\\x87n\\xe4\\xfe\\xd4\\x1d\\x06\\x8c\\xf8m\\\\rS\\xf6n\\xeb\\x8",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "121.222.2.133",
+    "match": true
+   },
+   "expect_time": 1268664287.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Mon Mar 15 15:44:47 2010] [error] [client 121.222.2.133] Invalid URI in request n\\xed*\\xbe*\\xab\\xefd\\x80\\xb5\\xae\\xf6\\x01\\x10M?\\xf2\\xce\\x13\\x9c\\xd7\\xa0N\\xa7\\xdb%0\\xde\\xe0\\xfc\\xd2\\xa0\\xfe\\xe9w\\xee\\xc4`v\\x9b[{\\x0c:\\xcb\\x93\\xc6\\xa0\\x93\\x9c`l\\\\\\x8d\\xc9",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "AH00126 failure, gh-2908",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1268665446.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Sat Mar 15 16:04:06.105212 2010] [core:error] [pid 17408] [client 192.0.2.1:55280] AH00126: Invalid URI in request GET /static/../../../a/../../../../etc/passwd HTTP/1.1",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.85.6.69",
+    "match": true
+   },
+   "expect_time": 1280481834.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Fri Jul 30 11:23:54 2010] [error] [client 10.85.6.69] request failed: URI too long (longer than 8190)",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "187.117.240.164",
+    "match": true
+   },
+   "expect_time": 1288214197.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Wed Oct 27 23:16:37 2010] [error] [client 187.117.240.164] Invalid URI in request x\\xb2\\xa1:SMl\\xcc{\\xfd\"\\xd1\\x91\\x84!d\\x0e~\\xf6:\\xfbVu\\xdf\\xc3\\xdb[\\xa9\\xfe\\xd3lpz\\x92\\xbf\\x9f5\\xa3\\xbbvF\\xbc\\xee\\x1a\\xb1\\xb0\\xf8K\\xecE\\xbc\\xe8r\\xacx=\\xc7>\\xb5\\xbd\\xa3\\xda\\xe9\\xf09\\x95\"fd\\x1c\\x05\\x1c\\xd5\\xf3#:\\x91\\xe6WE\\xdb\\xadN;k14;\\xdcr\\xad\\x9e\\xa8\\xde\\x95\\xc3\\xebw\\xa0\\xb1N\\x8c~\\xf1\\xcfSY\\xd5zX\\xd7\\x0f\\vH\\xe4\\xb5(\\xcf,3\\xc98\\x19\\xefYq@\\xd2I\\x96\\xfb\\xc7\\xa9\\xae._{S\\xd1\\x9c\\xad\\x17\\xdci\\x9b\\xca\\x93\\xafSM\\xb8\\x99\\xd9|\\xc2\\xd8\\xc9\\xe7\\xe9O\\x99\\xad\\x19\\xc3V]\\xcc\\xddR\\xf7$\\xaa\\xb8\\x18\\xe0f\\xb8\\xff",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1068822715.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Fri Nov 14 16:11:55 2003] [error] [client 1.2.3.4] request failed: erroneous characters after protocol string: User-Agent: Mozilla/5.0 (Windows; U; Win98; en-US; m18) Gecko/20001108 Netscape6/6.0",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "89.189.71.87",
+    "match": true
+   },
+   "expect_time": 1195092599.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Thu Nov 15 03:09:59 2007] [error] [client 89.189.71.87] Invalid method in request NOOP",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1225277714.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Wed Oct 29 11:55:14 2008] [error] [client 127.0.0.1] Invalid method in request \\x16\\x03\\x01 - possible attempt to establish SSL connection when the server isn't expecting it",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "AH10244: invalid URI path, gh-3778",
+   "expect": {
+    "host": "192.0.2.39",
+    "match": true
+   },
+   "expect_time": 1719372026.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Wed Jun 26 05:20:26.182799 2024] [core:error] [pid 2928] [client 192.0.2.39:37924] AH10244: invalid URI path (/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh)",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "coverage for another log-format (gh-3900)",
+   "expect": {
+    "host": "192.0.2.74",
+    "match": true
+   },
+   "expect_time": 1734531795.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Wed Dec 18 15:23:15.495667 2024] [core:error] [pid 1672:tid 1839] [client 192.0.2.74:39140] AH10244: invalid URI path (/cgi-bin/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/%%32%65%%32%65/bin/sh)",
+   "lineno": 33,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "coverage for another log-format (gh-3900)",
+   "expect": {
+    "host": "192.0.2.74",
+    "match": true
+   },
+   "expect_time": 1734531796.0,
+   "file": "apache-overflows",
+   "filter_options": {},
+   "flt_key": "apache-overflows",
+   "line": "[Wed Dec 18 15:23:16.304454 2024] [core:error] [pid 1673:tid 1845] [client 192.0.2.74:35446] AH10244: invalid URI path (/cgi-bin/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/.%2e/bin/sh)",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

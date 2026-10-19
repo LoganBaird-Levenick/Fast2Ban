@@ -1,0 +1,649 @@
+{
+ "basedir": "stock",
+ "filter": "sendmail-reject",
+ "records": [
+  {
+   "expect": {
+    "host": "128.68.136.133",
+    "match": true
+   },
+   "expect_time": 1109296870.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 25 03:01:10 kismet sm-acceptingconnections[27713]: s1P819mk027713: ruleset=check_rcpt, arg1=<asservnew@freemailhost.ru>, relay=128-68-136-133.broadband.corbina.ru [128.68.136.133], reject=550 5.7.1 <asservnew@freemailhost.ru>... Relaying denied. Proper authentication required.",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.253.155.119",
+    "match": true
+   },
+   "expect_time": 1109190974.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 21:36:14 petermurray sm-mta[22248]: s1NLaDQT022248: ruleset=check_rcpt, arg1=<dautareuk2@hotmail.it>, relay=int0.client.access.azadnet.net [80.253.155.119] (may be forged), reject=550 5.7.1 <dautareuk2@hotmail.it>... Relaying denied. IP name possibly forged [80.253.155.119]",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "118.161.66.57",
+    "match": true
+   },
+   "expect_time": 1109226839.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 24 07:33:59 petermurray sm-mta[21134]: s1O7XtZJ021134: ruleset=check_rcpt, arg1=<sanjinn232@yahoo.com.tw>, relay=118-161-66-57.dynamic.hinet.net [118.161.66.57], reject=550 5.7.1 <sanjinn232@yahoo.com.tw>... Relaying denied. Proper authentication required.",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2.180.185.27",
+    "match": true
+   },
+   "expect_time": 1109141848.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 07:57:28 petermurray sm-mta[6519]: s1N7vR47006519: ruleset=check_rcpt, arg1=<camila.pinto@camilopinto.pt>, relay=[2.180.185.27], reject=553 5.1.8 <camila.pinto@camilopinto.pt>... Domain of sender address camila.pinto@andrewweitzman.com does not exist",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "85.60.238.161",
+    "match": true
+   },
+   "expect_time": 1109164388.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 14:13:08 petermurray sm-mta[17126]: s1NED81M017126: ruleset=check_rcpt, arg1=<anabelaalvesd@camilopinto.pt>, relay=161.pool85-60-238.dynamic.orange.es [85.60.238.161], reject=553 5.1.8 <anabelaalvesd@camilopinto.pt>... Domain of sender address anabelaalvesd@dsldevice.lan does not exist",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "202.53.73.138",
+    "match": true
+   },
+   "expect_time": 1109218060.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 24 05:07:40 petermurray sm-mta[716]: s1O57c6H000716: ruleset=check_rcpt, arg1=<camilo_pinto@camilopinto.pt>, relay=202.53.73.138.nettlinx.com [202.53.73.138] (may be forged), reject=553 5.1.8 <camilo_pinto@camilopinto.pt>... Domain of sender address root@srv.montserv.com does not exist",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "151.232.63.226",
+    "match": true
+   },
+   "expect_time": 1109138408.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 07:00:08 petermurray sm-mta[3992]: s1N706jo003992: ruleset=check_rcpt, arg1=<joaofr@camilopinto.pt>, relay=[151.232.63.226], reject=550 5.7.1 <joaofr@camilopinto.pt>... Rejected: 151.232.63.226 listed at sbl-xbl.spamhaus.org",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "74.137.127.206",
+    "match": true
+   },
+   "expect_time": 1109129781.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 04:36:21 kismet sm-acceptingconnections[12603]: s1N9aKAw012603: ruleset=check_rcpt, arg1=<user@host.com>, relay=74-137-127-206.dhcp.insightbb.com [74.137.127.206], reject=550 5.7.1 <user@host.com>... Rejected: IP in SpamCop blacklist, see: http://spamcop.net/bl.shtml?74.137.127.206",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "203.229.186.250",
+    "match": true
+   },
+   "expect_time": 1109129937.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 04:38:57 kismet sm-acceptingconnections[16772]: s1N9csSZ016772: ruleset=check_rcpt, arg1=<user@host.com>, relay=[203.229.186.250], reject=550 5.7.1 <user@host.com>... Rejected: IP in Barracuda RBL, see: http://www.barracudacentral.org/reputation?ip=203.229.186.250",
+   "lineno": 28,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "186.54.117.93",
+    "match": true
+   },
+   "expect_time": 1109135164.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 06:06:04 kismet sm-acceptingconnections[18622]: s1NB63Bp018622: ruleset=check_rcpt, arg1=<user@host.com>, relay=r186-54-117-93.dialup.adsl.anteldata.net.uy [186.54.117.93], reject=550 5.7.1 <user@host.com>... Rejected: IP in SpamHaus PBL, see http://www.spamhaus.org/query/bl?ip=186.54.117.93",
+   "lineno": 31,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.21.54.82",
+    "match": true
+   },
+   "expect_time": 1109206004.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 24 01:46:44 petermurray sm-mta[24422]: ruleset=check_relay, arg1=leased-line-54-82.telecom.by, arg2=217.21.54.82, relay=leased-line-54-82.telecom.by [217.21.54.82], reject=421 4.3.2 Connection rate limit exceeded.",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "189.30.205.74",
+    "match": true
+   },
+   "expect_time": 1109515747.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 15:49:07 batman sm-mta[88390]: ruleset=check_relay, arg1=189-30-205-74.paebv701.dsl.brasiltelecom.net.br, arg2=189.30.205.74, relay=189-30-205-74.paebv701.dsl.brasiltelecom.net.br [189.30.205.74], reject=421 4.3.2 Too many open connections.",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "196.213.73.146",
+    "match": true
+   },
+   "expect_time": 1108832510.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 19 18:01:50 batman sm-mta[78152]: ruleset=check_relay, arg1=[196.213.73.146], arg2=196.213.73.146, relay=[196.213.73.146], reject=421 4.3.2 Connection rate limit exceeded.",
+   "lineno": 41,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1108840632.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 19 20:17:12 server sm-mta[201892]: ruleset=check_relay, arg1=[192.0.2.123], arg2=192.0.2.123, relay=host.example.com [192.0.2.123] (may be forged), reject=421 4.3.2 Connection rate limit exceeded.",
+   "lineno": 44,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "209.15.212.253",
+    "match": true
+   },
+   "expect_time": 1109497986.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 10:53:06 batman sm-mta[44307]: s1R9r60D044307: rejecting commands from  [209.15.212.253] due to pre-greeting traffic after 0 seconds",
+   "lineno": 47,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1109497987.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 10:53:07 strange sm-mta[18001]: u9A0GtpL018001: rejecting commands from example.com [1.2.3.4] due to pre-greeting traffic after 6 seconds",
+   "lineno": 49,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "41.204.78.137",
+    "match": true
+   },
+   "expect_time": 1109515458.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 15:44:18 batman sm-mta[87838]: s1REiHdq087838: ruleset=check_rcpt, arg1=<gert-jan@t-online.ch>, relay=[41.204.78.137], reject=550 5.7.1 <gert-jan@t-online.ch>... Relaying denied. IP name lookup failed [41.204.78.137]",
+   "lineno": 52,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "189.30.205.74",
+    "match": true
+   },
+   "expect_time": 1109515742.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 15:49:02 batman sm-mta[88377]: s1REn1un088377: ruleset=check_rcpt, arg1=<non-existing-user@example.com>, relay=189-30-205-74.paebv701.dsl.brasiltelecom.net.br [189.30.205.74], reject=550 5.1.1 <non-existing-user@example.com>... User unknown",
+   "lineno": 55,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "123.69.106.50",
+    "match": true
+   },
+   "expect_time": 1109540682.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 22:44:42 batman sm-mta[30972]: s1RLieRP030972: ruleset=check_rcpt, arg1=<existing-user@example.com>, relay=[123.69.106.50], reject=553 5.1.8 <existing-user@example.com>... Domain of sender address lf@ibuv.net does not exist",
+   "lineno": 58,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.100",
+    "match": true
+   },
+   "expect_time": 1109540683.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 27 22:44:43 batman sm-mta[4012]: 56CF8Qni004012: ruleset=check_rcpt, arg1=<existing-user@example.com>, relay=[192.0.2.100] (may be forged), reject=451 4.1.8 Domain of sender address test.whatever@service.example.com does not resolve",
+   "lineno": 61,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "76.72.174.70",
+    "match": true
+   },
+   "expect_time": 1109189927.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 23 21:18:47 batman sm-mta[93301]: s1NKIkZa093301: [76.72.174.70]: EXPN root [rejected]",
+   "lineno": 64,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.193.142.180",
+    "match": true
+   },
+   "expect_time": 1108253810.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 13 01:16:50 batman sm-mta[25815]: s1D0GoSs025815: [217.193.142.180]: expn info [rejected]",
+   "lineno": 67,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "24.73.201.194",
+    "match": true
+   },
+   "expect_time": 1109077364.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 22 14:02:44 batman sm-mta[4030]: s1MD2hsd004030: rrcs-24-73-201-194.se.biz.rr.com [24.73.201.194]: EXPN root [rejected]",
+   "lineno": 70,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "217.193.142.180",
+    "match": true
+   },
+   "expect_time": 1108253810.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 13 01:16:50 batman sm-mta[25815]: s1D0GoSs025815: [217.193.142.180]: vrfy info [rejected]",
+   "lineno": 73,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "24.73.201.194",
+    "match": true
+   },
+   "expect_time": 1109077364.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 22 14:02:44 batman sm-mta[4030]: s1MD2hsd004030: rrcs-24-73-201-194.se.biz.rr.com [24.73.201.194]: VRFY root [rejected]",
+   "lineno": 76,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Fix reverse DNS for ... (gh-3012)",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1109082027.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Feb 22 15:20:27 localhost sm-mta[275631]: 13O9Ixhq275631: ruleset=check_rcpt, arg1=<linda@domain.com>, relay=[192.0.2.5], reject=550 5.7.1 <linda@domain.com>... Fix reverse DNS for 192.0.2.5",
+   "lineno": 79,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026250: <arhipov@domain.com>... No such user here",
+   "lineno": 82,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026251: <anatoliy@domain.com>... No such user here",
+   "lineno": 84,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026252: <artem@domain.com>... No such user here",
+   "lineno": 86,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026252: <anto@domain.com>... No such user here",
+   "lineno": 88,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026254: <davaojk25@domain.com>... No such user here",
+   "lineno": 91,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "95.32.23.163",
+    "match": true
+   },
+   "expect_time": 1099478130.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026254: from=<davaojk25@domain.com>, size=0, class=0, nrcpts=0, bodytype=8BITMIME, proto=ESMTP, daemon=MTA, relay=163.23.32.95.dsl-dynamic.vsi.ru [95.32.23.163]",
+   "lineno": 93,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026252: <anton@domain.com>... No such user here",
+   "lineno": 96,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Different mail ID shouldn't match",
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Nov  3 11:35:30 Microsoft sendmail[26254]: rA37ZTSC026255: from=<anton@domain.com>, size=0, class=0, nrcpts=0, bodytype=8BITMIME, proto=ESMTP, daemon=MTA, relay=163.23.32.95.dsl-dynamic.vsi.ru [95.32.23.163]",
+   "lineno": 98,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Add User unknown",
+   "expect": {
+    "match": false
+   },
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Jun 17 14:37:39 <mail.notice> robin sm-mta[2794]: 55HIbcGI002794: <baduser@yourhost.com>... User unknown",
+   "lineno": 101,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "BSD style log format with no hostname for the relay.",
+   "expect": {
+    "host": "192.168.1.45",
+    "match": true
+   },
+   "expect_time": 1119011859.0,
+   "file": "sendmail-reject",
+   "filter_options": {},
+   "flt_key": "sendmail-reject",
+   "line": "Jun 17 14:37:39 <mail.info> robin sm-mta[2794]: 55HIbcGI002794: from=<root@yourhost.com>, size=108, class=0, nrcpts=0, proto=ESMTP, daemon=MTA-v4, relay=[192.168.1.45]",
+   "lineno": 103,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "wrong resp. non RFC compiant (ddos prelude?), MTA-mode",
+   "expect": {
+    "host": "192.0.2.194",
+    "match": true
+   },
+   "expect_time": 1110124528.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar  6 16:55:28 s192-168-0-1 sm-mta[20949]: v26LtRA0020949: some-host-24.example.org [192.0.2.194] did not issue MAIL/EXPN/VRFY/ETRN during connection to MTA",
+   "lineno": 108,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "wrong resp. non RFC compiant (ddos prelude?), MSP-mode, (may be forged)",
+   "expect": {
+    "host": "192.0.2.195",
+    "match": true
+   },
+   "expect_time": 1110204277.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar  7 15:04:37 s192-168-0-1 sm-mta[18624]: v27K4Vj8018624: some-host-24.example.org [192.0.2.195] (may be forged) did not issue MAIL/EXPN/VRFY/ETRN during connection to MSP-v4",
+   "lineno": 110,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "wrong resp. non RFC compiant (ddos prelude?), TLSMTA-mode",
+   "expect": {
+    "host": "104.152.52.29",
+    "match": true
+   },
+   "expect_time": 1112128427.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar 29 22:33:47 kismet sm-mta[23221]: x2TMXH7Y023221: internettl.org [104.152.52.29] (may be forged) did not issue MAIL/EXPN/VRFY/ETRN during connection to TLSMTA",
+   "lineno": 113,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "wrong resp. non RFC compiant (ddos prelude?), MSA-mode",
+   "expect": {
+    "host": "104.152.52.29",
+    "match": true
+   },
+   "expect_time": 1112129502.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar 29 22:51:42 kismet sm-mta[24202]: x2TMpAlI024202: internettl.org [104.152.52.29] (may be forged) did not issue MAIL/EXPN/VRFY/ETRN during connection to MSA",
+   "lineno": 115,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "long PID, ID longer as 14 chars (gh-2563)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1112129503.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar 29 22:51:43 server sendmail[3529565]: xA32R2PQ3529565: [192.0.2.2] did not issue MAIL/EXPN/VRFY/ETRN during connection to MTA",
+   "lineno": 118,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "sendmail 8.15.2 default names IPv4/6 (gh-2787)",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1112129505.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar 29 22:51:45 server sm-mta[50437]: 06QDQnNf050437: example.com [192.0.2.3] did not issue MAIL/EXPN/VRFY/ETRN during connection to IPv4",
+   "lineno": 120,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "IPv6",
+   "expect": {
+    "host": "2001:DB8::1",
+    "match": true
+   },
+   "expect_time": 1112129506.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "extra"
+   },
+   "flt_key": "sendmail-reject{'mode': 'extra'}",
+   "line": "Mar 29 22:51:46 server sm-mta[50438]: 06QDQnNf050438: example.com [IPv6:2001:DB8::1] did not issue MAIL/EXPN/VRFY/ETRN during connection to IPv6",
+   "lineno": 122,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "139.162.120.196",
+    "match": true
+   },
+   "expect_time": 1122807823.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "sendmail-reject{'mode': 'aggressive'}",
+   "line": "Jul 31 13:03:43 <mail.notice> alarmpi sm-mta[24291]: 56VFYCxS024291: lost input channel from mail.aqicn.org [139.162.120.196] to MTA-v4 after rcpt",
+   "lineno": 127,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "45.125.66.67",
+    "match": true
+   },
+   "expect_time": 1119074717.0,
+   "file": "sendmail-reject",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "sendmail-reject{'mode': 'aggressive'}",
+   "line": "Jun 18 08:05:17 <mail.notice> myhost sm-mta[17002]: 55IC59VD017002: ruleset=check_rcpt, arg1=<spameri@tiscali.it>, relay=[45.125.66.67], reject=450 4.4.0 <spameri@tiscali.it>... Relaying temporarily denied. Cannot resolve PTR record for 45.125.66.67",
+   "lineno": 130,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

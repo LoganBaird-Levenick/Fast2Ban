@@ -1,0 +1,118 @@
+{
+ "basedir": "stock",
+ "filter": "courier-smtp",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1113097677.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Apr 10 03:47:57 web courieresmtpd: error,relay=::ffff:1.2.3.4,ident=tmf,from=<tmf@example.com>,to=<mailman-subscribe@example.com>: 550 User unknown.",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1120424840.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Jul  3 23:07:20 szerver courieresmtpd: error,relay=::ffff:1.2.3.4,msg=\"535 Authentication failed.\",cmd: YWRvYmVhZG9iZQ==",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1120495179.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Jul  4 18:39:39 mail courieresmtpd: error,relay=::ffff:1.2.3.4,from=<picaro@astroboymail.com>,to=<user@update.net>: 550 User <benny> unknown",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1120614148.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Jul  6 03:42:28 whistler courieresmtpd: error,relay=::ffff:1.2.3.4,from=<>,to=<admin at memcpy>: 550 User unknown.",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1101075377.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Nov 21 23:16:17 server courieresmtpd: error,relay=::ffff:1.2.3.4,from=<>,to=<>: 550 User unknown.",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1124016664.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Aug 14 12:51:04 HOSTNAME courieresmtpd: error,relay=::ffff:1.2.3.4,from=<firozquarl@aclunc.org>,to=<BOGUSUSER@HOSTEDDOMAIN.org>: 550 User unknown.",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1124016664.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Aug 14 12:51:04 mail.server courieresmtpd[26762]: error,relay=::ffff:1.2.3.4,msg=\"535 Authentication failed.\",cmd: AUTH PLAIN AAAAABBBBCCCCWxlZA== admin",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1124016665.0,
+   "file": "courier-smtp",
+   "filter_options": {},
+   "flt_key": "courier-smtp",
+   "line": "Aug 14 12:51:05 mail.server courieresmtpd[425070]: error,relay=::ffff:192.0.2.3,port=43632,msg=\"535 Authentication failed.\",cmd: AUTH LOGIN PlcmSpIp@example.com",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

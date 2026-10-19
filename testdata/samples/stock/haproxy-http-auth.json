@@ -1,0 +1,60 @@
+{
+ "basedir": "stock",
+ "filter": "haproxy-http-auth",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "haproxy-http-auth",
+   "filter_options": {},
+   "flt_key": "haproxy-http-auth",
+   "line": "Nov 14 22:45:27 test haproxy[760]: 192.168.33.1:58444 [14/Nov/2015:22:45:25.439] main app/app1 1939/0/1/0/1940 403 5168 - - ---- 3/3/0/0/0 0/0 \"GET / HTTP/1.1\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.33.1",
+    "match": true
+   },
+   "expect_time": 1100468711.0,
+   "file": "haproxy-http-auth",
+   "filter_options": {},
+   "flt_key": "haproxy-http-auth",
+   "line": "Nov 14 22:45:11 test haproxy[760]: 192.168.33.1:58430 [14/Nov/2015:22:45:11.608] main main/<NOSRV> -1/-1/-1/-1/0 401 248 - - PR-- 0/0/0/0/0 0/0 \"GET / HTTP/1.1\"",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::1234",
+    "match": true
+   },
+   "expect_time": 1100468711.0,
+   "file": "haproxy-http-auth",
+   "filter_options": {},
+   "flt_key": "haproxy-http-auth",
+   "line": "Nov 14 22:45:11 test haproxy[760]: 2001:db8::1234:58430 [14/Nov/2015:22:45:11.608] main main/<NOSRV> -1/-1/-1/-1/0 401 248 - - PR-- 0/0/0/0/0 0/0 \"GET / HTTP/1.1\"",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.33.1",
+    "match": true
+   },
+   "expect_time": 1100468711.0,
+   "file": "haproxy-http-auth",
+   "filter_options": {},
+   "flt_key": "haproxy-http-auth",
+   "line": "Nov 14 22:45:11 test haproxy[760]: ::ffff:192.168.33.1:58430 [14/Nov/2015:22:45:11.608] main main/<NOSRV> -1/-1/-1/-1/0 401 248 - - PR-- 0/0/0/0/0 0/0 \"GET / HTTP/1.1\"",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

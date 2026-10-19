@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "suhosin",
+ "records": [
+  {
+   "expect": {
+    "host": "198.51.100.167",
+    "match": true
+   },
+   "expect_time": 1110577932.0,
+   "file": "suhosin",
+   "filter_options": {},
+   "flt_key": "suhosin",
+   "line": "Mar 11 22:52:12   lighttpd[53690]: (mod_fastcgi.c.2676) FastCGI-stderr: ALERT - configured request variable name length limit exceeded - dropped variable 'upqchi07vFfAFuBjnIKGIwiLrHo3Vt68T3yqvhQu2TqetQ78roy7Q6bpTfDUtYFR593/MA' (attacker '198.51.100.167', file '/usr/local/captiveportal/index.php')",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.77",
+    "match": true
+   },
+   "expect_time": 1109454749.0,
+   "file": "suhosin",
+   "filter_options": {},
+   "flt_key": "suhosin",
+   "line": "Feb 26 22:52:29 host suhosin[9636]: ALERT - script tried to increase memory_limit to 268435456 bytes which is above the allowed value (attacker '198.51.100.77', file '/var/www/wordpress/wp-admin/includes/image.php', line 161)",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "188.132.244.3",
+    "match": true
+   },
+   "expect_time": 1100805511.0,
+   "file": "suhosin",
+   "filter_options": {},
+   "flt_key": "suhosin",
+   "line": "Nov 18 20:18:31 platypus suhosin[28433]: ALERT - ASCII-NUL chars not allowed within request variables - dropped variable 'templatefile' (attacker '188.132.244.3', file '/home/ace-hosting/public_html/cart.php')",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "38.111.147.83",
+    "match": true
+   },
+   "expect_time": 1098694789.0,
+   "file": "suhosin",
+   "filter_options": {},
+   "flt_key": "suhosin",
+   "line": "Oct 25 10:59:49 platypus suhosin[13953]: ALERT - configured GET variable value length limit exceeded - dropped variable '_route_' (attacker '38.111.147.83', file '/home/thegoblin/public_html/index.php')",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

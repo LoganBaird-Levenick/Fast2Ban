@@ -1,0 +1,199 @@
+{
+ "basedir": "stock",
+ "filter": "sogo-auth",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:32 sogod [26818]: <0x0xb8537990[LDAPSource]> <NSException: 0xb87c3008> NAME:LDAPException REASON:operation bind failed: Invalid credentials (0x31) INFO:{login = \"uid=hack0r,ou=users,dc=mail,dc=example,dc=org\"; }",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.194.44.31",
+    "match": true
+   },
+   "expect_time": 1111651112.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:32 sogod [26818]: SOGoRootPage Login from '173.194.44.31' for user 'hack0r' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "173.194.44.31 - - [24/Mar/2013:08:58:32 GMT] \"POST /SOGo/connect HTTP/1.1\" 403 34/38 0.311 - - 2M",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:40 sogod [26818]: <0x0xb8537990[LDAPSource]> <NSException: 0xb87bb8d8> NAME:LDAPException REASON:operation bind failed: Invalid credentials (0x31) INFO:{login = \"uid=kiddy,ou=users,dc=mail,dc=example,dc=org\"; }",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.194.44.31",
+    "match": true
+   },
+   "expect_time": 1111651120.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:40 sogod [26818]: SOGoRootPage Login from '173.194.44.31' for user 'kiddy' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "173.194.44.31 - - [24/Mar/2013:08:58:40 GMT] \"POST /SOGo/connect HTTP/1.1\" 403 34/37 0.007 - - 32K",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:50 sogod [26818]: <0x0xb8537990[LDAPSource]> <NSException: 0xb87c27f8> NAME:LDAPException REASON:operation bind failed: Invalid credentials (0x31) INFO:{login = \"uid=plsBanMe,ou=users,dc=mail,dc=example,dc=org\"; }",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.194.44.31",
+    "match": true
+   },
+   "expect_time": 1111651130.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:50 sogod [26818]: SOGoRootPage Login from '173.194.44.31' for user 'plsBanMe' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "173.194.44.31 - - [24/Mar/2013:08:58:50 GMT] \"POST /SOGo/connect HTTP/1.1\" 403 34/40 0.008 - - 0",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:59 sogod [26818]: <0x0xb8537990[LDAPSource]> <NSException: 0xb87be830> NAME:LDAPException REASON:operation bind failed: Invalid credentials (0x31) INFO:{login = \"uid=root,ou=users,dc=mail,dc=example,dc=org\"; }",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.194.44.31",
+    "match": true
+   },
+   "expect_time": 1111651139.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:58:59 sogod [26818]: SOGoRootPage Login from '173.194.44.31' for user 'root' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "173.194.44.31 - - [24/Mar/2013:08:58:59 GMT] \"POST /SOGo/connect HTTP/1.1\" 403 34/36 0.007 - - 0",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:59:04 sogod [26818]: <0x0xb8537990[LDAPSource]> <NSException: 0xb87bc088> NAME:LDAPException REASON:operation bind failed: Invalid credentials (0x31) INFO:{login = \"uid=admin,ou=users,dc=mail,dc=example,dc=org\"; }",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.194.44.31",
+    "match": true
+   },
+   "expect_time": 1111651144.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 08:59:04 sogod [26818]: SOGoRootPage Login from '173.194.44.31' for user 'admin' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 31,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "behind a proxy, gh-2289",
+   "expect": {
+    "host": "192.0.2.16",
+    "match": true
+   },
+   "expect_time": 1111688972.0,
+   "file": "sogo-auth",
+   "filter_options": {},
+   "flt_key": "sogo-auth",
+   "line": "Mar 24 19:29:32 sogod [1526]: SOGoRootPage Login from '192.0.2.16, 10.0.0.1' for user 'admin' might not have worked - password policy: 65535  grace: -1  expire: -1  bound: 0",
+   "lineno": 33,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+[package]
+name = "f2b-types"
+description = "Core shared types for Fast2Ban (addresses, tickets, time)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true

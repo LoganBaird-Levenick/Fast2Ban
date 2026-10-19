@@ -1,0 +1,118 @@
+{
+ "basedir": "stock",
+ "filter": "xrdp",
+ "records": [
+  {
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1649326266.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "[20220407-12:11:06] [INFO ] AUTHFAIL: user=badtypist ip=::ffff:10.171.161.151 time=1649351466",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "specifying ip address as username",
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1649326284.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "[20220407-12:11:24] [INFO ] AUTHFAIL: user=192.168.0.1 ip=::ffff:10.171.161.151 time=1649351484",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "more devious log injection",
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1649326922.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "[20220407-12:22:02] [INFO ] AUTHFAIL: user=loginjector ip=192.168.0.4 time=123456789\\n[20220407-12:16:59] [INFO ] AUTHFAIL: user=endinjection ip=::ffff:10.171.161.151 time=1649352122",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1112868666.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "Apr  7 12:11:06 servername xrdp-sesman[41441]: [INFO ] AUTHFAIL: user=badtypist ip=::ffff:10.171.161.151 time=1649351466",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "specifying ip address as username",
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1112868684.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "Apr  7 12:11:24 servername xrdp-sesman[41441]: [INFO ] AUTHFAIL: user=192.168.0.1 ip=::ffff:10.171.161.151 time=1649351484",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "more devious log injection",
+   "expect": {
+    "host": "10.171.161.151",
+    "match": true
+   },
+   "expect_time": 1112869322.0,
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "Apr  7 12:22:02 servername xrdp-sesman[41441]: [INFO ] AUTHFAIL: user=loginjector ip=192.168.0.4 time=123456789\\n[20220407-12:16:59] [INFO ] AUTHFAIL: user=endinjection ip=::ffff:10.171.161.151 time=1649352122",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "Apr  7 12:22:02 servername xrdp[52415]: [INFO ] xrdp_wm_log_msg: login failed for user loginjector ip=192.168.0.4 time=12345\\n[20220407-12:16:59] [INFO ] AUTHFAIL: user=endinjection",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "xrdp",
+   "filter_options": {},
+   "flt_key": "xrdp",
+   "line": "Apr  7 12:22:02 servername xrdp[52415]: [INFO ] n[20220407-12:16:59] [INFO ] AUTHFAIL: user=endinjection",
+   "lineno": 37,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

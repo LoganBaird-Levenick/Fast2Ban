@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "squirrelmail",
+ "records": [
+  {
+   "expect": {
+    "host": "151.64.44.11",
+    "match": true
+   },
+   "expect_time": 1381067441.0,
+   "file": "squirrelmail",
+   "filter_options": {},
+   "flt_key": "squirrelmail",
+   "line": "10/06/2013 15:50:41 [LOGIN_ERROR] dadas (mydomain.org) from 151.64.44.11: Unknown user or password incorrect.",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

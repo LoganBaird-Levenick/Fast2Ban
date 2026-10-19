@@ -1,0 +1,686 @@
+{
+ "basedir": "stock",
+ "filter": "asterisk",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329150114.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:21:54] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - Wrong password",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329149902.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:18:22] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - No matching peer found",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329150081.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:21:21] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - Username/auth name mismatch",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329150721.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:32:01] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - Device does not match ACL",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329150850.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:34:10] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - Peer is not supposed to register",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329150983.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:36:23] NOTICE[1638] chan_sip.c: Registration from '<sip:301@example.com>' failed for '1.2.3.4' - ACL error (permit/deny)",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329152039.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:53:59] NOTICE[1638] chan_iax2.c: Host 1.2.3.4 failed to authenticate as 'Fail2ban'",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329151160.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:39:20] NOTICE[1638] chan_iax2.c: No registration for peer 'Fail2ban' (from 1.2.3.4)",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1329151466.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2012-02-13 17:44:26] NOTICE[1638] chan_iax2.c: Host 1.2.3.4 failed MD5 authentication for 'Fail2ban' (e7df7cd2ca07f4f1ab415d457a6e1c13 != 53ac4bc41ee4ec77888ed4aa50677247)",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1360104282.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-02-05 23:44:42] NOTICE[436][C-00000fa9] chan_sip.c: Call from '' (1.2.3.4:10836) to extension '0972598285108' rejected because extension not found in context 'default'.",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1106066390.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[Jan 18 17:39:50] NOTICE[12049]: res_pjsip_session.c:2337 new_invite: Call from 'anonymous' (TCP:[1.2.3.4]:61470) to extension '9011+442037690237' rejected because extension not found in context 'default'.",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118582034.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[Jun 12 15:13:54] NOTICE[3980] res_pjsip_session.c:  anonymous: Call (UDP:1.2.3.4:65049) to extension '001447441452805' rejected because extension not found in context 'inbound-foo-bar'.",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1364309274.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-03-26 15:47:54] NOTICE[1237] chan_sip.c: Registration from '\"100\"sip:100@1.2.3.4' failed for '1.2.3.4:23930' - No matching peer found",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1368421853.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-05-13 07:10:53] SECURITY[1204] res_security_log.c: SecurityEvent=\"InvalidAccountID\",EventTV=\"1368439853-500975\",Severity=\"Error\",Service=\"SIP\",EventVersion=\"1\",AccountID=\"00972599580679\",SessionID=\"0x7f8ecc0421f8\",LocalAddress=\"IPV4/UDP/1.2.3.4/5060\",RemoteAddress=\"IPV4/UDP/1.2.3.4/5070\"",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1370880903.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-06-10 18:15:03] NOTICE[2723] chan_sip.c: Registration from '\"100\"<sip:100@192.168.0.2:5060>' failed for '1.2.3.4' - Not a local domain",
+   "lineno": 31,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.2.102",
+    "match": true
+   },
+   "expect_time": 1426527994.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2015-03-16 18:46:34] NOTICE[3453] chan_sip.c: hacking attempt detected '192.168.2.102'",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "141.255.164.106",
+    "match": true
+   },
+   "expect_time": 1373094565.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-07-06 09:09:25] SECURITY[3308] res_security_log.c: SecurityEvent=\"InvalidPassword\",EventTV=\"1373098165-824497\",Severity=\"Error\",Service=\"SIP\",EventVersion=\"2\",AccountID=\"972592891005\",SessionID=\"0x88aab6c\",LocalAddress=\"IPV4/UDP/92.28.73.180/5060\",RemoteAddress=\"IPV4/UDP/141.255.164.106/5084\",Challenge=\"41d26de5\",ReceivedChallenge=\"41d26de5\",ReceivedHash=\"7a6a3a2e95a05260aee612896e1b4a39\"",
+   "lineno": 36,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "50.30.42.14",
+    "match": true
+   },
+   "expect_time": 1389368346.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2014-01-10 16:39:06] SECURITY[1503] res_security_log.c: SecurityEvent=\"FailedACL\",EventTV=\"1389368346-880526\",Severity=\"Error\",Service=\"SIP\",EventVersion=\"1\",AccountID=\"\",SessionID=\"0x7ff408103b18\",LocalAddress=\"IPV4/UDP/83.11.20.23/5060\",RemoteAddress=\"IPV4/UDP/50.30.42.14/5066\",ACLName=\"domain_must_match\"",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.55.152",
+    "match": true
+   },
+   "expect_time": 1384176818.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-11-11 14:33:38] WARNING[6756][C-0000001d] Ext. s: \"Rejecting unknown SIP connection from 192.168.55.152\"",
+   "lineno": 41,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.55.152",
+    "match": true
+   },
+   "expect_time": 1384176818.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-11-11 14:33:38] WARNING[8447][C-00000244] Ext. s: \"Rejecting unknown SIP connection from 192.168.55.152:52126\"",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::1",
+    "match": true
+   },
+   "expect_time": 1384176818.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-11-11 14:33:38] WARNING[12124][C-00000001] Ext. s: \"Rejecting unknown SIP connection from 2001:db8::1\"",
+   "lineno": 45,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::1",
+    "match": true
+   },
+   "expect_time": 1384176818.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2013-11-11 14:33:38] WARNING[12124][C-00000001] Ext. s: \"Rejecting unknown SIP connection from [2001:db8::1]:5060\"",
+   "lineno": 47,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.200.100",
+    "match": true
+   },
+   "expect_time": 1099589440.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "Nov 4 18:30:40 localhost asterisk[32229]: NOTICE[32257]: chan_sip.c:23417 in handle_request_register: Registration from '<sip:301@example.com>' failed for '192.168.200.100:36998' - Wrong password",
+   "lineno": 50,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Another log_prefix used (` in` should be optional)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1471597886.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-08-19 11:11:26] NOTICE[12931]: chan_sip.c:28468 handle_request_register: Registration from 'sip:bob@192.0.2.1' failed for '192.0.2.1:42406' - Wrong password",
+   "lineno": 52,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.250.251.252",
+    "match": true
+   },
+   "expect_time": 1432449736.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2015-05-24 08:42:16] SECURITY[4583] res_security_log.c: SecurityEvent=\"ChallengeResponseFailed\",EventTV=\"2015-05-24T08:42:16.296+0300\",Severity=\"Error\",Service=\"PJSIP\",EventVersion=\"1\",AccountID=\"<unknown>\",SessionID=\"17a483d-eb8cc0-556164ab@1.2.3.4\",LocalAddress=\"IPV4/UDP/1.2.3.4/5060\",RemoteAddress=\"IPV4/UDP/10.250.251.252/5060\",Challenge=\"1432446136/6d16ccf29ff59d423c6d548af00bf9b4\",Response=\"849dfcf133d8156f77ef11a9194119df\",ExpectedResponse=\"\"",
+   "lineno": 56,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "TLS before address, gh-2531",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1568999563.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2019-09-20 19:12:43] SECURITY[1724] res_security_log.c: SecurityEvent=\"ChallengeResponseFailed\",EventTV=\"2019-09-20T19:12:43.659-0500\",Severity=\"Error\",Service=\"PJSIP\",EventVersion=\"1\",AccountID=\"<unknown>\",SessionID=\"3686a690-f8ccac10-5677c924-51b54926\",LocalAddress=\"IPV4/TLS/1.2.3.4/5062\",RemoteAddress=\"IPV4/TLS/192.0.2.2/30245\",Challenge=\"1569024763/510a7e1ed568b93ce283d1b16bc17a15\",Response=\"8e181448412899ccb20ea585efc8bab0\",ExpectedResponse=\"\"",
+   "lineno": 58,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.250.251.252",
+    "match": true
+   },
+   "expect_time": 1432531159.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2015-05-25 07:19:19] SECURITY[6988] res_security_log.c: SecurityEvent=\"InvalidAccountID\",EventTV=\"2015-05-25T07:19:19.015+0300\",Severity=\"Error\",Service=\"PJSIP\",EventVersion=\"1\",AccountID=\"70000180\",SessionID=\"!@#$%^&   *(}((')[ -+\"++\",LocalAddress=\"IPV4/UDP/1.2.3.4/5060\",RemoteAddress=\"IPV4/UDP/10.250.251.252/5061\"",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.250.251.252",
+    "match": true
+   },
+   "expect_time": 1432531308.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2015-05-25 07:21:48] SECURITY[6988] res_security_log.c: SecurityEvent=\"InvalidAccountID\",EventTV=\"2015-05-25T07:21:48.275+0300\",Severity=\"Error\",Service=\"PJSIP\",EventVersion=\"1\",AccountID=\"70000180\",SessionID=\"\",LocalAddress=\"IPV4/UDP/127.0.0.1/5060\",RemoteAddress=\"IPV4/UDP/5.6.7.8/1111\"\",LocalAddress=\"IPV4/UDP/1.2.3.4/5060\",RemoteAddress=\"IPV4/UDP/10.250.251.252/5061\"",
+   "lineno": 66,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.250.251.252",
+    "match": true
+   },
+   "expect_time": 1432533156.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2015-05-25 07:52:36] SECURITY[6988] res_security_log.c: SecurityEvent=\"InvalidAccountID\",EventTV=\"2015-05-25T07:52:36.888+0300\",Severity=\"Error\",Service=\"PJSIP\",EventVersion=\"1\",AccountID=\"70000180\",SessionID=\"\u041d\u0435\u0433\u043e\u0434\u044f\u0439\",LocalAddress=\"IPV4/UDP/1.2.3.4/5060\",RemoteAddress=\"IPV4/UDP/10.250.251.252/5061\"",
+   "lineno": 70,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1453972947.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-01-28 10:22:27] NOTICE[3477][C-000003bb] chan_sip.c: Call from '' (1.2.3.4:10836) to extension '++441772285411' rejected because extension not found in context 'default'.",
+   "lineno": 74,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1453973671.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-01-28 10:34:31] NOTICE[3477][C-000003c3] chan_sip.c: Call from '' (1.2.3.4:10836) to extension '0+441772285407' rejected because extension not found in context 'default'.",
+   "lineno": 76,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1453973673.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-01-28 10:34:33] NOTICE[3477][C-000003c3] chan_sip.c: Call from '' (1.2.3.4:10836) to extension '' rejected because extension not found in context 'my-context'.",
+   "lineno": 78,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1463345580.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-15 22:53:00] SECURITY[26428] res_security_log.c: SecurityEvent=\"FailedACL\",EventTV=\"2016-05-15T22:53:00.203+0300\",Severity=\"Error\",Service=\"AMI\",EventVersion=\"1\",AccountID=\"admin\",SessionID=\"0x7fb580001518\",LocalAddress=\"IPV4/TCP/0.0.0.0/5038\",RemoteAddress=\"IPV4/TCP/192.0.2.4/62389\",SessionTV=\"1970-01-01T03:00:00.000+0300\"",
+   "lineno": 81,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1463991496.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-23 10:18:16] NOTICE[19388] res_pjsip/pjsip_distributor.c: Request from '\"1000\" <sip:1000@10.0.0.1>' failed for '1.2.3.4:48336' (callid: 276666022) - No matching endpoint found",
+   "lineno": 85,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1463991496.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-23 10:18:16] NOTICE[19388] res_pjsip/pjsip_distributor.c: Request from '\"1000\" <sip:1000@10.0.0.1>' failed for '1.2.3.4:48336' (callid: 276666022) - Not match Endpoint ACL",
+   "lineno": 87,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1463991496.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-23 10:18:16] NOTICE[19388] res_pjsip/pjsip_distributor.c: Request from '\"1000\" <sip:1000@10.0.0.1>' failed for '1.2.3.4:48336' (callid: 276666022) - Not match Endpoint Contact ACL",
+   "lineno": 89,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1463991496.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-23 10:18:16] NOTICE[19388] res_pjsip/pjsip_distributor.c: Request from '\"1000\" <sip:1000@10.0.0.1>' failed for '1.2.3.4:48336' (callid: 276666022) - Failed to authenticate",
+   "lineno": 91,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1463991496.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-23 10:18:16] NOTICE[19388] res_pjsip/pjsip_distributor.c: Request from '\"1000\" <sip:1000@10.0.0.1>' failed for '1.2.3.4:48336' (callid: 276666022) - Error to authenticate",
+   "lineno": 93,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2.3.4.5",
+    "match": true
+   },
+   "expect_time": 1465422026.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-06-08 23:40:26] NOTICE[32497] res_pjsip/pjsip_distributor.c: Request from '\"317\" <sip:317@1.2.3.4>' failed for '2.3.4.5:5089' (callid: 206f178f-896564cb-57573f49@1.2.3.4) - No matching endpoint found",
+   "lineno": 95,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1513286280.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2017-12-14 22:18:00] NOTICE[1943] res_pjsip/pjsip_distributor.c: Request 'INVITE' from '<sip:'or''='@4.5.6.7>' failed for '1.2.3.4:43678' (callid: UmOkE9yQPGOsF3Az24YTRe..) - No matching endpoint found",
+   "lineno": 97,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1465423262.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-06-09 00:01:02] NOTICE [22382] manager.c: 192.0.2.1 failed to authenticate as 'admin'",
+   "lineno": 100,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true
+   },
+   "expect_time": 1462511289.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-06 07:08:09] NOTICE[31554] manager.c: 192.0.2.4 tried to authenticate with nonexistent user 'opennms'",
+   "lineno": 104,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1462511289.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-06 07:08:09] NOTICE[6772] manager.c: 192.0.2.5 failed to authenticate as 'Admin'",
+   "lineno": 106,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.6",
+    "match": true
+   },
+   "expect_time": 1462511289.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-06 07:08:09] NOTICE[17103] res_pjsip/pjsip_distributor.c: Request from '\"test1\" <sip:test1@2.3.4.5>' failed for '192.0.2.6:5678' (callid: deadbeef) - No matching endpoint found",
+   "lineno": 110,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Test for No matching endpoint found with retry counts (pattern 1)",
+   "expect": {
+    "host": "192.0.2.7",
+    "match": true
+   },
+   "expect_time": 1462511289.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "[2016-05-06 07:08:09] NOTICE[17103] res_pjsip/pjsip_distributor.c: Request 'INVITE' from '\"test2\" <sip:test2@3.4.5.6>' failed for '192.0.2.7:5679' (callid: cafebabe) - No matching endpoint found after 5 tries in 2.500 ms",
+   "lineno": 112,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "log over remote syslog server",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1109687753.0,
+   "file": "asterisk",
+   "filter_options": {},
+   "flt_key": "asterisk",
+   "line": "Mar  1 15:35:53 pbx asterisk[2350]: WARNING[1195][C-00000b43]: Ext. s:6 in @ from-sip-external: \"Rejecting unknown SIP connection from 192.0.2.2\"",
+   "lineno": 124,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd-journal entry",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "file": "asterisk",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "asterisk{'logtype': 'journal'}",
+   "line": "NOTICE[566]: chan_sip.c:28926 handle_request_register: Registration from '\"28\" <sip:28@127.0.0.100>' failed for '192.0.2.1:7998' - Wrong password",
+   "lineno": 129,
+   "logtype": "journal",
+   "prefix_line": "server asterisk[123]: "
+  },
+  {
+   "desc": "systemd-journal entry (with additional timestamp in message)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "file": "asterisk",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "asterisk{'logtype': 'journal'}",
+   "line": "[Mar 27 10:06:14] NOTICE[566]: chan_sip.c:28926 handle_request_register: Registration from '\"1000\" <sip:1000@127.0.0.100>' failed for '192.0.2.2:7998' - Wrong password",
+   "lineno": 131,
+   "logtype": "journal",
+   "prefix_line": "server asterisk[123]: "
+  }
+ ]
+}

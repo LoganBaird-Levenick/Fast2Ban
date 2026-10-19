@@ -1,0 +1,206 @@
+{
+ "basedir": "stock",
+ "filter": "nginx-botsearch",
+ "records": [
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780008.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:53:28 +0100] \"GET //phpMyAdmin-2.8.2.3/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780008.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:53:28 +0100] \"GET //pma/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780008.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:53:28 +0100] \"GET //mysqladmin/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780008.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:53:28 +0100] \"GET //admin/pma/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780068.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:54:28 +0100] \"POST //admin/pma/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "12.34.56.78",
+    "match": true
+   },
+   "expect_time": 1421780128.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "12.34.56.78 - - [20/Jan/2015:19:55:28 +0100] \"HEAD //admin/pma/scripts/setup.php HTTP/1.1\" 404 47 \"-\" \"-\" \"-\"",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "7.8.9.10",
+    "match": true
+   },
+   "expect_time": 1421713027.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "7.8.9.10 - root [20/Jan/2015:01:17:07 +0100] \"GET /cgi-bin/recent.cgi HTTP/1.1\" 404 162 \"-\" \"-\" \"-\"",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2.5.2.5",
+    "match": true
+   },
+   "expect_time": 1418421542.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "2.5.2.5 - tomcat [12/Dec/2014:22:59:02 +0100] \"GET /cgi-bin/tools/tools.pl HTTP/1.1\" 404 162 \"-\" \"-\" \"-\"",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "expect_time": 1421834170.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "2015/01/21 10:56:10 [error] 2833#0: *16336 open() \"/var/www/site/cgi-bin/php4\" failed (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"GET /cgi-bin/php4 HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "expect_time": 1421834230.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "2015/01/21 10:57:10 [error] 2833#0: *16336 open() \"/var/www/site/cgi-bin/php4\" failed (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"POST /cgi-bin/php4 HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "expect_time": 1421834290.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "2015/01/21 10:58:10 [error] 2833#0: *16336 open() \"/var/www/site/cgi-bin/php4\" failed (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"HEAD /cgi-bin/php4 HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "expect_time": 1421848947.0,
+   "file": "nginx-botsearch",
+   "filter_options": {},
+   "flt_key": "nginx-botsearch",
+   "line": "2015/01/21 15:02:27 [error] 2833#0: *16813 \"/var/www/site/roundcube/\" is not found (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"GET /roundcube/ HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd journal message, gh-3732",
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "file": "nginx-botsearch",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "nginx-botsearch{'logtype': 'journal'}",
+   "line": "host nginx[2833]: 2015/01/21 10:56:10 [error] 2833#0: *16336 open() \"/var/www/site/cgi-bin/php4\" failed (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"GET /cgi-bin/php4 HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 40,
+   "logtype": "journal",
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd journal message, is not found variant, gh-3732",
+   "expect": {
+    "host": "5.7.9.2",
+    "match": true
+   },
+   "file": "nginx-botsearch",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "nginx-botsearch{'logtype': 'journal'}",
+   "line": "host nginx[2833]: 2015/01/21 15:02:27 [error] 2833#0: *16813 \"/var/www/site/roundcube/\" is not found (2: No such file or directory), client: 5.7.9.2, server: localhost, request: \"GET /roundcube/ HTTP/1.1\", host: \"1.2.3.4\"",
+   "lineno": 43,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

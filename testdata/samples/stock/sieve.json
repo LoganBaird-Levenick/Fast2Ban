@@ -1,0 +1,48 @@
+{
+ "basedir": "stock",
+ "filter": "sieve",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1101929816.0,
+   "file": "sieve",
+   "filter_options": {},
+   "flt_key": "sieve",
+   "line": "Dec 1 20:36:56 mail sieve[23713]: badlogin: example.com[1.2.3.4] PLAIN authentication failure",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121700118.0,
+   "file": "sieve",
+   "filter_options": {},
+   "flt_key": "sieve",
+   "line": "Jul 18 17:21:58 ophelia cyrus/timsieved[12305]: badlogin: example.com[1.2.3.4] PLAIN authentication failure",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1096142858.0,
+   "file": "sieve",
+   "filter_options": {},
+   "flt_key": "sieve",
+   "line": "Sep 25 22:07:38 web9 timsieved[21040]: badlogin: web4[1.2.3.4] OTP authentication failure",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

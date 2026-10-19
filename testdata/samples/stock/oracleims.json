@@ -1,0 +1,62 @@
+{
+ "basedir": "stock",
+ "filter": "oracleims",
+ "records": [
+  {
+   "expect": {
+    "host": "23.122.129.179",
+    "match": false
+   },
+   "expect_time": 1401739333.0,
+   "file": "oracleims",
+   "filter_options": {},
+   "flt_key": "oracleims",
+   "line": "<co ts=\"2014-06-02T22:02:13.94\" pi=\"72a9.3b4.3774\" sc=\"tcp_submit\" dr=\"+\" ac=\"U\" tr=\"TCP|192.245.12.223|465|23.122.129.179|60766\" ap=\"SMTP/TLS-128-RC4\" mi=\"Authentication successful - switched to channel tcp_submit\" us=\"jaugustine@example.org\" di=\"235 2.7.0 LOGIN authentication successful.\"/>",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "89.96.245.78",
+    "match": true
+   },
+   "expect_time": 1401717993.0,
+   "file": "oracleims",
+   "filter_options": {},
+   "flt_key": "oracleims",
+   "line": "<co ts=\"2014-06-02T16:06:33.99\" pi=\"72aa.17f0.25622\" sc=\"tcp_local\" dr=\"+\" ac=\"U\" tr=\"TCP|192.245.12.223|25|89.96.245.78|4299\" ap=\"SMTP\" mi=\"Bad password\" us=\"nic@transcend.com\" di=\"535 5.7.8 Bad username or password (Authentication failed).\"/>",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "71.95.206.106",
+    "match": true
+   },
+   "expect_time": 1401696487.0,
+   "file": "oracleims",
+   "filter_options": {},
+   "flt_key": "oracleims",
+   "line": "<co ts=\"2014-06-02T10:08:07.56\" pi=\"123f.8e2.9022\" sc=\"tcp_local\" dr=\"+\" ac=\"U\" tr=\"TCP|192.245.12.223|25|71.95.206.106|56591\" ap=\"SMTP\" mi=\"Bad password\" us=\"romeo.julieta@opus1.com\" di=\"535 5.7.8 Bad username or password (Authentication failed).\"/>",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "151.1.71.144",
+    "match": true
+   },
+   "expect_time": 1401695698.0,
+   "file": "oracleims",
+   "filter_options": {},
+   "flt_key": "oracleims",
+   "line": "<co ts=\"2014-06-02T09:54:58.82\" pi=\"123f.715.7116\" sc=\"tcp_local\" dr=\"+\" ac=\"U\" tr=\"TCP|192.245.12.223|25|151.1.71.144|58406\" ap=\"SMTP\" mi=\"Bad password\" us=\"01ko8hqnoif09qx0np@imap.opus1.com\" di=\"535 5.7.8 Bad username or password (Authentication failed).\"/>",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,100 @@
+{
+ "basedir": "stock",
+ "filter": "guacamole",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "apr 15, 2013 8:34:08 PM org.slf4j.impl.JCLLoggerAdapter warn",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.0",
+    "match": true
+   },
+   "expect_time": 1366050848.0,
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "WARNING: Authentication attempt from 192.0.2.0 for user \"null\" failed.",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "apr 16, 2013 8:32:13 AM org.slf4j.impl.JCLLoggerAdapter warn",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.0",
+    "match": true
+   },
+   "expect_time": 1366093933.0,
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "WARNING: Authentication attempt from 192.0.2.0 for user \"null\" failed.",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "apr 16, 2013 8:32:28 AM org.slf4j.impl.JCLLoggerAdapter warn",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.0",
+    "match": true
+   },
+   "expect_time": 1366093948.0,
+   "file": "guacamole",
+   "filter_options": {},
+   "flt_key": "guacamole",
+   "line": "WARNING: Authentication attempt from 192.0.2.0 for user \"pippo\" failed.",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "182.23.72.36",
+    "match": true
+   },
+   "expect_time": 1123930652.0,
+   "file": "guacamole",
+   "filter_options": {
+    "logging": "webapp"
+   },
+   "flt_key": "guacamole{'logging': 'webapp'}",
+   "line": "12:57:32.907 [http-nio-8080-exec-10] WARN  o.a.g.r.auth.AuthenticationService - Authentication attempt from 182.23.72.36 for user \"guacadmin\" failed.",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

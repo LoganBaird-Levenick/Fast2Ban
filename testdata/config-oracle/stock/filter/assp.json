@@ -1,0 +1,118 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-assp",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "usedns",
+   "warn"
+  ],
+  [
+   "multi-set",
+   "o-f-assp",
+   "addfailregex",
+   [
+    "^(:? \\[SSL-out\\])? <HOST> max sender authentication errors \\(\\d{,3}\\) exceeded -- (?:dropping|refusing) connection - after reply: \\d{3} \\d{1}\\.\\d{1}.\\d{1} Error: authentication failed: \\w+;$",
+    "^(?: \\[SSL-out\\])? <HOST> SSL negotiation with client failed: SSL accept attempt failed with unknown error.*:unknown protocol;$",
+    "^ Blocking <HOST> - too much AUTH errors \\(\\d{,3}\\);$",
+    "^\\s*(?:[\\w\\-]+\\s+)*(?:\\[\\S+\\]\\s+)*<HOST> (?:\\<\\S+@\\S+\\.\\S+\\> )*(?:to: \\S+@\\S+\\.\\S+ )*relay attempt blocked for(?: \\(parsing\\))?: \\S+$",
+    "^\\s*(?:[\\w\\-]+\\s+)*(?:\\[\\S+\\]\\s+)*<HOST> \\[SMTP Error\\] 535 5\\.7\\.8 Error: authentication failed:\\s+(?:\\S+|Connection lost to authentication server|Invalid authentication mechanism|Invalid base64 data in continued response)?$"
+   ]
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "datepattern",
+   "{^LN-BEG}%b-%d-%Exy %H:%M:%S\n{^LN-BEG}"
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-assp",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-assp"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-assp\n"
+}

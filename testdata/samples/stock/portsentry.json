@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "portsentry",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.56.1",
+    "match": true
+   },
+   "expect_time": 1403884279.0,
+   "file": "portsentry",
+   "filter_options": {},
+   "flt_key": "portsentry",
+   "line": "1403884279 - 06/27/2014 17:51:19 Host: 192.168.56.1/192.168.56.1 Port: 1 TCP Blocked",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.56.1",
+    "match": true
+   },
+   "expect_time": 1403884279.0,
+   "file": "portsentry",
+   "filter_options": {},
+   "flt_key": "portsentry",
+   "line": "1403884279 - 06/27/2014 17:51:19 Host: 192.168.56.1/192.168.56.1 Port: 1 UDP Blocked",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

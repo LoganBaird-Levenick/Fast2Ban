@@ -1,0 +1,171 @@
+{
+ "basedir": "stock",
+ "filter": "pam-generic",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.1.1",
+    "match": true,
+    "user": "sample-user"
+   },
+   "expect_time": 1107785442.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Feb  7 15:10:42 example pure-ftpd: (pam_unix) authentication failure; logname= uid=0 euid=0 tty=pure-ftpd ruser=sample-user rhost=192.168.1.1 ",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "71-13-115-12.static.mdsn.wi.charter.com",
+    "match": true,
+    "user": "root"
+   },
+   "expect_time": 1115884074.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "May 12 09:47:54 vaio sshd[16004]: (pam_unix) authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=71-13-115-12.static.mdsn.wi.charter.com  user=root",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "71-13-115-12.static.mdsn.wi.charter.com",
+    "match": true
+   },
+   "expect_time": 1115884083.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "May 12 09:48:03 vaio sshd[16021]: (pam_unix) authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=71-13-115-12.static.mdsn.wi.charter.com",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "66.232.129.62",
+    "match": true,
+    "user": "mark"
+   },
+   "expect_time": 1116172932.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "May 15 18:02:12 localhost proftpd: (pam_unix) authentication failure; logname= uid=0 euid=0 tty= ruser= rhost=66.232.129.62  user=mark",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1101399133.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Nov 25 17:12:13 webmail pop(pam_unix)[4920]: authentication failure; logname= uid=0 euid=0 tty= ruser= rhost=192.168.10.3 user=mailuser",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "www.google.com",
+    "match": true,
+    "user": "an8767"
+   },
+   "expect_time": 1121789486.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:26 srv2 vsftpd: pam_unix(vsftpd:auth): authentication failure; logname= uid=0 euid=0 tty=ftp ruser=an8767 rhost=www.google.com",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "www.google.com",
+    "match": true
+   },
+   "expect_time": 1121789486.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:26 srv2 vsftpd: pam_unix: authentication failure; logname= uid=0 euid=0 tty=ftp ruser=an8767 rhost=www.google.com",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Injecting on username",
+   "expect": {
+    "host": "192.0.2.200",
+    "match": true,
+    "user": "test rhost=192.0.2.100"
+   },
+   "expect_time": 1121789510.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:50 srv2 daemon: pam_unix(auth): authentication failure; logname= uid=0 euid=0 tty=xxx ruser=test rhost=192.0.2.100 rhost=192.0.2.200",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Attempt to inject on username after host (prefer injection on the `ruser` field over the `user` field)",
+   "expect": {
+    "host": "192.0.2.201",
+    "match": true,
+    "user": " rhost=192.0.2.101 user=test"
+   },
+   "expect_time": 1121789512.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:52 srv2 daemon: pam_unix(auth): authentication failure; logname= uid=0 euid=0 tty=xxx ruser= rhost=192.0.2.101 user=test rhost=192.0.2.201",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Attempt to inject on username for both sides (prefer injection on the `ruser` field over the `user` field)",
+   "expect": {
+    "host": "192.0.2.202",
+    "match": true,
+    "user": "a rhost=192.0.2.102 user=a rhost=192.0.2.103 user=a"
+   },
+   "expect_time": 1121789514.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:54 host auth[4242]: pam_unix(someservice:auth): authentication failure; logname= uid=0 euid=0 tty=someservice ruser=a rhost=192.0.2.102 user=a rhost=192.0.2.103 user=a rhost=192.0.2.202 user=",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Attempt to inject on username for both sides (prefer injection on the `ruser` field over the `user` field), user not logged at all",
+   "expect": {
+    "host": "192.0.2.202",
+    "match": true,
+    "user": "a rhost=192.0.2.102 user=a rhost=192.0.2.103 user=a"
+   },
+   "expect_time": 1121789514.0,
+   "file": "pam-generic",
+   "filter_options": {},
+   "flt_key": "pam-generic",
+   "line": "Jul 19 18:11:54 host auth[4242]: pam_unix(someservice:auth): authentication failure; logname= uid=0 euid=0 tty=someservice ruser=a rhost=192.0.2.102 user=a rhost=192.0.2.103 user=a rhost=192.0.2.202",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

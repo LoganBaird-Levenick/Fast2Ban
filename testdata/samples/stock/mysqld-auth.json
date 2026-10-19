@@ -1,0 +1,325 @@
+{
+ "basedir": "stock",
+ "filter": "mysqld-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.1.35",
+    "match": true
+   },
+   "expect_time": 1364079840.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324  0:04:00 [Warning] Access denied for user 'root'@'192.168.1.35' (using password: NO)",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "220.95.238.171",
+    "match": true
+   },
+   "expect_time": 1364109849.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324  8:24:09 [Warning] Access denied for user 'root'@'220.95.238.171' (using password: NO)",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "61.160.223.112",
+    "match": true
+   },
+   "expect_time": 1364144173.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324 17:56:13 [Warning] Access denied for user 'root'@'61.160.223.112' (using password: NO)",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "61.160.223.112",
+    "match": true
+   },
+   "expect_time": 1364144174.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324 17:56:14 [Warning] Access denied for user 'root'@'61.160.223.112' (using password: YES)",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "61.147.108.35",
+    "match": true
+   },
+   "expect_time": 1364148099.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324 19:01:39 [Warning] Access denied for user 'root'@'61.147.108.35' (using password: NO)",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "61.147.108.35",
+    "match": true
+   },
+   "expect_time": 1364148100.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "130324 19:01:40 [Warning] Access denied for user 'root'@'61.147.108.35' (using password: YES)",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "74.207.241.159",
+    "match": true
+   },
+   "expect_time": 1095363026.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "Sep 16 21:30:26 catinthehat mysqld: 130916 21:30:26 [Warning] Access denied for user 'hacker'@'74.207.241.159' (using password: YES)",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "74.207.241.159",
+    "match": true
+   },
+   "expect_time": 1095363032.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "Sep 16 21:30:32 catinthehat mysqld: 130916 21:30:32 [Warning] Access denied for user 'hacker'@'74.207.241.159' (using password: NO)",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "mysql 5.6 log format",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1444190982.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2015-10-07 06:09:42 5907 [Warning] Access denied for user 'root'@'127.0.0.1' (using password: YES)",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "log format with extra space between the date and time stamps, gh-1639",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1444199138.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2015-10-07  8:25:38 139845235329792 [Warning] Access denied for user 'user'@'192.0.2.1' (using password: YES)",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "mysql 5.6 log format, Note instead of Warning",
+   "expect": {
+    "host": "localhost",
+    "match": true
+   },
+   "expect_time": 1456323978.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2016-02-24T15:26:18.237955 6 [Note] Access denied for user 'root'@'localhost' (using password: YES)",
+   "lineno": 24,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "A hypothetical example of injection having full log line first (for paranoid yoh)",
+   "expect": {
+    "host": "localhost",
+    "match": false
+   },
+   "expect_time": 1456323978.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2016-02-24T15:26:18.237955 6 [Note] Access denied for user 'root'@'localhost' (using password: YES) condition lead to a hypothetical failure",
+   "lineno": 27,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "mysql 8.0.13 logging with details, (log-error-verbosity = 3, gh-2314)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1546505404.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2019-01-03T08:50:04.634875Z 113 [Note] [MY-010926] [Server] Access denied for user 'root'@'192.0.2.1' (using password: NO)",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "ISO timestamp within log message",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1567727118.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2019-09-06T01:45:18 srv mysqld: 2019-09-06  1:45:18 140581192722176 [Warning] Access denied for user 'global'@'192.0.2.2' (using password: YES)",
+   "lineno": 33,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "ISO timestamp within log message",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1569323810.0,
+   "file": "mysqld-auth",
+   "filter_options": {},
+   "flt_key": "mysqld-auth",
+   "line": "2019-09-24T13:16:50 srv mysqld[1234]: 2019-09-24 13:16:50 8756 [Warning] Access denied for user 'root'@'192.0.2.3' (using password: YES)",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.4 log format, gh-2611",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "file"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'file'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1' (using password: YES)",
+   "lineno": 39,
+   "logtype": "file",
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.4 log format, gh-2611",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "short"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'short'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1' (using password: YES)",
+   "lineno": 39,
+   "logtype": "short",
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.4 log format, gh-2611",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'journal'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1' (using password: YES)",
+   "lineno": 39,
+   "logtype": "journal",
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.3 log format",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "file"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'file'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1'",
+   "lineno": 42,
+   "logtype": "file",
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.3 log format",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "short"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'short'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1'",
+   "lineno": 42,
+   "logtype": "short",
+   "prefix_line": null
+  },
+  {
+   "desc": "mariadb 10.3 log format",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true,
+    "user": "root"
+   },
+   "file": "mysqld-auth",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "mysqld-auth{'logtype': 'journal'}",
+   "line": "2020-01-16 21:34:14 4644 [Warning] Access denied for user 'root'@'192.0.2.1'",
+   "lineno": 42,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

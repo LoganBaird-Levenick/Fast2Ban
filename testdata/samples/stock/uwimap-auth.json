@@ -1,0 +1,90 @@
+{
+ "basedir": "stock",
+ "filter": "uwimap-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "81.169.154.112",
+    "match": true
+   },
+   "expect_time": 1120417013.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Jul 3 20:56:53 Linux2 imapd[666]: Login failed user=lizdy auth=lizdy host=h2066373.stratoserver.net [81.169.154.112]",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.52.115.74",
+    "match": true
+   },
+   "expect_time": 1122654619.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Jul 29 18:30:19 Linux2 ipop3d[25745]: Login failed user=info auth=info host=74-115-52-198-dedicated.multacom.com [198.52.115.74]",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.52.115.74",
+    "match": true
+   },
+   "expect_time": 1105730887.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Jan 14 20:28:07 grog imapd[19343]: Login excessive login failures user=user auth=user host=74-115-52-198-dedicated.multacom.com [198.52.115.74]",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.52.115.74",
+    "match": true
+   },
+   "expect_time": 1112970721.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Apr 8 16:32:01 abdon imapd[29087]: Login excessive login failures user=brada auth=brada host=xxxxxx [198.52.115.74]",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1112970721.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Apr 8 16:32:01 abdon imapd[21172]: Login disabled user=test auth=test host=localhost.localdomain [127.0.0.1]",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.55.22",
+    "match": true
+   },
+   "expect_time": 1109158561.0,
+   "file": "uwimap-auth",
+   "filter_options": {},
+   "flt_key": "uwimap-auth",
+   "line": "Feb 23 12:36:01 r2 imapd[3473]: Failed uwmaster override of user=pro1  host=r22.j.de [127.0.55.22] ",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

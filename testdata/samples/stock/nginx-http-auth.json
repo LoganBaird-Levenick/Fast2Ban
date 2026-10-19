@@ -1,0 +1,414 @@
+{
+ "basedir": "stock",
+ "filter": "nginx-http-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1333965209.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2012/04/09 11:53:29 [error] 2865#0: *66647 user \"xyz\" was not found in \"/var/www/.htpasswd\", client: 192.0.43.10, server: www.myhost.com, request: \"GET / HTTP/1.1\", host: \"www.myhost.com\"",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1333965209.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2012/04/09 11:53:29 [error] 2865#0: *66647 user \"xyz\" was not found in \"/var/www/.htpasswd\", client: 192.0.43.10, server: www.myhost.com, request: \"GET / HTTP/1.1\", host: \"www.myhost.com\"",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1333965216.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2012/04/09 11:53:36 [error] 2865#0: *66647 user \"xyz\": password mismatch, client: 192.0.43.10, server: www.myhost.com, request: \"GET / HTTP/1.1\", host: \"www.myhost.com\"",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1333965216.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2012/04/09 11:53:36 [error] 2865#0: *66647 user \"xyz\": password mismatch, client: 192.0.43.10, server: www.myhost.com, request: \"GET / HTTP/1.1\", host: \"www.myhost.com\"",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396383638.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2014/04/01 22:20:38 [error] 30708#0: *3 user \"scribendio\": password mismatch, client: 10.0.2.2, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396383638.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2014/04/01 22:20:38 [error] 30708#0: *3 user \"scribendio\": password mismatch, client: 10.0.2.2, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396435078.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2014/04/02 12:37:58 [error] 6563#0: *1861 user \"scribendio\": password mismatch, client: 10.0.2.2, server: scribend.io, request: \"GET /admin HTTP/1.1\", host: \"scribend.io\", referrer: \"https://scribend.io/admin\"",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "10.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396435078.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2014/04/02 12:37:58 [error] 6563#0: *1861 user \"scribendio\": password mismatch, client: 10.0.2.2, server: scribend.io, request: \"GET /admin HTTP/1.1\", host: \"scribend.io\", referrer: \"https://scribend.io/admin\"",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "user name with space",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1396556438.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2014/04/03 22:20:38 [error] 30708#0: *3 user \"scriben dio\": password mismatch, client: 192.0.2.1, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "user name with space",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1396556438.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2014/04/03 22:20:38 [error] 30708#0: *3 user \"scriben dio\": password mismatch, client: 192.0.2.1, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "trying injection on user name",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396556440.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2014/04/03 22:20:40 [error] 30708#0: *3 user \"test\": password mismatch, client: 127.0.0.1, server: test, request: \"GET / HTTP/1.1\", host: \"localhost:8443\"\": was not found in \"/etc/nginx/.htpasswd\", client: 192.0.2.2, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "trying injection on user name",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1396556440.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2014/04/03 22:20:40 [error] 30708#0: *3 user \"test\": password mismatch, client: 127.0.0.1, server: test, request: \"GET / HTTP/1.1\", host: \"localhost:8443\"\": was not found in \"/etc/nginx/.htpasswd\", client: 192.0.2.2, server: , request: \"GET / HTTP/1.1\", host: \"localhost:8443\"",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "PAM auth failure, gh-4071",
+   "expect": {
+    "host": "192.0.2.120",
+    "match": true
+   },
+   "expect_time": 1757272840.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'normal'}",
+   "line": "2025/09/07 21:20:40 [error] 23141#23141: *24470 PAM: user 'username' - not authenticated: Authentication failure, client: 192.0.2.120, server: webdav.sub.domain, request: \"GET / HTTP/2.0\", host: \"webdav.sub.domain\"",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "PAM auth failure, gh-4071",
+   "expect": {
+    "host": "192.0.2.120",
+    "match": true
+   },
+   "expect_time": 1757272840.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'auth'}",
+   "line": "2025/09/07 21:20:40 [error] 23141#23141: *24470 PAM: user 'username' - not authenticated: Authentication failure, client: 192.0.2.120, server: webdav.sub.domain, request: \"GET / HTTP/2.0\", host: \"webdav.sub.domain\"",
+   "lineno": 17,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd journal message, with optional extra timestamp, gh-3646",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "nginx-http-auth{'logtype': 'journal'}",
+   "line": "host nginx[983478]: 2023/12/09 21:35:20 [error] 983478#983478: *3 user \"fakeusername\" was not found in \"/var/lib/nginx/htpasswd-for-host.example.com\", client: 192.0.2.3, server: host.example.com, request: \"GET / HTTP/2.0\", host: \"host.example.com\"",
+   "lineno": 22,
+   "logtype": "journal",
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd journal message, PAM auth failure, gh-4071",
+   "expect": {
+    "host": "192.0.2.120",
+    "match": true
+   },
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "nginx-http-auth{'logtype': 'journal'}",
+   "line": "host nginx[23141]: host nginx: 2025/09/07 21:20:40 [error] 23141#23141: *24470 PAM: user 'username' - not authenticated: Authentication failure, client: 192.0.2.120, server: webdav.sub.domain, request: \"GET / HTTP/2.0\", host: \"webdav.sub.domain\"",
+   "lineno": 25,
+   "logtype": "journal",
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "142.93.180.14",
+    "match": true
+   },
+   "expect_time": 1606311736.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2020/11/25 14:42:16 [crit] 76952#76952: *2454307 SSL_do_handshake() failed (SSL: error:1408F0C6:SSL routines:ssl3_get_record:packet length too long) while SSL handshaking, client: 142.93.180.14, server: 0.0.0.0:443",
+   "lineno": 30,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "80.191.166.166",
+    "match": true
+   },
+   "expect_time": 1606315667.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2020/11/25 15:47:47 [crit] 76952#76952: *5062354 SSL_do_handshake() failed (SSL: error:1408F0A0:SSL routines:ssl3_get_record:length too short) while SSL handshaking, client: 80.191.166.166, server: 0.0.0.0:443",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "5.126.32.148",
+    "match": true
+   },
+   "expect_time": 1606319288.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2020/11/25 16:48:08 [crit] 76952#76952: *7976400 SSL_do_handshake() failed (SSL: error:1408F096:SSL routines:ssl3_get_record:encrypted length too long) while SSL handshaking, client: 5.126.32.148, server: 0.0.0.0:443",
+   "lineno": 34,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1606316565.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2020/11/25 16:02:45 [error] 76952#76952: *5645766 connect() failed (111: Connection refused) while connecting to upstream, client: 5.126.32.148, server: www.google.de, request: \"GET /admin/config HTTP/2.0\", upstream: \"http://127.0.0.1:3000/admin/config\", host: \"www.google.de\"",
+   "lineno": 36,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "SSL failure: bad key share (gh-4142)",
+   "expect": {
+    "host": "192.0.2.23",
+    "match": true
+   },
+   "expect_time": 1752081638.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2025/07/09 19:20:38 [crit] 3075615#3075615: *2489 SSL_do_handshake() failed (SSL: error:0A00006C:SSL routines::bad key share) while SSL handshaking, client: 192.0.2.23, server: 0.0.0.0:443",
+   "lineno": 39,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "SSL failure: bad record type (gh-4142)",
+   "expect": {
+    "host": "192.0.2.24",
+    "match": true
+   },
+   "expect_time": 1752085132.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2025/07/09 20:18:52 [crit] 60993#60993: *16611546 SSL_do_handshake() failed (SSL: error:0A0001BB:SSL routines::bad record type error:0A000139:SSL routines::record layer failure) while SSL handshaking, client: 192.0.2.24, server: 0.0.0.0:443",
+   "lineno": 41,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "SSL failure: alert number 121 (gh-4142)",
+   "expect": {
+    "host": "192.0.2.17",
+    "match": true
+   },
+   "expect_time": 1752092856.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "fallback"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'fallback'}",
+   "line": "2025/07/09 22:27:36 [crit] 60993#60993: *16700609 SSL_read() failed (SSL: error:0A000461:SSL routines::reason(1121):SSL alert number 121) while waiting for request, client: 192.0.2.17, server: 0.0.0.0:443",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "142.93.180.14",
+    "match": true
+   },
+   "expect_time": 1606311736.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'aggressive'}",
+   "line": "2020/11/25 14:42:16 [crit] 76952#76952: *2454307 SSL_do_handshake() failed (SSL: error:1408F0C6:SSL routines:ssl3_get_record:packet length too long) while SSL handshaking, client: 142.93.180.14, server: 0.0.0.0:443",
+   "lineno": 47,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1333965209.0,
+   "file": "nginx-http-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "nginx-http-auth{'mode': 'aggressive'}",
+   "line": "2012/04/09 11:53:29 [error] 2865#0: *66647 user \"xyz\" was not found in \"/var/www/.htpasswd\", client: 192.0.43.10, server: www.myhost.com, request: \"GET / HTTP/1.1\", host: \"www.myhost.com\"",
+   "lineno": 49,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

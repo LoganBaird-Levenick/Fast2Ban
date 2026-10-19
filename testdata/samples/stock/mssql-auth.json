@@ -1,0 +1,77 @@
+{
+ "basedir": "stock",
+ "filter": "mssql-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1582556721.0,
+   "file": "mssql-auth",
+   "filter_options": {},
+   "flt_key": "mssql-auth",
+   "line": "2020-02-24 16:05:21.00 Logon       Login failed for user 'Backend'. Reason: Could not find a login matching the name provided. [CLIENT: 192.0.2.1]",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1582558225.0,
+   "file": "mssql-auth",
+   "filter_options": {},
+   "flt_key": "mssql-auth",
+   "line": "2020-02-24 16:30:25.88 Logon       Login failed for user '===)jf02h\u00fcas9\u00e4##22f'. Reason: Could not find a login matching the name provided. [CLIENT: 192.0.2.2]",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1582558272.0,
+   "file": "mssql-auth",
+   "filter_options": {},
+   "flt_key": "mssql-auth",
+   "line": "2020-02-24 16:31:12.20 Logon       Login failed for user ''. Reason: An attempt to login using SQL authentication failed. Server is configured for Integrated authentication only. [CLIENT: 192.0.2.3]",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true,
+    "user": "O'Leary"
+   },
+   "expect_time": 1582558286.0,
+   "file": "mssql-auth",
+   "filter_options": {},
+   "flt_key": "mssql-auth",
+   "line": "2020-02-24 16:31:26.01 Logon       Login failed for user 'O'Leary'. Reason: Could not find a login matching the name provided. [CLIENT: 192.0.2.4]",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "test injection in possibly unescaped foreign input",
+   "expect": {
+    "match": false
+   },
+   "expect_time": 1582558286.0,
+   "file": "mssql-auth",
+   "filter_options": {},
+   "flt_key": "mssql-auth",
+   "line": "2020-02-24 16:31:26.02 Wrong data received: Logon       Login failed for user 'test'. Reason: Could not find a login matching the name provided. [CLIENT: 192.0.2.5]",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

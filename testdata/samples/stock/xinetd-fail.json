@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "xinetd-fail",
+ "records": [
+  {
+   "expect": {
+    "host": "198.51.100.169",
+    "match": true
+   },
+   "expect_time": 1116171529.0,
+   "file": "xinetd-fail",
+   "filter_options": {},
+   "flt_key": "xinetd-fail",
+   "line": "May 15 17:38:49 boo xinetd[16256]: FAIL: telnet address from=198.51.100.169",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.223",
+    "match": true
+   },
+   "expect_time": 1123072729.0,
+   "file": "xinetd-fail",
+   "filter_options": {},
+   "flt_key": "xinetd-fail",
+   "line": "Aug  3 14:38:49 backup xinetd[31234]: FAIL: amanda libwrap from=198.51.100.223",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

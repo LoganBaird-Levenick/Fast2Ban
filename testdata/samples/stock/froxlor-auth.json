@@ -1,0 +1,98 @@
+{
+ "basedir": "stock",
+ "filter": "froxlor-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1116629787.0,
+   "file": "froxlor-auth",
+   "filter_options": {
+    "type": "1"
+   },
+   "flt_key": "froxlor-auth{'type': '1'}",
+   "line": "May 21 00:56:27 jomu Froxlor: [Login Action 1.2.3.4] Unknown user 'user' tried to login.",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1116629858.0,
+   "file": "froxlor-auth",
+   "filter_options": {
+    "type": "1"
+   },
+   "flt_key": "froxlor-auth{'type': '1'}",
+   "line": "May 21 00:57:38 jomu Froxlor: [Login Action 1.2.3.4] User 'admin' tried to login with wrong password.",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1758469578.0,
+   "file": "froxlor-auth",
+   "filter_options": {},
+   "flt_key": "froxlor-auth",
+   "line": "2025-09-21T17:46:18.311379+02:00 hostname froxlor[1055219]: froxlor.WARNING: User tried to login with wrong password. {\"source\":\"login\",\"action\":\"50\",\"user\":\"1.2.3.4\"} []",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1758469578.0,
+   "file": "froxlor-auth",
+   "filter_options": {
+    "type": "2"
+   },
+   "flt_key": "froxlor-auth{'type': '2'}",
+   "line": "2025-09-21T17:46:18.311379+02:00 hostname froxlor[1055219]: froxlor.WARNING: User tried to login with wrong password. {\"source\":\"login\",\"action\":\"50\",\"user\":\"1.2.3.4\"} []",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1758465013.0,
+   "file": "froxlor-auth",
+   "filter_options": {},
+   "flt_key": "froxlor-auth",
+   "line": "2025-09-21T16:30:13.118232+02:00 hostname froxlor[1054438]: froxlor.WARNING: Unknown user tried to login. {\"source\":\"login\",\"action\":\"50\",\"user\":\"1.2.3.4\"} []",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1758465013.0,
+   "file": "froxlor-auth",
+   "filter_options": {
+    "type": "2"
+   },
+   "flt_key": "froxlor-auth{'type': '2'}",
+   "line": "2025-09-21T16:30:13.118232+02:00 hostname froxlor[1054438]: froxlor.WARNING: Unknown user tried to login. {\"source\":\"login\",\"action\":\"50\",\"user\":\"1.2.3.4\"} []",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

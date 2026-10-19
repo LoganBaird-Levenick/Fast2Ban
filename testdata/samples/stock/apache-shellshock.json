@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "apache-shellshock",
+ "records": [
+  {
+   "expect": {
+    "host": "89.207.132.76",
+    "match": true
+   },
+   "expect_time": 1411630038.0,
+   "file": "apache-shellshock",
+   "filter_options": {},
+   "flt_key": "apache-shellshock",
+   "line": "[Thu Sep 25 09:27:18.813902 2014] [cgi:error] [pid 16860] [client 89.207.132.76:59635] AH01215: /bin/bash: warning: HTTP_TEST: ignoring function definition attempt",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "162.247.73.206",
+    "match": true
+   },
+   "expect_time": 1411630196.0,
+   "file": "apache-shellshock",
+   "filter_options": {},
+   "flt_key": "apache-shellshock",
+   "line": "[Thu Sep 25 09:29:56.141832 2014] [cgi:error] [pid 16864] [client 162.247.73.206:41273] AH01215: /bin/bash: error importing function definition for `HTTP_TEST'",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

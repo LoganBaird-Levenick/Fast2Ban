@@ -1,0 +1,315 @@
+{
+ "basedir": "tests-config",
+ "filter": "zzz-generic-example",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1119365266.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:47:46 machine test-demo[13709]: F2B: failure from 192.0.2.1",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1119365268.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:47:48 test-demo[13709]: F2B: failure from 192.0.2.1",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1119365270.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:47:50 machine kernel: [  970.699396] F2B: failure from 192.0.2.2",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365272.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:47:52 machine [test-demo] F2B: failure from 192.0.2.3",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365273.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:47:53 machine [test-demo][13709] F2B: failure from 192.0.2.3",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365400.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:50:00 machine test-demo(pam_unix) F2B: failure from 192.0.2.3",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365402.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:50:02 machine test-demo(pam_unix)[13709] F2B: failure from 192.0.2.3",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365701.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:55:01 <auth.info> machine kernel: [  970.699396] @vserver_demo test-demo(pam_unix)[13709] [ID 255 test] F2B: failure from 192.0.2.3",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365702.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 21 16:55:02   <auth.info> machine kernel: [  970.699396] @vserver_demo test-demo(pam_unix)[13709] [ID 255 test]    F2B: failure from 192.0.2.3",
+   "lineno": 28,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1119365703.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "[Jun 21 16:55:03] <auth.info> machine kernel: [  970.699396] @vserver_demo test-demo(pam_unix)[13709] [ID 255 test] F2B: failure from 192.0.2.3",
+   "lineno": 31,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "0000-12-30 00:00:00 server test-demo[47831]:  F2B: failure from 192.0.2.1",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "Jun 22 20:37:04 server test-demo[402]: writeToStorage plist={",
+   "lineno": 38,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "             absentCircleWithNoReason = 0;",
+   "lineno": 40,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "             applicationDate = \"0000-12-30 00:00:00 +0000\";",
+   "lineno": 42,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "}",
+   "lineno": 44,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "0000-12-30 00:00:00 server test-demo[47831]:  F2B: failure from 192.0.2.2",
+   "lineno": 47,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.09",
+    "match": true
+   },
+   "expect_time": 1119365709.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "2005-06-21 16:55:09 machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.09",
+   "lineno": 51,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.10",
+    "match": true
+   },
+   "expect_time": 1119365710.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "2005-06-21 14:55:10 UTC machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.10",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.11",
+    "match": true
+   },
+   "expect_time": 1119365711.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "2005-06-21 14:55:11 GMT machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.11",
+   "lineno": 55,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.250",
+    "match": true
+   },
+   "expect_time": 1119365762.0,
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "[Jun 21 16:56:02] machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.250",
+   "lineno": 58,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "test 1st ignoreregex",
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "[Jun 21 16:56:03] machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.251",
+   "lineno": 60,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "test 2nd ignoreregex",
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "[Jun 21 16:56:04] machine test-demo(pam_unix)[13709] F2B: error from 192.0.2.252",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "ignore other daemon",
+   "expect": {
+    "match": false
+   },
+   "file": "zzz-generic-example",
+   "filter_options": {},
+   "flt_key": "zzz-generic-example",
+   "line": "[Jun 21 16:56:04] machine captain-nemo(pam_unix)[55555] F2B: error from 192.0.2.2",
+   "lineno": 65,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

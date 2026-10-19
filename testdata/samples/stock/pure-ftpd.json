@@ -1,0 +1,20 @@
+{
+ "basedir": "stock",
+ "filter": "pure-ftpd",
+ "records": [
+  {
+   "expect": {
+    "host": "24.79.92.194",
+    "match": true
+   },
+   "expect_time": 1107186847.0,
+   "file": "pure-ftpd",
+   "filter_options": {},
+   "flt_key": "pure-ftpd",
+   "line": "Jan 31 16:54:07 desktop pure-ftpd: (?@24.79.92.194) [WARNING] Authentication failed for user [Administrator]",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

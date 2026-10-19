@@ -1,0 +1,648 @@
+{
+ "basedir": "stock",
+ "filter": "apache-auth",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jun 01 02:17:42 2013] [error] [client 192.168.33.1] File does not exist: /srv/http/site/[client 192.168.0.1] user root not found",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "194.228.20.113",
+    "match": true
+   },
+   "expect_time": 1373498501.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Thu Jul 11 01:21:41 2013] [error] [client 194.228.20.113] user  not found: /",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "194.228.20.113",
+    "match": true
+   },
+   "expect_time": 1373498503.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Thu Jul 11 01:21:43 2013] [error] [client 194.228.20.113] user dsfasdf not found: /",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::80da:af6b:8b2c",
+    "match": true
+   },
+   "expect_time": 1373498504.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Thu Jul 11 01:21:44 2013] [error] [client 2001:db8::80da:af6b:8b2c] user test-ipv6 not found: /",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374096045.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 23:20:45 2013] [error] [client 127.0.0.1] client denied by server configuration: /var/www/html/noentry/cant_get_me.html",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374348889.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:34:49.453232 2013] [access_compat:error] [pid 17512:tid 140123104306944] [client 127.0.0.1:51380] AH01797: client denied by server configuration: /var/www/html/noentry/cant_get_me.html",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.3.9.178",
+    "match": true
+   },
+   "expect_time": 1410723883.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Sep 14 21:44:43.008606 2014] [authz_core:error] [pid 10691] [client 192.3.9.178:44271] AH01630: client denied by server configuration: /var/www/html/noentry/cant_get_me.html",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374095677.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 23:14:37 2013] [error] [client 127.0.0.1] user  not found: /basic/anon/cant_get_me.html",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349052.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:37:32.266605 2013] [auth_basic:error] [pid 17512:tid 140123079128832] [client 127.0.0.1:51386] AH01618: user  not found: /basic/file/cant_get_me.html",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374092332.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 22:18:52 2013] [error] [client 127.0.0.1] user username: authentication failure for \"/basic/file\": Password Mismatch",
+   "lineno": 36,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349151.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:39:11.978080 2013] [auth_basic:error] [pid 17512:tid 140123053950720] [client 127.0.0.1:51390] AH01617: user username: authentication failure for \"/basic/file\": Password Mismatch",
+   "lineno": 39,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374093168.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 22:32:48 2013] [error] [client 127.0.0.1] user wrongusername not found: /basic/file",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349233.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:40:33.803528 2013] [auth_basic:error] [pid 17540:tid 140123095914240] [client 127.0.0.1:51395] AH01618: user wrongusername not found: /basic/file",
+   "lineno": 46,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374093595.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 22:39:55 2013] [error] [client 127.0.0.1] client used wrong authentication scheme: /basic/file",
+   "lineno": 50,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349312.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:41:52.523931 2013] [auth_basic:error] [pid 17512:tid 140122964092672] [client 127.0.0.1:51396] AH01614: client used wrong authentication scheme: /basic/file",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374094472.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 22:54:32 2013] [error] [client 127.0.0.1] Authorization of user username to access /basic/authz_owner/cant_get_me.html failed, reason: file owner dan does not match.",
+   "lineno": 57,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374351103.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 22:11:43.147674 2013] [authz_owner:error] [pid 17540:tid 140122922129152] [client 127.0.0.1:51548] AH01637: Authorization of user username to access /basic/authz_owner/cant_get_me.html failed, reason: file owner dan does not match",
+   "lineno": 60,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:db8::80da:af6b:8b2c",
+    "match": true
+   },
+   "expect_time": 1374351104.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 22:11:44.147674 2013] [authz_owner:error] [pid 17540:tid 140122922129152] [client [2001:db8::80da:af6b:8b2c]:51548] AH01637: Authorization of user test-ipv6 to access /basic/authz_owner/cant_get_me.html failed, reason: file owner dan does not match",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349364.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:42:44.304159 2013] [authz_core:error] [pid 17484:tid 140123095914240] [client 127.0.0.1:51397] AH01631: user username: authorization failure for \"/basic/authz_owner/cant_get_me.html\": ",
+   "lineno": 66,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374097837.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Jul 17 23:50:37 2013] [error] [client 127.0.0.1] Digest: user username: password mismatch: /digest/cant_get_me.html",
+   "lineno": 70,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349446.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:44:06.867985 2013] [auth_digest:error] [pid 17540:tid 140123070736128] [client 127.0.0.1:51406] AH01792: user username: password mismatch: /digest/cant_get_me.html",
+   "lineno": 73,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374098919.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Thu Jul 18 00:08:39 2013] [error] [client 127.0.0.1] Digest: user `username' in realm `digest private area' not found: /digest_wrongrelm/cant_get_me.html",
+   "lineno": 77,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1374349528.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jul 20 21:45:28.890523 2013] [auth_digest:error] [pid 17540:tid 140122972485376] [client 127.0.0.1:51408] AH01790: user `username' in realm `digest private area' not found: /digest_wrongrelm/cant_get_me.html",
+   "lineno": 80,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375038331.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:05:31.178340 2013] [auth_digest:error] [pid 24224:tid 139895539455744] [client 127.0.0.1:56906] AH01793: invalid qop `auth' received: /digest/qop_none/",
+   "lineno": 84,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375038764.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:12:44 2013] [error] [client 127.0.0.1] Digest: invalid nonce JDiBAA=db9372522295196b7ac31db99e10cd1106c received - length is not 52",
+   "lineno": 88,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": false
+   },
+   "expect_time": 1375038997.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:16:37 2013] [error] [client 127.0.0.1] Digest: invalid nonce l19lgpDiBAZZZf1ec3d9613f3b3ef43660e3628d78455fd8b937 received - hash is not 6fda8bbcbcf85ff1ebfe7d1c43faba583bc53a02",
+   "lineno": 94,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": false
+   },
+   "expect_time": 1375039091.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:18:11.769228 2013] [auth_digest:error] [pid 24752:tid 139895505884928] [client 127.0.0.1:56964] AH01776: invalid nonce b9YAiJDiBAZZZ1b1abe02d20063ea3b16b544ea1b0d981c1bafe received - hash is not d42d824dee7aaf50c3ba0a7c6290bd453e3dd35b",
+   "lineno": 98,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375039802.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:30:02 2013] [error] [client 127.0.0.1] Digest: realm mismatch - got `so far away' but expected `digest private area'",
+   "lineno": 102,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375039676.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:27:56.549667 2013] [auth_digest:error] [pid 24835:tid 139895297222400] [client 127.0.0.1:57052] AH01788: realm mismatch - got `so far away' but expected `digest private area'",
+   "lineno": 105,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375040480.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:41:20 2013] [error] [client 127.0.0.1] Digest: unknown algorithm `super funky chicken' received: /digest/",
+   "lineno": 110,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375040523.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sun Jul 28 21:42:03.930190 2013] [auth_digest:error] [pid 24835:tid 139895505884928] [client 127.0.0.1:57115] AH01789: unknown algorithm `super funky chicken' received: /digest/",
+   "lineno": 113,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375056926.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Mon Jul 29 02:15:26 2013] [error] [client 127.0.0.1] Digest: invalid nonce LWEDr5TiBAA=ceddd011628c30e3646f7acda4f1a0ab6b7c5ae6 received - user attempted time travel",
+   "lineno": 117,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1375056775.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Mon Jul 29 02:12:55.539813 2013] [auth_digest:error] [pid 9647:tid 139895522670336] [client 127.0.0.1:58474] AH01777: invalid nonce 59QJppTiBAA=b08983fd166ade9840407df1b0f75b9e6e07d88d received - user attempted time travel",
+   "lineno": 120,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.0.2",
+    "match": true
+   },
+   "expect_time": 1370045862.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Sat Jun 01 02:17:42 2013] [error] [client 192.168.0.2] user root not found",
+   "lineno": 123,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "91.49.82.139",
+    "match": true
+   },
+   "expect_time": 1384810773.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Mon Nov 18 22:39:33 2013] [error] [client 91.49.82.139] user gg not found: /, referer: http://sj.hopto.org/management.html",
+   "lineno": 126,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "91.49.82.139",
+    "match": true
+   },
+   "expect_time": 1522193502.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Mar 28 01:31:42.355210 2018] [ssl:error] [pid 6586] [client 91.49.82.139:58028] AH02031: Hostname www.testdom.com provided via SNI, but no hostname provided in HTTP request",
+   "lineno": 129,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "91.49.82.139",
+    "match": true
+   },
+   "expect_time": 1522193502.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Mar 28 01:31:42.355210 2018] [ssl:error] [pid 6586] [client 91.49.82.139:58028] AH02032: Hostname www.testdom.com provided via SNI and hostname dummy.com provided via HTTP have no compatible SSL setup",
+   "lineno": 132,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "91.49.82.139",
+    "match": true
+   },
+   "expect_time": 1522193502.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Wed Mar 28 01:31:42.355210 2018] [ssl:error] [pid 6586] [client 91.49.82.139:58028] AH02033: No hostname was provided via SNI for a name based virtual host",
+   "lineno": 135,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "ignore mod_evasive errors in normal mode (gh-2548)",
+   "expect": {
+    "match": false
+   },
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Thu Oct 17 18:43:40.160521 2019] [evasive20:error] [pid 22589] [client 192.0.2.1:56175] client denied by server configuration: /path/index.php, referer: https://hostname/path/",
+   "lineno": 138,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "remote instead of client, gh-3622",
+   "expect": {
+    "host": "192.0.2.111",
+    "match": true
+   },
+   "expect_time": 1699274396.0,
+   "file": "apache-auth",
+   "filter_options": {},
+   "flt_key": "apache-auth",
+   "line": "[Mon Nov 06 13:39:56.637868 2023] [auth_basic:error] [pid 3175001:tid 140494544914112] [remote 192.0.2.111:35924] AH01618: user whatever not found: /admin",
+   "lineno": 141,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "accept mod_evasive errors in aggressive mode (gh-2548)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1571330620.0,
+   "file": "apache-auth",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "apache-auth{'mode': 'aggressive'}",
+   "line": "[Thu Oct 17 18:43:40.160521 2019] [evasive20:error] [pid 22589] [client 192.0.2.1:56175] client denied by server configuration: /path/index.php, referer: https://hostname/path/",
+   "lineno": 146,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "using syslog (ErrorLog syslog)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1108480980.0,
+   "file": "apache-auth",
+   "filter_options": {
+    "logging": "syslog"
+   },
+   "flt_key": "apache-auth{'logging': 'syslog'}",
+   "line": "Feb 15 16:23:00 srv httpd[22034]: [authz_core:error] [pid 22034] [client 192.0.2.1:58585] AH01630: client denied by server configuration: /home/www/",
+   "lineno": 151,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "using syslog (ErrorLog syslog)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1108481020.0,
+   "file": "apache-auth",
+   "filter_options": {
+    "logging": "syslog"
+   },
+   "flt_key": "apache-auth{'logging': 'syslog'}",
+   "line": "Feb 15 16:23:40 srv httpd/backend1[22034]: [authz_core:error] [pid 22036] [client 192.0.2.2:59392] AH01630: client denied by server configuration: /home/backend1/",
+   "lineno": 153,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "using syslog (ErrorLog syslog)",
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1108482893.0,
+   "file": "apache-auth",
+   "filter_options": {
+    "logging": "syslog"
+   },
+   "flt_key": "apache-auth{'logging': 'syslog'}",
+   "line": "Feb 15 16:54:53 tools apache2[18154]: [:error] [pid 18154:tid 140680873617152] [client 192.0.2.3:48154] AH01630: client denied by server configuration: /var/www",
+   "lineno": 155,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1108589568.0,
+   "file": "apache-auth",
+   "filter_options": {
+    "logging": "syslog"
+   },
+   "flt_key": "apache-auth{'logging': 'syslog'}",
+   "line": "Feb 16 22:32:48 srv httpd[22034]: [error] [client 127.0.0.1] user wrongusername not found: /basic/file",
+   "lineno": 158,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-sshd",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "prefregex",
+   "^<F-MLFID>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?</F-MLFID>(?:(?:error|fatal): (?:PAM: )?)?<F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "maxlines",
+   1
+  ],
+  [
+   "multi-set",
+   "o-f-sshd",
+   "addfailregex",
+   [
+    "^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User not known to the underlying authentication module for <F-USER>.*?</F-USER> (?:from )?<HOST>(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^Failed publickey for invalid user <F-USER>(?P<cond_user>\\S+)|(?:(?! from ).)*?</F-USER> from <HOST>(?: port \\d+)?(?: ssh\\d*)?(?(cond_user): |(?:(?:(?! from ).)*)$)",
+    "^Failed (?:<F-NOFAIL>publickey</F-NOFAIL>|\\S+) for (?P<cond_inv>invalid user )?<F-USER>(?P<cond_user>\\S+)|(?(cond_inv)(?:(?! from ).)*?|[^:]+)</F-USER> from <HOST>(?: port \\d+)?(?: ssh\\d*)?(?(cond_user): |(?:(?:(?! from ).)*)$)",
+    "^<F-USER>ROOT</F-USER> LOGIN REFUSED FROM <HOST>",
+    "^[iI](?:llegal|nvalid) user <F-USER>.*?</F-USER> (?:from )?<HOST>(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> (?:from )?<HOST> not allowed because not listed in AllowUsers(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> (?:from )?<HOST> not allowed because listed in DenyUsers(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> (?:from )?<HOST> not allowed because not in any group(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^refused connect from \\S+ \\(<HOST>\\)",
+    "^Received <F-MLFFORGET>disconnect</F-MLFFORGET> from <HOST>(?: port \\d+)?:\\s*3: .*: Auth fail(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> (?:from )?<HOST> not allowed because a group is listed in DenyGroups(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> (?:from )?<HOST> not allowed because none of user's groups are listed in AllowGroups(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^<F-NOFAIL>pam_[a-z]+\\(sshd:auth\\):\\s+authentication failure;</F-NOFAIL>(?:\\s+(?:(?:logname|e?uid|tty)=\\S*)){0,4}\\s+ruser=<F-ALT_USER>\\S*</F-ALT_USER>\\s+rhost=<HOST>(?:\\s+user=<F-USER>\\S*</F-USER>)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^maximum authentication attempts exceeded for (?:invalid user )?<F-USER>.*?</F-USER> (?:from )?<HOST>(?: port \\d+)?(?: ssh\\d*)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^User <F-USER>\\S+|.*?</F-USER> not allowed because account is locked(?: port \\d+)?(?: \\[preauth\\])?\\s*",
+    "^<F-MLFFORGET>Disconnecting</F-MLFFORGET>(?: from)?(?: (?:invalid|authenticating)) user <F-USER>\\S+</F-USER> <HOST>(?: port \\d+)?:\\s*Change of username or service not allowed:\\s*.*\\[preauth\\]\\s*$",
+    "^Disconnecting: Too many authentication failures(?: for <F-USER>\\S+|.*?</F-USER>)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$",
+    "^<F-NOFAIL>Received <F-MLFFORGET>disconnect</F-MLFFORGET></F-NOFAIL> from <HOST>(?: port \\d+)?:\\s*11:",
+    "^<F-NOFAIL><F-MLFFORGET>(?:Connection (?:closed|reset)|Disconnect(?:ed|ing))</F-MLFFORGET></F-NOFAIL>(?: (?:by|from))?(?: (?:invalid|authenticating) user <F-USER>\\S+|.*?</F-USER>)?(?: from)? <ADDR>(?: port \\d+)?(?:: (?!Too many authentication failures)[^\\[]+)?(?: \\[preauth\\])?\\s*$",
+    "^<F-MLFFORGET><F-MLFGAINED>Accepted \\w+</F-MLFGAINED></F-MLFFORGET> for <F-USER>\\S+</F-USER> from <HOST>(?:\\s|$)",
+    "^<F-NOFAIL>Connection from</F-NOFAIL> <HOST>"
+   ]
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "addjournalmatch",
+   "_SYSTEMD_UNIT=sshd.service",
+   "+",
+   "_COMM=sshd",
+   "+",
+   "_COMM=sshd-session"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-sshd",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-sshd"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-sshd\n"
+}

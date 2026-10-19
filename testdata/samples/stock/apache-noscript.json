@@ -1,0 +1,193 @@
+{
+ "basedir": "stock",
+ "filter": "apache-noscript",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1370757467.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Sun Jun 09 07:57:47 2013] [error] [client 192.0.43.10] script '/usr/lib/cgi-bin/gitweb.cgiwp-login.php' not found or unable to stat",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] File does not exist: /home/southern/public_html/azenv.php",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] script not found or unable to stat: /home/e-smith/files/ibays/Primary/cgi-bin/php",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] script not found or unable to stat: /home/e-smith/files/ibays/Primary/cgi-bin/php5",
+   "lineno": 9,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] script not found or unable to stat: /home/e-smith/files/ibays/Primary/cgi-bin/php-cgi",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] script not found or unable to stat: /home/e-smith/files/ibays/Primary/cgi-bin/php.cgi",
+   "lineno": 13,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "198.51.100.86",
+    "match": true
+   },
+   "expect_time": 1216702110.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 22 06:48:30 2008] [error] [client 198.51.100.86] script not found or unable to stat: /home/e-smith/files/ibays/Primary/cgi-bin/php4",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "204.232.202.107",
+    "match": true
+   },
+   "expect_time": 1387781341.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Mon Dec 23 07:49:01.981912 2013] [:error] [pid 3790] [client 204.232.202.107:46301] script '/var/www/timthumb.php' not found or unable to stat",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "php-fpm error",
+   "expect": {
+    "host": "192.0.2.106",
+    "match": true
+   },
+   "expect_time": 1520754980.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Sun Mar 11 08:56:20.913548 2018] [proxy_fcgi:error] [pid 742:tid 140142593419008] [client 192.0.2.106:50900] AH01071: Got error 'Primary script unknown\\n'",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "script unknown, without \n (gh-2466)",
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1562675262.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Jul 09 14:27:42.650548 2019] [proxy_fcgi:error] [pid 22075:tid 140322524440320] [client 127.0.0.1] AH01071: Got error 'Primary script unknown'",
+   "lineno": 22,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "script not found with AH02811 and cgi-bin path segment in script (gh-2805)",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1597128977.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Tue Aug 11 08:56:17.580412 2020] [cgi:error] [pid 27550:tid 140110750279424] [client 192.0.2.1:18071] AH02811: script not found or unable to stat: /usr/lib/cgi-bin/kerbynet",
+   "lineno": 25,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "script not found, changed log-format with stderr from (gh-3900)",
+   "expect": {
+    "host": "192.0.2.74",
+    "match": true
+   },
+   "expect_time": 1734562683.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Wed Dec 18 23:58:03.148113 2024] [cgi:error] [pid 16720:tid 1878] [client 192.0.2.74:35092] AH02811: stderr from /usr/lib/cgi-bin/luci: script not found or unable to stat",
+   "lineno": 28,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "stderr from a cgi-bin directory, no script name and no trailing slash (gh-4040)",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1753886606.0,
+   "file": "apache-noscript",
+   "filter_options": {},
+   "flt_key": "apache-noscript",
+   "line": "[Wed Jul 30 16:43:26.968908 2025] [cgi:error] [pid 147397:tid 147442] [client 192.0.2.5:33570] AH02811: stderr from /srv/http/cgi-bin: script not found or unable to stat",
+   "lineno": 31,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

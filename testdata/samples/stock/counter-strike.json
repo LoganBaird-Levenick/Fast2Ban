@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "counter-strike",
+ "records": [
+  {
+   "expect": {
+    "host": "31.29.29.89",
+    "match": true
+   },
+   "expect_time": 1388535917.0,
+   "file": "counter-strike",
+   "filter_options": {},
+   "flt_key": "counter-strike",
+   "line": "L 01/01/2014 - 01:25:17: Bad Rcon: \"rcon 1146003691 \"284\"  sv_contact \"HLBrute 1.10\"\" from \"31.29.29.89:57370\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "105.158.241.147",
+    "match": true
+   },
+   "expect_time": 1388546221.0,
+   "file": "counter-strike",
+   "filter_options": {},
+   "flt_key": "counter-strike",
+   "line": "L 01/01/2014 - 04:17:01: Bad Rcon: \"rcon 260639614 \"admin\"  sv_contact \"HLBrute 1.10\"\" from \"105.158.241.147:53772\"",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,135 @@
+{
+ "basedir": "stock",
+ "filter": "domino-smtp",
+ "records": [
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1120424840.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "03-07-2005 23:07:20   SMTP Server: Authentication failed for user postmaster ; connecting host 1.2.3.4",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1403423772.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "[28325:00010-3735542592] 22-06-2014 09:56:12   smtp: postmaster [1.2.3.4] authentication failure using internet password",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1410149667.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "08-09-2014 06:14:27   smtp: postmaster [1.2.3.4] authentication failure using internet password",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1478553680.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2016-11-07 22:21:20   smtp: postmaster [1.2.3.4] authentication failure using internet password",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.4",
+    "match": true,
+    "user": "user with space in name"
+   },
+   "expect_time": 1478553681.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2016-11-07 22:21:21   smtp: user with space in name [192.0.2.4] authentication failure using internet password",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "GHSA-33wh-ccjc-p397, positive case (match, no hangs)",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1478553682.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2016-11-07 22:21:22   smtp: A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 192.0.2.5 authentication failure using internet password",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "GHSA-33wh-ccjc-p397, negative case (bypass, no hangs)",
+   "expect": {
+    "match": false
+   },
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2016-11-07 22:21:23   smtp: A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A 192.0.2.5",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "different log-format",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1537370750.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2018-09-19 17:25:50   SMTP Server [0D14:0027-1334] Authentication failed for user Bad Hacker ; connecting host [192.0.2.1]",
+   "lineno": 19,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-2228, rejected for policy reasons",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1537370752.0,
+   "file": "domino-smtp",
+   "filter_options": {},
+   "flt_key": "domino-smtp",
+   "line": "2018-09-19 17:25:52   SMTP Server [000527:000013-0000001227564800] Connection from [192.0.2.2] rejected for policy reasons. IP address of connecting host not found in reverse DNS lookup.",
+   "lineno": 21,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

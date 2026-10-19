@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "groupoffice",
+ "records": [
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": true
+   },
+   "expect_time": 1389002378.0,
+   "file": "groupoffice",
+   "filter_options": {},
+   "flt_key": "groupoffice",
+   "line": "[2014-01-06 10:59:38]LOGIN FAILED for user: \"asdsad\" from IP: 127.0.0.1",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "127.0.0.1",
+    "match": false
+   },
+   "expect_time": 1389002389.0,
+   "file": "groupoffice",
+   "filter_options": {},
+   "flt_key": "groupoffice",
+   "line": "[2014-01-06 10:59:49]LOGIN SUCCESS for user: \"admin\" from IP: 127.0.0.1",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

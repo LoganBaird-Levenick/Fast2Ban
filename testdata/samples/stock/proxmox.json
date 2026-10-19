@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "proxmox",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1110271064.0,
+   "file": "proxmox",
+   "filter_options": {},
+   "flt_key": "proxmox",
+   "line": "Mar  8 09:37:44 HOSTNAME pvedaemon[12021]: authentication failure; rhost=192.0.2.123 user=root@pam msg=Authentication failure",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.124",
+    "match": true
+   },
+   "expect_time": 1110335547.0,
+   "file": "proxmox",
+   "filter_options": {},
+   "flt_key": "proxmox",
+   "line": "Mar  9 03:32:27 HOSTNAME pvedaemon[8961]: authentication failure; rhost=192.0.2.124 user=jose@pve msg=invalid credentials",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

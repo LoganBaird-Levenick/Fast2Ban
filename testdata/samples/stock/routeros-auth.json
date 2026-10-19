@@ -1,0 +1,63 @@
+{
+ "basedir": "stock",
+ "filter": "routeros-auth",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.88.6",
+    "match": true,
+    "user": "admin"
+   },
+   "expect_time": 1108463146.0,
+   "file": "routeros-auth",
+   "filter_options": {},
+   "flt_key": "routeros-auth",
+   "line": "Feb 15 11:25:46 gw.local system,error,critical login failure for user admin from 192.168.88.6 via web",
+   "lineno": 3,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "routeros-auth",
+   "filter_options": {},
+   "flt_key": "routeros-auth",
+   "line": "Feb 15 11:26:15 gw.local system,info log rule changed by admin",
+   "lineno": 7,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "2001:470:1:c84::24",
+    "match": true,
+    "user": ""
+   },
+   "expect_time": 1108465062.0,
+   "file": "routeros-auth",
+   "filter_options": {},
+   "flt_key": "routeros-auth",
+   "line": "Feb 15 11:57:42 1234.hostname.cz system,error,critical login failure for user  from 2001:470:1:c84::24 via ssh",
+   "lineno": 11,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true,
+    "user": "user with space"
+   },
+   "expect_time": 1109750986.0,
+   "file": "routeros-auth",
+   "filter_options": {},
+   "flt_key": "routeros-auth",
+   "line": "Mar  2 09:09:46 gw.local system,error,critical login failure for user user with space from 1.2.3.4 via ssh",
+   "lineno": 15,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

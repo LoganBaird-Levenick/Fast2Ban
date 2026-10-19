@@ -1,0 +1,118 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "o-f-exim-spam",
+   "polling"
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "prefregex",
+   "^(?:\\s?\\[\\d+\\]|\\s?[\\w\\.-]+ exim\\[\\d+\\]:){0,2}<F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "o-f-exim-spam",
+   "addfailregex",
+   [
+    "^\\s?\\S+(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected by local_scan\\(\\): .{0,256}$",
+    "^(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected RCPT [^@]+@\\S+: .*dnsbl.*\\s*$",
+    "^\\s?\\S+(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected after DATA: This message contains a virus \\(\\S+\\)\\.\\s*$",
+    "^\\s?\\S+ SA: Action: flagged as Spam but accepted: score=\\d+\\.\\d+ required=\\d+\\.\\d+ \\(scanned in \\d+/\\d+ secs \\| Message-Id: \\S+\\)\\. From \\S+ \\(host=\\S+ \\[<HOST>\\]\\) for trap@example.com$",
+    "^\\s?\\S+ SA: Action: silently tossed message: score=\\d+\\.\\d+ required=\\d+\\.\\d+ trigger=\\d+\\.\\d+ \\(scanned in \\d+/\\d+ secs \\| Message-Id: \\S+\\)\\. From \\S+ \\(host=(\\S+ )?\\[<HOST>\\]\\) for \\S+$"
+   ]
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "o-f-exim-spam",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "start",
+   "o-f-exim-spam"
+  ]
+ ],
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-exim-spam\n"
+}

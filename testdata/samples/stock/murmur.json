@@ -1,0 +1,50 @@
+{
+ "basedir": "stock",
+ "filter": "murmur",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.0.1",
+    "match": true
+   },
+   "expect_time": 1448811481.0,
+   "file": "murmur",
+   "filter_options": {},
+   "flt_key": "murmur",
+   "line": "<W>2015-11-29 16:38:01.818 1 => <4:testUsernameOne(-1)> Rejected connection from 192.168.0.1:29530: Invalid server password",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.1.2",
+    "match": true
+   },
+   "expect_time": 1448813900.0,
+   "file": "murmur",
+   "filter_options": {},
+   "flt_key": "murmur",
+   "line": "<W>2015-11-29 17:18:20.962 1 => <8:testUsernameTwo(-1)> Rejected connection from 192.168.1.2:29761: Wrong certificate or password for existing user",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "systemd-journal entry",
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "file": "murmur",
+   "filter_options": {
+    "logtype": "journal"
+   },
+   "flt_key": "murmur{'logtype': 'journal'}",
+   "line": "Test murmurd[2064]: <W>2019-09-08 13:00:05.615 1 => <10:Test(-1)> Rejected connection from 192.0.2.1:31752: Invalid server password",
+   "lineno": 10,
+   "logtype": "journal",
+   "prefix_line": null
+  }
+ ]
+}

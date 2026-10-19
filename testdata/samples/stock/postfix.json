@@ -1,0 +1,2412 @@
+{
+ "basedir": "stock",
+ "filter": "postfix",
+ "records": [
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1108974114.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Feb 21 09:21:54 xxx postfix/smtpd[14398]: NOQUEUE: reject: RCPT from example.com[192.0.43.10]: 450 4.7.1 : Helo command rejected: Host not found; from=<> to=<> proto=ESMTP helo=",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1108974114.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Feb 21 09:21:54 xxx postfix/smtpd[14398]: NOQUEUE: reject: RCPT from example.com[192.0.43.10]: 450 4.7.1 : Helo command rejected: Host not found; from=<> to=<> proto=ESMTP helo=",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.43.10",
+    "match": true
+   },
+   "expect_time": 1108974114.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 21 09:21:54 xxx postfix/smtpd[14398]: NOQUEUE: reject: RCPT from example.com[192.0.43.10]: 450 4.7.1 : Helo command rejected: Host not found; from=<> to=<> proto=ESMTP helo=",
+   "lineno": 6,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121147268.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jul 12 07:47:48 saturn postfix/smtpd[8738]: NOQUEUE: reject: RCPT from 1-2-3-4-example.com[1.2.3.4]: 554 5.7.1 <smtp@example.com>: Relay access denied; from=<john@example.com> to=<smtp@example.org> proto=SMTP helo=<198.51.100.17>",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121147268.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jul 12 07:47:48 saturn postfix/smtpd[8738]: NOQUEUE: reject: RCPT from 1-2-3-4-example.com[1.2.3.4]: 554 5.7.1 <smtp@example.com>: Relay access denied; from=<john@example.com> to=<smtp@example.org> proto=SMTP helo=<198.51.100.17>",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1121147268.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jul 12 07:47:48 saturn postfix/smtpd[8738]: NOQUEUE: reject: RCPT from 1-2-3-4-example.com[1.2.3.4]: 554 5.7.1 <smtp@example.com>: Relay access denied; from=<john@example.com> to=<smtp@example.org> proto=SMTP helo=<198.51.100.17>",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.65",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.65]: 554 5.7.1 <bad.domain>: Helo command rejected: match bad.domain; from=<foo@good.domain> to=<foo@porcupine.org> proto=SMTP helo=<bad.domain>",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.65",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.65]: 554 5.7.1 <bad.domain>: Helo command rejected: match bad.domain; from=<foo@good.domain> to=<foo@porcupine.org> proto=SMTP helo=<bad.domain>",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.65",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.65]: 554 5.7.1 <bad.domain>: Helo command rejected: match bad.domain; from=<foo@good.domain> to=<foo@porcupine.org> proto=SMTP helo=<bad.domain>",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3474",
+   "expect": {
+    "host": "192.0.2.236",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[1938]: NOQUEUE: reject: RCPT from unknown[192.0.2.236]: 554 5.7.1 <dom.tld>: Helo command rejected: Access denied; from=<ADMINISTRATOR@dom.tld> to=<lp@dom.tld> proto=ESMTP helo=<dom.tld>",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3474",
+   "expect": {
+    "host": "192.0.2.236",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[1938]: NOQUEUE: reject: RCPT from unknown[192.0.2.236]: 554 5.7.1 <dom.tld>: Helo command rejected: Access denied; from=<ADMINISTRATOR@dom.tld> to=<lp@dom.tld> proto=ESMTP helo=<dom.tld>",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3474",
+   "expect": {
+    "host": "192.0.2.236",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[1938]: NOQUEUE: reject: RCPT from unknown[192.0.2.236]: 554 5.7.1 <dom.tld>: Helo command rejected: Access denied; from=<ADMINISTRATOR@dom.tld> to=<lp@dom.tld> proto=ESMTP helo=<dom.tld>",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.43",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.43]: 554 5.7.1 <foo@bad.domain>: Sender address rejected: match bad.domain; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.43>",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.43",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.43]: 554 5.7.1 <foo@bad.domain>: Sender address rejected: match bad.domain; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.43>",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.51.100.43",
+    "match": true
+   },
+   "expect_time": 1121721176.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jul 18 23:12:56 xxx postfix/smtpd[8738]: NOQUEUE: reject: RCPT from foo[192.51.100.43]: 554 5.7.1 <foo@bad.domain>: Sender address rejected: match bad.domain; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.43>",
+   "lineno": 14,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3590",
+   "expect": {
+    "host": "192.51.100.143",
+    "match": true
+   },
+   "expect_time": 1121721177.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jul 18 23:12:57 xxx postfix/smtpd[8722]: NOQUEUE: reject: RCPT from foo[192.51.100.143]: 450 4.1.8 <foo@bad.domain>: Sender address rejected: Malformed DNS server reply; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.143>",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3590",
+   "expect": {
+    "host": "192.51.100.143",
+    "match": true
+   },
+   "expect_time": 1121721177.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jul 18 23:12:57 xxx postfix/smtpd[8722]: NOQUEUE: reject: RCPT from foo[192.51.100.143]: 450 4.1.8 <foo@bad.domain>: Sender address rejected: Malformed DNS server reply; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.143>",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "gh-3590",
+   "expect": {
+    "host": "192.51.100.143",
+    "match": true
+   },
+   "expect_time": 1121721177.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jul 18 23:12:57 xxx postfix/smtpd[8722]: NOQUEUE: reject: RCPT from foo[192.51.100.143]: 450 4.1.8 <foo@bad.domain>: Sender address rejected: Malformed DNS server reply; from=<foo@bad.domain> to=<foo@porcupine.org> proto=SMTP helo=<192.51.100.143>",
+   "lineno": 16,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "72.53.132.234",
+    "match": true
+   },
+   "expect_time": 1123664138.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Aug 10 10:55:38 f-vanier-bourgeois postfix/smtpd[2162]: NOQUEUE: reject: VRFY from 72-53-132-234.cpe.distributel.net[72.53.132.234]: 550 5.1.1 : Recipient address rejected: User unknown in local recipient tab",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "72.53.132.234",
+    "match": true
+   },
+   "expect_time": 1123664138.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Aug 10 10:55:38 f-vanier-bourgeois postfix/smtpd[2162]: NOQUEUE: reject: VRFY from 72-53-132-234.cpe.distributel.net[72.53.132.234]: 550 5.1.1 : Recipient address rejected: User unknown in local recipient tab",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "72.53.132.234",
+    "match": true
+   },
+   "expect_time": 1123664138.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Aug 10 10:55:38 f-vanier-bourgeois postfix/smtpd[2162]: NOQUEUE: reject: VRFY from 72-53-132-234.cpe.distributel.net[72.53.132.234]: 550 5.1.1 : Recipient address rejected: User unknown in local recipient tab",
+   "lineno": 18,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1123940746.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Aug 13 15:45:46 server postfix/smtpd[13844]: 00ADB3C0899: reject: RCPT from example.com[192.0.2.1]: 550 5.1.1 <sales@server.com>: Recipient address rejected: User unknown in local recipient table; from=<xxxxxx@example.com> to=<sales@server.com> proto=ESMTP helo=<mail.example.com>",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1123940746.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Aug 13 15:45:46 server postfix/smtpd[13844]: 00ADB3C0899: reject: RCPT from example.com[192.0.2.1]: 550 5.1.1 <sales@server.com>: Recipient address rejected: User unknown in local recipient table; from=<xxxxxx@example.com> to=<sales@server.com> proto=ESMTP helo=<mail.example.com>",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1123940746.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Aug 13 15:45:46 server postfix/smtpd[13844]: 00ADB3C0899: reject: RCPT from example.com[192.0.2.1]: 550 5.1.1 <sales@server.com>: Recipient address rejected: User unknown in local recipient table; from=<xxxxxx@example.com> to=<sales@server.com> proto=ESMTP helo=<mail.example.com>",
+   "lineno": 20,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "undeliverable address (sender/recipient verification, gh-3039)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1116453630.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "May 19 00:00:30 proxy2 postfix/smtpd[16123]: NOQUEUE: reject: RCPT from example.net[192.0.2.2]: 550 5.1.1 <user1@example.com>: Recipient address rejected: undeliverable address: verification failed; from=<user2@example.org> to=<user1@example.com> proto=ESMTP helo=<example.net>",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "undeliverable address (sender/recipient verification, gh-3039)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1116453630.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "May 19 00:00:30 proxy2 postfix/smtpd[16123]: NOQUEUE: reject: RCPT from example.net[192.0.2.2]: 550 5.1.1 <user1@example.com>: Recipient address rejected: undeliverable address: verification failed; from=<user2@example.org> to=<user1@example.com> proto=ESMTP helo=<example.net>",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "undeliverable address (sender/recipient verification, gh-3039)",
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1116453630.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "May 19 00:00:30 proxy2 postfix/smtpd[16123]: NOQUEUE: reject: RCPT from example.net[192.0.2.2]: 550 5.1.1 <user1@example.com>: Recipient address rejected: undeliverable address: verification failed; from=<user2@example.org> to=<user1@example.com> proto=ESMTP helo=<example.net>",
+   "lineno": 23,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "181.21.131.88",
+    "match": true
+   },
+   "expect_time": 1105524469.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jan 12 11:07:49 emf1pt2-2-35-70 postfix/smtpd[13767]: improper command pipelining after DATA from unknown[181.21.131.88]:",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "181.21.131.88",
+    "match": true
+   },
+   "expect_time": 1105524469.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jan 12 11:07:49 emf1pt2-2-35-70 postfix/smtpd[13767]: improper command pipelining after DATA from unknown[181.21.131.88]:",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "181.21.131.88",
+    "match": true
+   },
+   "expect_time": 1105524469.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 12 11:07:49 emf1pt2-2-35-70 postfix/smtpd[13767]: improper command pipelining after DATA from unknown[181.21.131.88]:",
+   "lineno": 26,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.10.140.217",
+    "match": true
+   },
+   "expect_time": 1103938554.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 25 02:35:54 platypus postfix/smtpd[9144]: improper command pipelining after RSET from 173-10-140-217-BusName-washingtonDC.hfc.comcastbusiness.net[173.10.140.217]",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.10.140.217",
+    "match": true
+   },
+   "expect_time": 1103938554.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Dec 25 02:35:54 platypus postfix/smtpd[9144]: improper command pipelining after RSET from 173-10-140-217-BusName-washingtonDC.hfc.comcastbusiness.net[173.10.140.217]",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "173.10.140.217",
+    "match": true
+   },
+   "expect_time": 1103938554.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 25 02:35:54 platypus postfix/smtpd[9144]: improper command pipelining after RSET from 173-10-140-217-BusName-washingtonDC.hfc.comcastbusiness.net[173.10.140.217]",
+   "lineno": 29,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "216.245.198.245",
+    "match": true
+   },
+   "expect_time": 1103331946.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 18 02:05:46 platypus postfix/smtpd[16349]: improper command pipelining after NOOP from unknown[216.245.198.245]",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "216.245.198.245",
+    "match": true
+   },
+   "expect_time": 1103331946.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Dec 18 02:05:46 platypus postfix/smtpd[16349]: improper command pipelining after NOOP from unknown[216.245.198.245]",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "216.245.198.245",
+    "match": true
+   },
+   "expect_time": 1103331946.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 18 02:05:46 platypus postfix/smtpd[16349]: improper command pipelining after NOOP from unknown[216.245.198.245]",
+   "lineno": 32,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660249.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 21 21:17:29 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.1 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660249.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Dec 21 21:17:29 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.1 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660249.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 21 21:17:29 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.1 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 35,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "variable status code suffix, gh-2442",
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660250.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 21 21:17:30 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.25 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 37,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "variable status code suffix, gh-2442",
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660250.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Dec 21 21:17:30 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.25 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 37,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "variable status code suffix, gh-2442",
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1103660250.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 21 21:17:30 xxx postfix/smtpd[7150]: NOQUEUE: reject: RCPT from badserver.example.com[93.184.216.34]: 450 4.7.25 Client host rejected: cannot find your hostname, [93.184.216.34]; from=<badactor@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badserver.example.com>",
+   "lineno": 37,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1101159224.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Nov 22 22:33:44 xxx postfix/smtpd[11111]: NOQUEUE: reject: RCPT from 1-2-3-4.example.com[1.2.3.4]: 450 4.1.8 <some@nonexistant.tld>: Sender address rejected: Domain not found; from=<some@nonexistant.tld> to=<goodguy@example.com> proto=ESMTP helo=<1-2-3-4.example.com>",
+   "lineno": 40,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1101159224.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Nov 22 22:33:44 xxx postfix/smtpd[11111]: NOQUEUE: reject: RCPT from 1-2-3-4.example.com[1.2.3.4]: 450 4.1.8 <some@nonexistant.tld>: Sender address rejected: Domain not found; from=<some@nonexistant.tld> to=<goodguy@example.com> proto=ESMTP helo=<1-2-3-4.example.com>",
+   "lineno": 40,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1101159224.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Nov 22 22:33:44 xxx postfix/smtpd[11111]: NOQUEUE: reject: RCPT from 1-2-3-4.example.com[1.2.3.4]: 450 4.1.8 <some@nonexistant.tld>: Sender address rejected: Domain not found; from=<some@nonexistant.tld> to=<goodguy@example.com> proto=ESMTP helo=<1-2-3-4.example.com>",
+   "lineno": 40,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jan 31 13:55:24 xxx postfix/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jan 31 13:55:24 xxx postfix/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 31 13:55:24 xxx postfix/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 43,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: DATA from, gh-2927",
+   "expect": {
+    "host": "192.0.2.151",
+    "match": true
+   },
+   "expect_time": 1110157773.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Mar 7 02:09:33 server postfix/smtpd[27246]: 1D8CC1CA0A7F: milter-reject: DATA from 66-220-155-151.mail-mail.facebook.com[192.0.2.151]: 550 5.7.1 Command rejected; from=<security@mail.example.com> to=<hostmaster@example.com> proto=ESMTP helo=<192-0-2-151.mail-mail.example.com>",
+   "lineno": 46,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: DATA from, gh-2927",
+   "expect": {
+    "host": "192.0.2.151",
+    "match": true
+   },
+   "expect_time": 1110157773.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Mar 7 02:09:33 server postfix/smtpd[27246]: 1D8CC1CA0A7F: milter-reject: DATA from 66-220-155-151.mail-mail.facebook.com[192.0.2.151]: 550 5.7.1 Command rejected; from=<security@mail.example.com> to=<hostmaster@example.com> proto=ESMTP helo=<192-0-2-151.mail-mail.example.com>",
+   "lineno": 46,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: DATA from, gh-2927",
+   "expect": {
+    "host": "192.0.2.151",
+    "match": true
+   },
+   "expect_time": 1110157773.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Mar 7 02:09:33 server postfix/smtpd[27246]: 1D8CC1CA0A7F: milter-reject: DATA from 66-220-155-151.mail-mail.facebook.com[192.0.2.151]: 550 5.7.1 Command rejected; from=<security@mail.example.com> to=<hostmaster@example.com> proto=ESMTP helo=<192-0-2-151.mail-mail.example.com>",
+   "lineno": 46,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: BDAT from, gh-2927",
+   "expect": {
+    "host": "192.0.2.109",
+    "match": true
+   },
+   "expect_time": 1110580074.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Mar 11 23:27:54 server postfix-smo/submission/smtpd[22427]: 44JCRG5tYPzCqt2: reject: BDAT from signing-milter.example.com[192.0.2.109]: 550 5.5.3 <DATA>: Data command rejected: Multi-recipient bounce; from=<> to=<some@example.com> proto=ESMTP helo=<domain.tld>",
+   "lineno": 48,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: BDAT from, gh-2927",
+   "expect": {
+    "host": "192.0.2.109",
+    "match": true
+   },
+   "expect_time": 1110580074.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Mar 11 23:27:54 server postfix-smo/submission/smtpd[22427]: 44JCRG5tYPzCqt2: reject: BDAT from signing-milter.example.com[192.0.2.109]: 550 5.5.3 <DATA>: Data command rejected: Multi-recipient bounce; from=<> to=<some@example.com> proto=ESMTP helo=<domain.tld>",
+   "lineno": 48,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reject: BDAT from, gh-2927",
+   "expect": {
+    "host": "192.0.2.109",
+    "match": true
+   },
+   "expect_time": 1110580074.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Mar 11 23:27:54 server postfix-smo/submission/smtpd[22427]: 44JCRG5tYPzCqt2: reject: BDAT from signing-milter.example.com[192.0.2.109]: 550 5.5.3 <DATA>: Data command rejected: Multi-recipient bounce; from=<> to=<some@example.com> proto=ESMTP helo=<domain.tld>",
+   "lineno": 48,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "RCPT from unknown, gh-2995",
+   "expect": {
+    "host": "192.0.2.116",
+    "match": true
+   },
+   "expect_time": 1112785501.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Apr  6 13:05:01 server postfix/smtpd[20589]: NOQUEUE: reject: RCPT from unknown[192.0.2.116]: 504 5.5.2 <WIN-6A0KEE6QVP5>: Helo command rejected: need fully-qualified hostname; from=<spameri@example.com> to=<spameri@example.com> proto=ESMTP helo=<WIN-6A0KEE6QVP5>",
+   "lineno": 51,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "RCPT from unknown, gh-2995",
+   "expect": {
+    "host": "192.0.2.116",
+    "match": true
+   },
+   "expect_time": 1112785501.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Apr  6 13:05:01 server postfix/smtpd[20589]: NOQUEUE: reject: RCPT from unknown[192.0.2.116]: 504 5.5.2 <WIN-6A0KEE6QVP5>: Helo command rejected: need fully-qualified hostname; from=<spameri@example.com> to=<spameri@example.com> proto=ESMTP helo=<WIN-6A0KEE6QVP5>",
+   "lineno": 51,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "RCPT from unknown, gh-2995",
+   "expect": {
+    "host": "192.0.2.116",
+    "match": true
+   },
+   "expect_time": 1112785501.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Apr  6 13:05:01 server postfix/smtpd[20589]: NOQUEUE: reject: RCPT from unknown[192.0.2.116]: 504 5.5.2 <WIN-6A0KEE6QVP5>: Helo command rejected: need fully-qualified hostname; from=<spameri@example.com> to=<spameri@example.com> proto=ESMTP helo=<WIN-6A0KEE6QVP5>",
+   "lineno": 51,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "550 5.7.25 Client host rejected, gh-2996",
+   "expect": {
+    "host": "192.0.2.246",
+    "match": true
+   },
+   "expect_time": 1112836256.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Apr  7 03:10:56 server postfix/smtpd[7754]: NOQUEUE: reject: RCPT from unknown[192.0.2.246]: 550 5.7.25 Client host rejected: cannot find your hostname, [192.0.2.246]; from=<laqqubtbyop@example.com> to=<sxhcpltqhpex@example.com> proto=ESMTP helo=<[192.0.2.246]>",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "550 5.7.25 Client host rejected, gh-2996",
+   "expect": {
+    "host": "192.0.2.246",
+    "match": true
+   },
+   "expect_time": 1112836256.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Apr  7 03:10:56 server postfix/smtpd[7754]: NOQUEUE: reject: RCPT from unknown[192.0.2.246]: 550 5.7.25 Client host rejected: cannot find your hostname, [192.0.2.246]; from=<laqqubtbyop@example.com> to=<sxhcpltqhpex@example.com> proto=ESMTP helo=<[192.0.2.246]>",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "550 5.7.25 Client host rejected, gh-2996",
+   "expect": {
+    "host": "192.0.2.246",
+    "match": true
+   },
+   "expect_time": 1112836256.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Apr  7 03:10:56 server postfix/smtpd[7754]: NOQUEUE: reject: RCPT from unknown[192.0.2.246]: 550 5.7.25 Client host rejected: cannot find your hostname, [192.0.2.246]; from=<laqqubtbyop@example.com> to=<sxhcpltqhpex@example.com> proto=ESMTP helo=<[192.0.2.246]>",
+   "lineno": 53,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jan 31 13:55:24 xxx postfix-incoming/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 56,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jan 31 13:55:24 xxx postfix-incoming/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 56,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "78.107.251.238",
+    "match": true
+   },
+   "expect_time": 1107176124.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 31 13:55:24 xxx postfix-incoming/smtpd[3462]: NOQUEUE: reject: EHLO from s271272.static.corbina.ru[78.107.251.238]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 56,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.138.2.143",
+    "match": true
+   },
+   "expect_time": 1113265451.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Apr 12 02:24:11 xxx postfix/smtps/smtpd[42]: NOQUEUE: reject: EHLO from astra4139.startdedicated.de[62.138.2.143]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 59,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.138.2.143",
+    "match": true
+   },
+   "expect_time": 1113265451.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Apr 12 02:24:11 xxx postfix/smtps/smtpd[42]: NOQUEUE: reject: EHLO from astra4139.startdedicated.de[62.138.2.143]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 59,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.138.2.143",
+    "match": true
+   },
+   "expect_time": 1113265451.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Apr 12 02:24:11 xxx postfix/smtps/smtpd[42]: NOQUEUE: reject: EHLO from astra4139.startdedicated.de[62.138.2.143]: 504 5.5.2 <User>: Helo command rejected: need fully-qualified hostname; proto=SMTP helo=<User>",
+   "lineno": 59,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[27296]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 Client host rejected: cannot find your reverse hostname, [2.3.4.5]; from=<meow@kitty.com> to=<kitty@meow.com> proto=ESMTP helo=<kitty.com>",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[27296]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 Client host rejected: cannot find your reverse hostname, [2.3.4.5]; from=<meow@kitty.com> to=<kitty@meow.com> proto=ESMTP helo=<kitty.com>",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[27296]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 Client host rejected: cannot find your reverse hostname, [2.3.4.5]; from=<meow@kitty.com> to=<kitty@meow.com> proto=ESMTP helo=<kitty.com>",
+   "lineno": 62,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[2931]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 <kitty.com>: Helo command rejected: Host not found; from=<meow@kitty.com> to=<kitty@meow.com> proto=SMTP helo=<kitty.com>",
+   "lineno": 65,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[2931]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 <kitty.com>: Helo command rejected: Host not found; from=<meow@kitty.com> to=<kitty@meow.com> proto=SMTP helo=<kitty.com>",
+   "lineno": 65,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[2931]: NOQUEUE: reject: RCPT from unknown[1.2.3.4]: 450 4.7.1 <kitty.com>: Helo command rejected: Host not found; from=<meow@kitty.com> to=<kitty@meow.com> proto=SMTP helo=<kitty.com>",
+   "lineno": 65,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[13533]: improper command pipelining after AUTH from unknown[1.2.3.4]: QUIT",
+   "lineno": 68,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[13533]: improper command pipelining after AUTH from unknown[1.2.3.4]: QUIT",
+   "lineno": 68,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.2.3.4",
+    "match": true
+   },
+   "expect_time": 1118559515.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun 12 08:58:35 xxx postfix/smtpd[13533]: improper command pipelining after AUTH from unknown[1.2.3.4]: QUIT",
+   "lineno": 68,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix postscreen / gh-1764",
+   "expect": {
+    "host": "216.245.194.173",
+    "match": true
+   },
+   "expect_time": 1115301071.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "May  5 15:51:11 xxx postfix/postscreen[1148]: NOQUEUE: reject: RCPT from [216.245.194.173]:60591: 550 5.7.1 Service unavailable; client [216.245.194.173] blocked using rbl.example.com; from=<spammer@example.com>, to=<goodguy@example.com>, proto=ESMTP, helo=<badguy.example.com>",
+   "lineno": 71,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix postscreen / gh-1764",
+   "expect": {
+    "host": "216.245.194.173",
+    "match": true
+   },
+   "expect_time": 1115301071.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "May  5 15:51:11 xxx postfix/postscreen[1148]: NOQUEUE: reject: RCPT from [216.245.194.173]:60591: 550 5.7.1 Service unavailable; client [216.245.194.173] blocked using rbl.example.com; from=<spammer@example.com>, to=<goodguy@example.com>, proto=ESMTP, helo=<badguy.example.com>",
+   "lineno": 71,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix postscreen / gh-1764",
+   "expect": {
+    "host": "216.245.194.173",
+    "match": true
+   },
+   "expect_time": 1115301071.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "May  5 15:51:11 xxx postfix/postscreen[1148]: NOQUEUE: reject: RCPT from [216.245.194.173]:60591: 550 5.7.1 Service unavailable; client [216.245.194.173] blocked using rbl.example.com; from=<spammer@example.com>, to=<goodguy@example.com>, proto=ESMTP, helo=<badguy.example.com>",
+   "lineno": 71,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix client restriction / gh-3800",
+   "expect": {
+    "host": "192.0.2.114",
+    "match": true
+   },
+   "expect_time": 1117645255.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jun  1 19:00:55 mail postfix/smtpd[7749]: NOQUEUE: reject: CONNECT from unknown[192.0.2.114]: 450 4.7.25 Client host rejected: cannot find your hostname, [178.215.236.114]; proto=SMTP",
+   "lineno": 74,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix client restriction / gh-3800",
+   "expect": {
+    "host": "192.0.2.114",
+    "match": true
+   },
+   "expect_time": 1117645255.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jun  1 19:00:55 mail postfix/smtpd[7749]: NOQUEUE: reject: CONNECT from unknown[192.0.2.114]: 450 4.7.25 Client host rejected: cannot find your hostname, [178.215.236.114]; proto=SMTP",
+   "lineno": 74,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "postfix client restriction / gh-3800",
+   "expect": {
+    "host": "192.0.2.114",
+    "match": true
+   },
+   "expect_time": 1117645255.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun  1 19:00:55 mail postfix/smtpd[7749]: NOQUEUE: reject: CONNECT from unknown[192.0.2.114]: 450 4.7.25 Client host rejected: cannot find your hostname, [178.215.236.114]; proto=SMTP",
+   "lineno": 74,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "too many errors / gh-2439",
+   "expect": {
+    "host": "192.0.2.11",
+    "match": true
+   },
+   "expect_time": 1117772743.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Jun  3 06:25:43 srv postfix/smtpd[29306]: too many errors after RCPT from example.com[192.0.2.11]",
+   "lineno": 77,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "too many errors / gh-2439",
+   "expect": {
+    "host": "192.0.2.11",
+    "match": true
+   },
+   "expect_time": 1117772743.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "normal"
+   },
+   "flt_key": "postfix{'mode': 'normal'}",
+   "line": "Jun  3 06:25:43 srv postfix/smtpd[29306]: too many errors after RCPT from example.com[192.0.2.11]",
+   "lineno": 77,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "too many errors / gh-2439",
+   "expect": {
+    "host": "192.0.2.11",
+    "match": true
+   },
+   "expect_time": 1117772743.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun  3 06:25:43 srv postfix/smtpd[29306]: too many errors after RCPT from example.com[192.0.2.11]",
+   "lineno": 77,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "ignore normal messages, jail for too many errors only",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "errors"
+   },
+   "flt_key": "postfix{'mode': 'errors'}",
+   "line": "Jun 12 08:58:35 srv postfix/smtpd[29306]: improper command pipelining after AUTH from unknown[192.0.2.11]: QUIT",
+   "lineno": 82,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "too many errors / gh-2439",
+   "expect": {
+    "host": "192.0.2.11",
+    "match": true
+   },
+   "expect_time": 1117772743.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "errors"
+   },
+   "flt_key": "postfix{'mode': 'errors'}",
+   "line": "Jun  3 06:25:43 srv postfix/smtpd[29306]: too many errors after RCPT from example.com[192.0.2.11]",
+   "lineno": 85,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 30 18:19:15 xxx postfix/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 93,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "rbl"
+   },
+   "flt_key": "postfix{'mode': 'rbl'}",
+   "line": "Dec 30 18:19:15 xxx postfix/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 93,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 30 18:19:15 xxx postfix/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 93,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Dec 30 18:19:15 xxx postfix-incoming/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 96,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "rbl"
+   },
+   "flt_key": "postfix{'mode': 'rbl'}",
+   "line": "Dec 30 18:19:15 xxx postfix-incoming/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 96,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "93.184.216.34",
+    "match": true
+   },
+   "expect_time": 1104427155.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 30 18:19:15 xxx postfix-incoming/smtpd[1574]: NOQUEUE: reject: RCPT from badguy.example.com[93.184.216.34]: 454 4.7.1 Service unavailable; Client host [93.184.216.34] blocked using rbl.example.com; http://www.example.com/query?ip=93.184.216.34; from=<spammer@example.com> to=<goodguy@example.com> proto=ESMTP helo=<badguy.example.com>",
+   "lineno": 96,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "87.236.233.182",
+    "match": true
+   },
+   "expect_time": 1107775545.0,
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Feb  7 12:25:45 xxx12345 postfix/smtpd[13275]: NOQUEUE: reject: RCPT from unknown[87.236.233.182]: 554 5.7.1 Service unavailable; Client host [87.236.233.182] blocked using rbl.example.com; https://www.example.com/query/ip/87.236.233.182; from=<spammer@example.com> to=<goodguy@example.com> proto=SMTP helo=<WIN-5N8GBBS0R5I>",
+   "lineno": 99,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "87.236.233.182",
+    "match": true
+   },
+   "expect_time": 1107775545.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "rbl"
+   },
+   "flt_key": "postfix{'mode': 'rbl'}",
+   "line": "Feb  7 12:25:45 xxx12345 postfix/smtpd[13275]: NOQUEUE: reject: RCPT from unknown[87.236.233.182]: 554 5.7.1 Service unavailable; Client host [87.236.233.182] blocked using rbl.example.com; https://www.example.com/query/ip/87.236.233.182; from=<spammer@example.com> to=<goodguy@example.com> proto=SMTP helo=<WIN-5N8GBBS0R5I>",
+   "lineno": 99,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "87.236.233.182",
+    "match": true
+   },
+   "expect_time": 1107775545.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb  7 12:25:45 xxx12345 postfix/smtpd[13275]: NOQUEUE: reject: RCPT from unknown[87.236.233.182]: 554 5.7.1 Service unavailable; Client host [87.236.233.182] blocked using rbl.example.com; https://www.example.com/query/ip/87.236.233.182; from=<spammer@example.com> to=<goodguy@example.com> proto=SMTP helo=<WIN-5N8GBBS0R5I>",
+   "lineno": 99,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "114.44.142.233",
+    "match": true
+   },
+   "expect_time": 1102022662.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Dec  2 22:24:22 hel postfix/smtpd[7676]: warning: 114-44-142-233.dynamic.hinet.net[114.44.142.233]: SASL CRAM-MD5 authentication failed: PDc3OTEwNTkyNTEyMzA2NDIuMTIyODI1MzA2MUBoZWw+",
+   "lineno": 108,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "114.44.142.233",
+    "match": true
+   },
+   "expect_time": 1102022662.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec  2 22:24:22 hel postfix/smtpd[7676]: warning: 114-44-142-233.dynamic.hinet.net[114.44.142.233]: SASL CRAM-MD5 authentication failed: PDc3OTEwNTkyNTEyMzA2NDIuMTIyODI1MzA2MUBoZWw+",
+   "lineno": 108,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1110458010.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Mar 10 13:33:30 gandalf postfix/smtpd[3937]: warning: HOSTNAME[1.1.1.1]: SASL LOGIN authentication failed: authentication failure",
+   "lineno": 111,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1110458010.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Mar 10 13:33:30 gandalf postfix/smtpd[3937]: warning: HOSTNAME[1.1.1.1]: SASL LOGIN authentication failed: authentication failure",
+   "lineno": 111,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "82.221.106.233",
+    "match": true
+   },
+   "expect_time": 1094424296.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Sep  6 00:44:56 trianon postfix/submission/smtpd[11538]: warning: unknown[82.221.106.233]: SASL LOGIN authentication failed: UGFzc3dvcmQ6",
+   "lineno": 115,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "82.221.106.233",
+    "match": true
+   },
+   "expect_time": 1094424296.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Sep  6 00:44:56 trianon postfix/submission/smtpd[11538]: warning: unknown[82.221.106.233]: SASL LOGIN authentication failed: UGFzc3dvcmQ6",
+   "lineno": 115,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "82.221.106.233",
+    "match": true
+   },
+   "expect_time": 1094424297.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Sep  6 00:44:57 trianon postfix/submission/smtpd[11538]: warning: unknown[82.221.106.233]: SASL login authentication failed: UGFzc3dvcmQ6",
+   "lineno": 119,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "82.221.106.233",
+    "match": true
+   },
+   "expect_time": 1094424297.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Sep  6 00:44:57 trianon postfix/submission/smtpd[11538]: warning: unknown[82.221.106.233]: SASL login authentication failed: UGFzc3dvcmQ6",
+   "lineno": 119,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1106982705.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Jan 29 08:11:45 mail postfix/smtpd[10752]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Password:",
+   "lineno": 123,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1106982705.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 29 08:11:45 mail postfix/smtpd[10752]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Password:",
+   "lineno": 123,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1106982705.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Jan 29 08:11:45 mail postfix-incoming/smtpd[10752]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Password:",
+   "lineno": 126,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "1.1.1.1",
+    "match": true
+   },
+   "expect_time": 1106982705.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 29 08:11:45 mail postfix-incoming/smtpd[10752]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Password:",
+   "lineno": 126,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.138.2.143",
+    "match": true
+   },
+   "expect_time": 1113265451.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Apr 12 02:24:11 xxx postfix/smtps/smtpd[42]: warning: astra4139.startdedicated.de[62.138.2.143]: SASL LOGIN authentication failed: UGFzc3dvcmQ6",
+   "lineno": 129,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "62.138.2.143",
+    "match": true
+   },
+   "expect_time": 1113265451.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Apr 12 02:24:11 xxx postfix/smtps/smtpd[42]: warning: astra4139.startdedicated.de[62.138.2.143]: SASL LOGIN authentication failed: UGFzc3dvcmQ6",
+   "lineno": 129,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "98.191.84.74",
+    "match": true
+   },
+   "expect_time": 1123075849.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Aug 3 15:30:49 ksusha postfix/smtpd[17041]: warning: mail.foldsandwalker.com[98.191.84.74]: SASL Plain authentication failed:",
+   "lineno": 132,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "98.191.84.74",
+    "match": true
+   },
+   "expect_time": 1123075849.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Aug 3 15:30:49 ksusha postfix/smtpd[17041]: warning: mail.foldsandwalker.com[98.191.84.74]: SASL Plain authentication failed:",
+   "lineno": 132,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "cover optional port after host",
+   "expect": {
+    "host": "192.0.2.237",
+    "match": true
+   },
+   "expect_time": 1123166872.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Aug 4 16:47:52 mail3 postfix/smtpd[31152]: warning: unknown[192.0.2.237]:55729: SASL LOGIN authentication failed: authentication failure",
+   "lineno": 135,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "cover optional port after host",
+   "expect": {
+    "host": "192.0.2.237",
+    "match": true
+   },
+   "expect_time": 1123166872.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Aug 4 16:47:52 mail3 postfix/smtpd[31152]: warning: unknown[192.0.2.237]:55729: SASL LOGIN authentication failed: authentication failure",
+   "lineno": 135,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "without reason for fail, see gh-1245",
+   "expect": {
+    "host": "192.0.2.150",
+    "match": true
+   },
+   "expect_time": 1099555861.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Nov  4 09:11:01 mail postfix/submission/smtpd[27133]: warning: unknown[192.0.2.150]: SASL PLAIN authentication failed:",
+   "lineno": 138,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "without reason for fail, see gh-1245",
+   "expect": {
+    "host": "192.0.2.150",
+    "match": true
+   },
+   "expect_time": 1099555861.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Nov  4 09:11:01 mail postfix/submission/smtpd[27133]: warning: unknown[192.0.2.150]: SASL PLAIN authentication failed:",
+   "lineno": 138,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Feb  3 08:29:28 mail postfix/smtpd[21022]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Connection lost to authentication server",
+   "lineno": 142,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb  3 08:29:28 mail postfix/smtpd[21022]: warning: unknown[1.1.1.1]: SASL LOGIN authentication failed: Connection lost to authentication server",
+   "lineno": 142,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "not aggressive",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "auth"
+   },
+   "flt_key": "postfix{'mode': 'auth'}",
+   "line": "Jan 14 16:18:16 xxx postfix/smtpd[14933]: warning: host[192.0.2.5]: SASL CRAM-MD5 authentication failed: Invalid authentication mechanism",
+   "lineno": 147,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "aggressive only",
+   "expect": {
+    "host": "192.0.2.5",
+    "match": true
+   },
+   "expect_time": 1105715896.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jan 14 16:18:16 xxx postfix/smtpd[14933]: warning: host[192.0.2.5]: SASL CRAM-MD5 authentication failed: Invalid authentication mechanism",
+   "lineno": 152,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "reason unavailable",
+   "expect": {
+    "host": "192.0.2.152",
+    "match": true,
+    "user": "admin"
+   },
+   "expect_time": 1099555861.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Nov  4 09:11:01 mail postfix/smtpd[1234]: warning: unknown[192.0.2.152]: SASL LOGIN authentication failed: (reason unavailable), sasl_username=admin",
+   "lineno": 155,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "hostname does not resolve to address, aggressive only (gh-4078)",
+   "expect": {
+    "host": "192.0.2.44",
+    "match": true
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Aug 14 10:00:01 mail postfix/smtpd[1234]: warning: hostname bad.example.com does not resolve to address 192.0.2.44: Name or service not known",
+   "lineno": 158,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtpd[123]: disconnect from unknown[192.0.2.1] helo=1 auth=0/1 quit=1 commands=2/3",
+   "lineno": 167,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtpd[123]: disconnect from unknown[192.0.2.1] helo=1 auth=0/1 quit=1 commands=2/3",
+   "lineno": 167,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtp-25/smtpd[123]: disconnect from unknown[192.0.2.1] helo=1 auth=0/1 quit=1 commands=2/3",
+   "lineno": 169,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.1",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtp-25/smtpd[123]: disconnect from unknown[192.0.2.1] helo=1 auth=0/1 quit=1 commands=2/3",
+   "lineno": 169,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtpd[123]: disconnect from unknown[192.0.2.2] ehlo=1 auth=0/1 rset=1 quit=1 commands=3/4",
+   "lineno": 171,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1108038394.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 10 13:26:34 srv postfix/smtpd[123]: disconnect from unknown[192.0.2.2] ehlo=1 auth=0/1 rset=1 quit=1 commands=3/4",
+   "lineno": 171,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.10",
+    "match": true
+   },
+   "expect_time": 1108716310.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 18 09:45:10 xxx postfix/smtpd[42]: lost connection after CONNECT from spammer.example.com[192.0.2.10]",
+   "lineno": 174,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.10",
+    "match": true
+   },
+   "expect_time": 1108716310.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 18 09:45:10 xxx postfix/smtpd[42]: lost connection after CONNECT from spammer.example.com[192.0.2.10]",
+   "lineno": 174,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.42",
+    "match": true
+   },
+   "expect_time": 1108716312.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 18 09:45:12 xxx postfix/smtpd[42]: lost connection after STARTTLS from spammer.example.com[192.0.2.42]",
+   "lineno": 176,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.42",
+    "match": true
+   },
+   "expect_time": 1108716312.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 18 09:45:12 xxx postfix/smtpd[42]: lost connection after STARTTLS from spammer.example.com[192.0.2.42]",
+   "lineno": 176,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid double counting (with next failure message 'disconnect ...'), gh-3505",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 18 09:48:04 xxx postfix/smtpd[50903]: lost connection after AUTH from unknown[192.0.2.23]",
+   "lineno": 179,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "avoid double counting (with next failure message 'disconnect ...'), gh-3505",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 18 09:48:04 xxx postfix/smtpd[50903]: lost connection after AUTH from unknown[192.0.2.23]",
+   "lineno": 179,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.23",
+    "match": true
+   },
+   "expect_time": 1108716484.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 18 09:48:04 xxx postfix/smtpd[50903]: disconnect from unknown[192.0.2.23] ehlo=1 auth=0/1 rset=1 commands=2/3",
+   "lineno": 181,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.23",
+    "match": true
+   },
+   "expect_time": 1108716484.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 18 09:48:04 xxx postfix/smtpd[50903]: disconnect from unknown[192.0.2.23] ehlo=1 auth=0/1 rset=1 commands=2/3",
+   "lineno": 181,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1103827153.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Dec 23 19:39:13 xxx postfix/postscreen[21057]: PREGREET 14 after 0.08 from [192.0.2.2]:59415: EHLO ylmf-pc\\r\\n",
+   "lineno": 184,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.2",
+    "match": true
+   },
+   "expect_time": 1103827153.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 23 19:39:13 xxx postfix/postscreen[21057]: PREGREET 14 after 0.08 from [192.0.2.2]:59415: EHLO ylmf-pc\\r\\n",
+   "lineno": 184,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1103846076.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Dec 24 00:54:36 xxx postfix/postscreen[22515]: HANGUP after 16 from [192.0.2.3]:48119 in tests after SMTP handshake",
+   "lineno": 186,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.3",
+    "match": true
+   },
+   "expect_time": 1103846076.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Dec 24 00:54:36 xxx postfix/postscreen[22515]: HANGUP after 16 from [192.0.2.3]:48119 in tests after SMTP handshake",
+   "lineno": 186,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "abusive clients hitting command limit, see see http://www.postfix.org/POSTSCREEN_README.html (gh-3040)",
+   "expect": {
+    "host": "192.0.2.77",
+    "match": true
+   },
+   "expect_time": 1118265268.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Jun  8 23:14:28 proxy2 postfix/postscreen[473]: COMMAND TIME LIMIT from [192.0.2.77]:3608 after CONNECT",
+   "lineno": 189,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "abusive clients hitting command limit, see see http://www.postfix.org/POSTSCREEN_README.html (gh-3040)",
+   "expect": {
+    "host": "192.0.2.77",
+    "match": true
+   },
+   "expect_time": 1118265268.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun  8 23:14:28 proxy2 postfix/postscreen[473]: COMMAND TIME LIMIT from [192.0.2.77]:3608 after CONNECT",
+   "lineno": 189,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "abusive clients hitting command limit (gh-3040)",
+   "expect": {
+    "host": "192.0.2.26",
+    "match": true
+   },
+   "expect_time": 1118265294.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Jun  8 23:14:54 proxy2 postfix/postscreen[473]: COMMAND COUNT LIMIT from [192.0.2.26]:15592 after RCPT",
+   "lineno": 191,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "abusive clients hitting command limit (gh-3040)",
+   "expect": {
+    "host": "192.0.2.26",
+    "match": true
+   },
+   "expect_time": 1118265294.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Jun  8 23:14:54 proxy2 postfix/postscreen[473]: COMMAND COUNT LIMIT from [192.0.2.26]:15592 after RCPT",
+   "lineno": 191,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.25",
+    "match": true
+   },
+   "expect_time": 1095437960.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Sep 17 18:19:20 mxhost postfix/smtpd[12345]: NOQUEUE: lost connection after CONNECT from unknown[192.0.2.25]",
+   "lineno": 194,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.0.2.25",
+    "match": true
+   },
+   "expect_time": 1095437960.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Sep 17 18:19:20 mxhost postfix/smtpd[12345]: NOQUEUE: lost connection after CONNECT from unknown[192.0.2.25]",
+   "lineno": 194,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Connection rate limit exceeded, gh-4073",
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1095588657.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Sep 19 12:10:57 hostname postfix/smtpd[23244]: warning: Connection rate limit exceeded: 31 from spamhost.domain.org[192.0.2.123] for service smtpd",
+   "lineno": 197,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Connection rate limit exceeded, gh-4073",
+   "expect": {
+    "host": "192.0.2.123",
+    "match": true
+   },
+   "expect_time": 1095588657.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Sep 19 12:10:57 hostname postfix/smtpd[23244]: warning: Connection rate limit exceeded: 31 from spamhost.domain.org[192.0.2.123] for service smtpd",
+   "lineno": 197,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Message delivery request rate limit exceeded, gh-3265",
+   "expect": {
+    "host": "192.0.2.227",
+    "match": true
+   },
+   "expect_time": 1095588658.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Sep 19 12:10:58 hostname postfix/smtpd[14059]: warning: Message delivery request rate limit exceeded: 334 from spam.example.com[192.0.2.227] for service submission",
+   "lineno": 199,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "Message delivery request rate limit exceeded, gh-3265",
+   "expect": {
+    "host": "192.0.2.227",
+    "match": true
+   },
+   "expect_time": 1095588658.0,
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Sep 19 12:10:58 hostname postfix/smtpd[14059]: warning: Message delivery request rate limit exceeded: 334 from spam.example.com[192.0.2.227] for service submission",
+   "lineno": 199,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't affect lawful data (sporadical connection aborts within DATA-phase, see gh-1813 for discussion)",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {},
+   "flt_key": "postfix",
+   "line": "Feb 18 09:50:05 xxx postfix/smtpd[42]: lost connection after DATA from good-host.example.com[192.0.2.10]",
+   "lineno": 203,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't affect lawful data (sporadical connection aborts within DATA-phase, see gh-1813 for discussion)",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "ddos"
+   },
+   "flt_key": "postfix{'mode': 'ddos'}",
+   "line": "Feb 18 09:50:05 xxx postfix/smtpd[42]: lost connection after DATA from good-host.example.com[192.0.2.10]",
+   "lineno": 203,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "desc": "don't affect lawful data (sporadical connection aborts within DATA-phase, see gh-1813 for discussion)",
+   "expect": {
+    "match": false
+   },
+   "file": "postfix",
+   "filter_options": {
+    "mode": "aggressive"
+   },
+   "flt_key": "postfix{'mode': 'aggressive'}",
+   "line": "Feb 18 09:50:05 xxx postfix/smtpd[42]: lost connection after DATA from good-host.example.com[192.0.2.10]",
+   "lineno": 203,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

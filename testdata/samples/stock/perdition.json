@@ -1,0 +1,34 @@
+{
+ "basedir": "stock",
+ "filter": "perdition",
+ "records": [
+  {
+   "expect": {
+    "host": "192.168.8.100",
+    "match": true
+   },
+   "expect_time": 1121695638.0,
+   "file": "perdition",
+   "filter_options": {},
+   "flt_key": "perdition",
+   "line": "Jul 18 16:07:18 ares perdition.imaps[3194]: Auth: 192.168.8.100:2274->193.48.191.9:993 client-secure=ssl authorisation_id=NONE authentication_id=\"carles\" server=\"imap.biotoul.fr:993\" protocol=IMAP4S server-secure=ssl status=\"failed: Re-Authentication Failure\"",
+   "lineno": 2,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.8.100",
+    "match": true
+   },
+   "expect_time": 1121695738.0,
+   "file": "perdition",
+   "filter_options": {},
+   "flt_key": "perdition",
+   "line": "Jul 18 16:08:58 ares perdition.imaps[3194]: Fatal Error reading authentication information from client 192.168.8.100:2274->193.48.191.9:993: Exiting child",
+   "lineno": 4,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "basedir": "stock",
+ "filter": "screensharingd",
+ "records": [
+  {
+   "expect": {
+    "match": false
+   },
+   "file": "screensharingd",
+   "filter_options": {},
+   "flt_key": "screensharingd",
+   "line": "Oct 27 2015 09:24:46 test1.beezwax.net screensharingd[1170]: Authentication: SUCCEEDED :: User Name: simon :: Viewer Address: 192.168.5.247 :: Type: DH",
+   "lineno": 5,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.5.247",
+    "match": true
+   },
+   "expect_time": 1445945740.0,
+   "file": "screensharingd",
+   "filter_options": {},
+   "flt_key": "screensharingd",
+   "line": "Oct 27 2015 12:35:40 test1.beezwax.net screensharingd[1170]: Authentication: FAILED :: User Name: sdfsdfs () mro :: Viewer Address: 192.168.5.247 :: Type: DH",
+   "lineno": 8,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.5.247",
+    "match": true
+   },
+   "expect_time": 1445945750.0,
+   "file": "screensharingd",
+   "filter_options": {},
+   "flt_key": "screensharingd",
+   "line": "Oct 27 2015 12:35:50 test1.beezwax.net screensharingd[1170]: Authentication: FAILED :: User Name: brown_s :: :: Viewer Address: 192.168.5.247 :: Type: DH",
+   "lineno": 10,
+   "logtype": null,
+   "prefix_line": null
+  },
+  {
+   "expect": {
+    "host": "192.168.5.247",
+    "match": true
+   },
+   "expect_time": 1445945161.0,
+   "file": "screensharingd",
+   "filter_options": {},
+   "flt_key": "screensharingd",
+   "line": "Oct 27 2015 12:26:01 test1.beezwax.net screensharingd[1170]: Authentication: FAILED :: User Name: brown @! s:: :: Viewer Address: 192.168.5.247 :: Type: DH",
+   "lineno": 12,
+   "logtype": null,
+   "prefix_line": null
+  }
+ ]
+}
