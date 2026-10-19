@@ -1,0 +1,2247 @@
+{
+ "cases": [
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013570.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:59:30 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:26:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 10:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 14:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 14:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013659.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:59 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:58:59 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:05:01 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:05:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:59:30 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:26:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 10:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 14:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv cron[5]: nothing to see"
+     },
+     {
+      "line": "Aug 14 12:00:59 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:58:59 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:05:01 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:05:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "op-timing",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013001.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:50:01 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": []
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": false,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:50:01 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:49:59 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 13 08:13:20 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 15 15:46:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "restore-obsolete",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1123933600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 13 13:46:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 86400,
+    "in_operation": false,
+    "lines": [
+     {
+      "line": "Aug 13 13:46:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 13 11:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "restore-findtime-large",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1123913600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 13 08:13:20 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": null,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": [
+      {
+       "date": 1092577600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 15 15:46:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 13 08:13:20 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv cron[5]: nothing to see"
+     },
+     {
+      "line": "Aug 15 15:46:40 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "nocheck",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013670,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013700,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "advance": 10,
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": 30,
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": 30,
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": 30,
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "lastdate-fallback",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": null,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "advance": 10,
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": 30,
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": 100,
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "lastdate-fallback-nocheck",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "undated-first",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": null,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": "srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "undated-first-nocheck",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124017200.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 13:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124010000.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 11:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124010000,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": true,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "advance": 3600,
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "advance": -7200,
+      "line": "Aug 14 13:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 11:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     }
+    ],
+    "name": "clock-advances",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.7",
+       "regex": 3
+      },
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "2001:db8::7",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "v4only.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.8",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.9",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.9",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.0",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.0",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from nope.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+     }
+    ],
+    "name": "dns-yes",
+    "raw_host": false,
+    "usedns": "yes"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.7",
+       "regex": 3
+      },
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "2001:db8::7",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "v4only.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.8",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.9",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.9",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.0",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.0",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from nope.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+     }
+    ],
+    "name": "dns-warn",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": []
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": []
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "192.0.2.1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "192.0.2.1",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "192.0.2.9",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.9",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "192.0.2.0",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.0",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from nope.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+     }
+    ],
+    "name": "dns-no",
+    "raw_host": false,
+    "usedns": "no"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "host.example",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "v4only.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "v4only.example",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from nope.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "nope.example",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.1",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.9",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.9",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "nope.example",
+        "ip4": "192.0.2.0",
+        "ip6": "2001:db8::1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.0",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from v4only.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from nope.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 2001:db8::1 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from ::ffff:192.0.2.9 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.0/24 port 22 ssh2"
+     }
+    ],
+    "name": "dns-raw",
+    "raw_host": false,
+    "usedns": "raw"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "host.example",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "dns": "host.example",
+        "ip4": "192.0.2.1",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "192.0.2.1",
+       "regex": 3
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from host.example port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 192.0.2.1 port 22 ssh2"
+     }
+    ],
+    "name": "dns-rawhost",
+    "raw_host": true,
+    "usedns": "yes"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "1.2.3.4",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+         ]
+        },
+        "mlfid": " srv sshd[1]: ",
+        "user": "root",
+        "users": {
+         "set": [
+          "root"
+         ]
+        }
+       },
+       "fid": "1.2.3.4",
+       "regex": 3
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "5.6.7.8",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[7]: Connection closed by authenticating user root 5.6.7.8 port 1 [preauth]"
+         ]
+        },
+        "mlfid": " srv sshd[7]: ",
+        "user": "root"
+       },
+       "fid": "5.6.7.8",
+       "regex": 19
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "9.9.9.9",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[8]: Invalid user x from 9.9.9.9 port 5"
+         ]
+        },
+        "mlfid": " srv sshd[8]: ",
+        "user": "x",
+        "users": {
+         "set": [
+          "x"
+         ]
+        }
+       },
+       "fid": "9.9.9.9",
+       "regex": 5
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "ip4": "9.9.9.9",
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[8]: Connection closed by invalid user x 9.9.9.9 port 5 [preauth]"
+         ]
+        },
+        "mlfid": " srv sshd[8]: ",
+        "user": "x",
+        "users": {
+         "set": [
+          "x"
+         ]
+        }
+       },
+       "fid": "9.9.9.9",
+       "regex": 19
+      }
+     ]
+    },
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[9]: Disconnecting: Too many authentication failures [preauth]"
+         ]
+        },
+        "mlfid": " srv sshd[9]: ",
+        "mlfpending": 1
+       },
+       "fid": null,
+       "regex": 17
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_all": true,
+    "check_find_time": false,
+    "filter": "sshd",
+    "filter_options": {
+     "mode": "aggressive"
+    },
+    "find_time": 600,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[1]: Failed password for root from 1.2.3.4 port 22 ssh2"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[7]: Connection closed by authenticating user root 5.6.7.8 port 1 [preauth]"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[8]: Invalid user x from 9.9.9.9 port 5"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[8]: Connection closed by invalid user x 9.9.9.9 port 5 [preauth]"
+     },
+     {
+      "line": "Aug 14 12:00:00 srv sshd[9]: Disconnecting: Too many authentication failures [preauth]"
+     }
+    ],
+    "name": "sshd-aggressive-checkall",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": []
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "ignore_pending": true,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[8]: Disconnecting: Too many authentication failures [preauth]"
+     }
+    ],
+    "name": "pending-ignored",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  },
+  {
+   "results": [
+    {
+     "ok": [
+      {
+       "date": 1124013600.0,
+       "fail": {
+        "matches": {
+         "lines": [
+          "Aug 14 12:00:00 srv sshd[8]: Disconnecting: Too many authentication failures [preauth]"
+         ]
+        },
+        "mlfid": " srv sshd[8]: ",
+        "mlfpending": 1
+       },
+       "fid": null,
+       "regex": 17
+      }
+     ]
+    }
+   ],
+   "scenario": {
+    "check_find_time": false,
+    "filter": "sshd",
+    "find_time": 600,
+    "ignore_pending": false,
+    "in_operation": true,
+    "lines": [
+     {
+      "line": "Aug 14 12:00:00 srv sshd[8]: Disconnecting: Too many authentication failures [preauth]"
+     }
+    ],
+    "name": "pending-kept",
+    "raw_host": false,
+    "usedns": "warn"
+   }
+  }
+ ],
+ "dns": {
+  "host.example": [
+   "192.0.2.7",
+   "2001:db8::7"
+  ],
+  "v4only.example": [
+   "192.0.2.8"
+  ]
+ },
+ "now": 1124013600,
+ "tz": "CET-01CEST-02,M3.5.0,M10.5.0"
+}

@@ -11,3 +11,6 @@ python3 tools/gen_f2b_config_fuzz.py
 python3 tools/gen_f2b_helpers_fixtures.py
 python3 tools/gen_f2b_types_fixtures.py
 python3 tools/gen_f2b_expr_fixtures.py
+python3 tools/gen_f2b_regex_fixtures.py
+python3 tools/gen_f2b_date_fixtures.py
+python3 tools/gen_f2b_filter_fixtures.py

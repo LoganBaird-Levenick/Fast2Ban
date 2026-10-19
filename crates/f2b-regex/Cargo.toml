@@ -1,0 +1,24 @@
+[package]
+name = "f2b-regex"
+description = "Fail2Ban failregex layer: tag expansion, Python-regex translation, dual regex engine (Fast2Ban)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-helpers = { path = "../f2b-helpers" }
+f2b-types = { path = "../f2b-types" }
+fancy-regex = "0.19"
+regex = "1"
+regex-syntax = "0.8"
+unicode-ident = "1"
+unicode_names2 = "4"
+memchr = "2"
+
+[dev-dependencies]
+regex-syntax = "0.8"
+serde_json = "1"
+
+[lints]
+workspace = true

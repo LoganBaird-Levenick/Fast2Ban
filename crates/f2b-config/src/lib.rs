@@ -19,6 +19,8 @@ pub mod pyutil;
 pub mod reader;
 
 pub use arg::{Arg, Command, Val};
-pub use configurator::{CONFIG_PARAMS, ConfigResult, Configurator, read_config};
+pub use configurator::{
+    CONFIG_PARAMS, ConfigResult, Configurator, read_config, read_filter_stream,
+};
 pub use error::{ConfigError, Result};
 pub use fs::{Fs, RealFs};

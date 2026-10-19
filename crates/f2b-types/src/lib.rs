@@ -1,11 +1,15 @@
 //! Core shared types for Fast2Ban.
 
+pub mod cache;
 pub mod clock;
 mod digits;
+pub mod dns;
 mod inet;
 pub mod ipaddr;
 
+pub use cache::TtlCache;
 pub use clock::{Clock, FixedClock, SharedClock, SystemClock, fixed_clock, system_clock};
+pub use dns::{DnsUtils, Ipv6Policy, Resolver, SystemResolver};
 pub use ipaddr::{Cidr, Family, IPAddr, IPAddrError, IPAddrSet};
 
 /// Upstream Fail2Ban version this build is wire/config compatible with.

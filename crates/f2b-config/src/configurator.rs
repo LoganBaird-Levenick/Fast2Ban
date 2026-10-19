@@ -166,3 +166,34 @@ pub fn read_config(
         },
     }
 }
+
+/// Read one filter (`filter.d/<name>` with `.d`/`.local` overrides) and return
+/// its command stream, as upstream's `FilterReader` does for `fail2ban-regex`
+/// and the sample tests: `read()`, optional `applyAutoOptions(backend)`,
+/// `getOptions({})`, `convert()`.
+///
+/// `Ok(None)` when the filter file cannot be read (upstream `read()` false).
+pub fn read_filter_stream(
+    fs: Rc<dyn Fs>,
+    basedir: &str,
+    name: &str,
+    jail_name: &str,
+    init_opts: IndexMap<String, String>,
+    backend: Option<&str>,
+) -> Result<Option<Vec<Command>>> {
+    let share = Rc::new(RefCell::new(HashMap::new()));
+    let mut reader = crate::definition::DefinitionReader::filter(
+        name,
+        jail_name,
+        init_opts,
+        crate::reader::ConfigReader::with_share(fs, share, Some(basedir.to_owned())),
+    );
+    if !reader.read()? {
+        return Ok(None);
+    }
+    if let Some(b) = backend {
+        reader.apply_auto_options(b);
+    }
+    reader.get_options(&IndexMap::new(), false)?;
+    reader.convert().map(Some)
+}

@@ -1,0 +1,20 @@
+[package]
+name = "f2b-date"
+description = "Date detection engine of Fast2Ban: port of upstream datedetector/datetemplate/strptime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-types = { path = "../f2b-types" }
+f2b-helpers = { path = "../f2b-helpers" }
+fancy-regex = "0.19"
+jiff = "0.2"
+unicode-ident = "1"
+
+[dev-dependencies]
+serde_json = "1"
+
+[lints]
+workspace = true

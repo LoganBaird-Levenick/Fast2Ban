@@ -1,0 +1,22 @@
+[package]
+name = "f2b-filter"
+description = "Fail2Ban-compatible log line filter: date split, prefregex/failregex/ignoreregex matching, multi-line failure ids"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-config = { path = "../f2b-config" }
+f2b-date = { path = "../f2b-date" }
+f2b-regex = { path = "../f2b-regex" }
+f2b-types = { path = "../f2b-types" }
+indexmap = "2"
+log = "0.4"
+
+[dev-dependencies]
+f2b-helpers = { path = "../f2b-helpers" }
+serde_json = "1"
+
+[lints]
+workspace = true
