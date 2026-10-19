@@ -319,6 +319,62 @@ impl Fail2BanDb {
         Ok(tickets)
     }
 
+    /// Read ban info from `bips` table (`getBan`).
+    /// Returns `(bancount, timeofban, bantime)` if found.
+    pub fn get_ban(
+        &self,
+        ip: &str,
+        jail: Option<&str>,
+        overall_jails: bool,
+        for_ban_time: Option<f64>,
+        from_time: Option<f64>,
+        now: f64,
+    ) -> rusqlite::Result<Option<(i64, f64, i64)>> {
+        let conn = self.conn.lock().unwrap();
+        let mut query = if overall_jails {
+            "SELECT sum(bancount), max(timeofban), sum(bantime) FROM bips WHERE ip = ?".to_owned()
+        } else {
+            "SELECT bancount, timeofban, bantime FROM bips WHERE ip = ?".to_owned()
+        };
+        let mut params_vec: Vec<rusqlite::types::Value> = vec![ip.to_owned().into()];
+
+        if !overall_jails {
+            if let Some(j) = jail {
+                query.push_str(" AND jail = ?");
+                params_vec.push(j.to_owned().into());
+            }
+        }
+
+        if let Some(fbt) = for_ban_time {
+            query.push_str(" AND timeofban > ?");
+            params_vec.push(((now - fbt) as i64).into());
+        }
+
+        if let Some(ft) = from_time {
+            query.push_str(" AND timeofban > ?");
+            params_vec.push((ft as i64).into());
+        }
+
+        if overall_jails || jail.is_none() {
+            query.push_str(" GROUP BY ip ORDER BY timeofban DESC LIMIT 1");
+        } else {
+            query.push_str(" ORDER BY timeofban DESC LIMIT 1");
+        }
+
+        let mut stmt = conn.prepare(&query)?;
+        let mut rows = stmt.query(rusqlite::params_from_iter(params_vec))?;
+
+        if let Some(row) = rows.next()? {
+            let bancount: Option<i64> = row.get(0)?;
+            let timeofban: Option<f64> = row.get(1)?;
+            let bantime: Option<i64> = row.get(2)?;
+            if let (Some(bc), Some(tob), Some(bt)) = (bancount, timeofban, bantime) {
+                return Ok(Some((bc, tob, bt)));
+            }
+        }
+        Ok(None)
+    }
+
     /// Read historical bans from `bans` table (`getBans`).
     pub fn get_bans(
         &self,

@@ -143,6 +143,14 @@ impl BanManager {
         self.ban_list.drain(..).map(|(_, t)| t).collect()
     }
 
+    pub fn get_ticket(&self, fid: &IPAddr) -> Option<&BanTicket> {
+        self.ban_list.get(fid)
+    }
+
+    pub fn get_ticket_mut(&mut self, fid: &IPAddr) -> Option<&mut BanTicket> {
+        self.ban_list.get_mut(fid)
+    }
+
     pub fn get_ticket_by_id(&mut self, fid: &IPAddr) -> Option<BanTicket> {
         self.ban_list.shift_remove(fid)
     }

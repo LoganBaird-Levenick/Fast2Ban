@@ -1,15 +1,18 @@
 //! In-process Jail coordinating filter, failmanager, actions, and backends.
 
 use std::path::Path;
+use std::sync::Arc;
 use std::time::Duration;
 
 use f2b_backend::Backend;
+use f2b_db::Fail2BanDb;
 use f2b_filter::Filter;
 use f2b_types::{BanTicket, FailManager, FailTicket, IPAddr, IPAddrSet, SharedClock};
 
 use crate::actions::Actions;
+use crate::ban_extra::BanExtra;
 use crate::exec::execute_cmd;
-
+use crate::observer::Observer;
 /// An active jail instance managing the complete monitoring and ban lifecycle.
 #[derive(Debug)]
 pub struct Jail {
@@ -22,6 +25,8 @@ pub struct Jail {
     pub ignore_self: bool,
     pub ignore_command: Option<String>,
     pub clock: SharedClock,
+    pub ban_extra: BanExtra,
+    pub database: Option<Arc<Fail2BanDb>>,
 }
 
 impl Jail {
@@ -36,6 +41,8 @@ impl Jail {
             ignore_self: true,
             ignore_command: None,
             clock,
+            ban_extra: BanExtra::new(),
+            database: None,
         }
     }
 
@@ -51,6 +58,90 @@ impl Jail {
 
     pub fn set_ignore_command(&mut self, cmd: Option<String>) {
         self.ignore_command = cmd;
+    }
+
+    pub fn set_database(&mut self, db: Option<Arc<Fail2BanDb>>) {
+        self.database = db;
+    }
+
+    pub fn set_ban_time_extra(&mut self, opt: &str, val: Option<&str>) -> Result<(), String> {
+        self.ban_extra.set_opt(opt, val)
+    }
+
+    pub fn get_ban_time_extra(&self, opt: &str) -> Option<String> {
+        self.ban_extra.get_opt(opt)
+    }
+
+    pub fn max_ban_time(&self) -> i64 {
+        self.ban_extra
+            .max_ban_time(self.actions.ban_manager.ban_time())
+    }
+
+    pub fn calc_ban_time(&self, ban_time: f64, ban_count: i64) -> Result<f2b_expr::Num, String> {
+        Observer::calc_ban_time(&self.ban_extra, ban_time, ban_count)
+    }
+
+    pub fn failure_found(&mut self, ticket: &mut FailTicket, now: f64) {
+        Observer::failure_found(
+            &self.name,
+            &self.ban_extra,
+            self.database.as_deref(),
+            &mut self.fail_manager,
+            &mut self.actions,
+            ticket,
+            now,
+        );
+    }
+
+    pub fn ban_found(&mut self, ticket: &mut BanTicket, base_ban_time: i64, now: f64) -> bool {
+        Observer::ban_found(
+            &self.name,
+            &self.ban_extra,
+            self.database.as_deref(),
+            ticket,
+            base_ban_time,
+            now,
+        )
+    }
+
+    pub fn incr_ban_time(&self, ticket: &mut BanTicket, base_ban_time: i64, now: f64) -> i64 {
+        Observer::incr_ban_time(
+            &self.name,
+            &self.ban_extra,
+            self.database.as_deref(),
+            base_ban_time,
+            ticket,
+            now,
+        )
+    }
+
+    pub fn restore_current_bans(
+        &mut self,
+        correct_ban_time: bool,
+        now: f64,
+    ) -> Result<usize, String> {
+        let Some(db) = &self.database else {
+            return Ok(0);
+        };
+        let cbt = if correct_ban_time {
+            Some(self.max_ban_time())
+        } else {
+            None
+        };
+        let restored = db
+            .get_current_bans(Some(&self.name), None, Some(now), cbt, None)
+            .map_err(|e| e.to_string())?;
+
+        let mut count = 0;
+        for t in restored {
+            let mut ban_ticket = BanTicket::from_fail_ticket(t);
+            ban_ticket.ticket_mut().set_restored(true);
+            let (added, _) = self.actions.ban_manager.add_ban_ticket(ban_ticket, now);
+            if added {
+                count += 1;
+            }
+        }
+        Ok(count)
     }
 
     /// Check if an IP address should be ignored according to `ignoreip`, `ignoreself`, or `ignorecommand`.
@@ -107,10 +198,29 @@ impl Jail {
             }
             ticket.ticket_mut().set_matches(matches);
 
-            let attempts = self.fail_manager.add_failure(ticket, 1);
+            let attempts = self.fail_manager.add_failure(ticket.clone(), 1);
+            Observer::failure_found(
+                &self.name,
+                &self.ban_extra,
+                self.database.as_deref(),
+                &mut self.fail_manager,
+                &mut self.actions,
+                &mut ticket,
+                now,
+            );
+
             if attempts >= self.fail_manager.max_retry() {
                 if let Ok(to_ban) = self.fail_manager.to_ban(Some(&fid)) {
                     let mut ban_ticket = BanTicket::from_fail_ticket(to_ban);
+                    let base_bt = self.actions.ban_manager.ban_time();
+                    Observer::ban_found(
+                        &self.name,
+                        &self.ban_extra,
+                        self.database.as_deref(),
+                        &mut ban_ticket,
+                        base_bt,
+                        now,
+                    );
                     if self.actions.ban(&mut ban_ticket, now)? {
                         bans += 1;
                     }

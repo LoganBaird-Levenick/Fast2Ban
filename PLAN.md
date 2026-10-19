@@ -196,6 +196,25 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - `bantime.increment/factor/formula/multipliers/maxtime/rndtime/overalljails`, prolong-ban on re-ban, `banFound`/`failureFound` paths (`observer.py`), db-backed ban counts.
 - Gate: ported `observertestcase.py`; formula table tests incl. the default formula and boundary `Count=20/21`.
 
+**Phase 6 status: DONE** (all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **BanExtra (`crates/f2b-action/src/ban_extra.rs`)**: configuration and evaluation for `bantime.increment`, `bantime.factor`, `bantime.formula`, `bantime.multipliers`, `bantime.maxtime`, `bantime.rndtime`, and `bantime.overalljails`. Supports compiled formulas via `f2b-expr::BanTimeIncrement` and multipliers list evaluation with boundary clamping.
+- **Observer (`crates/f2b-action/src/observer.rs`)**:
+  - `failure_found`: checks database for bad IPs, calculates exponential retry acceleration `retryCount = ((1 << count) / 2 + 1)`, and immediately triggers bans when retry threshold is reached.
+  - `incr_ban_time`: retrieves previous bans from SQLite `bips` table across jail or all jails (`overalljails`), updates ticket ban count, and calculates dynamic ban time using compiled formula/multipliers.
+  - `ban_found`: prolongs and adjusts ban time, logs notices matching fail2ban formatting, and persists ban records into database.
+- **Database & Server Integration**:
+  - `Fail2BanDb::get_ban` added in `crates/f2b-db/src/db.rs` to read from `bips` with `overalljails` grouping and time filters.
+  - `Server` and `Transmitter` updated to handle `set <jail> bantime.<opt>` and `get <jail> bantime.<opt>` commands.
+- **Verification Gate**:
+  - Ported `fail2ban/tests/observertestcase.py` in `crates/f2b-action/tests/observer_tests.rs`:
+    - `test_default_formula_and_options`: 24h default schedule `[1200, 2400, 4800, 9600, 19200, 38400, 76800, 86400, ...]`, 30d max time, factors 2 and float 1.33, 12h max time, randomization with `rndtime = 5m`.
+    - `test_multipliers`: multiplier arrays (`1 2 4 8 16 32 64 128 256`) stopping growth at the last multiplier.
+    - `test_custom_formula`: exponential formula with factor `2.0 / 2.885385` matching Python floating-point truncation.
+    - `test_database_bantime_increment`: persistence-backed doubling ban times in SQLite and `overalljails` multi-jail tracking.
+    - `test_observer_failure_found_bad_ip_acceleration`: bad IP retry count boost immediately triggering ban on 1st retry.
+    - `test_boundary_count_20_21`: verified default formula clamps shift at `Count=20` (`1 << 20`) without growing further at `Count=21` and `Count=25`.
+    - `test_python_differential_observer`: differential check invoking Python `fail2ban.server.observer.ObserverThread` and asserting identical numbers.
+
 ### Phase 7 — Optional backends & breadth
 - systemd backend (feature), `journalmatch` parsing, `formatJournalEntry` parity; `fail2ban-regex --journalmatch`.
 - `jail.conf` stock jails end-to-end smoke (`sshd`, `apache-*`, `nginx-*`, `postfix`, `dovecot`, `recidive`) against canned logs in a container with real `iptables`/`nft` (Docker is available in the sandbox).

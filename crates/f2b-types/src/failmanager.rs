@@ -104,6 +104,9 @@ impl FailManager {
             let unix_time = ticket.time();
             existing.adjust_time(unix_time, self.max_time);
             existing.inc(matches, attempt, count);
+            existing
+                .ticket_mut()
+                .set_ban_count(ticket.ticket().ban_count(), false);
 
             if self.max_matches > 0 {
                 let m = existing.ticket().matches();

@@ -277,6 +277,15 @@ impl Transmitter {
                         act.set_property(prop_key, prop_val.clone());
                         Ok(Value::Str(prop_val))
                     }
+                    _ if opt.starts_with("bantime.") => {
+                        let extra_opt = &opt["bantime.".len()..];
+                        let val_str = args.get(2).and_then(|v| v.as_str());
+                        jail.set_ban_time_extra(extra_opt, val_str)?;
+                        Ok(match jail.get_ban_time_extra(extra_opt) {
+                            Some(v) => Value::Str(v),
+                            None => Value::None,
+                        })
+                    }
                     _ => Ok(Value::None),
                 }
             }
@@ -384,6 +393,13 @@ impl Transmitter {
                             .map(Value::Str)
                             .collect();
                         Ok(Value::List(names))
+                    }
+                    _ if opt.starts_with("bantime.") => {
+                        let extra_opt = &opt["bantime.".len()..];
+                        Ok(match jail.get_ban_time_extra(extra_opt) {
+                            Some(v) => Value::Str(v),
+                            None => Value::None,
+                        })
                     }
                     _ => Ok(Value::None),
                 }

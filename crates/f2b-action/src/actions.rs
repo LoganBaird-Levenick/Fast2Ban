@@ -62,6 +62,7 @@ impl Actions {
         let (added, reason) = self.ban_manager.add_ban_ticket(ticket.clone(), now);
 
         if added {
+            ticket.ticket_mut().incr_ban_count(1);
             let ainfo = ActionInfo::from_ticket(ticket, &self.jail_name, default_bt);
             log::info!("[{}] Ban {}", self.jail_name, ainfo.ip);
 

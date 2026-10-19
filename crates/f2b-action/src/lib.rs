@@ -4,7 +4,12 @@ pub mod action;
 pub mod actions;
 pub mod jail;
 
+pub mod ban_extra;
+pub mod observer;
+
+pub use ban_extra::BanExtra;
 pub use jail::Jail;
+pub use observer::Observer;
 pub mod exec;
 pub mod tags;
 

@@ -53,11 +53,12 @@ impl Server {
         let filter = Filter::new(self.clock.clone(), dns, zone);
         let backend = Backend::create(backend_type);
 
-        let jail = Jail::new(name, filter, backend, self.clock.clone());
+        let mut jail = Jail::new(name, filter, backend, self.clock.clone());
 
         // Associate database if present
         if let Some(db) = &self.db {
             let _ = db.add_jail(name);
+            jail.set_database(Some(db.clone()));
         }
 
         self.jails.insert(name.to_owned(), jail);
@@ -72,21 +73,8 @@ impl Server {
         jail.start()?;
 
         // Re-instate bans from database if database is configured
-        if let Some(db) = &self.db {
-            let now = jail.clock.time();
-            if let Ok(bans) = db.get_current_bans(
-                Some(name),
-                None,
-                Some(now),
-                Some(jail.actions.ban_manager.ban_time()),
-                None,
-            ) {
-                for t in bans {
-                    let mut bt = f2b_types::BanTicket::from_fail_ticket(t);
-                    let _ = jail.actions.ban(&mut bt, now);
-                }
-            }
-        }
+        let now = jail.clock.time();
+        let _ = jail.restore_current_bans(true, now);
 
         Ok(())
     }
@@ -114,14 +102,18 @@ impl Server {
     pub fn set_database(&mut self, path: &str) -> Result<(), String> {
         if path == "None" || path.is_empty() {
             self.db = None;
+            for jail in self.jails.values_mut() {
+                jail.set_database(None);
+            }
             return Ok(());
         }
 
         let db =
             Fail2BanDb::open(path, 86400).map_err(|e| format!("cannot open db {path}: {e}"))?;
         let db_arc = Arc::new(db);
-        for name in self.jails.keys() {
+        for (name, jail) in &mut self.jails {
             let _ = db_arc.add_jail(name);
+            jail.set_database(Some(db_arc.clone()));
         }
         self.db = Some(db_arc);
         Ok(())
@@ -157,6 +149,27 @@ impl Server {
         }
 
         Ok(unbanned)
+    }
+
+    pub fn set_ban_time_extra(
+        &mut self,
+        name: &str,
+        opt: &str,
+        val: Option<&str>,
+    ) -> Result<(), String> {
+        let jail = self
+            .jails
+            .get_mut(name)
+            .ok_or_else(|| format!("Jail {name} not found"))?;
+        jail.set_ban_time_extra(opt, val)
+    }
+
+    pub fn get_ban_time_extra(&self, name: &str, opt: &str) -> Result<Option<String>, String> {
+        let jail = self
+            .jails
+            .get(name)
+            .ok_or_else(|| format!("Jail {name} not found"))?;
+        Ok(jail.get_ban_time_extra(opt))
     }
 
     pub fn status(&self, jail_name: Option<&str>) -> Result<Value, String> {

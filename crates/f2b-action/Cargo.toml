@@ -20,6 +20,8 @@ f2b-filter = { path = "../f2b-filter" }
 f2b-date = { path = "../f2b-date" }
 tempfile = "3"
 serde_json = "1"
+f2b-expr = { path = "../f2b-expr" }
+f2b-db = { path = "../f2b-db" }
 
 [target.'cfg(unix)'.dependencies]
 libc = "0.2"

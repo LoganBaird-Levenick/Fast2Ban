@@ -15,7 +15,7 @@ fn test_pickle_round_trip_with_python() {
         Value::Int(1000),
         Value::Int(100_000),
         Value::Int(-500),
-        Value::Float(3.14159),
+        Value::Float(std::f64::consts::PI),
         Value::Str("hello world".into()),
         Value::List(vec![Value::Str("ping".into())]),
         Value::Tuple(vec![Value::Int(0), Value::Str("pong".into())]),
