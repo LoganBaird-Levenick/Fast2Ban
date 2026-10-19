@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/f2b-types"]
+members = ["crates/*"]
 
 [workspace.package]
 version = "0.0.0"
