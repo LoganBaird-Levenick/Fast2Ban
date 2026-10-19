@@ -8,6 +8,7 @@ use crate::container::FileContainer;
 #[derive(Debug)]
 pub struct PollingBackend {
     containers: IndexMap<PathBuf, FileContainer>,
+    encoding: String,
 }
 
 impl Default for PollingBackend {
@@ -20,13 +21,14 @@ impl PollingBackend {
     pub fn new() -> Self {
         Self {
             containers: IndexMap::new(),
+            encoding: "utf-8".to_owned(),
         }
     }
 
     pub fn add_log_path(&mut self, path: impl AsRef<Path>, tail: bool) -> std::io::Result<()> {
         let p = path.as_ref().to_path_buf();
         if !self.containers.contains_key(&p) {
-            let container = FileContainer::new(&p, "utf-8", tail)?;
+            let container = FileContainer::new(&p, &self.encoding, tail)?;
             self.containers.insert(p, container);
         }
         Ok(())
@@ -44,6 +46,14 @@ impl PollingBackend {
         self.containers.keys().cloned().collect()
     }
 
+    /// Set the decoding of present and future log files.
+    pub fn set_encoding(&mut self, encoding: &str) {
+        encoding.clone_into(&mut self.encoding);
+        for c in self.containers.values_mut() {
+            c.set_encoding(encoding);
+        }
+    }
+
     pub fn containers(&self) -> &IndexMap<PathBuf, FileContainer> {
         &self.containers
     }
@@ -56,7 +66,13 @@ impl PollingBackend {
     pub fn poll_once<F: FnMut(&Path, &str)>(&mut self, mut on_line: F) -> std::io::Result<usize> {
         let mut total_lines = 0;
         for (path, container) in &mut self.containers {
-            let modified = container.open(None)?;
+            let modified = match container.open(None) {
+                Ok(m) => m,
+                Err(e) => {
+                    log::error!("Unable to open {}: {e}", path.display());
+                    continue;
+                }
+            };
             if !modified {
                 continue;
             }

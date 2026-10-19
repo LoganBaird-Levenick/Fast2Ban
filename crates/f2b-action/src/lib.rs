@@ -6,6 +6,7 @@ pub mod jail;
 
 pub mod ban_extra;
 pub mod observer;
+pub mod selfips;
 
 pub use ban_extra::BanExtra;
 pub use jail::Jail;

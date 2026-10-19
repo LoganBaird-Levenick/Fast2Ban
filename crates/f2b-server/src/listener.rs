@@ -18,6 +18,7 @@ use crate::transmitter::Transmitter;
 pub struct AsyncServer {
     sock_path: PathBuf,
     listener: UnixListener,
+    server: Arc<Mutex<Server>>,
     transmitter: Arc<Transmitter>,
     running: Arc<AtomicBool>,
 }
@@ -32,12 +33,13 @@ impl AsyncServer {
         let listener = UnixListener::bind(&path)?;
         listener.set_nonblocking(true)?;
 
-        let transmitter = Arc::new(Transmitter::new(server));
+        let transmitter = Arc::new(Transmitter::new(server.clone()));
         let running = Arc::new(AtomicBool::new(true));
 
         Ok(Self {
             sock_path: path,
             listener,
+            server,
             transmitter,
             running,
         })
@@ -52,13 +54,26 @@ impl AsyncServer {
         let _ = fs::remove_file(&self.sock_path);
     }
 
-    /// Run the server loop in a background thread.
+    /// Run the server loop in a background thread, together with the runner
+    /// thread that drives the jails (log reading, bans, unbans).
     pub fn start_background(&self) -> std::io::Result<thread::JoinHandle<()>> {
         let running = self.running.clone();
         let listener = self.listener.try_clone()?;
         listener.set_nonblocking(true)?;
         let transmitter = self.transmitter.clone();
         let sock_path = self.sock_path.clone();
+        let server = self.server.clone();
+        let runner_running = running.clone();
+        let runner = thread::Builder::new()
+            .name("f2b/server".to_owned())
+            .spawn(move || {
+                while runner_running.load(Ordering::SeqCst) {
+                    if !Server::tick(&server) {
+                        break;
+                    }
+                    thread::sleep(Duration::from_millis(100));
+                }
+            })?;
 
         Ok(thread::spawn(move || {
             while running.load(Ordering::SeqCst) && transmitter.is_running() {
@@ -77,6 +92,7 @@ impl AsyncServer {
                 }
             }
             let _ = fs::remove_file(&sock_path);
+            let _ = runner.join();
         }))
     }
 }

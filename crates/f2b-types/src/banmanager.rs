@@ -143,6 +143,11 @@ impl BanManager {
         self.ban_list.drain(..).map(|(_, t)| t).collect()
     }
 
+    /// The banned tickets in insertion order.
+    pub fn tickets(&self) -> impl Iterator<Item = &BanTicket> {
+        self.ban_list.values()
+    }
+
     pub fn get_ticket(&self, fid: &IPAddr) -> Option<&BanTicket> {
         self.ban_list.get(fid)
     }

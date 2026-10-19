@@ -211,6 +211,18 @@ impl Filter {
         self.fail_regex.clear();
     }
 
+    /// `delFailRegex(index)`.
+    ///
+    /// # Errors
+    /// `Index N is not valid` for an index out of range.
+    pub fn del_fail_regex(&mut self, index: usize) -> Result<()> {
+        if index >= self.fail_regex.len() {
+            return Err(FilterError::Value(format!("Index {index} is not valid")));
+        }
+        self.fail_regex.remove(index);
+        Ok(())
+    }
+
     pub fn fail_regexes(&self) -> &[FailRegex] {
         &self.fail_regex
     }
@@ -225,6 +237,18 @@ impl Filter {
     /// `delIgnoreRegex()` (all).
     pub fn clear_ignore_regex(&mut self) {
         self.ignore_regex.clear();
+    }
+
+    /// `delIgnoreRegex(index)`.
+    ///
+    /// # Errors
+    /// `Index N is not valid` for an index out of range.
+    pub fn del_ignore_regex(&mut self, index: usize) -> Result<()> {
+        if index >= self.ignore_regex.len() {
+            return Err(FilterError::Value(format!("Index {index} is not valid")));
+        }
+        self.ignore_regex.remove(index);
+        Ok(())
     }
 
     pub fn ignore_regexes(&self) -> &[Regex] {

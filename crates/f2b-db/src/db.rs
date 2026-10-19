@@ -4,6 +4,7 @@ use rusqlite::{Connection, params};
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
+use std::sync::atomic::{AtomicI64, AtomicUsize, Ordering};
 
 use crate::schema::{apply_pragmas, migrate_db};
 use f2b_types::{BanTicket, FailTicket, IPAddr, Ticket};
@@ -20,9 +21,9 @@ fn get_string_or_blob(row: &rusqlite::Row<'_>, idx: usize) -> rusqlite::Result<O
 pub struct Fail2BanDb {
     conn: Mutex<Connection>,
     filename: PathBuf,
-    pub purge_age: i64,
+    purge_age: AtomicI64,
     pub outdated_factor: i64,
-    pub max_matches: usize,
+    max_matches: AtomicUsize,
 }
 
 impl Fail2BanDb {
@@ -36,9 +37,9 @@ impl Fail2BanDb {
         Ok(Self {
             conn: Mutex::new(conn),
             filename: path,
-            purge_age,
+            purge_age: AtomicI64::new(purge_age),
             outdated_factor: 3,
-            max_matches: 10,
+            max_matches: AtomicUsize::new(10),
         })
     }
 
@@ -50,14 +51,32 @@ impl Fail2BanDb {
         Ok(Self {
             conn: Mutex::new(conn),
             filename: PathBuf::from(":memory:"),
-            purge_age: 86400,
+            purge_age: AtomicI64::new(86400),
             outdated_factor: 3,
-            max_matches: 10,
+            max_matches: AtomicUsize::new(10),
         })
     }
 
     pub fn filename(&self) -> &Path {
         &self.filename
+    }
+
+    /// `purgeage` in seconds.
+    pub fn purge_age(&self) -> i64 {
+        self.purge_age.load(Ordering::Relaxed)
+    }
+
+    pub fn set_purge_age(&self, seconds: i64) {
+        self.purge_age.store(seconds, Ordering::Relaxed);
+    }
+
+    /// `maxMatches`: matches stored per ban.
+    pub fn max_matches(&self) -> usize {
+        self.max_matches.load(Ordering::Relaxed)
+    }
+
+    pub fn set_max_matches(&self, value: usize) {
+        self.max_matches.store(value, Ordering::Relaxed);
     }
 
     pub fn add_jail(&self, name: &str) -> rusqlite::Result<()> {
@@ -165,6 +184,17 @@ impl Fail2BanDb {
         Ok(())
     }
 
+    /// `getJournalPos`: the stored journal position (epoch seconds) of `jail`.
+    pub fn get_journal_pos(&self, jail: &str, name: &str) -> rusqlite::Result<Option<i64>> {
+        let conn = self.conn.lock().unwrap();
+        let mut stmt = conn.prepare("SELECT lastfilepos FROM logs WHERE jail=?1 AND path=?2")?;
+        let mut rows = stmt.query(params![jail, name])?;
+        match rows.next()? {
+            Some(row) => row.get(0),
+            None => Ok(None),
+        }
+    }
+
     pub fn get_log_paths(&self, jail: Option<&str>) -> rusqlite::Result<HashSet<String>> {
         let conn = self.conn.lock().unwrap();
         let mut set = HashSet::new();
@@ -193,8 +223,9 @@ impl Fail2BanDb {
 
         let mut data_map = serde_json::Map::new();
         let matches = ticket.ticket().matches();
-        if self.max_matches > 0 && !matches.is_empty() {
-            let start = matches.len().saturating_sub(self.max_matches);
+        let max_matches = self.max_matches();
+        if max_matches > 0 && !matches.is_empty() {
+            let start = matches.len().saturating_sub(max_matches);
             data_map.insert("matches".into(), serde_json::json!(&matches[start..]));
         }
         data_map.insert(
@@ -296,7 +327,7 @@ impl Fail2BanDb {
             if let Some(s) = data_str {
                 if let Ok(val) = serde_json::from_str::<serde_json::Value>(&s) {
                     if let Some(m) = val.get("matches").and_then(|m| m.as_array()) {
-                        let matches_limit = max_matches.unwrap_or(self.max_matches);
+                        let matches_limit = max_matches.unwrap_or_else(|| self.max_matches());
                         let mut m_vec: Vec<String> = m
                             .iter()
                             .filter_map(|x| x.as_str().map(str::to_owned))
@@ -440,7 +471,7 @@ impl Fail2BanDb {
     /// Purges expired bips and unused disabled jails.
     pub fn purge(&self, now: f64) -> rusqlite::Result<()> {
         let conn = self.conn.lock().unwrap();
-        let cutoff = (now as i64) - self.purge_age;
+        let cutoff = (now as i64) - self.purge_age();
 
         // Purge bips
         conn.execute(

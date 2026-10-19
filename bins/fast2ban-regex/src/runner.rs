@@ -6,6 +6,7 @@ use std::rc::Rc;
 use std::sync::Arc;
 use std::time::Instant;
 
+use f2b_backend::JournalBackend;
 use f2b_config::{Arg, Fs, JailReader};
 use f2b_date::{DateEnv, LocalZone};
 use f2b_filter::{FailData, FailEntry, FailVal, Filter};
@@ -13,7 +14,7 @@ use f2b_helpers::extract_options;
 use f2b_regex::TupleLine;
 use f2b_types::{DnsUtils, Ipv6Policy, system_clock};
 
-use crate::console::{err_raw, out};
+use crate::console::out;
 use crate::optparse::Values;
 use crate::pyrepr::{fail_data_repr, fail_val_str, float_repr, repr, str_map_repr};
 
@@ -38,6 +39,25 @@ pub fn pprint_list(list: &[String], header: Option<&str>) {
     s.push_str(&list.join("\n|  "));
     s.push_str("\n`-");
     out(&s);
+}
+
+/// A line to test: plain text or a journal entry with a known time.
+#[derive(Clone, Debug)]
+pub enum TestLine {
+    Text(String),
+    Journal {
+        text: String,
+        tuple: TupleLine<String>,
+        time: f64,
+    },
+}
+
+impl TestLine {
+    fn text(&self) -> &String {
+        match self {
+            Self::Text(t) | Self::Journal { text: t, .. } => t,
+        }
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -93,6 +113,7 @@ pub struct Fail2banRegex {
     line_stats: LineStats,
     time_elapsed: Option<f64>,
     backend: String,
+    journalmatch: Option<Vec<String>>,
     fs: Rc<dyn Fs>,
 }
 impl std::fmt::Debug for Fail2banRegex {
@@ -155,9 +176,13 @@ impl Fail2banRegex {
             line_stats: LineStats::default(),
             time_elapsed: None,
             backend: "auto".to_owned(),
+            journalmatch: None,
             fs,
         };
 
+        if let Some(jm) = app.opts.str("journalmatch") {
+            app.journalmatch = Some(f2b_helpers::shlex_split(jm).map_err(|e| e.to_string())?);
+        }
         if maxlines_arg > 0 {
             app.set_max_lines(maxlines_arg)?;
         }
@@ -218,6 +243,10 @@ impl Fail2banRegex {
             return Ok(false);
         }
 
+        if cmd_log.starts_with("systemd-journal") && !self.fs.is_file(cmd_log) {
+            return self.run_journal(cmd_log);
+        }
+
         let test_lines: Vec<String> = if self.fs.is_file(cmd_log) {
             let enc = self.opts.str("encoding").unwrap_or("utf-8");
             self.print(&format!("Use         log file : {cmd_log}"));
@@ -229,9 +258,6 @@ impl Fail2banRegex {
             data.split('\n')
                 .map(|l| l.trim_end_matches('\r').to_owned())
                 .collect()
-        } else if cmd_log.starts_with("systemd-journal") {
-            err_raw("systemd journal backend is not available in this build\n");
-            return Ok(false);
         } else if self.filter.max_lines() <= 1 && !cmd_log.contains('\n') {
             self.print(&format!(
                 "Use      single line : {}",
@@ -398,6 +424,19 @@ impl Fail2banRegex {
                     "set" => cmd[3..].iter().collect(),
                     _ => Vec::new(),
                 };
+                if target == "addjournalmatch" {
+                    if self.opts.str("journalmatch").is_none() {
+                        self.journalmatch = Some(
+                            vals.iter()
+                                .filter_map(|v| match v {
+                                    Arg::Str(s) => Some(s.clone()),
+                                    _ => None,
+                                })
+                                .collect(),
+                        );
+                    }
+                    continue;
+                }
                 for v in vals {
                     match target.as_str() {
                         "prefregex" => {
@@ -470,11 +509,57 @@ impl Fail2banRegex {
     }
 
     pub fn process(&mut self, test_lines: &[String]) {
+        self.process_items(test_lines.iter().map(|l| TestLine::Text(l.clone())));
+    }
+
+    /// `fail2ban-regex systemd-journal[...]`: test the matching journal entries.
+    fn run_journal(&mut self, cmd_log: &str) -> Result<bool, String> {
+        let (_, backend_opts) = extract_options(cmd_log).map_err(|e| e.to_string())?;
+        let mut journal = match JournalBackend::from_backend_options(&backend_opts) {
+            Ok(j) => j,
+            Err(e) => {
+                out(&format!("Error: {e}"));
+                return Ok(false);
+            }
+        };
+        // the journal supplies the time of every entry
+        if !self.date_pattern_set {
+            self.filter
+                .set_date_pattern(None)
+                .map_err(|e| e.to_string())?;
+            self.date_pattern_set = true;
+        }
+        if let Some(m) = self.journalmatch.clone() {
+            if let Err(e) = journal.add_match(&m) {
+                out(&format!("ERROR: {e}"));
+                return Ok(false);
+            }
+            self.print(&format!("Use    journal match : {}", m.join(" ")));
+        }
+        let entries = match journal.entries() {
+            Ok(e) => e,
+            Err(e) => {
+                out(&format!("Error: unable to read the systemd journal: {e}"));
+                return Ok(false);
+            }
+        };
+        self.print("");
+        self.process_items(entries.map(|f| TestLine::Journal {
+            text: format!("{}{}{}", f.pre, f.date, f.post),
+            tuple: TupleLine::new(f.pre, f.date, f.post),
+            time: f.time,
+        }));
+        self.print_stats();
+        Ok(true)
+    }
+
+    pub fn process_items(&mut self, items: impl Iterator<Item = TestLine>) {
         let t0 = Instant::now();
         let out_fmt = self.opts.str("out");
         let invert = self.opts.flag("invert");
 
-        for line in test_lines {
+        for item in items {
+            let line = item.text();
             if line.starts_with('#') || line.trim().is_empty() {
                 continue;
             }
@@ -482,7 +567,13 @@ impl Fail2banRegex {
             let mut was_ignored = false;
             let mut matched_entries = Vec::new();
 
-            match self.filter.process_line(line) {
+            let processed = match &item {
+                TestLine::Text(_) => self.filter.process_line(line),
+                TestLine::Journal { tuple, time, .. } => {
+                    self.filter.process_line_with_date(tuple.clone(), *time)
+                }
+            };
+            match processed {
                 Ok(found) => {
                     for e in found {
                         if !e.fail.truthy("nofail") {

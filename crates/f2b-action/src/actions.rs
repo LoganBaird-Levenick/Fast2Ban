@@ -30,6 +30,33 @@ impl Actions {
         self.actions.insert(action.name.clone(), action);
     }
 
+    pub fn names(&self) -> Vec<String> {
+        self.actions.keys().cloned().collect()
+    }
+
+    /// Unban every ticket through the given actions only, then stop and drop
+    /// them (`__flushBan(actions=..)` + `stopActions(actions=..)`).
+    pub fn remove_actions(&mut self, names: &[String]) -> Result<(), String> {
+        let default_bt = self.ban_manager.ban_time();
+        for name in names.iter().rev() {
+            let Some(mut action) = self.actions.shift_remove(name) else {
+                continue;
+            };
+            for t in self.ban_manager.tickets() {
+                let ainfo = ActionInfo::from_ticket(t, &self.jail_name, default_bt);
+                if let Err(e) = action.unban(&ainfo) {
+                    log::error!(
+                        "[{}] Failed to unban with action {name}: {e}",
+                        self.jail_name
+                    );
+                }
+            }
+            action.stop(Some("inet4"))?;
+            action.stop(Some("inet6"))?;
+        }
+        Ok(())
+    }
+
     pub fn get_action(&self, name: &str) -> Option<&CommandAction> {
         self.actions.get(name)
     }
@@ -64,7 +91,14 @@ impl Actions {
         if added {
             ticket.ticket_mut().incr_ban_count(1);
             let ainfo = ActionInfo::from_ticket(ticket, &self.jail_name, default_bt);
-            log::info!("[{}] Ban {}", self.jail_name, ainfo.ip);
+            log::log!(
+                target: "f2b::notice",
+                log::Level::Info,
+                "[{}] {}Ban {}",
+                self.jail_name,
+                if ticket.ticket().is_restored() { "Restore " } else { "" },
+                ainfo.ip
+            );
 
             for action in self.actions.values_mut() {
                 if ticket.ticket().is_restored() && action.norestored {
@@ -105,7 +139,7 @@ impl Actions {
     pub fn unban(&mut self, ticket: &BanTicket) -> Result<(), String> {
         let default_bt = self.ban_manager.ban_time();
         let ainfo = ActionInfo::from_ticket(ticket, &self.jail_name, default_bt);
-        log::info!("[{}] Unban {}", self.jail_name, ainfo.ip);
+        log::log!(target: "f2b::notice", log::Level::Info, "[{}] Unban {}", self.jail_name, ainfo.ip);
 
         for action in self.actions.values_mut() {
             action.unban(&ainfo)?;

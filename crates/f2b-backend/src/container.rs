@@ -169,8 +169,7 @@ impl FileContainer {
 
         self.pos = reader.stream_position()?;
 
-        // Decode with replacement for invalid bytes
-        let s = String::from_utf8_lossy(&raw_bytes);
+        let s = decode_line(&raw_bytes, &self.encoding);
         let trimmed = s.trim_end_matches(['\r', '\n']).to_owned();
         Ok(Some(trimmed))
     }
@@ -180,5 +179,19 @@ impl FileContainer {
             self.pos = reader.stream_position()?;
         }
         Ok(())
+    }
+}
+
+/// Decode one raw log line. Single-byte Latin-1 family encodings map each byte
+/// to the code point of the same value; everything else (`utf-8`, `auto`, ...)
+/// is UTF-8 with replacement characters for invalid bytes.
+fn decode_line<'a>(raw: &'a [u8], encoding: &str) -> std::borrow::Cow<'a, str> {
+    match encoding.to_ascii_lowercase().replace('_', "-").as_str() {
+        "latin-1" | "latin1" | "iso-8859-1" | "iso8859-1" | "l1" => raw
+            .iter()
+            .map(|&b| char::from(b))
+            .collect::<String>()
+            .into(),
+        _ => String::from_utf8_lossy(raw),
     }
 }

@@ -73,6 +73,48 @@ impl CommandAction {
         }
     }
 
+    /// `getattr(action, key)` for the settable properties, as text.
+    pub fn get_property(&self, key: &str) -> Option<String> {
+        Some(match key {
+            "name" => self.name.clone(),
+            "actionstart" => self.actionstart.clone(),
+            "actionstart_on_demand" => bool_text(self.actionstart_on_demand),
+            "actionstop" => self.actionstop.clone(),
+            "actionflush" => self.actionflush.clone(),
+            "actionreload" => self.actionreload.clone(),
+            "actioncheck" => self.actioncheck.clone(),
+            "actionrepair" => self.actionrepair.clone(),
+            "actionban" => self.actionban.clone(),
+            "actionunban" => self.actionunban.clone(),
+            "norestored" => bool_text(self.norestored),
+            "timeout" => self.timeout.as_secs().to_string(),
+            _ => return self.properties.get(key).cloned(),
+        })
+    }
+
+    /// Names of the data properties (`dir(action)` without the callables).
+    pub fn property_names(&self) -> Vec<String> {
+        let mut names: Vec<String> = [
+            "actionban",
+            "actioncheck",
+            "actionflush",
+            "actionreload",
+            "actionrepair",
+            "actionstart",
+            "actionstart_on_demand",
+            "actionstop",
+            "actionunban",
+            "norestored",
+            "timeout",
+        ]
+        .iter()
+        .map(|s| (*s).to_owned())
+        .collect();
+        names.extend(self.properties.keys().cloned());
+        names.sort();
+        names
+    }
+
     pub fn is_started(&self, family: &str) -> bool {
         self.started.get(family).copied().unwrap_or(false)
     }
@@ -215,4 +257,8 @@ impl CommandAction {
         }
         self.run_operation(&self.actionreload, None, None)
     }
+}
+
+fn bool_text(b: bool) -> String {
+    (if b { "True" } else { "False" }).to_owned()
 }

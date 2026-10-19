@@ -2,6 +2,7 @@
 //! and Unix domain socket listener.
 
 pub mod listener;
+pub mod logging;
 pub mod server;
 pub mod transmitter;
 

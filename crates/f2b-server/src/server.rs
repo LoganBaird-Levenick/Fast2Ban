@@ -1,26 +1,46 @@
-//! Server state managing active jails, logging, and database.
+//! Server state: the jail registry, database, reload bookkeeping and the
+//! periodic work (`Server` in `fail2ban/server/server.py`).
+//!
+//! Every jail sits behind its own mutex. The server mutex is only held to look
+//! a jail up, so a slow action command of one jail cannot block commands for
+//! the others (or the `status` of the server).
+
+use std::collections::HashMap;
+use std::sync::{Arc, Mutex, MutexGuard};
 
 use indexmap::IndexMap;
-use std::sync::Arc;
 
 use f2b_action::Jail;
 use f2b_backend::Backend;
 use f2b_date::LocalZone;
 use f2b_db::Fail2BanDb;
 use f2b_filter::Filter;
-use f2b_proto::Value;
-use f2b_types::{DnsUtils, IPAddr, SharedClock, system_clock};
+use f2b_types::{DnsUtils, SharedClock, system_clock};
+
+/// A jail shared between the command handlers and the runner.
+pub type JailHandle = Arc<Mutex<Jail>>;
+
+/// Lock a jail, continuing with the state a panicking holder left behind.
+pub fn lock_jail(jail: &JailHandle) -> MutexGuard<'_, Jail> {
+    jail.lock().unwrap_or_else(|e| e.into_inner())
+}
 
 #[derive(Debug)]
 pub struct Server {
-    pub jails: IndexMap<String, Jail>,
+    jails: IndexMap<String, JailHandle>,
     pub db: Option<Arc<Fail2BanDb>>,
     pub log_level: String,
     pub log_target: String,
     pub syslog_socket: String,
     pub allow_ipv6: String,
+    pub thread_options: String,
     pub clock: SharedClock,
+    pub zone: LocalZone,
     pub running: bool,
+    /// Jails still to be confirmed by the configuration stream of a running
+    /// reload (`true`: not seen yet, `false`: added, waiting for `start`).
+    reload_state: HashMap<String, bool>,
+    db_purge_next: f64,
 }
 
 impl Default for Server {
@@ -29,218 +49,277 @@ impl Default for Server {
     }
 }
 
+/// How often the database is purged (`ObserverThread.__db_purge_interval`).
+const DB_PURGE_INTERVAL: f64 = 60.0 * 60.0;
+
 impl Server {
     pub fn new() -> Self {
+        let clock = system_clock();
+        let now = clock.time();
         Self {
             jails: IndexMap::new(),
             db: None,
             log_level: "INFO".to_owned(),
-            log_target: "STDERR".to_owned(),
+            log_target: "STDOUT".to_owned(),
             syslog_socket: "auto".to_owned(),
             allow_ipv6: "auto".to_owned(),
-            clock: system_clock(),
+            thread_options: String::new(),
+            clock,
+            zone: LocalZone::system(),
             running: true,
+            reload_state: HashMap::new(),
+            db_purge_next: now + DB_PURGE_INTERVAL,
         }
     }
 
-    pub fn add_jail(&mut self, name: &str, backend_type: &str) -> Result<(), String> {
+    // ----------------------------------------------------------- registry
+
+    /// The jail named `name`.
+    ///
+    /// # Errors
+    /// `Unknown jail` when there is none.
+    pub fn jail(&self, name: &str) -> Result<JailHandle, String> {
+        self.jails
+            .get(name)
+            .cloned()
+            .ok_or_else(|| format!("Jail {name} not found"))
+    }
+
+    /// All jails sorted by name (`sorted(self.__jails.items())`).
+    pub fn jails_sorted(&self) -> Vec<(String, JailHandle)> {
+        let mut v: Vec<(String, JailHandle)> = self
+            .jails
+            .iter()
+            .map(|(n, j)| (n.clone(), j.clone()))
+            .collect();
+        v.sort_by(|a, b| a.0.cmp(&b.0));
+        v
+    }
+
+    pub fn jail_count(&self) -> usize {
+        self.jails.len()
+    }
+
+    /// `addJail`. During a reload an existing jail with the same backend is
+    /// kept (its bans and failures survive); a changed backend restarts it.
+    pub fn add_jail(&mut self, name: &str, backend_name: &str) -> Result<(), String> {
+        if self.reload_state.get(name) == Some(&true) {
+            if let Some(handle) = self.jails.get(name).cloned() {
+                let same_backend = lock_jail(&handle).backend_name == backend_name;
+                if same_backend {
+                    log::info!("Reload jail {name:?}");
+                    self.reload_state.insert(name.to_owned(), false);
+                    self.register_in_db(name);
+                    return Ok(());
+                }
+                log::info!("Restart jail {name:?} (reason: backend changed to {backend_name:?})");
+                self.del_jail(name);
+                self.reload_state.remove(name);
+            }
+        }
         if self.jails.contains_key(name) {
-            return Ok(());
+            return Err(format!("Jail {name:?} already exists"));
         }
 
         let dns = Arc::new(DnsUtils::system(self.clock.clone()));
-        let zone = LocalZone::system();
-        let filter = Filter::new(self.clock.clone(), dns, zone);
-        let backend = Backend::create(backend_type);
-
+        let filter = Filter::new(self.clock.clone(), dns, self.zone.clone());
+        let backend = Backend::from_spec(backend_name)
+            .map_err(|e| format!("Unable to use backend {backend_name:?}: {e}"))?;
         let mut jail = Jail::new(name, filter, backend, self.clock.clone());
-
-        // Associate database if present
-        if let Some(db) = &self.db {
-            let _ = db.add_jail(name);
-            jail.set_database(Some(db.clone()));
-        }
-
-        self.jails.insert(name.to_owned(), jail);
+        jail.backend_name = backend_name.to_owned();
+        jail.set_database(self.db.clone());
+        self.jails
+            .insert(name.to_owned(), Arc::new(Mutex::new(jail)));
+        self.register_in_db(name);
         Ok(())
     }
 
+    fn register_in_db(&self, name: &str) {
+        if let Some(db) = &self.db {
+            if let Err(e) = db.add_jail(name) {
+                log::error!("Unable to register jail {name:?} in the database: {e}");
+            }
+        }
+    }
+
+    /// `delJail`: stop and forget a jail.
+    pub fn del_jail(&mut self, name: &str) {
+        if let Some(handle) = self.jails.shift_remove(name) {
+            let mut jail = lock_jail(&handle);
+            if let Err(e) = jail.stop() {
+                log::error!("[{name}] Failed to stop jail: {e}");
+            }
+            if let Some(db) = &self.db {
+                let _ = db.del_jail(name);
+            }
+        }
+    }
+
+    // ---------------------------------------------------------- lifecycle
+
+    /// `startJail`: start (or, during a reload, confirm) a jail and restore
+    /// its bans from the database.
     pub fn start_jail(&mut self, name: &str) -> Result<(), String> {
-        let jail = self
-            .jails
-            .get_mut(name)
-            .ok_or_else(|| format!("Jail {name} not found"))?;
-        jail.start()?;
-
-        // Re-instate bans from database if database is configured
-        let now = jail.clock.time();
-        let _ = jail.restore_current_bans(true, now);
-
+        let handle = self.jail(name)?;
+        let mut jail = lock_jail(&handle);
+        if jail.active {
+            if self.reload_state.remove(name).is_some() {
+                log::info!("Jail {name:?} reloaded");
+            }
+        } else {
+            self.reload_state.remove(name);
+            jail.start()?;
+            let now = jail.clock.time();
+            if let Err(e) = jail.restore_current_bans(true, now) {
+                log::error!("[{name}] Unable to restore bans: {e}");
+            }
+        }
+        jail.idle = false;
         Ok(())
     }
 
     pub fn stop_jail(&mut self, name: &str) -> Result<(), String> {
-        let jail = self
-            .jails
-            .get_mut(name)
-            .ok_or_else(|| format!("Jail {name} not found"))?;
+        let handle = self.jail(name)?;
+        let mut jail = lock_jail(&handle);
         jail.stop()
     }
 
-    pub fn stop_all_jails(&mut self) -> Result<(), String> {
-        for jail in self.jails.values_mut() {
-            let _ = jail.stop();
+    pub fn stop_all_jails(&mut self) {
+        for (name, handle) in self.jails_sorted() {
+            if let Err(e) = lock_jail(&handle).stop() {
+                log::error!("[{name}] Failed to stop jail: {e}");
+            }
         }
-        Ok(())
     }
 
+    /// `quit`: stop everything; the listener ends once `running` is false.
     pub fn quit(&mut self) {
-        let _ = self.stop_all_jails();
+        log::info!("Stopping all jails");
+        self.stop_all_jails();
+        log::info!("Exiting Fail2ban");
         self.running = false;
     }
 
-    pub fn set_database(&mut self, path: &str) -> Result<(), String> {
-        if path == "None" || path.is_empty() {
-            self.db = None;
-            for jail in self.jails.values_mut() {
-                jail.set_database(None);
-            }
-            return Ok(());
-        }
+    // -------------------------------------------------------------- reload
 
-        let db =
-            Fail2BanDb::open(path, 86400).map_err(|e| format!("cannot open db {path}: {e}"))?;
-        let db_arc = Arc::new(db);
-        for (name, jail) in &mut self.jails {
-            let _ = db_arc.add_jail(name);
-            jail.set_database(Some(db_arc.clone()));
+    /// `reloadJails(name, opts, begin)`.
+    ///
+    /// # Errors
+    /// Unknown jail (without `--if-exists`) or a reload already running.
+    pub fn reload_jails(&mut self, name: &str, opts: &[&str], begin: bool) -> Result<(), String> {
+        let all = name == "--all";
+        if begin {
+            if !self.reload_state.is_empty() && (all || self.reload_state.contains_key(name)) {
+                return Err("Reload already in progress".to_owned());
+            }
+            log::info!(
+                "Reload {}",
+                if all {
+                    "all jails".to_owned()
+                } else {
+                    format!("jail {name}")
+                }
+            );
+            let targets: Vec<(String, JailHandle)> = if all {
+                self.jails_sorted()
+            } else {
+                match self.jails.get(name) {
+                    Some(h) => vec![(name.to_owned(), h.clone())],
+                    None if opts.contains(&"--if-exists") => Vec::new(),
+                    None => return Err(format!("Jail {name} not found")),
+                }
+            };
+            for (jn, handle) in targets {
+                let mut jail = lock_jail(&handle);
+                if opts.contains(&"--unban") {
+                    if let Err(e) = jail.unban_ips(None, true) {
+                        log::error!("[{jn}] Failed to unban: {e}");
+                    }
+                }
+                if opts.contains(&"--restart") {
+                    if let Err(e) = jail.stop() {
+                        log::error!("[{jn}] Failed to stop jail: {e}");
+                    }
+                }
+                jail.reload_begin();
+                self.reload_state.insert(jn, true);
+            }
+        } else {
+            let leftover: Vec<String> = self.reload_state.keys().cloned().collect();
+            for jn in &leftover {
+                // not mentioned by the new configuration: remove it
+                self.del_jail(jn);
+            }
+            for (jn, handle) in self.jails_sorted() {
+                if !leftover.contains(&jn) {
+                    lock_jail(&handle).reload_end();
+                }
+            }
+            self.reload_state.clear();
+            log::info!("Reload finished.");
         }
-        self.db = Some(db_arc);
         Ok(())
     }
 
-    pub fn unban_ip(&mut self, jail_name: Option<&str>, ips: &[&str]) -> Result<usize, String> {
-        let mut unbanned = 0;
-        let _now = self.clock.time();
+    // ------------------------------------------------------------ database
 
-        for (name, jail) in &mut self.jails {
-            if let Some(target) = jail_name {
-                if name != target {
-                    continue;
-                }
-            }
-
-            if ips.is_empty() || (ips.len() == 1 && ips[0] == "--all") {
-                unbanned += jail.actions.flush_ban(false)?;
-            } else {
-                for &ip_str in ips {
-                    if let Ok(ip) = IPAddr::new(ip_str) {
-                        if let Some(ticket) = jail.actions.ban_manager.get_ticket_by_id(&ip) {
-                            jail.actions.unban(&ticket)?;
-                            unbanned += 1;
-                        }
-                    }
-                }
-            }
-
-            if let Some(db) = &self.db {
-                let _ = db.del_ban(name, ips);
-            }
-        }
-
-        Ok(unbanned)
-    }
-
-    pub fn set_ban_time_extra(
-        &mut self,
-        name: &str,
-        opt: &str,
-        val: Option<&str>,
-    ) -> Result<(), String> {
-        let jail = self
-            .jails
-            .get_mut(name)
-            .ok_or_else(|| format!("Jail {name} not found"))?;
-        jail.set_ban_time_extra(opt, val)
-    }
-
-    pub fn get_ban_time_extra(&self, name: &str, opt: &str) -> Result<Option<String>, String> {
-        let jail = self
-            .jails
-            .get(name)
-            .ok_or_else(|| format!("Jail {name} not found"))?;
-        Ok(jail.get_ban_time_extra(opt))
-    }
-
-    pub fn status(&self, jail_name: Option<&str>) -> Result<Value, String> {
-        if let Some(name) = jail_name {
-            let jail = self
-                .jails
-                .get(name)
-                .ok_or_else(|| format!("Jail {name} not found"))?;
-
-            let filter_stat = Value::List(vec![
-                Value::Tuple(vec![
-                    Value::Str("Currently failed".into()),
-                    Value::Int(jail.fail_manager.size() as i64),
-                ]),
-                Value::Tuple(vec![
-                    Value::Str("Total failed".into()),
-                    Value::Int(jail.fail_manager.fail_total() as i64),
-                ]),
-                Value::Tuple(vec![
-                    Value::Str("File list".into()),
-                    Value::List(
-                        jail.filter
-                            .line_buffer()
-                            .iter()
-                            .map(|l| Value::Str(l.post.clone()))
-                            .collect(),
-                    ),
-                ]),
-            ]);
-
-            let banned_ips: Vec<Value> = jail
-                .actions
-                .ban_manager
-                .get_ban_list()
-                .into_iter()
-                .map(|ip| Value::Str(ip.ntoa().to_string()))
-                .collect();
-
-            let actions_stat = Value::List(vec![
-                Value::Tuple(vec![
-                    Value::Str("Currently banned".into()),
-                    Value::Int(jail.actions.ban_manager.size() as i64),
-                ]),
-                Value::Tuple(vec![
-                    Value::Str("Total banned".into()),
-                    Value::Int(jail.actions.ban_manager.ban_total() as i64),
-                ]),
-                Value::Tuple(vec![
-                    Value::Str("Banned IP list".into()),
-                    Value::List(banned_ips),
-                ]),
-            ]);
-
-            Ok(Value::List(vec![
-                Value::Tuple(vec![Value::Str("Filter".into()), filter_stat]),
-                Value::Tuple(vec![Value::Str("Actions".into()), actions_stat]),
-            ]))
+    /// `setDatabase`: `None` (or empty) disables persistence.
+    pub fn set_database(&mut self, path: &str) -> Result<(), String> {
+        let purge_age = self.db.as_ref().map_or(86400, |d| d.purge_age());
+        let max_matches = self.db.as_ref().map(|d| d.max_matches());
+        if path == "None" || path.is_empty() {
+            self.db = None;
         } else {
-            let mut jail_names: Vec<String> = self.jails.keys().cloned().collect();
-            jail_names.sort();
-
-            Ok(Value::List(vec![
-                Value::Tuple(vec![
-                    Value::Str("Number of jail".into()),
-                    Value::Int(jail_names.len() as i64),
-                ]),
-                Value::Tuple(vec![
-                    Value::Str("Jail list".into()),
-                    Value::Str(jail_names.join(", ")),
-                ]),
-            ]))
+            if let Some(cur) = &self.db {
+                if cur.filename().to_string_lossy() == path {
+                    return Ok(());
+                }
+            }
+            let db = Fail2BanDb::open(path, purge_age)
+                .map_err(|e| format!("Unable to open the database {path}: {e}"))?;
+            if let Some(m) = max_matches {
+                db.set_max_matches(m);
+            }
+            self.db = Some(Arc::new(db));
         }
+        for (name, handle) in self.jails_sorted() {
+            lock_jail(&handle).set_database(self.db.clone());
+            self.register_in_db(&name);
+        }
+        Ok(())
+    }
+
+    // -------------------------------------------------------------- runner
+
+    /// One scheduling round: every active jail reads its logs, bans and
+    /// unbans (`FilterPoll.run` + `Actions.run`), and the database is purged
+    /// periodically. Locks are taken per jail, never across jails.
+    pub fn tick(server: &Mutex<Server>) -> bool {
+        let (jails, db, now, purge_due) = {
+            let mut s = server.lock().unwrap_or_else(|e| e.into_inner());
+            if !s.running {
+                return false;
+            }
+            let now = s.clock.time();
+            let purge_due = s.db.is_some() && now >= s.db_purge_next;
+            if purge_due {
+                s.db_purge_next = now + DB_PURGE_INTERVAL;
+            }
+            (s.jails_sorted(), s.db.clone(), now, purge_due)
+        };
+        for (name, handle) in jails {
+            let mut jail = lock_jail(&handle);
+            let jail_now = jail.clock.time();
+            if let Err(e) = jail.step(jail_now) {
+                log::error!("[{name}] {e}");
+            }
+        }
+        if let (true, Some(db)) = (purge_due, db) {
+            log::debug!("Purge database event occurred");
+            if let Err(e) = db.purge(now) {
+                log::error!("Database purge failed: {e}");
+            }
+        }
+        true
     }
 }

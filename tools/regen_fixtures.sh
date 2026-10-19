@@ -15,3 +15,9 @@ python3 tools/gen_f2b_regex_fixtures.py
 python3 tools/gen_f2b_date_fixtures.py
 python3 tools/gen_f2b_filter_fixtures.py
 python3 tools/gen_fast2ban_regex_fixtures.py
+# systemd journal backend (stubbed `systemd` module, real FilterSystemd); writes
+# crates/f2b-backend/tests/fixtures/ (check `git diff crates/f2b-backend/tests/fixtures`)
+python3 tools/dump_journal_oracle.py
+# stock-jails smoke matrix: bans of the real upstream daemon per sample group
+# (runs ~130 Python daemons, about a minute); writes testdata/smoke-oracle/stock.json
+python3 tools/gen_smoke_oracle.py

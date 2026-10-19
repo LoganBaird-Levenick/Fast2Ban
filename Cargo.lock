@@ -161,11 +161,16 @@ dependencies = [
 name = "f2b-backend"
 version = "0.0.0"
 dependencies = [
+ "f2b-date",
+ "f2b-helpers",
  "f2b-types",
+ "glob",
  "indexmap",
  "inotify",
+ "libc",
  "log",
  "md-5",
+ "serde_json",
  "tempfile",
 ]
 
@@ -273,6 +278,7 @@ dependencies = [
  "fast2ban-client",
  "indexmap",
  "log",
+ "serde_json",
  "tempfile",
 ]
 
@@ -324,6 +330,7 @@ dependencies = [
 name = "fast2ban-regex"
 version = "0.0.0"
 dependencies = [
+ "f2b-backend",
  "f2b-config",
  "f2b-date",
  "f2b-filter",

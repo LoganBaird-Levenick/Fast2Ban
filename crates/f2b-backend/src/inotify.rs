@@ -66,6 +66,20 @@ impl InotifyBackend {
         self.inner.del_log_path(path)
     }
 
+    pub fn log_paths(&self) -> Vec<PathBuf> {
+        self.inner.log_paths()
+    }
+
+    pub fn set_encoding(&mut self, encoding: &str) {
+        self.inner.set_encoding(encoding);
+    }
+
+    pub fn containers_mut(
+        &mut self,
+    ) -> &mut indexmap::IndexMap<PathBuf, crate::container::FileContainer> {
+        self.inner.containers_mut()
+    }
+
     pub fn poll_once<F: FnMut(&Path, &str)>(&mut self, on_line: F) -> std::io::Result<usize> {
         // Drain any inotify events if present on Linux
         #[cfg(target_os = "linux")]

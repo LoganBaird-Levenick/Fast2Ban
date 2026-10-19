@@ -83,25 +83,51 @@ impl Observer {
             if attempts >= max_retry {
                 if let Ok(to_ban) = fail_manager.to_ban(Some(ticket.id())) {
                     let mut ban_ticket = BanTicket::from_fail_ticket(to_ban);
-                    let base_bt = actions.ban_manager.ban_time();
-                    if actions.ban(&mut ban_ticket, now).unwrap_or(false) {
-                        Self::ban_found(
-                            jail_name,
-                            ban_extra,
-                            database,
-                            &mut ban_ticket,
-                            base_bt,
-                            now,
+                    if let Err(e) = Self::ban(
+                        jail_name,
+                        ban_extra,
+                        database,
+                        actions,
+                        &mut ban_ticket,
+                        now,
+                    ) {
+                        log::error!(
+                            "[{jail_name}] Failed to ban {}: {e}",
+                            ban_ticket.id().ntoa()
                         );
-                        if let Some(t) = actions.ban_manager.get_ticket_mut(ban_ticket.id()) {
-                            if let Some(bt) = ban_ticket.ticket().raw_ban_time() {
-                                t.ticket_mut().set_ban_time(bt);
-                            }
-                        }
                     }
                 }
             }
         }
+    }
+
+    /// Ban a ticket the way upstream's `Actions.__checkBan` does: add it to the
+    /// ban manager and run the actions, then report it to the observer, which
+    /// may prolong the ban (`bantime.increment`) and records it in the database.
+    ///
+    /// # Errors
+    /// The first failing action command.
+    pub fn ban(
+        jail_name: &str,
+        ban_extra: &BanExtra,
+        database: Option<&Fail2BanDb>,
+        actions: &mut Actions,
+        ticket: &mut BanTicket,
+        now: f64,
+    ) -> Result<bool, String> {
+        let btime = ticket.ticket().ban_time(actions.ban_manager.ban_time());
+        let restored = ticket.ticket().is_restored();
+        let added = actions.ban(ticket, now);
+        if matches!(added, Ok(true)) && !restored {
+            Self::ban_found(jail_name, ban_extra, database, ticket, btime, now);
+            // the ban list holds its own copy: hand over a prolonged ban time
+            if let Some(bt) = ticket.ticket().raw_ban_time() {
+                if let Some(t) = actions.ban_manager.get_ticket_mut(ticket.id()) {
+                    t.ticket_mut().set_ban_time(bt);
+                }
+            }
+        }
+        added
     }
 
     /// Check for IP address to increment ban time (if was already banned).
@@ -192,7 +218,9 @@ impl Observer {
         }
 
         if btime != old_btime {
-            log::info!(
+            log::log!(
+                target: "f2b::notice",
+                log::Level::Info,
                 "[{}] Increase Ban {} ({} # {} -> {})",
                 jail_name,
                 ticket.id().ntoa(),

@@ -95,6 +95,10 @@ fn main() {
         eprintln!("Warning: failed to write PID file {:?}: {e}", args.pid_file);
     }
 
+    if let Err(e) = f2b_server::logging::Logging::install() {
+        eprintln!("Warning: failed to install the logger: {e}");
+    }
+
     let server = Arc::new(Mutex::new(Server::new()));
 
     let async_server = match AsyncServer::bind(&args.socket_path, server.clone()) {
