@@ -229,6 +229,9 @@
    "postfix"
   ]
  ],
+ "files": {
+  "jail.local": "[postfix]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": ""

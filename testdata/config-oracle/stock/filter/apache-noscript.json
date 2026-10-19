@@ -115,6 +115,9 @@
    "o-f-apache-noscript"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-apache-noscript]\nenabled = true\nfilter = apache-noscript\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-noscript\n"

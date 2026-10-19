@@ -115,6 +115,9 @@
    "o-f-xinetd-fail"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-xinetd-fail]\nenabled = true\nfilter = xinetd-fail\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-xinetd-fail\n"

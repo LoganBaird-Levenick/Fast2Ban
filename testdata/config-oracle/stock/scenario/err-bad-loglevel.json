@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "fail2ban.local": "[Definition]\nloglevel = LOUD\n"
+ },
+ "other": [
+  "ERROR: Invalid log level 'LOUD'"
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Init of command line failed\n"
+}

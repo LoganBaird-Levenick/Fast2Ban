@@ -148,6 +148,9 @@
    "o-a-apprise"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-apprise]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = apprise\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-apprise\n"

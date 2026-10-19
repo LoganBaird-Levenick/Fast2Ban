@@ -212,6 +212,9 @@
    "o-a-firewallcmd-common"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-firewallcmd-common]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = firewallcmd-common\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-firewallcmd-common\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\n"

@@ -106,6 +106,9 @@
    "o-f-squirrelmail"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-squirrelmail]\nenabled = true\nfilter = squirrelmail\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-squirrelmail\n"

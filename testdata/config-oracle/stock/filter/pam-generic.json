@@ -112,6 +112,9 @@
    "o-f-pam-generic"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-pam-generic]\nenabled = true\nfilter = pam-generic\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-pam-generic\n"

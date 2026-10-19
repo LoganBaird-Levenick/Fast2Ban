@@ -1,0 +1,49 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "config-error",
+   "Jail 'sshd' skipped, because of wrong configuration: Invalid action definition 'iptables[x': unexpected option syntax"
+  ]
+ ],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\nbackend = polling\nlogpath = /dev/null\naction = iptables[x\n"
+ },
+ "other": [],
+ "rc": 255,
+ "stderr": "fail2ban.jailreader: ERROR   Invalid action definition 'iptables[x': unexpected option syntax\nfail2ban.jailsreader: ERROR   Errors in jail 'sshd'. Skipping...\nfail2ban: ERROR   Init of command line failed\n"
+}

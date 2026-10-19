@@ -240,6 +240,9 @@
    "o-a-firewallcmd-ipset"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-firewallcmd-ipset]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = firewallcmd-ipset\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-firewallcmd-ipset\n"

@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\n[sshd]\nmaxretry = 1\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: While reading from '@CONF@/jail.local' [line  3]: section 'sshd' already exists\nfail2ban: ERROR   Init of command line failed\n"
+}

@@ -115,6 +115,9 @@
    "o-f-ejabberd-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-ejabberd-auth]\nenabled = true\nfilter = ejabberd-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-ejabberd-auth\n"

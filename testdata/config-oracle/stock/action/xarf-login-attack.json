@@ -140,6 +140,9 @@
    "o-a-xarf-login-attack"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-xarf-login-attack]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = xarf-login-attack\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-xarf-login-attack\n"

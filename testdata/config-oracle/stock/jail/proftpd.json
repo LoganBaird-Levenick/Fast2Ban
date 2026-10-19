@@ -229,6 +229,9 @@
    "proftpd"
   ]
  ],
+ "files": {
+  "jail.local": "[proftpd]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'proftpd' jail.\n"

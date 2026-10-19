@@ -168,6 +168,9 @@
    "o-a-mail-whois-common"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-mail-whois-common]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = mail-whois-common\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-mail-whois-common\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\n"

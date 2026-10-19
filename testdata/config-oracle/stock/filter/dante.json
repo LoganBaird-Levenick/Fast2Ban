@@ -112,6 +112,9 @@
    "o-f-dante"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-dante]\nenabled = true\nfilter = dante\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-dante\n"

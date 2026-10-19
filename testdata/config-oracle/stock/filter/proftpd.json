@@ -122,6 +122,9 @@
    "o-f-proftpd"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-proftpd]\nenabled = true\nfilter = proftpd\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-proftpd\n"

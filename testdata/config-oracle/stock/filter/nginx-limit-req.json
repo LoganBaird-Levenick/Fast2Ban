@@ -114,6 +114,9 @@
    "o-f-nginx-limit-req"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-limit-req]\nenabled = true\nfilter = nginx-limit-req\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nginx-limit-req\n"

@@ -112,6 +112,9 @@
    "o-f-recidive"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-recidive]\nenabled = true\nfilter = recidive\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-recidive\n"

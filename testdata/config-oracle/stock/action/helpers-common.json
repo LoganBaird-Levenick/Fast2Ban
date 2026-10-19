@@ -180,6 +180,9 @@
    "o-a-helpers-common"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-helpers-common]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = helpers-common\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-helpers-common\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\n"

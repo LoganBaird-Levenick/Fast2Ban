@@ -109,6 +109,9 @@
    "o-f-vsftpd"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-vsftpd]\nenabled = true\nfilter = vsftpd\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-vsftpd\n"

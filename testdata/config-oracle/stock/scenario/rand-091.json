@@ -1,0 +1,114 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "exim-spam",
+   "systemd"
+  ],
+  [
+   "set",
+   "exim-spam",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "exim-spam",
+   "prefregex",
+   "^(?:\\s?\\[\\d+\\]|\\s?[\\w\\.-]+ exim\\[\\d+\\]:){0,2}<F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "exim-spam",
+   "addfailregex",
+   [
+    "^\\s?\\S+(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected by local_scan\\(\\): .{0,256}$",
+    "^(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected RCPT [^@]+@\\S+: .*dnsbl.*\\s*$",
+    "^\\s?\\S+(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* rejected after DATA: This message contains a virus \\(\\S+\\)\\.\\s*$",
+    "^\\s?\\S+ SA: Action: flagged as Spam but accepted: score=\\d+\\.\\d+ required=\\d+\\.\\d+ \\(scanned in \\d+/\\d+ secs \\| Message-Id: \\S+\\)\\. From \\S+ \\(host=\\S+ \\[<HOST>\\]\\) for trap@example.com$",
+    "^\\s?\\S+ SA: Action: silently tossed message: score=\\d+\\.\\d+ required=\\d+\\.\\d+ trigger=\\d+\\.\\d+ \\(scanned in \\d+/\\d+ secs \\| Message-Id: \\S+\\)\\. From \\S+ \\(host=(\\S+ )?\\[<HOST>\\]\\) for \\S+$"
+   ]
+  ],
+  [
+   "set",
+   "exim-spam",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "exim-spam",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "exim-spam",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "exim-spam",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "exim-spam",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "exim-spam",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "start",
+   "exim-spam"
+  ]
+ ],
+ "files": {
+  "jail.local": "[exim-spam]\nenabled = true\nbackend = systemd\nlogpath = /nonexistent/%(__name__)s.log\naction = \nfilter = %(__name__)s[mode=auth]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for exim-spam\n"
+}

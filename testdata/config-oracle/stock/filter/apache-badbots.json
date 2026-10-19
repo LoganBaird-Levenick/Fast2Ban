@@ -106,6 +106,9 @@
    "o-f-apache-badbots"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-apache-badbots]\nenabled = true\nfilter = apache-badbots\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-badbots\n"

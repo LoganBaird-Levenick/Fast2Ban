@@ -1,5 +1,8 @@
 {
  "commands": [],
+ "files": {
+  "jail.local": "[sshd-override-flt-opts]\nenabled = true\n"
+ },
  "other": [
   "ERROR: The configuration stream failed because of the invalid syntax."
  ],

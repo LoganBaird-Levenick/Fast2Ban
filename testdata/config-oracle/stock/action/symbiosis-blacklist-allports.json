@@ -176,6 +176,9 @@
    "o-a-symbiosis-blacklist-allports"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-symbiosis-blacklist-allports]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = symbiosis-blacklist-allports\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-symbiosis-blacklist-allports\n"

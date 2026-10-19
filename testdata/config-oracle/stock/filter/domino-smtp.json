@@ -104,6 +104,9 @@
    "o-f-domino-smtp"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-domino-smtp]\nenabled = true\nfilter = domino-smtp\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-domino-smtp\n"

@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[apache-botsearch]\nenabled = true\nbantime = -1\naction = %(action_cf_mwl)s\nignoreip = example.com\n[grafana]\nenabled = true\nmaxretry = 0\nbantime = 1h 30m\nport = ssh\nusedns = warn\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'apache-botsearch' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

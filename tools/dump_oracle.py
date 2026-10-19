@@ -10,9 +10,12 @@ Cases per config tree:
   jail/<name>     each section of jail.conf, enabled via a generated jail.local
   filter/<name>   synthetic jail using each filter.d/*.conf
   action/<name>   synthetic jail using each action.d/*.conf
+  scenario/<name> hand-written overlays (tools/oracle_scenarios.py), stock tree only
+  scenario/rand-N seeded random jail variants, stock tree only
 
 Usage: tools/dump_oracle.py [--upstream DIR] [--out DIR]
-Output: <out>/<tree>/<case>.json  {"rc", "commands", "other", "stderr"}
+Output: <out>/<tree>/<case>.json  {"files", "rc", "commands", "other", "stderr"}
+(`files` is the overlay the case needs, so consumers need no case-specific logic.)
 """
 import argparse
 import ast
@@ -27,6 +30,8 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import oracle_scenarios as scenarios  # noqa: E402
 SYNTH_LOG = "/dev/null"
 
 
@@ -69,12 +74,17 @@ def names(conf_dir: Path, sub: str):
     return sorted(p.stem for p in d.glob("*.conf")) if d.is_dir() else []
 
 
-def case(upstream, tree: Path, work: Path, local_text: str):
+def case(upstream, tree: Path, work: Path, files: dict):
+    """Run one case: copy of `tree` plus overlay `files` (relative path -> text)."""
     if work.exists():
         shutil.rmtree(work)
     shutil.copytree(tree, work)
-    if local_text:
-        (work / "jail.local").write_text(local_text)
+    for rel, text in files.items():
+        dest = work / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        # newline="" keeps CRLF/CR exactly as given
+        with open(dest, "w", encoding="utf-8", newline="") as fh:
+            fh.write(text.replace(scenarios.ABS_PLACEHOLDER, str(work / "inc-abs.conf")))
     return run_dump(upstream, work)
 
 
@@ -93,22 +103,26 @@ def main():
     with tempfile.TemporaryDirectory(prefix="f2b-oracle-") as tmp:
         work = Path(tmp) / "conf"
         for tname, tree in trees.items():
-            cases = {"base": ""}
+            cases = {"base": {}}
             if (tree / "jail.conf").exists():
                 for j in jail_sections(tree):
-                    cases[f"jail/{j}"] = f"[{j}]\nenabled = true\n"
+                    cases[f"jail/{j}"] = {"jail.local": f"[{j}]\nenabled = true\n"}
             for f in names(tree, "filter.d"):
-                cases[f"filter/{f}"] = (
+                cases[f"filter/{f}"] = {"jail.local": (
                     f"[o-f-{f}]\nenabled = true\nfilter = {f}\nlogpath = {SYNTH_LOG}\n"
                     f"backend = polling\naction =\n"
-                )
+                )}
             for ac in names(tree, "action.d"):
-                cases[f"action/{ac}"] = (
+                cases[f"action/{ac}"] = {"jail.local": (
                     f"[o-a-{ac}]\nenabled = true\nfilter =\nlogpath = {SYNTH_LOG}\n"
                     f"backend = polling\naction = {ac}\n"
-                )
-            for cname, text in cases.items():
-                res = case(upstream, tree, work, text)
+                )}
+            if tname == "stock":
+                for n_, files in {**scenarios.SCENARIOS, **scenarios.generated(tree)}.items():
+                    cases[f"scenario/{n_}"] = files
+            for cname, files in cases.items():
+                res = case(upstream, tree, work, files)
+                res["files"] = files
                 dest = out / tname / (cname + ".json")
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 dest.write_text(json.dumps(res, indent=1, sort_keys=True) + "\n")

@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[DEFAULT]\nmta = mail\nusedns = no\n[mongodb-auth]\nenabled = true\nlogpath = /nonexistent/%(__name__)s.log\nbantime = 600\naction = %(action_mwl)s\n[nginx-limit-req]\nenabled = true\nbackend = systemd\nmaxretry = 10\nbantime = 10m\naction = %(action_cf_mwl)s\nignoreip = \n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'nginx-limit-req' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

@@ -115,6 +115,9 @@
    "o-f-courier-smtp"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-courier-smtp]\nenabled = true\nfilter = courier-smtp\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-courier-smtp\n"

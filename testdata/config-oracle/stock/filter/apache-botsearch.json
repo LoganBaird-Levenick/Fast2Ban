@@ -115,6 +115,9 @@
    "o-f-apache-botsearch"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-apache-botsearch]\nenabled = true\nfilter = apache-botsearch\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-botsearch\n"

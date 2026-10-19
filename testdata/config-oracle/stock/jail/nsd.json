@@ -330,6 +330,9 @@
    "nsd"
   ]
  ],
+ "files": {
+  "jail.local": "[nsd]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'nsd' jail.\n"

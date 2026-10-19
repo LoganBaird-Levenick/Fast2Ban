@@ -144,6 +144,9 @@
    "o-a-nginx-block-map"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-nginx-block-map]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = nginx-block-map\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-nginx-block-map\n"

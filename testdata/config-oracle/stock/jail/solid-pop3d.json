@@ -218,6 +218,9 @@
    "solid-pop3d"
   ]
  ],
+ "files": {
+  "jail.local": "[solid-pop3d]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'solid-pop3d' jail.\n"

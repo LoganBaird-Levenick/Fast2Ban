@@ -1,0 +1,20 @@
+[package]
+name = "f2b-config"
+description = "Fail2Ban-compatible configuration reader (jail.conf, filter.d, action.d) producing the client command stream"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+f2b-helpers = { path = "../f2b-helpers" }
+f2b-types = { path = "../f2b-types" }
+glob = "0.3"
+indexmap = "2"
+regex = "1"
+
+[dev-dependencies]
+serde_json = "1"
+
+[lints]
+workspace = true

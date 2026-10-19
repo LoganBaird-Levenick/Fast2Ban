@@ -180,6 +180,9 @@
    "o-a-firewallcmd-allports"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-firewallcmd-allports]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = firewallcmd-allports\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-firewallcmd-allports\n"

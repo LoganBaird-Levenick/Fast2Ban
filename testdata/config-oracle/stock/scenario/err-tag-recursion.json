@@ -1,0 +1,12 @@
+{
+ "commands": [],
+ "files": {
+  "filter.d/custom.conf": "[Definition]\nfailregex = <a> <HOST>\na = <b>\nb = <a>\n",
+  "jail.local": "[c]\nenabled = true\nfilter = custom\nlogpath = /dev/null\nbackend = polling\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: properties contain self referencing definitions and cannot be resolved, fail tag: failregex, found: a in {'a': 26, 'b': 26}, value: <a> <HOST>\nfail2ban: ERROR   Init of command line failed\n"
+}

@@ -123,6 +123,9 @@
    "o-f-dovecot"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-dovecot]\nenabled = true\nfilter = dovecot\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-dovecot\n"

@@ -231,6 +231,9 @@
    "apache-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[apache-auth]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'apache-auth' jail.\n"

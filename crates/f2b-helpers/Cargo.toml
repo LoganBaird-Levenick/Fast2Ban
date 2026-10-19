@@ -1,0 +1,13 @@
+[package]
+name = "f2b-helpers"
+description = "Ports of fail2ban/helpers.py option and tag helpers, plus Python shlex.split (Fast2Ban)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+indexmap = "2"
+
+[lints]
+workspace = true

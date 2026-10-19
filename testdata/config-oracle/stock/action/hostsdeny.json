@@ -152,6 +152,9 @@
    "o-a-hostsdeny"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-hostsdeny]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = hostsdeny\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-hostsdeny\n"

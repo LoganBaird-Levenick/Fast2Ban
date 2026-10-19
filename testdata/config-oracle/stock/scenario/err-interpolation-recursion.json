@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\nbantime = %(findtime)s\nfindtime = %(bantime)s\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Recursion limit exceeded in value substitution: option 'findtime' in section 'sshd' contains an interpolation key which cannot be substituted in 10 steps. Raw value: '%(bantime)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

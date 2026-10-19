@@ -213,6 +213,9 @@
    "apache-badbots"
   ]
  ],
+ "files": {
+  "jail.local": "[apache-badbots]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'apache-badbots' jail.\n"

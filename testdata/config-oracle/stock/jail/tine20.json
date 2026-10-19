@@ -213,6 +213,9 @@
    "tine20"
   ]
  ],
+ "files": {
+  "jail.local": "[tine20]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'tine20' jail.\n"

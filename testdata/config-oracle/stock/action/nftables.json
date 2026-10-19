@@ -208,6 +208,9 @@
    "o-a-nftables"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-nftables]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = nftables\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-nftables\n"

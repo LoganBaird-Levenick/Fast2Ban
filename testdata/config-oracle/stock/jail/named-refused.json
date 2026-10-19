@@ -217,6 +217,9 @@
    "named-refused"
   ]
  ],
+ "files": {
+  "jail.local": "[named-refused]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'named-refused' jail.\n"

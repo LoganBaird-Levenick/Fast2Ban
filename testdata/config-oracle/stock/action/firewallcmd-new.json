@@ -180,6 +180,9 @@
    "o-a-firewallcmd-new"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-firewallcmd-new]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = firewallcmd-new\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-firewallcmd-new\n"

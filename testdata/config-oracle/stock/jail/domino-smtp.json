@@ -211,6 +211,9 @@
    "domino-smtp"
   ]
  ],
+ "files": {
+  "jail.local": "[domino-smtp]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'domino-smtp' jail.\n"

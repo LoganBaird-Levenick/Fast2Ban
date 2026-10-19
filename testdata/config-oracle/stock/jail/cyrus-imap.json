@@ -213,6 +213,9 @@
    "cyrus-imap"
   ]
  ],
+ "files": {
+  "jail.local": "[cyrus-imap]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'cyrus-imap' jail.\n"

@@ -110,6 +110,9 @@
    "o-f-qmail"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-qmail]\nenabled = true\nfilter = qmail\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-qmail\n"

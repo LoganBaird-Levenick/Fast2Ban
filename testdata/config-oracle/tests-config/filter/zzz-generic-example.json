@@ -1,5 +1,8 @@
 {
  "commands": [],
+ "files": {
+  "jail.local": "[o-f-zzz-generic-example]\nenabled = true\nfilter = zzz-generic-example\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [
   "ERROR: The configuration stream failed because of the invalid syntax."
  ],

@@ -1,0 +1,10 @@
+[package]
+name = "f2b-expr"
+description = "Safe replacement for the Python eval() sites of Fail2Ban: str2seconds, seconds2str and ban-time increment formulas (Fast2Ban)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lints]
+workspace = true

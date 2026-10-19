@@ -109,6 +109,9 @@
    "o-f-nsd"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nsd]\nenabled = true\nfilter = nsd\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nsd\n"

@@ -103,6 +103,9 @@
    "o-f-openwebmail"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-openwebmail]\nenabled = true\nfilter = openwebmail\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-openwebmail\n"

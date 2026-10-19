@@ -217,6 +217,9 @@
    "qmail-rbl"
   ]
  ],
+ "files": {
+  "jail.local": "[qmail-rbl]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'qmail-rbl' jail.\n"

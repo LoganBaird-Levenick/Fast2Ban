@@ -125,6 +125,9 @@
    "o-f-dropbear"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-dropbear]\nenabled = true\nfilter = dropbear\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-dropbear\n"

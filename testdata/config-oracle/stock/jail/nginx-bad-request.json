@@ -221,6 +221,9 @@
    "nginx-bad-request"
   ]
  ],
+ "files": {
+  "jail.local": "[nginx-bad-request]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'nginx-bad-request' jail.\n"

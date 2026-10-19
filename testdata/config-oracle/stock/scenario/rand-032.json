@@ -1,0 +1,279 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "suhosin",
+   "polling"
+  ],
+  [
+   "set",
+   "suhosin",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "suhosin",
+   "addfailregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?(?:lighttpd|suhosin)(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?(?:lighttpd|suhosin)(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?(?:\\(mod_fastcgi\\.c\\.\\d+\\) FastCGI-stderr:\\s)?ALERT - .*? \\(attacker '<HOST>', file '[^']*'(?:, line \\d+)?\\)$"
+  ],
+  [
+   "set",
+   "suhosin",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "suhosin",
+   "maxretry",
+   1
+  ],
+  [
+   "set",
+   "suhosin",
+   "maxmatches",
+   1
+  ],
+  [
+   "set",
+   "suhosin",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "suhosin",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "suhosin",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "suhosin",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "suhosin",
+   "addlogpath",
+   "/dev/null",
+   "tail"
+  ],
+  [
+   "set",
+   "suhosin",
+   "addaction",
+   "iptables-a"
+  ],
+  [
+   "multi-set",
+   "suhosin",
+   "action",
+   "iptables-a",
+   [
+    [
+     "actionstart",
+     "{ <iptables> -C f2b-a -j RETURN >/dev/null 2>&1; } || { <iptables> -N f2b-a || true; <iptables> -A f2b-a -j RETURN; }\nfor chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n{ <iptables> -C $chain -p $proto --dport ssh -j f2b-a >/dev/null 2>&1; } || { <iptables> -I $chain -p $proto --dport ssh -j f2b-a; }\ndone; done"
+    ],
+    [
+     "actionstop",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -D $chain -p $proto --dport ssh -j f2b-a\ndone; done\n<iptables> -F f2b-a\n<iptables> -X f2b-a"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-a"
+    ],
+    [
+     "actioncheck",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -C $chain -p $proto --dport ssh -j f2b-a\ndone; done"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-a 1 -s <ip> -j <blocktype>"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-a -s <ip> -j <blocktype>"
+    ],
+    [
+     "name",
+     "a"
+    ],
+    [
+     "actname",
+     "iptables-a"
+    ],
+    [
+     "chain",
+     "INPUT"
+    ],
+    [
+     "port",
+     "ssh"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "set",
+   "suhosin",
+   "addaction",
+   "iptables-multiport-b"
+  ],
+  [
+   "multi-set",
+   "suhosin",
+   "action",
+   "iptables-multiport-b",
+   [
+    [
+     "actionstart",
+     "{ <iptables> -C f2b-b -j RETURN >/dev/null 2>&1; } || { <iptables> -N f2b-b || true; <iptables> -A f2b-b -j RETURN; }\nfor chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n{ <iptables> -C $chain -p $proto -m multiport --dports ssh -j f2b-b >/dev/null 2>&1; } || { <iptables> -I $chain -p $proto -m multiport --dports ssh -j f2b-b; }\ndone; done"
+    ],
+    [
+     "actionstop",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -D $chain -p $proto -m multiport --dports ssh -j f2b-b\ndone; done\n<iptables> -F f2b-b\n<iptables> -X f2b-b"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-b"
+    ],
+    [
+     "actioncheck",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -C $chain -p $proto -m multiport --dports ssh -j f2b-b\ndone; done"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-b 1 -s <ip> -j <blocktype>"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-b -s <ip> -j <blocktype>"
+    ],
+    [
+     "name",
+     "b"
+    ],
+    [
+     "port",
+     "ssh"
+    ],
+    [
+     "actname",
+     "iptables-multiport-b"
+    ],
+    [
+     "chain",
+     "INPUT"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "start",
+   "suhosin"
+  ]
+ ],
+ "files": {
+  "jail.local": "[suhosin]\nenabled = true\nbackend = polling\nlogpath = /dev/null tail\nmaxretry = 1\naction = iptables[name=a]\n           iptables-multiport[name=b, port=ssh]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": ""
+}

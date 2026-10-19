@@ -1,0 +1,347 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "exim",
+   "auto"
+  ],
+  [
+   "set",
+   "exim",
+   "usedns",
+   "no"
+  ],
+  [
+   "set",
+   "exim",
+   "prefregex",
+   "^(?:\\s?\\[\\d+\\]|\\s?[\\w\\.-]+ exim\\[\\d+\\]:){0,2}<F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "exim",
+   "addfailregex",
+   [
+    "^\\s?\\w+ authenticator failed for(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)* (?:H=)?(?:[\\w.-]+)? ?(?:\\(\\S+\\))? ?\\[<ADDR>\\](?::\\d+)?(?: (?!H=)[A-Za-z]{1,4}(?:=\\S+)?)*: 535 Incorrect authentication data(?: \\(set_id=.*\\)|: \\d+ Time\\(s\\))?\\s*$",
+    "<mdre-auth>"
+   ]
+  ],
+  [
+   "set",
+   "exim",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "exim",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "exim",
+   "findtime",
+   "1d"
+  ],
+  [
+   "set",
+   "exim",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "exim",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "exim",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "exim",
+   "addaction",
+   "iptables-allports"
+  ],
+  [
+   "multi-set",
+   "exim",
+   "action",
+   "iptables-allports",
+   [
+    [
+     "actionstart",
+     "{ <iptables> -C f2b-exim -j RETURN >/dev/null 2>&1; } || { <iptables> -N f2b-exim || true; <iptables> -A f2b-exim -j RETURN; }\nfor chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n{ <iptables> -C $chain -p $proto -j f2b-exim >/dev/null 2>&1; } || { <iptables> -I $chain -p $proto -j f2b-exim; }\ndone; done"
+    ],
+    [
+     "actionstop",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -D $chain -p $proto -j f2b-exim\ndone; done\n<iptables> -F f2b-exim\n<iptables> -X f2b-exim"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-exim"
+    ],
+    [
+     "actioncheck",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -C $chain -p $proto -j f2b-exim\ndone; done"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-exim 1 -s <ip> -j <blocktype>"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-exim -s <ip> -j <blocktype>"
+    ],
+    [
+     "port",
+     "smtp,465,submission"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "chain",
+     "<known/chain>"
+    ],
+    [
+     "name",
+     "exim"
+    ],
+    [
+     "actname",
+     "iptables-allports"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "add",
+   "xinetd-fail",
+   "auto"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "usedns",
+   "no"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "prefregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?xinetd(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?xinetd(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?FAIL: <F-CONTENT>.+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "xinetd-fail",
+   "addfailregex",
+   [
+    "^\\S+ address from=<HOST>$",
+    "^\\S+ libwrap from=<HOST>$"
+   ]
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "maxretry",
+   2
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "maxmatches",
+   2
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "findtime",
+   "1d"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "xinetd-fail",
+   "addaction",
+   "iptables-multiport-log"
+  ],
+  [
+   "multi-set",
+   "xinetd-fail",
+   "action",
+   "iptables-multiport-log",
+   [
+    [
+     "actionstart",
+     "<iptables> -N f2b-xinetd-fail\n<iptables> -A f2b-xinetd-fail -j RETURN\n<iptables> -I INPUT 1 -p tcp -m multiport --dports 0:65535 -j f2b-xinetd-fail\n<iptables> -N f2b-xinetd-fail-log\n<iptables> -I f2b-xinetd-fail-log -j LOG --log-prefix \"$(expr f2b-xinetd-fail : '\\(.\\{1,23\\}\\)'):DROP \" --log-level warning -m limit --limit 6/m --limit-burst 2\n<iptables> -A f2b-xinetd-fail-log -j <blocktype>"
+    ],
+    [
+     "actionstop",
+     "<iptables> -D INPUT -p tcp -m multiport --dports 0:65535 -j f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail-log\n<iptables> -X f2b-xinetd-fail\n<iptables> -X f2b-xinetd-fail-log"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-xinetd-fail\n<iptables> -F f2b-xinetd-fail-log"
+    ],
+    [
+     "actioncheck",
+     "<iptables> -n -L f2b-xinetd-fail-log >/dev/null"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-xinetd-fail 1 -s <ip> -j f2b-xinetd-fail-log"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-xinetd-fail -s <ip> -j f2b-xinetd-fail-log"
+    ],
+    [
+     "port",
+     "0:65535"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "chain",
+     "<known/chain>"
+    ],
+    [
+     "name",
+     "xinetd-fail"
+    ],
+    [
+     "actname",
+     "iptables-multiport-log"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "start",
+   "exim"
+  ],
+  [
+   "start",
+   "xinetd-fail"
+  ]
+ ],
+ "files": {
+  "jail.local": "[DEFAULT]\nmta = mail\nusedns = no\nbanaction = iptables-allports\n[exim]\nenabled = true\nbackend = auto\nlogpath = /nonexistent/%(__name__)s.log\nfindtime = 1d\nfilter = %(__name__)s[mode=auth]\n[xinetd-fail]\nenabled = true\nbackend = auto\nlogpath = /nonexistent/%(__name__)s.log\nfindtime = 1d\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'exim' jail.\nfail2ban.jailreader: WARNING Have not found any log file for 'xinetd-fail' jail.\n"
+}

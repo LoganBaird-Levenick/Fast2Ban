@@ -1,5 +1,11 @@
 //! Core shared types for Fast2Ban.
 
+mod digits;
+mod inet;
+pub mod ipaddr;
+
+pub use ipaddr::{Cidr, Family, IPAddr, IPAddrError, IPAddrSet};
+
 /// Upstream Fail2Ban version this build is wire/config compatible with.
 ///
 /// Exposed to configs as the `fail2ban_version` interpolation variable and

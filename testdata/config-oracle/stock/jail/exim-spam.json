@@ -219,6 +219,9 @@
    "exim-spam"
   ]
  ],
+ "files": {
+  "jail.local": "[exim-spam]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'exim-spam' jail.\n"

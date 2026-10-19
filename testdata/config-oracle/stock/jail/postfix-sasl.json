@@ -226,6 +226,9 @@
    "postfix-sasl"
   ]
  ],
+ "files": {
+  "jail.local": "[postfix-sasl]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": ""

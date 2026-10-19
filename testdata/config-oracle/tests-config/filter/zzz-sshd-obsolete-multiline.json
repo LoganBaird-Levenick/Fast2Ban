@@ -1,5 +1,8 @@
 {
  "commands": [],
+ "files": {
+  "jail.local": "[o-f-zzz-sshd-obsolete-multiline]\nenabled = true\nfilter = zzz-sshd-obsolete-multiline\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [
   "ERROR: The configuration stream failed because of the invalid syntax."
  ],

@@ -51,6 +51,7 @@ fast2ban/
   crates/
     f2b-types      IpAddr+CIDR (ipdns.py IPAddr), Ticket/FailTicket/BanTicket (ticket.py), time utils + str2seconds (mytime.py)
     f2b-expr       safe arithmetic evaluator: str2seconds grammar, bantime.factor/formula (`ban.Time`, `ban.Count`, `banFactor`, ternary, `<<`, min/max)
+    f2b-helpers    ports of helpers.py (options/tag/word parsing, shlex.split) and Python char classes (isprintable, \s, repr) shared by config + action substitution
     f2b-config     INI parser + interpolation + includes + .local/.d merge; typed readers (jailreader/filterreader/actionreader/fail2banreader); emits the same command stream as `fail2ban-client -d`
     f2b-regex      failregex pipeline: <HOST>/<ADDR>/<F-*> tag expansion (failregex.py), dual engine (see §3.1)
     f2b-date       datedetector.py + datetemplate.py + strptime.py: template list, %Ex* tokens, EPOCH, TAI64N, {^LN-BEG}, tz handling, hit-count reordering
@@ -126,6 +127,13 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - `f2b-expr`: grammar for `str2seconds` (units `d/w/mo/y/s/m/h` aliases per `_str2sec_parts`, month = year/12, leap-aware year) and the ban-time formula (ints/floats, `+ - * / // % << >>`, comparisons, `x if c else y`, `min/max`, names `ban.Time`, `ban.Count`, `banFactor`). Port `mytime` tests as table tests.
 - `f2b-config`: parser, interpolation, includes, readers; command-stream emitter.
 - Gate: Rust command stream == upstream `-d` golden for every config tree; unknown/invalid options produce the same class of error as upstream.
+
+**Phase 1 status: DONE** (all four crates; `cargo fmt`, `clippy -D warnings`, `cargo test --workspace` green; `tools/regen_fixtures.sh` reproduces every fixture byte for byte).
+- `f2b-config` matches upstream `fail2ban-client -d` on **490/490** oracle cases: all stock jails/filters/actions, the upstream test config tree, 45 hand-written scenarios (`.local`/`jail.d` overrides, include chains and loops, action/filter parameters, CRLF/BOM, bad values, malformed files) and 150 seeded random jail variants. Commands, exit status and error text are compared exactly, including failure cases.
+- INI layer additionally differential-fuzzed against upstream's parser: 3,000 random odd files (1,589 parse, 1,138 interpolated values, 78 depth / 436 syntax / 2,165 missing-reference errors, 109 `KNOWN/` shadow sections), comparing parse result, option order and every `get` value or exact error message.
+- Findings recorded while porting: Python 3.14's comment stripping differs structurally from older versions (same observable rules for upstream's settings); a `Definition`-less filter/action keeps `None` options that surface as `null` entries in action streams; `fail2ban.conf` early options (`socket`, `pidfile`, `logtarget`, `loglevel`, `syslogsocket`) override the main options before conversion, so a missing `logtarget` yields `/var/log/fail2ban.log`, not `STDERR`; `repr()` of str escapes non-printables (BOM) so error text needs Python's printable tables.
+- Known intentional gaps: `filter = ./path` / `action = ./path` (cwd-relative names, used by `fail2ban-regex`) are not resolved; glob results are sorted (upstream order is filesystem-arbitrary); `.py` actions still produce the upstream `addaction` command and are rejected later by the server (non-goal).
+- `f2b-expr` additionally allows the `math` module in `bantime.formula` (upstream imports it and its docs use `math.exp`).
 
 ### Phase 2 — Filter engine and `fast2ban-regex`
 - `f2b-regex` (tag expansion, dual engine), `f2b-date`, `f2b-filter` (processLine/findFailure/prefregex/multiline/ignoreregex/mlfid/usedns), without backends yet (feed lines).

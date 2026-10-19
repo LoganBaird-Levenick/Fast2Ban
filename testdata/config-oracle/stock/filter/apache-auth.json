@@ -124,6 +124,9 @@
    "o-f-apache-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-apache-auth]\nenabled = true\nfilter = apache-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-auth\n"

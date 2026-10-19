@@ -160,6 +160,9 @@
    "o-a-bsd-ipfw"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-bsd-ipfw]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = bsd-ipfw\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-bsd-ipfw\n"

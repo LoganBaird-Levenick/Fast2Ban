@@ -123,6 +123,9 @@
    "o-f-nginx-http-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-http-auth]\nenabled = true\nfilter = nginx-http-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nginx-http-auth\n"

@@ -106,6 +106,9 @@
    "o-f-openhab"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-openhab]\nenabled = true\nfilter = openhab\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-openhab\n"

@@ -226,6 +226,9 @@
    "postfix-rbl"
   ]
  ],
+ "files": {
+  "jail.local": "[postfix-rbl]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": ""

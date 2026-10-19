@@ -213,6 +213,9 @@
    "apache-nohome"
   ]
  ],
+ "files": {
+  "jail.local": "[apache-nohome]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'apache-nohome' jail.\n"

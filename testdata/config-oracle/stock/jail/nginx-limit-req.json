@@ -221,6 +221,9 @@
    "nginx-limit-req"
   ]
  ],
+ "files": {
+  "jail.local": "[nginx-limit-req]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'nginx-limit-req' jail.\n"

@@ -106,6 +106,9 @@
    "o-f-cowrie"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-cowrie]\nenabled = true\nfilter = cowrie\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-cowrie\n"

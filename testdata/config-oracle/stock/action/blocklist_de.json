@@ -140,6 +140,9 @@
    "o-a-blocklist_de"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-blocklist_de]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = blocklist_de\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-blocklist_de\n"

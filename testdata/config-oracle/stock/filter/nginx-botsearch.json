@@ -117,6 +117,9 @@
    "o-f-nginx-botsearch"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-botsearch]\nenabled = true\nfilter = nginx-botsearch\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nginx-botsearch\n"

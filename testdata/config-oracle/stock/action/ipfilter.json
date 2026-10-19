@@ -140,6 +140,9 @@
    "o-a-ipfilter"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-ipfilter]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = ipfilter\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-ipfilter\n"

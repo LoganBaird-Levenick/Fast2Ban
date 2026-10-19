@@ -156,6 +156,9 @@
    "o-a-sendmail-whois-ipmatches"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-sendmail-whois-ipmatches]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = sendmail-whois-ipmatches\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-sendmail-whois-ipmatches\n"

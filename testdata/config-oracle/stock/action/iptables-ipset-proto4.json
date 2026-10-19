@@ -180,6 +180,9 @@
    "o-a-iptables-ipset-proto4"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-iptables-ipset-proto4]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = iptables-ipset-proto4\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-iptables-ipset-proto4\n"

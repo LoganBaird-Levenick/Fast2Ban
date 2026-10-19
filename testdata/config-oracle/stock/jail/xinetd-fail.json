@@ -190,6 +190,9 @@
    "xinetd-fail"
   ]
  ],
+ "files": {
+  "jail.local": "[xinetd-fail]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'xinetd-fail' jail.\n"

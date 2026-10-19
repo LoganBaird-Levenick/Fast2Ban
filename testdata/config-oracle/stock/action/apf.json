@@ -136,6 +136,9 @@
    "o-a-apf"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-apf]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = apf\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-apf\n"

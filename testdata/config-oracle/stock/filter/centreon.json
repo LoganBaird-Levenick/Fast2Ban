@@ -106,6 +106,9 @@
    "o-f-centreon"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-centreon]\nenabled = true\nfilter = centreon\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-centreon\n"

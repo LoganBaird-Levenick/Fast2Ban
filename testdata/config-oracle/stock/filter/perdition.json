@@ -109,6 +109,9 @@
    "o-f-perdition"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-perdition]\nenabled = true\nfilter = perdition\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-perdition\n"

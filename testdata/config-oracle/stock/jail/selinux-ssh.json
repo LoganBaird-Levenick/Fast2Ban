@@ -213,6 +213,9 @@
    "selinux-ssh"
   ]
  ],
+ "files": {
+  "jail.local": "[selinux-ssh]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'selinux-ssh' jail.\n"

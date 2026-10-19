@@ -114,6 +114,9 @@
    "o-f-nginx-bad-request"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-bad-request]\nenabled = true\nfilter = nginx-bad-request\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nginx-bad-request\n"

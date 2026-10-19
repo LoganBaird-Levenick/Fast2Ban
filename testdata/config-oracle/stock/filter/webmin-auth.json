@@ -109,6 +109,9 @@
    "o-f-webmin-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-webmin-auth]\nenabled = true\nfilter = webmin-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-webmin-auth\n"

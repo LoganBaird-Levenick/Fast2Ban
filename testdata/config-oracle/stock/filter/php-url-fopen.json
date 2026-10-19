@@ -106,6 +106,9 @@
    "o-f-php-url-fopen"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-php-url-fopen]\nenabled = true\nfilter = php-url-fopen\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-php-url-fopen\n"

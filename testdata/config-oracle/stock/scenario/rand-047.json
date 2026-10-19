@@ -1,0 +1,115 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "xrdp",
+   "gamin"
+  ],
+  [
+   "set",
+   "xrdp",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "xrdp",
+   "addfailregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?xrdp-sesman(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?xrdp-sesman(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?\\[INFO \\] AUTHFAIL: user=<F-USER>(?:\\S+|.+)</F-USER> ip=<ADDR> time=\\d+$"
+  ],
+  [
+   "set",
+   "xrdp",
+   "datepattern",
+   "^\\[?%ExY%Exm%Exd-%ExH:%ExM:%ExS\\]?\n^{DATE}"
+  ],
+  [
+   "set",
+   "xrdp",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "xrdp",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "xrdp",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "xrdp",
+   "bantime",
+   "1h 30m"
+  ],
+  [
+   "set",
+   "xrdp",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "xrdp",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "xrdp",
+   "addlogpath",
+   "/dev/null",
+   "tail"
+  ],
+  [
+   "start",
+   "xrdp"
+  ]
+ ],
+ "files": {
+  "jail.local": "[xrdp]\nenabled = true\nbackend = gamin\nlogpath = /dev/null tail\nbantime = 1h 30m\naction = \n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for xrdp\n"
+}

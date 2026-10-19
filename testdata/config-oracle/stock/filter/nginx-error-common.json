@@ -94,6 +94,9 @@
    "o-f-nginx-error-common"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-error-common]\nenabled = true\nfilter = nginx-error-common\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.jailreader: WARNING No actions were defined for o-f-nginx-error-common\n"

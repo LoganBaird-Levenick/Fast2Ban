@@ -114,6 +114,9 @@
    "o-f-nginx-forbidden"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-nginx-forbidden]\nenabled = true\nfilter = nginx-forbidden\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-nginx-forbidden\n"

@@ -144,6 +144,9 @@
    "o-a-mail-whois"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-mail-whois]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = mail-whois\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-mail-whois\n"

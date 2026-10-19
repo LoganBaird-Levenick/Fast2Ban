@@ -1,0 +1,102 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "lighttpd-auth",
+   "auto"
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "addfailregex",
+   "^[^\\)]*\\(?(?:http|mod)_auth\\.c\\.\\d+\\) (?:password doesn\\'t match for (?:\\S+|.*?) username:\\s+<F-USER>(?:\\S+|.*?)</F-USER>\\s*|digest: auth failed(?: for\\s+<F-ALT_USER>(?:\\S+|.*?)</F-ALT_USER>\\s*)?: (?:wrong password|uri mismatch \\([^\\)]*\\))|get_password failed),? IP: <HOST>\\s*$"
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "lighttpd-auth",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "start",
+   "lighttpd-auth"
+  ]
+ ],
+ "files": {
+  "jail.local": "[lighttpd-auth]\nenabled = true\naction = \nfilter = %(__name__)s[mode=errors]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for lighttpd-auth\nfail2ban.jailreader: WARNING Have not found any log file for 'lighttpd-auth' jail.\n"
+}

@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\nthis line has no delimiter\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Source contains parsing errors: '@CONF@/jail.local'\n\t[line  3]: 'this line has no delimiter\\n'\nfail2ban: ERROR   Init of command line failed\n"
+}

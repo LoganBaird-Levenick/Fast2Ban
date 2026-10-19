@@ -1,0 +1,127 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "dropbear",
+   "auto"
+  ],
+  [
+   "set",
+   "dropbear",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "dropbear",
+   "prefregex",
+   "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?dropbear(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?dropbear(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?(?:\\[\\d+\\] \\w{2,3} [\\d:\\s]+)?<F-CONTENT>(?:[Ll]ogin|[Bb]ad|[Ee]xit).+</F-CONTENT>$"
+  ],
+  [
+   "multi-set",
+   "dropbear",
+   "addfailregex",
+   [
+    "^[Ll]ogin attempt for nonexistent user (?:'<F-USER>.*</F-USER>' )?from <HOST>:\\d+$",
+    "^[Bb]ad (?:PAM )?password attempt for '<F-USER>.+</F-USER>' from <HOST>(?::\\d+)?$",
+    "^[Ee]xit before auth from \\<?<ADDR>:\\d+\\>?: (?:\\([^\\)]*\\): )?Max auth tries reached - user '<F-USER>.+</F-USER>'\\s*$",
+    "^[Ee]xit before auth \\(user '.+', \\d+ fails\\): Max auth tries reached - user '<F-USER>.+</F-USER>' from <HOST>:\\d+\\s*$"
+   ]
+  ],
+  [
+   "set",
+   "dropbear",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "dropbear",
+   "addjournalmatch",
+   "_SYSTEMD_UNIT=dropbear.service",
+   "+",
+   "_COMM=dropbear"
+  ],
+  [
+   "set",
+   "dropbear",
+   "maxretry",
+   1
+  ],
+  [
+   "set",
+   "dropbear",
+   "maxmatches",
+   1
+  ],
+  [
+   "set",
+   "dropbear",
+   "findtime",
+   "1d"
+  ],
+  [
+   "set",
+   "dropbear",
+   "bantime",
+   "1y"
+  ],
+  [
+   "set",
+   "dropbear",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "dropbear",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "start",
+   "dropbear"
+  ]
+ ],
+ "files": {
+  "jail.local": "[DEFAULT]\nmaxretry = 2\ndestemail = a@b.c\n[dropbear]\nenabled = true\nmaxretry = 1\nbantime = 1y\nfindtime = 1d\naction = \nfilter = %(__name__)s[mode=extra]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for dropbear\nfail2ban.jailreader: WARNING Have not found any log file for 'dropbear' jail.\n"
+}

@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[lighttpd-auth]\nenabled = true\nbackend = gamin\nlogpath = /dev/null\n          /nonexistent/y\nmaxretry = 1\naction = iptables-allports[name=%(__name__)s]\nignoreip = ::1 10.0.0.0/8, 192.168.1.1\n[vaultwarden]\nenabled = true\nbackend = polling\nlogpath = /dev/null\nmaxretry =  3 \nbantime = 600\nfindtime = 3600\naction = %(action_cf_mwl)s\nport = ssh\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'vaultwarden' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

@@ -156,6 +156,9 @@
    "o-a-nsupdate"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-nsupdate]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = nsupdate\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-nsupdate\n"

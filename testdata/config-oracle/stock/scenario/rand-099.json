@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[DEFAULT]\nignoreip = 127.0.0.1/8\nmaxretry = 2\nusedns = no\n[named-refused]\nenabled = true\nbantime = 1h 30m\naction = %(action_cf_mwl)s\nfilter = %(__name__)s[mode=errors]\nusedns = warn\n[apache-fakegooglebot]\nenabled = true\nmaxretry = 1\nfindtime = 1d\nusedns = no\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'named-refused' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

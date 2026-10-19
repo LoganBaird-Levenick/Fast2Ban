@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[DEFAULT]\ndestemail = root@example.org\nsender = f2b@example.org\n[sshd]\nenabled = true\nbackend = polling\nlogpath = /dev/null\naction = %(action_mwl)s\n[apache-auth]\nenabled = true\nbackend = polling\nlogpath = /dev/null\naction = %(action_cf_mwl)s\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'apache-auth' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

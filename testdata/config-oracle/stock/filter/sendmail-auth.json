@@ -121,6 +121,9 @@
    "o-f-sendmail-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-sendmail-auth]\nenabled = true\nfilter = sendmail-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-sendmail-auth\n"

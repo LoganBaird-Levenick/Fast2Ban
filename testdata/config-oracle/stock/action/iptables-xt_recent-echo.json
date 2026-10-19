@@ -184,6 +184,9 @@
    "o-a-iptables-xt_recent-echo"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-iptables-xt_recent-echo]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = iptables-xt_recent-echo\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-iptables-xt_recent-echo\n"

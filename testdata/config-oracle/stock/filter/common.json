@@ -94,6 +94,9 @@
    "o-f-common"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-common]\nenabled = true\nfilter = common\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.configreader: ERROR   No section: 'Definition'\nfail2ban.jailreader: WARNING No actions were defined for o-f-common\n"

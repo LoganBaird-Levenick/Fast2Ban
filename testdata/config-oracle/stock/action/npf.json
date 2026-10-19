@@ -140,6 +140,9 @@
    "o-a-npf"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-npf]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = npf\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-npf\n"

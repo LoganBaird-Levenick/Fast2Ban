@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\nbantime = 10%x\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: '%' must be followed by '%' or '(', found: '%x'\nfail2ban: ERROR   Init of command line failed\n"
+}

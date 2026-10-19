@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "enabled = true\n[sshd]\nenabled = true\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: File contains no section headers.\nfile: '@CONF@/jail.local', line: 1\n'enabled = true\\n'\nfail2ban: ERROR   Init of command line failed\n"
+}

@@ -344,6 +344,9 @@
    "murmur"
   ]
  ],
+ "files": {
+  "jail.local": "[murmur]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'murmur' jail.\n"

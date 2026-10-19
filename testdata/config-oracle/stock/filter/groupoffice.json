@@ -100,6 +100,9 @@
    "o-f-groupoffice"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-groupoffice]\nenabled = true\nfilter = groupoffice\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-groupoffice\n"

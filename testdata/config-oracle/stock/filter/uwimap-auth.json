@@ -109,6 +109,9 @@
    "o-f-uwimap-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-uwimap-auth]\nenabled = true\nfilter = uwimap-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-uwimap-auth\n"

@@ -172,6 +172,9 @@
    "o-a-sendmail-geoip-lines"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-sendmail-geoip-lines]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = sendmail-geoip-lines\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-sendmail-geoip-lines\n"

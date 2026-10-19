@@ -160,6 +160,9 @@
    "o-a-osx-ipfw"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-osx-ipfw]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = osx-ipfw\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-osx-ipfw\n"

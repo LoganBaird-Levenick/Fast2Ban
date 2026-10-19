@@ -1,0 +1,49 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "config-error",
+   "Jail 'sshd' skipped, because of missing log files."
+  ]
+ ],
+ "files": {
+  "jail.local": "[sshd]\nenabled = true\nbackend = polling\nlogpath = /nonexistent/x\nskip_if_nologs = true\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'sshd' jail.\nfail2ban.jailreader: WARNING Jail 'sshd' skipped, because of missing log files.\n"
+}

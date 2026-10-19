@@ -1,0 +1,201 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "qmail-rbl",
+   "auto"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "usedns",
+   "warn"
+  ],
+  [
+   "multi-set",
+   "qmail-rbl",
+   "addfailregex",
+   [
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?\\d+\\.\\d+ rblsmtpd: <HOST> pid \\d+ \\S+ 4\\d\\d \\S+\\s*$",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?\\d+\\.\\d+ qmail-smtpd: 4\\d\\d badiprbl: ip <HOST> rbl: \\S+\\s*$",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?(?:qmail|rblsmtpd)(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?\\S+ blocked <HOST> \\S+ -\\s*$"
+   ]
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "findtime",
+   "1d"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "addlogpath",
+   "/dev/null",
+   "head"
+  ],
+  [
+   "set",
+   "qmail-rbl",
+   "addaction",
+   "iptables-allports"
+  ],
+  [
+   "multi-set",
+   "qmail-rbl",
+   "action",
+   "iptables-allports",
+   [
+    [
+     "actionstart",
+     "{ <iptables> -C f2b-qmail-rbl -j RETURN >/dev/null 2>&1; } || { <iptables> -N f2b-qmail-rbl || true; <iptables> -A f2b-qmail-rbl -j RETURN; }\nfor chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n{ <iptables> -C $chain -p $proto -j f2b-qmail-rbl >/dev/null 2>&1; } || { <iptables> -I $chain -p $proto -j f2b-qmail-rbl; }\ndone; done"
+    ],
+    [
+     "actionstop",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -D $chain -p $proto -j f2b-qmail-rbl\ndone; done\n<iptables> -F f2b-qmail-rbl\n<iptables> -X f2b-qmail-rbl"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-qmail-rbl"
+    ],
+    [
+     "actioncheck",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -C $chain -p $proto -j f2b-qmail-rbl\ndone; done"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-qmail-rbl 1 -s <ip> -j <blocktype>"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-qmail-rbl -s <ip> -j <blocktype>"
+    ],
+    [
+     "name",
+     "qmail-rbl"
+    ],
+    [
+     "actname",
+     "iptables-allports"
+    ],
+    [
+     "chain",
+     "INPUT"
+    ],
+    [
+     "port",
+     "ssh"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "start",
+   "qmail-rbl"
+  ]
+ ],
+ "files": {
+  "jail.local": "[qmail-rbl]\nenabled = true\nbackend = auto\nlogpath = /dev/null\nbantime = 10m\nfindtime = 1d\naction = iptables-allports[name=%(__name__)s]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": ""
+}

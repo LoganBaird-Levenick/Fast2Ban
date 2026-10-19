@@ -1,0 +1,13 @@
+{
+ "commands": [],
+ "files": {
+  "filter.d/bom.conf": "\ufeff[Definition]\nfailregex = ^x <HOST>$\n",
+  "jail.d/bom.local": "[bom]\nenabled = true\nfilter = bom\nlogpath = /dev/null\nbackend = polling\n",
+  "jail.local": "[sshd]\r\nenabled = true\r\nbackend = polling\r\nlogpath = /dev/null ; trailing\r\n\tmaxretry = 7\r\n; full comment\r\n# another\r\nbantime = 10m ;inline\r\nport = http;x\r\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: File contains no section headers.\nfile: '@CONF@/filter.d/bom.conf', line: 1\n'\\ufeff[Definition]\\n'\nfail2ban: ERROR   Init of command line failed\n"
+}

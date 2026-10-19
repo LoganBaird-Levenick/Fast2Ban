@@ -110,6 +110,9 @@
    "o-f-named-refused"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-named-refused]\nenabled = true\nfilter = named-refused\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-named-refused\n"

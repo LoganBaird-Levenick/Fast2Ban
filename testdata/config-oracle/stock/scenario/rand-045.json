@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[assp]\nenabled = true\nbackend = pyinotify\nmaxretry = 0\nfilter = %(__name__)s[mode=more]\n[portsentry]\nenabled = true\nbackend = systemd\nlogpath = /nonexistent/%(__name__)s.log\naction = %(action_cf_mwl)s\nignoreip = example.com\n[3proxy]\nenabled = true\nbackend = auto\nusedns = no\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'portsentry' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

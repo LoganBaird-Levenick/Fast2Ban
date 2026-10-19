@@ -100,6 +100,9 @@
    "o-f-lighttpd-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-lighttpd-auth]\nenabled = true\nfilter = lighttpd-auth\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-lighttpd-auth\n"

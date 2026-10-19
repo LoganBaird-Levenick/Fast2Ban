@@ -106,6 +106,9 @@
    "o-f-phpmyadmin-syslog"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-phpmyadmin-syslog]\nenabled = true\nfilter = phpmyadmin-syslog\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-phpmyadmin-syslog\n"

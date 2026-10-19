@@ -140,6 +140,9 @@
    "o-a-osx-afctl"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-osx-afctl]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = osx-afctl\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-osx-afctl\n"

@@ -1,0 +1,193 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "openvpn",
+   "polling"
+  ],
+  [
+   "set",
+   "openvpn",
+   "usedns",
+   "warn"
+  ],
+  [
+   "multi-set",
+   "openvpn",
+   "addfailregex",
+   [
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?ovpn-server\\d*(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?ovpn-server\\d*(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?<HOST>:\\d{4,5} (?:TLS Auth Error:|VERIFY ERROR:|TLS Error: TLS handshake failed\\b|SIGUSR1\\[soft,connection-reset\\] received\\b)",
+    "^(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?ovpn-server\\d*(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?ovpn-server\\d*(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?TLS Error: cannot locate HMAC in incoming packet from \\[AF_INET\\]\\s*<HOST>:\\d{4,5}"
+   ]
+  ],
+  [
+   "set",
+   "openvpn",
+   "datepattern",
+   "{^LN-BEG}"
+  ],
+  [
+   "set",
+   "openvpn",
+   "maxretry",
+   10
+  ],
+  [
+   "set",
+   "openvpn",
+   "maxmatches",
+   10
+  ],
+  [
+   "set",
+   "openvpn",
+   "findtime",
+   "10m"
+  ],
+  [
+   "set",
+   "openvpn",
+   "bantime",
+   "10m"
+  ],
+  [
+   "set",
+   "openvpn",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "openvpn",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "set",
+   "openvpn",
+   "addaction",
+   "iptables-allports"
+  ],
+  [
+   "multi-set",
+   "openvpn",
+   "action",
+   "iptables-allports",
+   [
+    [
+     "actionstart",
+     "{ <iptables> -C f2b-openvpn -j RETURN >/dev/null 2>&1; } || { <iptables> -N f2b-openvpn || true; <iptables> -A f2b-openvpn -j RETURN; }\nfor chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n{ <iptables> -C $chain -p $proto -j f2b-openvpn >/dev/null 2>&1; } || { <iptables> -I $chain -p $proto -j f2b-openvpn; }\ndone; done"
+    ],
+    [
+     "actionstop",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -D $chain -p $proto -j f2b-openvpn\ndone; done\n<iptables> -F f2b-openvpn\n<iptables> -X f2b-openvpn"
+    ],
+    [
+     "actionflush",
+     "<iptables> -F f2b-openvpn"
+    ],
+    [
+     "actioncheck",
+     "for chain in $(echo 'INPUT' | sed 's/,/ /g'); do for proto in $(echo 'tcp' | sed 's/,/ /g'); do\n<iptables> -C $chain -p $proto -j f2b-openvpn\ndone; done"
+    ],
+    [
+     "actionban",
+     "<iptables> -I f2b-openvpn 1 -s <ip> -j <blocktype>"
+    ],
+    [
+     "actionunban",
+     "<iptables> -D f2b-openvpn -s <ip> -j <blocktype>"
+    ],
+    [
+     "name",
+     "openvpn"
+    ],
+    [
+     "actname",
+     "iptables-allports"
+    ],
+    [
+     "chain",
+     "INPUT"
+    ],
+    [
+     "port",
+     "ssh"
+    ],
+    [
+     "protocol",
+     "tcp"
+    ],
+    [
+     "blocktype",
+     "REJECT --reject-with icmp-port-unreachable"
+    ],
+    [
+     "returntype",
+     "RETURN"
+    ],
+    [
+     "lockingopt",
+     "-w"
+    ],
+    [
+     "iptables",
+     "iptables <lockingopt>"
+    ],
+    [
+     "blocktype?family=inet6",
+     "REJECT --reject-with icmp6-port-unreachable"
+    ],
+    [
+     "iptables?family=inet6",
+     "ip6tables <lockingopt>"
+    ]
+   ]
+  ],
+  [
+   "start",
+   "openvpn"
+  ]
+ ],
+ "files": {
+  "jail.local": "[openvpn]\nenabled = true\nbackend = polling\nmaxretry = 1_0\naction = iptables-allports[name=%(__name__)s]\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'openvpn' jail.\n"
+}

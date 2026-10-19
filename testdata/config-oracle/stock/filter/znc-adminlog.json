@@ -108,6 +108,9 @@
    "o-f-znc-adminlog"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-znc-adminlog]\nenabled = true\nfilter = znc-adminlog\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-znc-adminlog\n"

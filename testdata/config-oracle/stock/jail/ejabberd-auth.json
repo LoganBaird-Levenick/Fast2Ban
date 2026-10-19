@@ -222,6 +222,9 @@
    "ejabberd-auth"
   ]
  ],
+ "files": {
+  "jail.local": "[ejabberd-auth]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'ejabberd-auth' jail.\n"

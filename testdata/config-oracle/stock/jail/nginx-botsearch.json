@@ -224,6 +224,9 @@
    "nginx-botsearch"
   ]
  ],
+ "files": {
+  "jail.local": "[nginx-botsearch]\nenabled = true\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING Have not found any log file for 'nginx-botsearch' jail.\n"

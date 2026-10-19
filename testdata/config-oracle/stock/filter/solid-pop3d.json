@@ -111,6 +111,9 @@
    "o-f-solid-pop3d"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-solid-pop3d]\nenabled = true\nfilter = solid-pop3d\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-solid-pop3d\n"

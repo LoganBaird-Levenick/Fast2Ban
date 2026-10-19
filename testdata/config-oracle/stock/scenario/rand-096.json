@@ -1,0 +1,11 @@
+{
+ "commands": [],
+ "files": {
+  "jail.local": "[apache-fakegooglebot]\nenabled = true\nbackend = auto\nbantime = %(findtime)s\naction = %(action_cf_mwl)s\n[horde]\nenabled = true\nbackend = systemd\nlogpath = /dev/null\nbantime = 10m\nfilter = %(__name__)s[mode=aggressive]\nignoreip = example.com\n[kerio]\nenabled = true\nbackend = systemd\nlogpath = /dev/null\nmaxretry = 0\nbantime = 600\nfilter = %(__name__)s[mode=errors]\nignoreip = ::1 10.0.0.0/8, 192.168.1.1\nport = 0:65535\n"
+ },
+ "other": [
+  "ERROR: The configuration stream failed because of the invalid syntax."
+ ],
+ "rc": 255,
+ "stderr": "fail2ban: ERROR   Failed during configuration: Bad value substitution: option 'action' in section 'apache-fakegooglebot' contains an interpolation key 'cfemail' which is not a valid option name. Raw value: '%(action_cf_mwl)s'\nfail2ban: ERROR   Init of command line failed\n"
+}

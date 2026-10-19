@@ -152,6 +152,9 @@
    "o-a-ipthreat"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-ipthreat]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = ipthreat\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-ipthreat\n"

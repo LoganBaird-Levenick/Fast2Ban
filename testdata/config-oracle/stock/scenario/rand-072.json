@@ -1,0 +1,117 @@
+{
+ "commands": [
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "INFO"
+  ],
+  [
+   "set",
+   "logtarget",
+   "/var/log/fail2ban.log"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "auto"
+  ],
+  [
+   "set",
+   "dbfile",
+   "/var/lib/fail2ban/fail2ban.sqlite3"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   10
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ],
+  [
+   "add",
+   "ejabberd-auth",
+   "gamin"
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "usedns",
+   "warn"
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "maxlines",
+   2
+  ],
+  [
+   "multi-set",
+   "ejabberd-auth",
+   "addfailregex",
+   [
+    "^=INFO REPORT====  ===\\nI\\(<0\\.\\d+\\.0>:ejabberd_c2s:\\d+\\) : \\([^)]+\\) Failed authentication for \\S+ from (?:IP )?<HOST>(?: \\({{(?:\\d+,){3}\\d+},\\d+}\\))?$",
+    "^(?:\\.\\d+)? \\[info\\] <0\\.\\d+\\.\\d>@ejabberd_c2s:\\w+:\\d+ \\([^\\)]+\\) Failed (?:c2s \\w+ )?authentication for \\S+ from (?:IP )?(?:::FFFF:)?<HOST>(?:: |$)"
+   ]
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "datepattern",
+   "^(?:=[^=]+={3,} )?(%ExY(?P<_sep>[-/.])%m(?P=_sep)%d[T ]%H:%M:%S(?:[.,]%f)?(?:\\s*%z)?)\n^I\\(()**"
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "maxretry",
+   5
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "maxmatches",
+   5
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "findtime",
+   "3600"
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "bantime",
+   "1h 30m"
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "ignorecommand",
+   ""
+  ],
+  [
+   "set",
+   "ejabberd-auth",
+   "logencoding",
+   "auto"
+  ],
+  [
+   "start",
+   "ejabberd-auth"
+  ]
+ ],
+ "files": {
+  "jail.local": "[ejabberd-auth]\nenabled = true\nbackend = gamin\nbantime = 1h 30m\nfindtime = 3600\naction = \n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": "fail2ban.jailreader: WARNING No actions were defined for ejabberd-auth\nfail2ban.jailreader: WARNING Have not found any log file for 'ejabberd-auth' jail.\n"
+}

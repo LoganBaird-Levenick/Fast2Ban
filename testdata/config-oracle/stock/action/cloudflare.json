@@ -152,6 +152,9 @@
    "o-a-cloudflare"
   ]
  ],
+ "files": {
+  "jail.local": "[o-a-cloudflare]\nenabled = true\nfilter =\nlogpath = /dev/null\nbackend = polling\naction = cloudflare\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No filter set for jail o-a-cloudflare\n"

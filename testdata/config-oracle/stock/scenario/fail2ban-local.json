@@ -1,0 +1,52 @@
+{
+ "commands": [
+  [
+   "set",
+   "thread",
+   {
+    "stacksize": 128
+   }
+  ],
+  [
+   "set",
+   "syslogsocket",
+   "auto"
+  ],
+  [
+   "set",
+   "loglevel",
+   "DEBUG"
+  ],
+  [
+   "set",
+   "logtarget",
+   "SYSLOG"
+  ],
+  [
+   "set",
+   "allowipv6",
+   "yes"
+  ],
+  [
+   "set",
+   "dbfile",
+   "None"
+  ],
+  [
+   "set",
+   "dbmaxmatches",
+   5
+  ],
+  [
+   "set",
+   "dbpurgeage",
+   "1d"
+  ]
+ ],
+ "files": {
+  "fail2ban.local": "[Definition]\nloglevel = DEBUG\nlogtarget = SYSLOG\ndbfile = None\ndbmaxmatches = 5\nallowipv6 = yes\n[Thread]\nstacksize = 128\n"
+ },
+ "other": [],
+ "rc": 0,
+ "stderr": ""
+}

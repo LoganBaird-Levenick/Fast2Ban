@@ -115,6 +115,9 @@
    "o-f-apache-shellshock"
   ]
  ],
+ "files": {
+  "jail.local": "[o-f-apache-shellshock]\nenabled = true\nfilter = apache-shellshock\nlogpath = /dev/null\nbackend = polling\naction =\n"
+ },
  "other": [],
  "rc": 0,
  "stderr": "fail2ban.jailreader: WARNING No actions were defined for o-f-apache-shellshock\n"
