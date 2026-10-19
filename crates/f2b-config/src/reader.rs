@@ -291,6 +291,21 @@ impl ConfigReader {
         Ok(ret)
     }
 
+    /// `DefinitionInitConfigReader.readexplicit`: read exactly the file `file`
+    /// (and the files it includes), not looking at the base dir. Returns the
+    /// files read (empty: nothing could be read).
+    pub fn read_explicit(&mut self, file: &str) -> Result<Vec<String>> {
+        if self.cfg.is_none() {
+            self.create_unshared(file);
+        }
+        let Some(cfg) = &self.cfg else {
+            return Ok(Vec::new());
+        };
+        let fs = self.fs.clone();
+        let mut cfg = cfg.borrow_mut();
+        cfg.ini_mut().read(fs.as_ref(), &[file.to_owned()])
+    }
+
     /// `sections()` without internal `KNOWN/...` sections.
     pub fn sections(&self) -> Vec<String> {
         self.cfg.as_ref().map_or_else(Vec::new, |c| {

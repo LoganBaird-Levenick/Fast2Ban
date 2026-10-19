@@ -86,6 +86,31 @@ enum ActionEntry {
     Py(Command),
 }
 
+/// Failure of [`JailReader::read`].
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum JailReadError {
+    /// upstream's `NoJailError`: the jail is not among the available ones.
+    NoJail(String),
+    Config(ConfigError),
+}
+
+impl std::fmt::Display for JailReadError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::NoJail(m) => f.write_str(m),
+            Self::Config(e) => e.fmt(f),
+        }
+    }
+}
+
+impl std::error::Error for JailReadError {}
+
+impl From<ConfigError> for JailReadError {
+    fn from(e: ConfigError) -> Self {
+        Self::Config(e)
+    }
+}
+
 #[derive(Debug)]
 pub struct JailReader {
     base: ConfigReader,
@@ -111,6 +136,55 @@ impl JailReader {
             fs,
             share,
         }
+    }
+
+    /// `JailReader(name, force_enable, share_config=share, basedir=basedir)`:
+    /// a reader that loads `jail.conf` itself (see [`JailReader::read`]).
+    pub fn standalone(
+        fs: Rc<dyn Fs>,
+        share: Share,
+        basedir: &str,
+        name: &str,
+        force_enable: bool,
+    ) -> Self {
+        Self {
+            base: ConfigReader::with_share(fs.clone(), share.clone(), Some(basedir.to_owned())),
+            name: name.to_owned(),
+            filter: None,
+            force_enable,
+            actions: Vec::new(),
+            opts: None,
+            fs,
+            share,
+        }
+    }
+
+    /// `JailReader.read()`: reads `jail.conf` (+ `.d`, `.local`) and verifies
+    /// the jail exists. `Ok(false)`: the files could not be read.
+    pub fn read(&mut self) -> std::result::Result<bool, JailReadError> {
+        let out = self.base.read("jail")?;
+        if !self.base.sections().contains(&self.name) {
+            return Err(JailReadError::NoJail(format!(
+                "Jail {} was not found among available",
+                py_repr(&self.name)
+            )));
+        }
+        Ok(out)
+    }
+
+    /// The filter reader of the jail (`JailReader.filter`).
+    pub fn filter(&self) -> Option<&DefinitionReader> {
+        self.filter.as_ref()
+    }
+
+    /// `JailReader.getCombined()`: jail options merged with the combined
+    /// filter options.
+    pub fn get_combined(&self) -> Result<IndexMap<String, Val>> {
+        let mut out = self.opts.clone().unwrap_or_default();
+        if let Some(f) = &self.filter {
+            out.extend(f.get_combined(&HashSet::new())?);
+        }
+        Ok(out)
     }
 
     pub fn name(&self) -> &str {
@@ -140,12 +214,18 @@ impl JailReader {
     /// `JailReader.getOptions()`. `Ok(false)`: the jail definition is wrong
     /// (a `config-error` option was recorded); `Err`: configuration aborts.
     pub fn get_options(&mut self) -> Result<bool> {
+        self.get_options_with(&IndexMap::new())
+    }
+
+    /// `JailReader.getOptions(addOpts)`: `add_opts` override the first-stage
+    /// jail options and the options handed to the jail's filter.
+    pub fn get_options_with(&mut self, add_opts: &IndexMap<String, String>) -> Result<bool> {
         let basedir = self.base.base_dir().unwrap_or_default();
         self.base.merge_defaults([
             ("fail2ban_version", UPSTREAM_COMPAT_VERSION),
             ("fail2ban_confpath", basedir.as_str()),
         ]);
-        match self.read_options(&basedir) {
+        match self.read_options(&basedir, add_opts) {
             Ok(()) => Ok(true),
             Err(JailErr::Def(e)) => {
                 let o = self.opts.get_or_insert_with(IndexMap::new);
@@ -156,11 +236,18 @@ impl JailReader {
         }
     }
 
-    fn read_options(&mut self, basedir: &str) -> std::result::Result<(), JailErr> {
+    fn read_options(
+        &mut self,
+        basedir: &str,
+        add_opts: &IndexMap<String, String>,
+    ) -> std::result::Result<(), JailErr> {
         let empty = IndexMap::new();
-        let first = self
+        let mut first = self
             .base
             .get_options(&self.name, JAIL_OPTS_1ST, &empty, true, true)?;
+        for (k, v) in add_opts {
+            first.insert(k.clone(), Val::Str(v.clone()));
+        }
         self.opts = Some(first);
         if !self.is_enabled() {
             return Ok(());
@@ -171,13 +258,14 @@ impl JailReader {
         if flt.is_empty() {
             self.filter = None;
         } else {
-            let (filter_name, filter_opt) = extract_options(&flt).map_err(|e| {
+            let (filter_name, mut filter_opt) = extract_options(&flt).map_err(|e| {
                 JailErr::Def(format!(
                     "Invalid filter definition {}: {}",
                     py_repr(&flt),
                     e
                 ))
             })?;
+            filter_opt.extend(add_opts.iter().map(|(k, v)| (k.clone(), v.clone())));
             let mut reader = DefinitionReader::filter(
                 &filter_name,
                 &self.name,

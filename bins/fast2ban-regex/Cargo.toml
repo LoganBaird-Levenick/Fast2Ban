@@ -1,0 +1,32 @@
+[package]
+name = "fast2ban-regex"
+description = "Fail2Ban-compatible fail2ban-regex: test failregex/ignoreregex/filters/jails against log lines"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "fast2ban_regex"
+path = "src/lib.rs"
+
+[[bin]]
+name = "fast2ban-regex"
+path = "src/main.rs"
+
+[dependencies]
+f2b-config = { path = "../../crates/f2b-config" }
+f2b-date = { path = "../../crates/f2b-date" }
+f2b-filter = { path = "../../crates/f2b-filter" }
+f2b-helpers = { path = "../../crates/f2b-helpers" }
+f2b-regex = { path = "../../crates/f2b-regex" }
+f2b-types = { path = "../../crates/f2b-types" }
+indexmap = "2"
+log = "0.4"
+regex = "1"
+
+[dev-dependencies]
+serde_json = "1"
+
+[lints]
+workspace = true

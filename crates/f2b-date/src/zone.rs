@@ -11,7 +11,7 @@ use jiff::Timestamp;
 use jiff::civil::DateTime;
 use jiff::tz::{AmbiguousOffset, TimeZone};
 
-use crate::civil::{Naive, split_timestamp};
+use crate::civil::{Naive, split_timestamp, weekday};
 
 /// A time zone that stands for "the process local time zone".
 #[derive(Clone)]
@@ -34,6 +34,19 @@ impl fmt::Debug for LocalZone {
             .field("pre_1970", &self.pre_1970)
             .finish()
     }
+}
+
+/// Broken-down local time (`time.localtime(t)` of Python).
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LocalFields {
+    pub year: i64,
+    pub month: i64,
+    pub day: i64,
+    pub hour: i64,
+    pub minute: i64,
+    pub second: i64,
+    /// Monday is 0 (`tm_wday` of Python's `struct_time`).
+    pub weekday: i64,
 }
 
 impl LocalZone {
@@ -124,6 +137,26 @@ impl LocalZone {
         Naive {
             secs: secs + self.offset_at(secs),
             us,
+        }
+    }
+
+    /// `time.localtime(t)`: the local broken-down time of Unix time `t`
+    /// (fractions are floored, like Python does).
+    pub fn local_fields(&self, t: f64) -> LocalFields {
+        let secs = t.floor() as i64;
+        let n = Naive {
+            secs: secs + self.offset_at(secs),
+            us: 0,
+        };
+        let f = n.fields();
+        LocalFields {
+            year: f.year,
+            month: f.month,
+            day: f.day,
+            hour: f.hour,
+            minute: f.minute,
+            second: f.second,
+            weekday: weekday(n.secs.div_euclid(86_400)),
         }
     }
 

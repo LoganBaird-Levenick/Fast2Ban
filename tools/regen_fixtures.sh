@@ -14,3 +14,4 @@ python3 tools/gen_f2b_expr_fixtures.py
 python3 tools/gen_f2b_regex_fixtures.py
 python3 tools/gen_f2b_date_fixtures.py
 python3 tools/gen_f2b_filter_fixtures.py
+python3 tools/gen_fast2ban_regex_fixtures.py

@@ -138,7 +138,7 @@ impl DefinitionReader {
             base,
             kind,
             file: file.to_owned(),
-            full_file: format!("{dir}/{file}"),
+            full_file: crate::pyutil::join(dir, file),
             jail_name: jail_name.to_owned(),
             init_opts,
             p_opts: IndexMap::new(),
@@ -176,6 +176,17 @@ impl DefinitionReader {
 
     pub fn read(&mut self) -> Result<bool> {
         self.base.read(&self.full_file)
+    }
+
+    /// `readexplicit`: read the file itself (with its includes), independent
+    /// of the base dir. `Ok(false)`: nothing was read.
+    pub fn read_explicit(&mut self) -> Result<bool> {
+        Ok(!self.base.read_explicit(&self.full_file)?.is_empty())
+    }
+
+    /// `get(section, option)` of the underlying reader (interpolated, no extra vars).
+    pub fn get(&self, section: &str, option: &str) -> Result<String> {
+        self.base.get(section, option, false, &Section::new())
     }
 
     /// `FilterReader.applyAutoOptions`: logtype from the backend.

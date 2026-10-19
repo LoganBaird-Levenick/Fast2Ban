@@ -131,6 +131,9 @@ impl Filter {
                 }
             }
         }
+        if self.keep_processed_line {
+            self.processed = Some(tuple.clone());
+        }
         self.find_failure(tuple, date, no_date)
     }
 }

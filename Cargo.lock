@@ -158,6 +158,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "fast2ban-regex"
+version = "0.0.0"
+dependencies = [
+ "f2b-config",
+ "f2b-date",
+ "f2b-filter",
+ "f2b-helpers",
+ "f2b-regex",
+ "f2b-types",
+ "indexmap",
+ "log",
+ "regex",
+ "serde_json",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"

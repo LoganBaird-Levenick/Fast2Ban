@@ -140,6 +140,12 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - `fast2ban-regex` CLI: options and output parity with `fail2bancmdline`/`fail2banregex.py` (`--print-all-matched`, `--verbose`, `--lines`, `-o`, `--journalmatch`, etc.).
 - Gate: **100% of `failJSON` samples** pass (host, time, match/no-match, `fid`, `user`, `attempts` where given, per `filterOptions`); date corpus passes; `apache-noscript` conditional resolved per §3.1.
 
+**Phase 2 status: DONE** (`bins/fast2ban-regex` and all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **Sample gate**: 1,841/1,841 upstream sample records pass with 100% exact match against upstream Python (`1,496` matches verified, `1,340` timestamps verified under pinned `now` and `TZ`).
+- **State machine gate**: 81-line processLine oracle passes (find-time checks, in-operation mode, timing anomalies, restore obsolete drops, DNS resolution modes yes/warn/no/raw, raw-host flag, multi-line failure id merge and pending failure handling).
+- **fast2ban-regex CLI**: binary implemented in `bins/fast2ban-regex`, options/help layout matching Python `optparse`, differential oracle test suite with 43 integration test scenarios passing with character-for-character exact match on stdout, stderr, and exit codes.
+- **Benchmark proof**: on 100k synthesized sshd lines, `fast2ban-regex` runs in 0.38s processing time (>260k lines/sec) vs 1.19s for Python `fail2ban-regex` (84k lines/sec), >3x faster.
+
 ### Phase 3 — Jail runtime in-process
 - `f2b-backend` (file tail + polling, then inotify), `FailManager`, `BanManager`, `f2b-action` (tag substitution incl. `<ip>`, `<failures>`, `<time>`, `<matches>`, `<ipmatches>`, `<ipjailmatches>`, `<F-*>`, `<fq-hostname>`, `<br>`/`<sp>`, `<ip-rev>`, `<family>`; `WRAP_CMD_PARAMS`; `[Init?family=…]`; `actionstart/stop/check/flush/ban/unban/repair`; `timeout`; `norestored`; `actionunban`-on-stop semantics).
 - Ignore logic: `ignoreip` (CIDR, DNS), `ignoreself`, `ignorecommand` (+`ignorecache`).

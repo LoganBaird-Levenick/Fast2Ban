@@ -87,6 +87,17 @@ pub struct Filter {
     pub check_find_time: bool,
     /// Filter is in operation mode, processing new messages (`inOperation`).
     pub in_operation: bool,
+    /// Remember the groups of the last prefregex search for
+    /// [`Filter::pref_last_match`] (upstream's `prefRegex.hasMatched()` /
+    /// `getGroups()`, used by `fail2ban-regex`). Off by default: it costs a copy.
+    pub track_pref_match: bool,
+    /// Remember the date-split tuple line of the last processed line for
+    /// [`Filter::processed_line`] (upstream's `processedLine`). Off by default.
+    pub keep_processed_line: bool,
+    pref_last: Option<FailData>,
+    pub(crate) processed: Option<TupleLine<String>>,
+    /// Index of the ignoreregex that matched the most recent line, if any.
+    pub last_ignored_index: Option<usize>,
 }
 
 impl std::fmt::Debug for Filter {
@@ -104,6 +115,12 @@ impl Filter {
     /// `Filter(None)` with `useDns='warn'`.
     pub fn new(clock: SharedClock, dns: Arc<DnsUtils>, zone: LocalZone) -> Self {
         let date_env = DateEnv::new(clock.clone(), zone);
+        Self::with_date_env(clock, dns, date_env)
+    }
+
+    /// Like [`Filter::new`] with a prepared date environment (e.g. with a
+    /// year window as `fail2ban-regex` sets it, `MyTime.setAlternateNow(0)`).
+    pub fn with_date_env(clock: SharedClock, dns: Arc<DnsUtils>, date_env: DateEnv) -> Self {
         Self {
             date_detector: Some(DateDetector::new(date_env.clone())),
             date_env,
@@ -128,6 +145,11 @@ impl Filter {
             ignore_pending: true,
             check_find_time: true,
             in_operation: true,
+            track_pref_match: false,
+            keep_processed_line: false,
+            pref_last: None,
+            processed: None,
+            last_ignored_index: None,
         }
     }
 
@@ -278,6 +300,22 @@ impl Filter {
         self.last_date
     }
 
+    /// Groups of the prefregex search of the most recent line the prefregex
+    /// was applied to, `None` when that search did not match (upstream's
+    /// `prefRegex.hasMatched()` + `getGroups()`). Only maintained while
+    /// [`Filter::track_pref_match`] is set.
+    pub fn pref_last_match(&self) -> Option<&FailData> {
+        self.pref_last.as_ref()
+    }
+
+    /// `processedLine()`: the last processed line without its date text. Only
+    /// maintained while [`Filter::keep_processed_line`] is set.
+    pub fn processed_line(&self) -> String {
+        self.processed
+            .as_ref()
+            .map_or_else(String::new, |t| format!("{}{}", t.pre, t.post))
+    }
+
     /// `onIgnoreRegex` callback.
     pub fn set_on_ignore_regex(&mut self, cb: Option<IgnoreCallback>) {
         self.on_ignore_regex = cb;
@@ -306,10 +344,20 @@ impl Filter {
             return Ok(None);
         };
         match pref.search_buf(&self.scratch, &ctx.org) {
-            Ok(Some(m)) => Ok(Some(groups_to_fail(m.groups()))),
-            Ok(None) => Ok(None),
+            Ok(Some(m)) => {
+                let groups = groups_to_fail(m.groups());
+                if self.track_pref_match {
+                    self.pref_last = Some(groups.clone());
+                }
+                Ok(Some(groups))
+            }
+            Ok(None) => {
+                self.pref_last = None;
+                Ok(None)
+            }
             Err(MatchError::BacktrackLimit) => {
                 log::warn!("prefregex backtracking limit exceeded, line treated as not matching");
+                self.pref_last = None;
                 Ok(None)
             }
             Err(e) => Err(e.into()),
@@ -369,6 +417,7 @@ impl Filter {
                 continue;
             }
             found = Some(idx);
+            self.last_ignored_index = Some(idx);
             log::trace!("  Matched ignoreregex {idx} and was ignored");
             if let Some(cb) = self.on_ignore_regex.as_mut() {
                 cb(idx, &self.ignore_regex[idx]);
@@ -528,6 +577,7 @@ impl Filter {
         date: Option<f64>,
         no_date: bool,
     ) -> Result<Vec<FailEntry>> {
+        self.last_ignored_index = None;
         let mut fail_list: Vec<FailEntry> = Vec::new();
         let defcidr = if self.use_dns == UseDns::Raw || self.return_raw_host {
             Cidr::Raw

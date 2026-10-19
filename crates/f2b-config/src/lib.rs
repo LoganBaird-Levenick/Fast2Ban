@@ -24,3 +24,4 @@ pub use configurator::{
 };
 pub use error::{ConfigError, Result};
 pub use fs::{Fs, RealFs};
+pub use jail::JailReader;

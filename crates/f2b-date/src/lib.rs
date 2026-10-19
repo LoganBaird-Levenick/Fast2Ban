@@ -74,7 +74,7 @@ pub use detector::{
     DateDetector, DateEnv, DatePatternInfo, TemplateFilter, TemplateInfo, TimeMatch,
 };
 pub use error::{DateError, TimeError};
-pub use zone::LocalZone;
+pub use zone::{LocalFields, LocalZone};
 
 /// `validateTimeZone`: minutes east of UTC for a `logtimezone` value such as
 /// `UTC`, `CET`, `+0200` or `UTC+02:00`.

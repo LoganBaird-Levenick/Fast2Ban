@@ -1,0 +1,434 @@
+[
+  {
+    "args": [
+      "--help"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "-h"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "fail2ban-regex 1.1.2.dev1\n"
+  },
+  {
+    "args": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "1.1.2.1\n"
+  },
+  {
+    "args": [],
+    "exit_code": 255,
+    "stderr": "\nERROR: provide both <LOG> and <REGEX>.\n",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "only_one_arg"
+    ],
+    "exit_code": 255,
+    "stderr": "\nERROR: provide both <LOG> and <REGEX>.\n",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "--print-no-missed",
+      "--print-all-missed",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^fail <HOST>$"
+    ],
+    "exit_code": 255,
+    "stderr": "\nERROR: --print-no-missed and --print-all-missed are mutually exclusive.\n",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "--print-no-ignored",
+      "--print-all-ignored",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^fail <HOST>$"
+    ],
+    "exit_code": 255,
+    "stderr": "\nERROR: --print-no-ignored and --print-all-ignored are mutually exclusive.\n",
+    "stdout": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nFail2Ban  reads log file that contains password failure report\nand bans the corresponding IP addresses using firewall rules.\n\nThis tools can test regular expressions for \"fail2ban\".\n\nLOG:\n  string                a string representing a log line\n  filename              path to a log file (/var/log/auth.log)\n  systemd-journal       search systemd journal (systemd-python required),\n                        optionally with backend parameters, see `man jail.conf`\n                        for usage and examples (systemd-journal[journalflags=1]).\n\nREGEX:\n  string                a string representing a 'failregex'\n  filter                name of jail or filter, optionally with options (sshd[mode=aggressive])\n  filename              path to a filter file (filter.d/sshd.conf)\n\nIGNOREREGEX:\n  string                a string representing an 'ignoreregex'\n\nOptions:\n  --version             show program's version number and exit\n  -h, --help            show this help message and exit\n  -c CONFIG, --config=CONFIG\n                        set alternate config directory\n  -d DATEPATTERN, --datepattern=DATEPATTERN\n                        set custom pattern used to match date/times\n  --timezone=TIMEZONE, --TZ=TIMEZONE\n                        set time-zone used by convert time format\n  -e ENCODING, --encoding=ENCODING\n                        File encoding. Default: system locale\n  -r, --raw             Raw hosts, don't resolve dns\n  --usedns=USEDNS       DNS specified replacement of tags <HOST> in regexp\n                        ('yes' - matches all form of hosts, 'no' - IP\n                        addresses only)\n  -L MAXLINES, --maxlines=MAXLINES\n                        maxlines for multi-line regex.\n  -m JOURNALMATCH, --journalmatch=JOURNALMATCH\n                        journalctl style matches overriding filter file.\n                        \"systemd-journal\" only\n  -l LOG_LEVEL, --log-level=LOG_LEVEL\n                        Log level for the Fail2Ban logger to use\n  -V                    get version in machine-readable short format\n  -v, --verbose         Increase verbosity\n  --verbosity=VERBOSE   Set numerical level of verbosity (0..4)\n  --verbose-date, --VD  Verbose date patterns/regex in output\n  -D, --debuggex        Produce debuggex.com urls for debugging there\n  --no-check-all        Disable check for all regex's\n  -o OUT, --out=OUT     Set token to print failure information only (row, id,\n                        ip, msg, host, ip4, ip6, dns, matches, ...)\n  -i, --invert          Invert the sense of matching, to output non-matching\n                        lines.\n  --print-no-missed     Do not print any missed lines\n  --print-no-ignored    Do not print any ignored lines\n  --print-all-matched   Print all matched lines\n  --print-all-missed    Print all missed lines, no matter how many\n  --print-all-ignored   Print all ignored lines, no matter how many\n  -t, --log-traceback   Enrich log-messages with compressed tracebacks\n  --full-traceback      Either to make the tracebacks full, not compressed (as\n                        by default)\n\n\nReport bugs to https://github.com/fail2ban/fail2ban/issues\n\nCopyright (c) 2004-2008 Cyril Jaquier, 2008- Fail2Ban Contributors\nCopyright of modifications held by their respective authors.\nLicensed under the GNU General Public License v2 (GPL).\n\nWritten by Cyril Jaquier <cyril.jaquier@fail2ban.org>.\nMany contributions by Yaroslav O. Halchenko, Steven Hiscocks, Sergey G. Brester (sebres).\n"
+  },
+  {
+    "args": [
+      "-L",
+      "not_a_number",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^fail <HOST>$"
+    ],
+    "exit_code": 2,
+    "stderr": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nfail2ban-regex: error: option -L: invalid integer value: 'not_a_number'\n",
+    "stdout": ""
+  },
+  {
+    "args": [
+      "--unknown-option"
+    ],
+    "exit_code": 2,
+    "stderr": "Usage: @ROOT@/fail2ban/bin/fail2ban-regex [OPTIONS] <LOG> <REGEX> [IGNOREREGEX]\n\nfail2ban-regex: error: no such option: --unknown-option\n",
+    "stdout": ""
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for <F-USER>.*</F-USER> ...\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$",
+      "^.*ignore.*$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse ignoreregex line : ^.*ignore.*$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$",
+      "^.*error.*$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse ignoreregex line : ^.*error.*$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 0 total\n\nIgnoreregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*error.*$\n`-\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 1 ignored, 0 matched, 0 missed\n[processed in X.XX sec]\n\n|- Ignored line(s):\n|  Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1\n`-\n"
+  },
+  {
+    "args": [
+      "non matching line",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : non matching line\n\n\nResults\n=======\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 1 lines, 0 ignored, 0 matched, 1 missed\n[processed in X.XX sec]\n\n|- Missed line(s):\n|  non matching line\n`-\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1\nJun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      multi line : 2 line(s)\n|  1: Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n|  2: Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n`-\n\n\nResults\n=======\n\nFailregex: 2 total\n|-  #) [# of hits] regular expression\n|   1) [2] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [2] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 2 lines, 0 ignored, 2 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-r",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "--usedns=no",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "--usedns=yes",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-d",
+      "{^LN-BEG}",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "--timezone=UTC+0200",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-v",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for <F-USER>.*</F-USER> ...\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$\n|      192.0.2.1  Sun Jun 21 16:47:48 2026\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day(?:T|  ?)24hour:Minute:Second(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] {^LN-BEG}(?:DAY )?MON Day ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] {^LN-BEG}Day(?P<_sep>[-/])Month(?P=_sep)(?:ExYear|ExYear2) %k:Minute:Second\n|  [0] {^LN-BEG}Day(?P<_sep>[-/])MON(?P=_sep)ExYear[ :]?24hour:Minute:Second(?:\\.Microseconds)?(?: Zone offset)?\n|  [0] {^LN-BEG}Month/Day/ExYear:24hour:Minute:Second\n|  [0] {^LN-BEG}Month-Day-ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] {^LN-BEG}Epoch\n|  [0] {^LN-BEG}ExYear2ExMonthExDay  ?24hour:Minute:Second\n|  [0] {^LN-BEG}MON Day, ExYear 12hour:Minute:Second AMPM\n|  [0] {^LN-BEG}ExYearExMonthExDay(?:-|T|  ?)Ex24hour:?ExMinute:?ExSecond(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] {^LN-BEG}(?:Zone name )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}(?:Zone offset )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}TAI64N\n|  [0] ExYear(?P<_sep>[-/.])Month(?P=_sep)Day(?:T|  ?)24hour:Minute:Second(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] (?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] (?:DAY )?MON Day ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] Day(?P<_sep>[-/])Month(?P=_sep)(?:ExYear|ExYear2) %k:Minute:Second\n|  [0] Day(?P<_sep>[-/])MON(?P=_sep)ExYear[ :]?24hour:Minute:Second(?:\\.Microseconds)?(?: Zone offset)?\n|  [0] Month/Day/ExYear:24hour:Minute:Second\n|  [0] Month-Day-ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] Epoch\n|  [0] {^LN-BEG}24hour:Minute:Second\n|  [0] ^<Month/Day/ExYear2@24hour:Minute:Second>\n|  [0] ExYear2ExMonthExDay  ?24hour:Minute:Second\n|  [0] MON Day, ExYear 12hour:Minute:Second AMPM\n|  [0] ^MON-Day-ExYear2 %k:Minute:Second\n|  [0] ExYearExMonthExDay(?:-|T|  ?)Ex24hour:?ExMinute:?ExSecond(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] (?:Zone name )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] (?:Zone offset )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] TAI64N\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-vv",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for <F-USER>.*</F-USER> ...\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$\n|      192.0.2.1  Sun Jun 21 16:47:48 2026\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}ExYear(?P<_sep>[-/.])Month(?P=_sep)Day(?:T|  ?)24hour:Minute:Second(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] {^LN-BEG}(?:DAY )?MON Day ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] {^LN-BEG}Day(?P<_sep>[-/])Month(?P=_sep)(?:ExYear|ExYear2) %k:Minute:Second\n|  [0] {^LN-BEG}Day(?P<_sep>[-/])MON(?P=_sep)ExYear[ :]?24hour:Minute:Second(?:\\.Microseconds)?(?: Zone offset)?\n|  [0] {^LN-BEG}Month/Day/ExYear:24hour:Minute:Second\n|  [0] {^LN-BEG}Month-Day-ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] {^LN-BEG}Epoch\n|  [0] {^LN-BEG}ExYear2ExMonthExDay  ?24hour:Minute:Second\n|  [0] {^LN-BEG}MON Day, ExYear 12hour:Minute:Second AMPM\n|  [0] {^LN-BEG}ExYearExMonthExDay(?:-|T|  ?)Ex24hour:?ExMinute:?ExSecond(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] {^LN-BEG}(?:Zone name )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}(?:Zone offset )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] {^LN-BEG}TAI64N\n|  [0] ExYear(?P<_sep>[-/.])Month(?P=_sep)Day(?:T|  ?)24hour:Minute:Second(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] (?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] (?:DAY )?MON Day ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] Day(?P<_sep>[-/])Month(?P=_sep)(?:ExYear|ExYear2) %k:Minute:Second\n|  [0] Day(?P<_sep>[-/])MON(?P=_sep)ExYear[ :]?24hour:Minute:Second(?:\\.Microseconds)?(?: Zone offset)?\n|  [0] Month/Day/ExYear:24hour:Minute:Second\n|  [0] Month-Day-ExYear %k:Minute:Second(?:\\.Microseconds)?\n|  [0] Epoch\n|  [0] {^LN-BEG}24hour:Minute:Second\n|  [0] ^<Month/Day/ExYear2@24hour:Minute:Second>\n|  [0] ExYear2ExMonthExDay  ?24hour:Minute:Second\n|  [0] MON Day, ExYear 12hour:Minute:Second AMPM\n|  [0] ^MON-Day-ExYear2 %k:Minute:Second\n|  [0] ExYearExMonthExDay(?:-|T|  ?)Ex24hour:?ExMinute:?ExSecond(?:[.,]Microseconds)?(?:\\s*Zone offset)?\n|  [0] (?:Zone name )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] (?:Zone offset )?(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n|  [0] TAI64N\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-o",
+      "id",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "192.0.2.1\n"
+  },
+  {
+    "args": [
+      "-o",
+      "fid",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "192.0.2.1\n"
+  },
+  {
+    "args": [
+      "-o",
+      "ip",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "192.0.2.1\n"
+  },
+  {
+    "args": [
+      "-o",
+      "msg",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1\n"
+  },
+  {
+    "args": [
+      "-o",
+      "row",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "['192.0.2.1',\t1782060468.0,\t{'user': 'myuser', 'ip4': '192.0.2.1', 'ip6': None, 'dns': None}],\n"
+  },
+  {
+    "args": [
+      "-o",
+      "user",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for <F-USER>.*</F-USER> from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "myuser\n"
+  },
+  {
+    "args": [
+      "-o",
+      "id",
+      "-i",
+      "non match line",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "sshd"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "sshd[mode=aggressive]"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse jail/flt options : {'mode': 'aggressive'}\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "sshd[mode=ddos]"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse jail/flt options : {'mode': 'ddos'}\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "@ROOT@/fail2ban/config/filter.d/sshd.conf"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse      filter file : sshd, basedir: @ROOT@/fail2ban/config\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "@ROOT@/fail2ban/config/filter.d/sshd.conf",
+      "^.*error.*$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse      filter file : sshd, basedir: @ROOT@/fail2ban/config\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse ignoreregex line : ^.*error.*$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 0 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 0 total\n\nIgnoreregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*error.*$\n`-\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 1 ignored, 0 matched, 0 missed\n[processed in X.XX sec]\n\n|- Ignored line(s):\n|  Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1\n`-\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "sshd"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^[aA]uthentication (?:failure|error|failed) for <F-USER>.*?</F-USER> (?:from )?<HOST>( via \\S+)?(?: port \\d+)?(?: \\[preauth\\])?\\s*$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "--print-all-matched",
+      "Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      single line : Jun 21 16:47:48 host sshd[13709]: error: PAM: Auth...\n\n\nResults\n=======\n\nFailregex: 1 total\n|-  #) [# of hits] regular expression\n|   1) [1] ^.*Authentication failure for .* from <HOST>$\n`-\n\nIgnoreregex: 0 total\n\nDate template hits:\n|- [# of hits] date format\n|  [1] {^LN-BEG}(?:DAY )?MON Day %k:Minute:Second(?:\\.Microseconds)?(?: ExYear)?\n`-\n\nLines: 1 lines, 0 ignored, 1 matched, 0 missed\n[processed in X.XX sec]\n\n|- Matched line(s):\n|  Jun 21 16:47:48 host sshd[13709]: error: PAM: Authentication failure for myuser from 192.0.2.1\n`-\n"
+  },
+  {
+    "args": [
+      "--print-all-missed",
+      "nomatch1\nnomatch2",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      multi line : 2 line(s)\n|  1: nomatch1\n|  2: nomatch2\n`-\n\n\nResults\n=======\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 2 lines, 0 ignored, 0 matched, 2 missed\n[processed in X.XX sec]\n\n|- Missed line(s):\n|  nomatch1\n|  nomatch2\n`-\n"
+  },
+  {
+    "args": [
+      "--print-no-missed",
+      "nomatch1\nnomatch2",
+      "^.*Authentication failure for .* from <HOST>$"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse   failregex line : ^.*Authentication failure for .* from <HOST>$\nUse      multi line : 2 line(s)\n|  1: nomatch1\n|  2: nomatch2\n`-\n\n\nResults\n=======\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 2 lines, 0 ignored, 0 matched, 2 missed\n[processed in X.XX sec]\n\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "@ROOT@/fail2ban/tests/files/logs/sshd",
+      "sshd"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : @ROOT@/fail2ban/tests/file...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 1 lines, 0 ignored, 0 matched, 1 missed\n[processed in X.XX sec]\n\n|- Missed line(s):\n|  @ROOT@/fail2ban/tests/files/logs/sshd\n`-\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "--print-all-matched",
+      "@ROOT@/fail2ban/tests/files/logs/sshd",
+      "sshd[mode=aggressive]"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : sshd\nUse jail/flt options : {'mode': 'aggressive'}\nUse         maxlines : 1\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : @ROOT@/fail2ban/tests/file...\n\n\nResults\n=======\n\nPrefregex: 1 total\n|  ^(?P<mlfid>(?:\\[\\])?\\s*(?:<[^.]+\\.[^.]+>\\s+)?(?:\\S+\\s+)?(?:kernel:\\s?\\[ *\\d+\\.\\d+\\]:?\\s+)?(?:@vserver_\\S+\\s+)?(?:(?:(?:\\[\\d+\\])?:\\s+[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?|[\\[\\(]?sshd(?:-session)?(?:\\(\\S+\\))?[\\]\\)]?:?(?:\\[\\d+\\])?:?)\\s+)?(?:\\[ID \\d+ \\S+\\]\\s+)?)(?:(?:error|fatal): (?:PAM: )?)?(?P<content>.+)$\n`-\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 1 lines, 0 ignored, 0 matched, 1 missed\n[processed in X.XX sec]\n\n|- Missed line(s):\n|  @ROOT@/fail2ban/tests/files/logs/sshd\n`-\n"
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "-o",
+      "ip",
+      "@ROOT@/fail2ban/tests/files/logs/sshd",
+      "sshd"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  {
+    "args": [
+      "-c",
+      "@ROOT@/fail2ban/config",
+      "@ROOT@/fail2ban/tests/files/logs/apache-auth",
+      "apache-auth"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "\nRunning tests\n=============\n\nUse             jail : apache-auth\nUse      datepattern : {^LN-BEG} : Default Detectors\nUse      single line : @ROOT@/fail2ban/tests/file...\n\n\nResults\n=======\n\nPrefregex: 0 total\n|  ^\\[\\]\\s\\[(:?error|(?!evasive)\\S+:\\S+)\\]( \\[pid \\d+(:\\S+ \\d+)?\\])? \\[(?:client|remote) (?:\\[?(?:(?:::f{4,6}:)?(?P<ip4>(?:\\d{1,3}\\.){3}\\d{1,3})|(?P<ip6>(?:[0-9a-fA-F]{1,4}::?|:){1,7}(?:[0-9a-fA-F]{1,4}|(?<=:):)))\\]?|(?P<dns>[\\w\\-.^_]*\\w))(:\\d{1,5})?\\] (?:AH\\d+: )?(?P<content>.+)$\n`-\n\nFailregex: 0 total\n\nIgnoreregex: 0 total\n\nDate template hits:\n\nLines: 1 lines, 0 ignored, 0 matched, 1 missed\n[processed in X.XX sec]\n\n|- Missed line(s):\n|  @ROOT@/fail2ban/tests/files/logs/apache-auth\n`-\n"
+  }
+]
