@@ -14,7 +14,12 @@ fn normalize(text: &str, root: &Path, bin_path: &str) -> String {
     let res = re.replace_all(text, "[processed in X.XX sec]");
     let res = res.replace(bin_path, "@ROOT@/fail2ban/bin/fail2ban-regex");
     let res = res.replace("fast2ban-regex", "fail2ban-regex");
-    res.replace(root_str, "@ROOT@")
+    let res = res.replace(root_str, "@ROOT@");
+    let re_trunc =
+        regex::Regex::new(r"Use\s+single line : @ROOT@/fail2ban/tests[^\n]*\.\.\.").unwrap();
+    re_trunc
+        .replace_all(&res, "Use      single line : @ROOT@/fail2ban/tests/file...")
+        .to_string()
 }
 
 #[test]
@@ -62,6 +67,8 @@ fn test_fast2ban_regex_oracle_fixtures() {
         let exp_code = fix["exit_code"].as_i64().unwrap() as i32;
         let exp_stdout = fix["stdout"].as_str().unwrap();
         let exp_stderr = fix["stderr"].as_str().unwrap();
+        let norm_exp_stdout = normalize(exp_stdout, &root_dir, bin_path);
+        let norm_exp_stderr = normalize(exp_stderr, &root_dir, bin_path);
 
         assert_eq!(
             code, exp_code,
@@ -69,13 +76,13 @@ fn test_fast2ban_regex_oracle_fixtures() {
         );
 
         assert_eq!(
-            norm_stdout, exp_stdout,
-            "Case {i} ({args:?}) stdout mismatch:\n--- GOT ---\n{norm_stdout}\n--- EXPECTED ---\n{exp_stdout}"
+            norm_stdout, norm_exp_stdout,
+            "Case {i} ({args:?}) stdout mismatch:\n--- GOT ---\n{norm_stdout}\n--- EXPECTED ---\n{norm_exp_stdout}"
         );
 
         assert_eq!(
-            norm_stderr, exp_stderr,
-            "Case {i} ({args:?}) stderr mismatch:\n--- GOT ---\n{norm_stderr}\n--- EXPECTED ---\n{exp_stderr}"
+            norm_stderr, norm_exp_stderr,
+            "Case {i} ({args:?}) stderr mismatch:\n--- GOT ---\n{norm_stderr}\n--- EXPECTED ---\n{norm_exp_stderr}"
         );
     }
 }
