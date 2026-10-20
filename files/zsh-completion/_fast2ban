@@ -1,0 +1,62 @@
+#compdef fast2ban-client fail2ban-client fast2ban-regex fail2ban-regex
+
+_fast2ban_client() {
+    local -a commands
+    commands=(
+        'start:Start server and stream configuration'
+        'stop:Stop server or specified jail'
+        'restart:Restart server or specified jail'
+        'reload:Reload configuration'
+        'status:Get overall status or jail status'
+        'ping:Ping server'
+        'version:Get server version'
+        'unban:Unban specified IP(s)'
+        'banned:Check if IP(s) are banned'
+        'flushlogs:Flush and reopen log files'
+        'set:Set server or jail configuration option'
+        'get:Get server or jail configuration option'
+    )
+
+    _arguments -s \
+        '-c[Configuration directory]:directory:_files -/' \
+        '-s[Socket path]:socket file:_files' \
+        '-p[PID file path]:pid file:_files' \
+        '-d[Dump configuration stream]' \
+        '--dp[Dump pretty configuration]' \
+        '-v[Verbose output]' \
+        '-q[Quiet output]' \
+        '-V[Version]' \
+        '--version[Version]' \
+        '--str2sec[Convert duration string to seconds]:duration:' \
+        '1: :->command' \
+        '*:: :->args'
+
+    case $state in
+        command)
+            _describe 'command' commands
+            ;;
+    esac
+}
+
+_fast2ban_regex() {
+    _arguments -s \
+        '-d[Date pattern]:pattern:' \
+        '-e[Log encoding]:encoding:' \
+        '-L[Max lines for multi-line regex]:lines:' \
+        '-m[Journalctl style matches]:match:' \
+        '-l[Log level]:level:(CRITICAL ERROR WARNING NOTICE INFO DEBUG)' \
+        '-v[Verbose output]' \
+        '-q[Quiet output]' \
+        '--print-all-matched[Print all matched lines]' \
+        '--print-all-missed[Print all missed lines]' \
+        '--print-all-ignored[Print all ignored lines]' \
+        '--out[Output format]:format:(id fid ip msg row)' \
+        '1:log file or systemd-journal:_files' \
+        '2:failregex or filter name:_files' \
+        '3:ignoreregex:_files'
+}
+
+case $service in
+    *regex*) _fast2ban_regex ;;
+    *) _fast2ban_client ;;
+esac

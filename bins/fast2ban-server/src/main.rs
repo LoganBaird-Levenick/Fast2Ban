@@ -80,6 +80,10 @@ fn parse_args() -> ServerArgs {
 
 fn main() {
     let args = parse_args();
+    #[cfg(unix)]
+    unsafe {
+        libc::umask(0o077);
+    }
 
     // Ensure parent directories exist
     if let Some(parent) = args.socket_path.parent() {

@@ -33,6 +33,12 @@ impl AsyncServer {
         let listener = UnixListener::bind(&path)?;
         listener.set_nonblocking(true)?;
 
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            let _ = fs::set_permissions(&path, fs::Permissions::from_mode(0o600));
+        }
+
         let transmitter = Arc::new(Transmitter::new(server.clone()));
         let running = Arc::new(AtomicBool::new(true));
 

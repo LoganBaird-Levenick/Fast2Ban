@@ -1,0 +1,12 @@
+/var/log/fail2ban.log {
+    weekly
+    rotate 4
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 root root
+    postrotate
+        /usr/bin/fast2ban-client flushlogs >/dev/null 2>&1 || true
+    endscript
+}

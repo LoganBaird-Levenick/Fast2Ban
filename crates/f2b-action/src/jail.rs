@@ -39,9 +39,8 @@ pub struct Jail {
     pub ignore_list: Vec<String>,
     pub ignore_self: bool,
     pub ignore_command: Option<String>,
-    /// `ignorecache` value as set; stored and reported, the cache itself is not
-    /// implemented (it only avoids repeated `ignorecommand` runs).
-    pub ignore_cache: Option<String>,
+    pub ignore_cache_spec: Option<String>,
+    ignore_cache: std::sync::Mutex<Option<f2b_types::TtlCache<String, bool>>>,
     pub clock: SharedClock,
     pub ban_extra: BanExtra,
     pub database: Option<Arc<Fail2BanDb>>,
@@ -74,7 +73,8 @@ impl Jail {
             ignore_list: Vec::new(),
             ignore_self: true,
             ignore_command: None,
-            ignore_cache: None,
+            ignore_cache_spec: None,
+            ignore_cache: std::sync::Mutex::new(None),
             clock,
             ban_extra: BanExtra::new(),
             database: None,
@@ -124,6 +124,27 @@ impl Jail {
             }
         }
         self.ignore_ip = set;
+    }
+    pub fn set_ignore_cache(&mut self, spec: Option<String>) {
+        self.ignore_cache_spec = spec.clone();
+        if let Ok(mut guard) = self.ignore_cache.lock() {
+            if let Some(s) = spec {
+                let parts: Vec<&str> = s.split_whitespace().collect();
+                let max_count = parts.get(1).and_then(|p| p.parse().ok()).unwrap_or(100);
+                let max_time = parts
+                    .get(2)
+                    .and_then(|p| f2b_expr::str2seconds(p).ok())
+                    .map(|n| n.as_f64())
+                    .unwrap_or(300.0);
+                *guard = Some(f2b_types::TtlCache::new(
+                    max_count,
+                    max_time,
+                    self.clock.clone(),
+                ));
+            } else {
+                *guard = None;
+            }
+        }
     }
 
     /// `setLogEncoding` (`auto` follows the UTF-8 locale of the process).
@@ -275,6 +296,27 @@ impl Jail {
     /// Check if an IP address should be ignored according to `ignoreself`,
     /// `ignoreip` or `ignorecommand` (`Filter._inIgnoreIPList`).
     pub fn is_ignored(&self, ip: &IPAddr) -> bool {
+        let ip_str = ip.ntoa();
+        if let Ok(mut guard) = self.ignore_cache.lock() {
+            if let Some(c) = guard.as_mut() {
+                if let Some(&cached) = c.get(&ip_str.to_string()) {
+                    return cached;
+                }
+            }
+        }
+
+        let ignored = self.is_ignored_uncached(ip);
+
+        if let Ok(mut guard) = self.ignore_cache.lock() {
+            if let Some(c) = guard.as_mut() {
+                c.set(ip_str.to_string(), ignored);
+            }
+        }
+
+        ignored
+    }
+
+    fn is_ignored_uncached(&self, ip: &IPAddr) -> bool {
         if self.ignore_self && crate::selfips::self_ips().contains(ip) {
             log::debug!("[{}] Ignore {} by ignoreself rule", self.name, ip.ntoa());
             return true;

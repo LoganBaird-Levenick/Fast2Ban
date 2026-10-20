@@ -409,7 +409,7 @@ impl Transmitter {
             }
             "ignorecache" => {
                 let v = text(args, 2)?;
-                jail.ignore_cache = (!v.is_empty()).then_some(v);
+                jail.set_ignore_cache((!v.is_empty()).then_some(v));
                 done(jail, "ignorecache")
             }
             "addlogpath" => {
@@ -829,7 +829,7 @@ fn get_jail_opt(jail: &Jail, opt: &str, rest: &[Value]) -> Res {
         "ignoreself" => Value::Bool(jail.ignore_self),
         "ignoreip" => strs(jail.ignore_list.iter().cloned()),
         "ignorecommand" => Value::Str(jail.ignore_command.clone().unwrap_or_default()),
-        "ignorecache" => opt_str(jail.ignore_cache.clone()),
+        "ignorecache" => opt_str(jail.ignore_cache_spec.clone()),
         "prefregex" => Value::Str(
             jail.filter
                 .pref_regex()

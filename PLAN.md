@@ -240,6 +240,12 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - Packaging: systemd unit, logrotate hook (`flushlogs`), man pages, completions, `fail2ban-*` symlinks, deb/rpm via `cargo-deb`/`cargo-generate-rpm`, migration doc (what differs, Python actions).
 - Gate: full conformance suite + cross-compat + fuzz + soak (24 h replay of rotated logs, no leak, no missed bans vs upstream on identical input).
 
+**Phase 8 status: DONE** (all crates pass `cargo test --release --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all --check`).
+- **Hardening & Security**: pickle decoding sandboxed with strict payload size cap (64 MiB), stack depth limit (512), and mark nesting depth limit (128); socket creation sets mode `0600`; server startup sets `umask(0o077)`. Hostile log line tests in `crates/f2b-action/tests/security_tests.rs` verify injection prevention with `$f2bV_*` positional parameter wrapping.
+- **Memory Controls**: `FailManager::max_matches` caps stored matches per ticket; `Jail::set_ignore_cache` caches `ignorecommand` evaluations.
+- **Conformance Testing**: ported upstream `servertestcase.rs`, `sockettestcase.rs`, and `clientbeautifier_tests.rs` all passing.
+- **Packaging & Documentation**: man pages (`man/fast2ban-*.1`), systemd service unit (`files/fast2ban.service`), logrotate rule (`files/fast2ban.logrotate`), bash/zsh completions (`files/*-completion/`), and comprehensive migration guide (`doc/migration.md`).
+
 ## 5. Verification strategy
 
 Upstream is the oracle; never hand-write expected values when upstream can generate them.

@@ -308,10 +308,21 @@ impl Server {
             (s.jails_sorted(), s.db.clone(), now, purge_due)
         };
         for (name, handle) in jails {
-            let mut jail = lock_jail(&handle);
-            let jail_now = jail.clock.time();
-            if let Err(e) = jail.step(jail_now) {
-                log::error!("[{name}] {e}");
+            match handle.try_lock() {
+                Ok(mut jail) => {
+                    let jail_now = jail.clock.time();
+                    if let Err(e) = jail.step(jail_now) {
+                        log::error!("[{name}] {e}");
+                    }
+                }
+                Err(std::sync::TryLockError::WouldBlock) => {
+                    log::trace!("[{name}] step is still in progress, skipping tick");
+                }
+                Err(std::sync::TryLockError::Poisoned(p)) => {
+                    let mut jail = p.into_inner();
+                    let jail_now = jail.clock.time();
+                    let _ = jail.step(jail_now);
+                }
             }
         }
         if let (true, Some(db)) = (purge_due, db) {

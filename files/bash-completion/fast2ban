@@ -1,0 +1,45 @@
+# bash completion for fast2ban-client and fast2ban-regex
+
+_fast2ban_client() {
+    local cur prev words cword
+    _init_completion || return
+
+    local commands="start stop reload restart ping version status stats banned unban echo flushlogs set get multi-set"
+
+    if [[ $cword -eq 1 ]]; then
+        COMPREPLY=( $(compgen -W "$commands -c -s -p -d --dp -t -v -q -V --version --str2sec" -- "$cur") )
+        return 0
+    fi
+
+    case "${words[1]}" in
+        set|get)
+            if [[ $cword -eq 2 ]]; then
+                COMPREPLY=( $(compgen -W "loglevel logtarget syslogsocket allowipv6 dbfile dbmaxmatches dbpurgeage" -- "$cur") )
+            elif [[ $cword -eq 3 ]]; then
+                COMPREPLY=( $(compgen -W "maxretry findtime bantime addfailregex delfailregex addignoreregex delignoreregex addlogpath dellogpath logencoding datepattern logtimezone usedns maxlines idle ignoreself ignoreip addignoreip delignoreip ignorecommand ignorecache actions action" -- "$cur") )
+            fi
+            ;;
+        status)
+            if [[ $cword -eq 2 ]]; then
+                COMPREPLY=( $(compgen -W "--all" -- "$cur") )
+            fi
+            ;;
+        *)
+            ;;
+    esac
+}
+
+_fast2ban_regex() {
+    local cur prev words cword
+    _init_completion || return
+
+    local opts="-d --datepattern -e --encoding -L --maxlines -m --journalmatch -l --log-level -v --verbose -q --quiet --print-all-matched --print-all-missed --print-all-ignored --out --raw --checkAllRegex"
+
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $(compgen -W "$opts" -- "$cur") )
+        return 0
+    fi
+}
+
+complete -F _fast2ban_client fast2ban-client fail2ban-client
+complete -F _fast2ban_regex fast2ban-regex fail2ban-regex

@@ -1,0 +1,23 @@
+[Unit]
+Description=Fast2Ban Service (Rust rewrite of Fail2Ban)
+Documentation=man:fast2ban-server(1) man:fast2ban-client(1) man:jail.conf(5)
+After=network.target iptables.service firewalld.service ip6tables.service ipset.service nftables.service
+PartOf=iptables.service firewalld.service ip6tables.service ipset.service nftables.service
+
+[Service]
+Type=simple
+RuntimeDirectory=fail2ban
+RuntimeDirectoryPreserve=yes
+StateDirectory=fail2ban
+ExecStart=/usr/bin/fast2ban-server -f -s /run/fail2ban/fail2ban.sock -p /run/fail2ban/fail2ban.pid
+ExecStop=/usr/bin/fast2ban-client -s /run/fail2ban/fail2ban.sock stop
+ExecReload=/usr/bin/fast2ban-client -s /run/fail2ban/fail2ban.sock reload
+Restart=on-failure
+RestartPreventExitStatus=0 255
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW CAP_DAC_READ_SEARCH
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+ProtectSystem=full
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target

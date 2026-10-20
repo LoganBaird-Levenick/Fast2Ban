@@ -122,7 +122,20 @@ impl FailManager {
             if count > ticket.ticket().failures() {
                 ticket.set_retry(count);
             }
+            if self.max_matches > 0 {
+                let m = ticket.ticket().matches();
+                if m.len() > self.max_matches {
+                    let truncated: Vec<String> = m[m.len() - self.max_matches..].to_vec();
+                    ticket.ticket_mut().set_matches(truncated);
+                }
+            } else {
+                ticket.ticket_mut().set_matches(Vec::new());
+            }
             attempts = ticket.retry();
+            const MAX_FAILURES_CAPACITY: usize = 50_000;
+            if self.fail_list.len() >= MAX_FAILURES_CAPACITY {
+                self.fail_list.shift_remove_index(0);
+            }
             self.fail_list.insert(fid, ticket);
         }
 

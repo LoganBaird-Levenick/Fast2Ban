@@ -1,0 +1,45 @@
+.TH FAST2BAN-REGEX "1" "October 2026" "Fast2Ban v0.1.0" "User Commands"
+.SH NAME
+fast2ban-regex \- test Fail2Ban regexes against log lines or systemd journals
+.SH SYNOPSIS
+.B fast2ban-regex
+[\fIOPTIONS\fR] \fILOG\fR \fIREGEX\fR [\fIIGNOREREGEX\fR]
+.SH DESCRIPTION
+\fBfast2ban-regex\fR tests filter regexes against single log lines, log files, or
+systemd journal entries, displaying matches, missed lines, and failure extractions.
+.SH OPTIONS
+.TP
+\fB\-d\fR, \fB\-\-datepattern\fR <PATTERN>
+Custom date pattern matching regex.
+.TP
+\fB\-e\fR, \fB\-\-encoding\fR <ENCODING>
+File encoding (\fIutf-8\fR, \fIlatin-1\fR, \fIascii\fR).
+.TP
+\fB\-L\fR, \fB\-\-maxlines\fR <N>
+Maximum lines for multi-line regex matching.
+.TP
+\fB\-m\fR, \fB\-\-journalmatch\fR <MATCH>
+Journalctl match filters (e.g. \fI"_SYSTEMD_UNIT=sshd.service + _COMM=sshd"\fR).
+.TP
+\fB\-l\fR, \fB\-\-log-level\fR <LEVEL>
+Logging level for filter execution.
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Verbose output showing capture groups.
+.TP
+\fB\-q\fR, \fB\-\-quiet\fR
+Quiet mode.
+.TP
+\fB\-\-print-all-matched\fR
+Print all matched log lines.
+.TP
+\fB\-\-print-all-missed\fR
+Print all missed log lines.
+.TP
+\fB\-\-print-all-ignored\fR
+Print all lines matching ignoreregex.
+.TP
+\fB\-\-out\fR <FORMAT>
+Machine-readable output format (\fIid\fR, \fIfid\fR, \fIip\fR, \fImsg\fR, \fIrow\fR).
+.SH "SEE ALSO"
+fast2ban-server(1), fast2ban-client(1), jail.conf(5)

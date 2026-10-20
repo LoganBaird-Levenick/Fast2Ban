@@ -351,6 +351,7 @@ dependencies = [
  "f2b-proto",
  "f2b-server",
  "f2b-types",
+ "libc",
  "log",
 ]
 

@@ -10,6 +10,13 @@ use std::fmt;
 
 use crate::value::Value;
 
+/// Maximum allowed payload size for pickle streams (64 MiB).
+pub const MAX_PAYLOAD_SIZE: usize = 64 * 1024 * 1024;
+/// Maximum allowed stack depth (prevent stack blowing).
+pub const MAX_STACK_DEPTH: usize = 512;
+/// Maximum allowed mark nesting depth (prevent deep recursion).
+pub const MAX_MARKS_DEPTH: usize = 128;
+
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum CodecError {
     UnexpectedEof,
@@ -104,6 +111,26 @@ impl<'a> Decoder<'a> {
         }
     }
 
+    fn push_val(&mut self, val: Value) -> Result<(), CodecError> {
+        if self.stack.len() >= MAX_STACK_DEPTH {
+            return Err(CodecError::SecurityViolation(
+                "stack depth limit exceeded".into(),
+            ));
+        }
+        self.stack.push(StackItem::Val(val));
+        Ok(())
+    }
+
+    fn push_global(&mut self, m: String, n: String) -> Result<(), CodecError> {
+        if self.stack.len() >= MAX_STACK_DEPTH {
+            return Err(CodecError::SecurityViolation(
+                "stack depth limit exceeded".into(),
+            ));
+        }
+        self.stack.push(StackItem::Global(m, n));
+        Ok(())
+    }
+
     fn pop_mark_items(&mut self) -> Result<Vec<Value>, CodecError> {
         let mark = self.marks.pop().ok_or(CodecError::StackUnderflow)?;
         if mark > self.stack.len() {
@@ -143,41 +170,41 @@ impl<'a> Decoder<'a> {
                     break;
                 }
                 // NONE
-                b'N' => self.stack.push(StackItem::Val(Value::None)),
+                b'N' => self.push_val(Value::None)?,
                 // NEWTRUE / NEWFALSE
-                0x88 => self.stack.push(StackItem::Val(Value::Bool(true))),
-                0x89 => self.stack.push(StackItem::Val(Value::Bool(false))),
+                0x88 => self.push_val(Value::Bool(true))?,
+                0x89 => self.push_val(Value::Bool(false))?,
                 // BININT1
                 b'K' => {
                     let b = self.read_byte()?;
-                    self.stack.push(StackItem::Val(Value::Int(b as i64)));
+                    self.push_val(Value::Int(b as i64))?;
                 }
                 // BININT2
                 b'M' => {
                     let b = self.read_bytes(2)?;
                     let v = u16::from_le_bytes([b[0], b[1]]);
-                    self.stack.push(StackItem::Val(Value::Int(v as i64)));
+                    self.push_val(Value::Int(v as i64))?;
                 }
                 // BININT
                 b'J' => {
                     let b = self.read_bytes(4)?;
                     let v = i32::from_le_bytes([b[0], b[1], b[2], b[3]]);
-                    self.stack.push(StackItem::Val(Value::Int(v as i64)));
+                    self.push_val(Value::Int(v as i64))?;
                 }
                 // LONG1
                 0x8a => {
                     let len = self.read_byte()? as usize;
                     let bytes = self.read_bytes(len)?;
                     let v = decode_long_le(bytes)?;
-                    self.stack.push(StackItem::Val(Value::Int(v)));
+                    self.push_val(Value::Int(v))?;
                 }
                 // LONG4
                 0x8b => {
-                    let b = self.read_bytes(4)?;
-                    let len = u32::from_le_bytes([b[0], b[1], b[2], b[3]]) as usize;
+                    let len_b = self.read_bytes(4)?;
+                    let len = u32::from_le_bytes([len_b[0], len_b[1], len_b[2], len_b[3]]) as usize;
                     let bytes = self.read_bytes(len)?;
                     let v = decode_long_le(bytes)?;
-                    self.stack.push(StackItem::Val(Value::Int(v)));
+                    self.push_val(Value::Int(v))?;
                 }
                 // INT (ascii)
                 b'I' => {
@@ -186,28 +213,28 @@ impl<'a> Decoder<'a> {
                         .trim()
                         .parse()
                         .map_err(|_| CodecError::InvalidValue(line.into()))?;
-                    self.stack.push(StackItem::Val(Value::Int(v)));
+                    self.push_val(Value::Int(v))?;
                 }
                 // BINFLOAT
                 b'G' => {
                     let b = self.read_bytes(8)?;
                     let v = f64::from_be_bytes([b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]]);
-                    self.stack.push(StackItem::Val(Value::Float(v)));
+                    self.push_val(Value::Float(v))?;
                 }
                 // SHORT_BINUNICODE
                 0x8c => {
                     let len = self.read_byte()? as usize;
                     let bytes = self.read_bytes(len)?;
                     let s = std::str::from_utf8(bytes).map_err(|_| CodecError::BadUtf8)?;
-                    self.stack.push(StackItem::Val(Value::Str(s.to_owned())));
+                    self.push_val(Value::Str(s.to_owned()))?;
                 }
                 // BINUNICODE
                 b'X' => {
-                    let b = self.read_bytes(4)?;
-                    let len = u32::from_le_bytes([b[0], b[1], b[2], b[3]]) as usize;
+                    let len_b = self.read_bytes(4)?;
+                    let len = u32::from_le_bytes([len_b[0], len_b[1], len_b[2], len_b[3]]) as usize;
                     let bytes = self.read_bytes(len)?;
                     let s = std::str::from_utf8(bytes).map_err(|_| CodecError::BadUtf8)?;
-                    self.stack.push(StackItem::Val(Value::Str(s.to_owned())));
+                    self.push_val(Value::Str(s.to_owned()))?;
                 }
                 // SHORT_BINBYTES
                 b'C' => {
@@ -226,11 +253,16 @@ impl<'a> Decoder<'a> {
                 }
                 // MARK
                 b'(' => {
+                    if self.marks.len() >= MAX_MARKS_DEPTH {
+                        return Err(CodecError::SecurityViolation(
+                            "nesting depth limit exceeded".into(),
+                        ));
+                    }
                     self.marks.push(self.stack.len());
                 }
                 // EMPTY_LIST
                 b']' => {
-                    self.stack.push(StackItem::Val(Value::List(Vec::new())));
+                    self.push_val(Value::List(Vec::new()))?;
                 }
                 // APPEND
                 b'a' => {
@@ -250,7 +282,7 @@ impl<'a> Decoder<'a> {
                 }
                 // EMPTY_DICT
                 b'}' => {
-                    self.stack.push(StackItem::Val(Value::Dict(Vec::new())));
+                    self.push_val(Value::Dict(Vec::new()))?;
                 }
                 // SETITEM
                 b's' => {
@@ -278,7 +310,7 @@ impl<'a> Decoder<'a> {
                 }
                 // EMPTY_SET
                 0x8f => {
-                    self.stack.push(StackItem::Val(Value::Set(Vec::new())));
+                    self.push_val(Value::Set(Vec::new()))?;
                 }
                 // ADDITEMS
                 0x90 => {
@@ -291,26 +323,26 @@ impl<'a> Decoder<'a> {
                 // TUPLE1
                 0x85 => {
                     let v = self.pop_val()?;
-                    self.stack.push(StackItem::Val(Value::Tuple(vec![v])));
+                    self.push_val(Value::Tuple(vec![v]))?;
                 }
                 // TUPLE2
                 0x86 => {
                     let v2 = self.pop_val()?;
                     let v1 = self.pop_val()?;
-                    self.stack.push(StackItem::Val(Value::Tuple(vec![v1, v2])));
+                    self.push_val(Value::Tuple(vec![v1, v2]))?;
                 }
+                // TUPLE3
                 // TUPLE3
                 0x87 => {
                     let v3 = self.pop_val()?;
                     let v2 = self.pop_val()?;
                     let v1 = self.pop_val()?;
-                    self.stack
-                        .push(StackItem::Val(Value::Tuple(vec![v1, v2, v3])));
+                    self.push_val(Value::Tuple(vec![v1, v2, v3]))?;
                 }
                 // TUPLE (from mark)
                 b't' => {
                     let items = self.pop_mark_items()?;
-                    self.stack.push(StackItem::Val(Value::Tuple(items)));
+                    self.push_val(Value::Tuple(items))?;
                 }
                 // MEMOIZE
                 0x94 => {
@@ -326,7 +358,7 @@ impl<'a> Decoder<'a> {
                         .memo
                         .get(&idx)
                         .ok_or_else(|| CodecError::InvalidValue("memo not found".into()))?;
-                    self.stack.push(StackItem::Val(v.clone()));
+                    self.push_val(v.clone())?;
                 }
                 // LONG_BINGET
                 b'j' => {
@@ -336,7 +368,7 @@ impl<'a> Decoder<'a> {
                         .memo
                         .get(&idx)
                         .ok_or_else(|| CodecError::InvalidValue("memo not found".into()))?;
-                    self.stack.push(StackItem::Val(v.clone()));
+                    self.push_val(v.clone())?;
                 }
                 // BINPUT
                 b'q' => {
@@ -358,7 +390,7 @@ impl<'a> Decoder<'a> {
                     let name = self.pop_val()?.into_string();
                     let module = self.pop_val()?.into_string();
                     if module == "builtins" && name == "Exception" {
-                        self.stack.push(StackItem::Global(module, name));
+                        self.push_global(module, name)?;
                     } else {
                         return Err(CodecError::SecurityViolation(format!(
                             "arbitrary global {module}.{name} disallowed"
@@ -376,7 +408,7 @@ impl<'a> Decoder<'a> {
                                 Value::Str(s) => s,
                                 _ => String::new(),
                             };
-                            self.stack.push(StackItem::Val(Value::Exception(msg)));
+                            self.push_val(Value::Exception(msg))?;
                         }
                         _ => {
                             return Err(CodecError::SecurityViolation(
@@ -535,5 +567,10 @@ fn encode_str(s: &str, buf: &mut Vec<u8>) {
 }
 
 pub fn decode(bytes: &[u8]) -> Result<Value, CodecError> {
+    if bytes.len() > MAX_PAYLOAD_SIZE {
+        return Err(CodecError::SecurityViolation(
+            "payload size limit exceeded".into(),
+        ));
+    }
     Decoder::new(bytes).decode()
 }

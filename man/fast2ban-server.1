@@ -1,0 +1,33 @@
+.TH FAST2BAN-SERVER "1" "October 2026" "Fast2Ban v0.1.0" "User Commands"
+.SH NAME
+fast2ban-server \- Fast2Ban daemon server
+.SH SYNOPSIS
+.B fast2ban-server
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBFast2Ban\fR is a high-performance Rust rewrite of Fail2Ban. It monitors system
+logs and systemd journals for security authentication failures and bans offending IP
+addresses by orchestrating packet filter firewall rules.
+.SH OPTIONS
+.TP
+\fB\-c\fR <DIR>
+Configuration directory (default: \fI/etc/fail2ban\fR).
+.TP
+\fB\-s\fR <FILE>
+Unix domain socket path (default: \fI/var/run/fail2ban/fail2ban.sock\fR).
+.TP
+\fB\-p\fR <FILE>
+PID file path (default: \fI/var/run/fail2ban/fail2ban.pid\fR).
+.TP
+\fB\-f\fR
+Start server in foreground (default runs in background).
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display help message.
+.SH "SECURITY & PRIVILEGE MODEL"
+\fBfast2ban-server\fR runs with strict umask (0077) ensuring all socket and PID files
+are accessible only by the owning root user. Untrusted log data interpolated into action
+templates is automatically escaped via shell parameters, preventing command injection.
+Pickle protocol decoding is strictly sandboxed to primitive data types only.
+.SH "SEE ALSO"
+fast2ban-client(1), fast2ban-regex(1), jail.conf(5)

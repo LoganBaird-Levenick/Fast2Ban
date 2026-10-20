@@ -1,0 +1,73 @@
+.TH FAST2BAN-CLIENT "1" "October 2026" "Fast2Ban v0.1.0" "User Commands"
+.SH NAME
+fast2ban-client \- configure and control the Fast2Ban server
+.SH SYNOPSIS
+.B fast2ban-client
+[\fIOPTIONS\fR] \fICOMMAND\fR [\fIARGS...\fR]
+.SH DESCRIPTION
+\fBfast2ban-client\fR communicates with \fBfast2ban-server\fR over a Unix domain socket
+to configure, query, start, stop, reload, and unban IP addresses across jails.
+.SH OPTIONS
+.TP
+\fB\-c\fR <DIR>
+Configuration directory (default: \fI/etc/fail2ban\fR).
+.TP
+\fB\-s\fR <FILE>
+Socket path to connect to.
+.TP
+\fB\-p\fR <FILE>
+PID file path.
+.TP
+\fB\-d\fR
+Dump configuration command stream to stdout for debugging.
+.TP
+\fB\-\-dp\fR
+Dump configuration in human-readable formatted representation.
+.TP
+\fB\-t\fR
+Test configuration parsing without connecting to a server.
+.TP
+\fB\-v\fR
+Increase verbosity.
+.TP
+\fB\-q\fR
+Decrease verbosity.
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Print version.
+.TP
+\fB\-\-str2sec\fR <STRING>
+Convert time duration string (e.g., \fI1d\fR, \fI2h\fR, \fI30m\fR) to seconds.
+.SH COMMANDS
+.TP
+\fBstart\fR
+Start server if not running and stream active configuration.
+.TP
+\fBstop\fR [\fIJAIL\fR]
+Stop server or specified jail.
+.TP
+\fBrestart\fR [\fIJAIL\fR]
+Restart server or specified jail.
+.TP
+\fBreload\fR [\fI\-\-restart\fR] [\fI\-\-unban\fR] [\fI\-\-if\-exists\fR] [\fIJAIL\fR]
+Reload configuration without dropping active bans.
+.TP
+\fBstatus\fR [\fI\-\-all\fR | \fIJAIL\fR]
+Display overview or detailed failure and ban statistics for a jail.
+.TP
+\fBunban\fR \fIIP\fR... | \fI\-\-all\fR
+Unban specified IP address(es) across all jails.
+.TP
+\fBbanned\fR [\fIIP\fR...]
+Check if IP address(es) are banned across jails.
+.TP
+\fBflushlogs\fR
+Flush and reopen log files (for logrotate integration).
+.TP
+\fBset\fR \fIJAIL\fR \fIOPTION\fR \fIVALUE\fR...
+Set jail parameters at runtime (\fImaxretry\fR, \fIfindtime\fR, \fIbantime\fR, \fIbanip\fR, \fIunbanip\fR).
+.TP
+\fBget\fR \fIJAIL\fR \fIOPTION\fR
+Query runtime parameters and banned lists.
+.SH "SEE ALSO"
+fast2ban-server(1), fast2ban-regex(1), jail.conf(5)
