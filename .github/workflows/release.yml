@@ -56,7 +56,7 @@ jobs:
           cp "target/${{ matrix.target }}/release/fast2ban-regex" "${PKG_NAME}/"
 
           # Support assets & docs
-          cp -r files man doc "${PKG_NAME}/"
+          cp -r files man docs "${PKG_NAME}/"
           cp README.md LICENSE CHANGELOG.md Makefile "${PKG_NAME}/"
 
           tar -czvf "${PKG_NAME}.tar.gz" "${PKG_NAME}"

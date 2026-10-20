@@ -37,4 +37,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Logrotate hook (`fast2ban.logrotate`).
   - Shell completions for Bash and Zsh.
   - Man pages for `fast2ban-server(1)`, `fast2ban-client(1)`, and `fast2ban-regex(1)`.
-  - Migration and compatibility guide (`doc/migration.md`).
+  - Migration and compatibility guide (`docs/migration.md`).

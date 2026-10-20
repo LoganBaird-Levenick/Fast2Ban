@@ -244,7 +244,7 @@ Translator rules found by the spike (each needs a unit test from a real filter):
 - **Hardening & Security**: pickle decoding sandboxed with strict payload size cap (64 MiB), stack depth limit (512), and mark nesting depth limit (128); socket creation sets mode `0600`; server startup sets `umask(0o077)`. Hostile log line tests in `crates/f2b-action/tests/security_tests.rs` verify injection prevention with `$f2bV_*` positional parameter wrapping.
 - **Memory Controls**: `FailManager::max_matches` caps stored matches per ticket; `Jail::set_ignore_cache` caches `ignorecommand` evaluations.
 - **Conformance Testing**: ported upstream `servertestcase.rs`, `sockettestcase.rs`, and `clientbeautifier_tests.rs` all passing.
-- **Packaging & Documentation**: man pages (`man/fast2ban-*.1`), systemd service unit (`files/fast2ban.service`), logrotate rule (`files/fast2ban.logrotate`), bash/zsh completions (`files/*-completion/`), and comprehensive migration guide (`doc/migration.md`).
+- **Packaging & Documentation**: man pages (`man/fast2ban-*.1`), systemd service unit (`files/fast2ban.service`), logrotate rule (`files/fast2ban.logrotate`), bash/zsh completions (`files/*-completion/`), and comprehensive migration guide (`docs/migration.md`).
 
 ## 5. Verification strategy
 
