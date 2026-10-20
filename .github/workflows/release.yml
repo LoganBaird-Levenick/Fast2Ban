@@ -1,0 +1,101 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: build (${{ matrix.target }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-unknown-linux-gnu
+            os: ubuntu-latest
+          - target: x86_64-unknown-linux-musl
+            os: ubuntu-latest
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-24.04-arm
+          - target: aarch64-unknown-linux-musl
+            os: ubuntu-24.04-arm
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install musl tools (if musl)
+        if: contains(matrix.target, 'musl')
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+
+      - name: Build release binaries
+        run: cargo build --release --target ${{ matrix.target }}
+
+      - name: Package release archive
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          PKG_NAME="fast2ban-${TAG}-${{ matrix.target }}"
+          mkdir -p "${PKG_NAME}"
+
+          # Binaries
+          cp "target/${{ matrix.target }}/release/fast2ban-server" "${PKG_NAME}/"
+          cp "target/${{ matrix.target }}/release/fast2ban-client" "${PKG_NAME}/"
+          cp "target/${{ matrix.target }}/release/fast2ban-regex" "${PKG_NAME}/"
+
+          # Support assets & docs
+          cp -r files man doc "${PKG_NAME}/"
+          cp README.md LICENSE CHANGELOG.md Makefile "${PKG_NAME}/"
+
+          tar -czvf "${PKG_NAME}.tar.gz" "${PKG_NAME}"
+          sha256sum "${PKG_NAME}.tar.gz" > "${PKG_NAME}.tar.gz.sha256"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.target }}
+          path: |
+            fast2ban-*.tar.gz
+            fast2ban-*.tar.gz.sha256
+
+  publish:
+    name: publish release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Assemble SHA256SUMS and publish release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd artifacts
+          cat *.sha256 > SHA256SUMS
+          rm -f *.sha256
+
+          echo "Publishing release ${GITHUB_REF_NAME}..."
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "Fast2Ban ${GITHUB_REF_NAME}" \
+            --notes-file ../CHANGELOG.md \
+            --draft=false \
+            --prerelease=false \
+            *.tar.gz SHA256SUMS

@@ -138,7 +138,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-action"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-backend",
  "f2b-config",
@@ -159,7 +159,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-backend"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-date",
  "f2b-helpers",
@@ -176,7 +176,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-config"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-helpers",
  "f2b-types",
@@ -188,7 +188,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-date"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-helpers",
  "f2b-types",
@@ -200,7 +200,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-db"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-types",
  "indexmap",
@@ -212,11 +212,11 @@ dependencies = [
 
 [[package]]
 name = "f2b-expr"
-version = "0.0.0"
+version = "0.1.0"
 
 [[package]]
 name = "f2b-filter"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-config",
  "f2b-date",
@@ -230,14 +230,14 @@ dependencies = [
 
 [[package]]
 name = "f2b-helpers"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "indexmap",
 ]
 
 [[package]]
 name = "f2b-proto"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-types",
  "indexmap",
@@ -247,7 +247,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-regex"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-helpers",
  "f2b-types",
@@ -262,7 +262,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-server"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-action",
  "f2b-backend",
@@ -284,7 +284,7 @@ dependencies = [
 
 [[package]]
 name = "f2b-types"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "indexmap",
 ]
@@ -314,7 +314,7 @@ dependencies = [
 
 [[package]]
 name = "fast2ban-client"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-config",
  "f2b-expr",
@@ -328,7 +328,7 @@ dependencies = [
 
 [[package]]
 name = "fast2ban-regex"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-backend",
  "f2b-config",
@@ -345,7 +345,7 @@ dependencies = [
 
 [[package]]
 name = "fast2ban-server"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "f2b-config",
  "f2b-proto",
