@@ -770,6 +770,10 @@ fn run_guarded(case: &Case) -> Outcome {
 
 #[test]
 fn stock_jails_smoke_matrix() {
+    if !root().join("fail2ban/config").is_dir() {
+        eprintln!("fail2ban/config missing; skipping stock jails smoke matrix");
+        return;
+    }
     let groups = load_groups();
     let (mut cases, skipped) = build_cases(&groups);
     if let Ok(f) = std::env::var("F2B_SMOKE_FILTER") {

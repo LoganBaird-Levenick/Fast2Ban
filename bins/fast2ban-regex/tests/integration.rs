@@ -38,6 +38,12 @@ fn test_fast2ban_regex_oracle_fixtures() {
                     .replace("@ROOT@", root_dir.to_str().unwrap())
             })
             .collect();
+        if args.iter().any(|a| a.contains("/fail2ban/"))
+            && !root_dir.join("fail2ban/config").is_dir()
+        {
+            eprintln!("fail2ban/config missing; skipping case {i}");
+            continue;
+        }
 
         let output = Command::new(bin_path)
             .args(&args)

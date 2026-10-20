@@ -359,6 +359,10 @@ fn test_observer_failure_found_bad_ip_acceleration() {
 #[test]
 fn test_python_differential_observer() {
     let root = repo_root();
+    if !root.join("fail2ban/fail2ban/server").is_dir() {
+        eprintln!("fail2ban missing; skipping python differential observer test");
+        return;
+    }
     let python_script = r#"
 import sys
 from fail2ban.server.observer import ObserverThread
