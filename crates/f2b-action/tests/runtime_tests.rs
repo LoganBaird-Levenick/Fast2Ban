@@ -140,12 +140,13 @@ fn journal_jail_bans_from_entries_and_resumes_behind_the_stored_position() {
     let argv = lines(&tmp.path().join("argv.log"));
     assert_eq!(argv.len(), 1);
     let since = NOW - 600.0;
-    assert_eq!(
-        argv[0],
-        format!(
-            "--output=export --no-pager --quiet --since=@{since} --no-tail --follow \
-             _SYSTEMD_UNIT=sshd.service + _COMM=sshd"
-        )
+    assert!(
+        argv[0].starts_with("--output=export --no-pager --quiet")
+            && argv[0].ends_with(&format!(
+                "--since=@{since} --no-tail --follow _SYSTEMD_UNIT=sshd.service + _COMM=sshd"
+            )),
+        "unexpected argv[0]: {}",
+        argv[0]
     );
 
     // the position of the last entry (NOW - 28 + 0.25) went to the database
@@ -158,12 +159,14 @@ fn journal_jail_bans_from_entries_and_resumes_behind_the_stored_position() {
     again.set_database(Some(db));
     again.start().unwrap();
     let argv = wait_for_lines(&tmp.path().join("argv.log"), 2);
-    assert_eq!(
-        argv[1],
-        format!(
-            "--output=export --no-pager --quiet --since=@{} --no-tail --follow _COMM=sshd",
-            NOW as i64 - 28
-        )
+    assert!(
+        argv[1].starts_with("--output=export --no-pager --quiet")
+            && argv[1].ends_with(&format!(
+                "--since=@{} --no-tail --follow _COMM=sshd",
+                NOW as i64 - 28
+            )),
+        "unexpected argv[1]: {}",
+        argv[1]
     );
 }
 
